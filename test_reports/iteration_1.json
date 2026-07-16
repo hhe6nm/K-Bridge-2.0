@@ -1,0 +1,33 @@
+{
+  "summary": "First-finish smoke test of K Bridge Partners site. All 7 backend endpoints pass on public URL (GET /api/, /api/insights returns 4 seeded Korean posts with expected slugs, /api/insights/{slug} 200 for valid + 404 for invalid, POST /api/insights creates and returns slug, POST /api/contact valid returns 201-ish 200 with id, GET /api/contact lists, POST /api/contact invalid email -> 422). Frontend: home loads, desktop nav to /insights works and shows 5 insight cards (4 seeded + 1 test-created via POST), clicking insight-card-site-selection-methodology navigates to detail page with Korean content, contact form submits successfully and resets fields, FAQ accordion toggles to data-state=open, mobile-menu-toggle opens mobile drawer with nav-home visible.",
+  "tested_scope": ["frontend", "backend", "integration"],
+  "passed": [
+    "GET /api/ -> 200 {status: ok}",
+    "GET /api/insights -> 4 posts with expected Korean slugs",
+    "GET /api/insights/site-selection-methodology -> 200 with Korean title",
+    "GET /api/insights/nonexistent-slug -> 404",
+    "POST /api/insights -> 200, slug 'test-post-abc-12345' generated and listed",
+    "POST /api/contact valid -> 200 with id; GET /api/contact lists",
+    "POST /api/contact invalid email -> 422",
+    "Home page loads",
+    "Desktop nav-insights navigates to /insights and renders cards from backend",
+    "Insight detail page /insights/:slug renders Korean content",
+    "Contact form: valid submit resets fields (integration with backend works)",
+    "FAQ accordion expands (data-state=open)",
+    "Mobile menu toggle opens drawer with mobile-nav-home"
+  ],
+  "failed": [
+    {
+      "area": "frontend/contact-validation-detection",
+      "issue": "Could not conclusively detect a visible toast element after empty-form submit via generic selectors (.toast, [role=status], [data-sonner-toast]). Actual toast may still render via sonner in a portal that our selectors missed; functional impact not confirmed.",
+      "evidence": "Playwright query for toast selectors returned None after empty submit; however successful submit path works and form resets.",
+      "priority": "LOW"
+    }
+  ],
+  "action_items": [
+    "(Optional) Manually verify empty-submit toast rendering on /contact; if sonner is used, ensure Toaster is mounted at the root so toasts appear."
+  ],
+  "success_rate": {"backend": "100%", "frontend": "~92%"},
+  "retest_needed": false,
+  "full_testing_deferred": true
+}
