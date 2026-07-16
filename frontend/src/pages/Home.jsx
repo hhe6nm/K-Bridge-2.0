@@ -1,8 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import Marquee from "react-fast-marquee";
-import { ArrowUpRight, Building2, Compass, Store, Landmark } from "lucide-react";
+import { ArrowUpRight, Building2, Compass, Store, Landmark, ShieldCheck, Award, Users, MapPin } from "lucide-react";
 import { MaskedLine, MaskedLineInView, FadeUp } from "@/components/MaskedReveal";
 import { TID } from "@/lib/testIds";
 
@@ -14,6 +13,13 @@ const SERVICES = [
   { key: "02", title: "프랜차이즈 확장", en: "Franchise Development", desc: "미국형 프랜차이즈 전략, 마스터 프랜차이지 모델, 로컬 파트너 매칭", icon: Store },
   { key: "03", title: "법인 설립 · 오픈 지원", en: "Business Setup", desc: "법인 · EIN · 라이센스, 전문가 네트워크 조정, 시공 및 오픈 준비", icon: Landmark },
   { key: "04", title: "상업 부동산 · 입지 선정", en: "Site Selection", desc: "부지 분석, 상권 리서치, 임대차 검토 및 협상, 최적 입지 확정", icon: Building2, feature: true },
+];
+
+const PILLARS = [
+  { icon: ShieldCheck, label: "신뢰", en: "Trust" },
+  { icon: Award, label: "실전 경험", en: "Experience" },
+  { icon: Users, label: "전문성", en: "Professionalism" },
+  { icon: MapPin, label: "현지 네트워크", en: "Local Expertise" },
 ];
 
 export default function Home() {
@@ -28,7 +34,14 @@ export default function Home() {
       {/* HERO */}
       <section ref={heroRef} className="relative min-h-[100svh] bg-[color:var(--kb-ink)] text-white overflow-hidden">
         <motion.div style={{ y, scale, opacity }} className="absolute inset-0">
-          <img src={HERO_IMG} alt="" className="w-full h-full object-cover opacity-45" />
+          <motion.img
+            src={HERO_IMG}
+            alt=""
+            className="w-full h-full object-cover opacity-45"
+            initial={{ scale: 1.05 }}
+            animate={{ scale: 1.18 }}
+            transition={{ duration: 22, ease: "linear", repeat: Infinity, repeatType: "reverse" }}
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-[#050914]/60 via-[#050914]/40 to-[#050914]" />
         </motion.div>
 
@@ -98,18 +111,76 @@ export default function Home() {
         </div>
       </section>
 
-      {/* MARQUEE */}
-      <section className="bg-[color:var(--kb-paper)] py-16 overflow-hidden border-y border-[color:var(--kb-border)]">
-        <Marquee gradient={false} speed={30} pauseOnHover>
-          {["신뢰", "Trust", "실전 경험", "Hands-on", "상업 부동산", "Real Estate", "프랜차이즈", "Franchise", "미국 진출", "Market Entry"].map((w, i) => (
-            <span
-              key={i}
-              className="font-serif-kr italic text-6xl md:text-8xl text-[color:var(--kb-text)]/25 mx-10"
-            >
-              {w} <span className="text-[color:var(--kb-gold)] not-italic">·</span>
-            </span>
-          ))}
-        </Marquee>
+      {/* PILLARS — static value pillars */}
+      <section className="bg-[color:var(--kb-paper)] py-20 md:py-24 border-y border-[color:var(--kb-border)]">
+        <div className="max-w-[1440px] mx-auto px-6 lg:px-10">
+          <FadeUp>
+            <div className="text-[11px] tracking-[0.35em] uppercase text-[color:var(--kb-gold)] mb-10 text-center">
+              What we stand for
+            </div>
+          </FadeUp>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-6">
+            {PILLARS.map((p, i) => {
+              const Icon = p.icon;
+              return (
+                <FadeUp key={p.en} delay={i * 0.08}>
+                  <div className="flex flex-col items-center text-center px-4 group">
+                    <Icon size={26} strokeWidth={1.2} className="text-[color:var(--kb-gold)] transition-transform duration-500 group-hover:-translate-y-1" />
+                    <div className="mt-6 font-serif-kr text-2xl md:text-3xl font-light text-[color:var(--kb-ink)]">
+                      {p.label}
+                    </div>
+                    <div className="mt-2 text-[10px] tracking-[0.35em] uppercase text-[color:var(--kb-muted)]">
+                      {p.en}
+                    </div>
+                  </div>
+                </FadeUp>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* PROBLEM — Why US entry is hard */}
+      <section className="bg-[color:var(--kb-bone)] py-24 md:py-32">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
+          <div className="grid grid-cols-12 gap-10">
+            <div className="col-span-12 md:col-span-4">
+              <div className="text-[11px] tracking-[0.35em] uppercase text-[color:var(--kb-gold)]">
+                The Challenge
+              </div>
+              <div className="mt-6 editorial-num text-[color:var(--kb-gold)]/70 text-7xl">01</div>
+            </div>
+            <div className="col-span-12 md:col-span-8">
+              <h2 className="font-serif-kr text-4xl md:text-5xl font-light leading-[1.15]">
+                <MaskedLineInView>미국 시장은,</MaskedLineInView><br />
+                <MaskedLineInView delay={0.15} className="italic text-[color:var(--kb-gold)]">겉으로 보이는 것보다 훨씬 정교합니다.</MaskedLineInView>
+              </h2>
+              <FadeUp delay={0.3}>
+                <p className="mt-10 text-lg text-[color:var(--kb-text)]/80 leading-[1.9] max-w-2xl">
+                  많은 한국 브랜드가 국내에서의 성공 방정식이 미국에서도 통할 것이라 가정합니다.
+                  그러나 미국의 상업 부동산은 임대차 조건부터, 프랜차이즈 규제(FDD), 주별로 다른 라이센싱과
+                  세제, 문화적 소비 패턴까지 — 한국과는 근본적으로 다른 층위의 게임을 요구합니다.
+                </p>
+                <p className="mt-6 text-lg text-[color:var(--kb-text)]/80 leading-[1.9] max-w-2xl">
+                  실패의 대부분은 브랜드의 실력이 부족해서가 아닙니다. 시장의 문법을 모른 채, 잘못된
+                  입지를 선택하거나, 임대차의 이면을 놓치거나, 초기 오퍼레이션 셋업의 미묘한 지점에서
+                  발이 묶이기 때문입니다.
+                </p>
+                <p className="mt-6 text-lg text-[color:var(--kb-text)]/80 leading-[1.9] max-w-2xl">
+                  K Bridge Partners는 바로 그 간극에서 시작되었습니다. 수십 년에 걸쳐 미국 현장에서
+                  축적한 실전 경험은, 리서치 리포트가 결코 담아낼 수 없는 층위의 통찰을 담고 있습니다.
+                </p>
+              </FadeUp>
+              <FadeUp delay={0.5}>
+                <div className="mt-12">
+                  <Link to="/about" className="inline-flex items-center gap-3 text-[color:var(--kb-ink)] text-sm tracking-[0.25em] uppercase tick-arrow border-b border-[color:var(--kb-ink)] pb-1">
+                    회사의 관점 자세히 보기
+                  </Link>
+                </div>
+              </FadeUp>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* MANIFESTO / SERVICES */}
@@ -150,7 +221,7 @@ export default function Home() {
                       isFeatured
                         ? "bg-[color:var(--kb-ink)] text-white p-10 lg:p-14 min-h-[520px]"
                         : "bg-white p-8 min-h-[280px]"
-                    } transition-all duration-500 hover:border-[color:var(--kb-gold)]`}
+                    } transition-all duration-500 hover:-translate-y-1 hover:border-[color:var(--kb-gold)] hover:shadow-[0_28px_60px_-20px_rgba(5,9,20,0.25)]`}
                   >
                     <div className="flex items-start justify-between">
                       <span className={`editorial-num ${isFeatured ? "text-[color:var(--kb-gold)] text-7xl" : "text-[color:var(--kb-gold)] text-4xl"}`}>

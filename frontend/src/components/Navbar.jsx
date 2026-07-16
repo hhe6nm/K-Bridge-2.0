@@ -48,30 +48,40 @@ export default function Navbar() {
           </span>
         </Link>
 
-        <nav className="hidden xl:flex items-center gap-1">
-          {LINKS.slice(1, -1).map((l) => (
+        <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1">
+          {LINKS.map((l) => (
             <NavLink
               key={l.to}
               to={l.to}
+              end={l.to === "/"}
               data-testid={l.tid}
               className={({ isActive }) =>
-                `px-3 py-2 text-[13px] tracking-wide transition-colors ${
+                `relative px-2.5 xl:px-3 py-2 text-[12px] xl:text-[13px] tracking-wide transition-colors group ${
                   isActive ? "text-[color:var(--kb-gold)]" : "text-white/80 hover:text-[color:var(--kb-gold)]"
                 }`
               }
             >
-              {l.label}
+              {({ isActive }) => (
+                <>
+                  <span>{l.label}</span>
+                  <span
+                    className={`pointer-events-none absolute left-2.5 xl:left-3 right-2.5 xl:right-3 -bottom-0.5 h-px bg-[color:var(--kb-gold)] origin-left transition-transform duration-500 ${
+                      isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                    }`}
+                  />
+                </>
+              )}
             </NavLink>
           ))}
         </nav>
 
         <div className="flex items-center gap-3">
           <button
-            className="hidden md:inline text-[11px] tracking-[0.25em] uppercase text-white/70 border border-[color:var(--kb-border)] px-3 py-1.5 hover:text-[color:var(--kb-gold)] transition-colors"
+            className="hidden md:inline text-[11px] tracking-[0.25em] uppercase text-white/70 border border-[color:var(--kb-border)] px-3 py-1.5 hover:text-[color:var(--kb-gold)] hover:border-[color:var(--kb-gold)] transition-colors"
             data-testid={TID.langToggle}
             aria-label="언어 선택"
           >
-            KR · <span className="text-white/40">EN</span>
+            한국어 · <span className="text-white/40">EN</span>
           </button>
           <Link
             to="/contact"
@@ -81,7 +91,7 @@ export default function Navbar() {
             무료 상담 신청
           </Link>
           <button
-            className="xl:hidden text-white p-2"
+            className="lg:hidden text-white p-2"
             onClick={() => setOpen((v) => !v)}
             data-testid={TID.mobileMenuToggle}
             aria-label="메뉴"
@@ -98,7 +108,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3 }}
-            className="xl:hidden bg-[#050914]/95 backdrop-blur-xl border-t border-[color:var(--kb-border)]"
+            className="lg:hidden bg-[#050914]/95 backdrop-blur-xl border-t border-[color:var(--kb-border)]"
           >
             <div className="px-6 py-6 flex flex-col divide-y divide-[color:var(--kb-border)]">
               {LINKS.map((l) => (

@@ -10,6 +10,7 @@ const PILLARS = [
     en: "Market Entry Strategy",
     title: "미국 시장 진입 전략",
     body: "시장은 데이터가 아니라 결로 이해되어야 합니다. 지역별 소비 성향, 카테고리 경쟁 강도, 진입 방식의 재무적 타당성까지, 각 브랜드의 현실에 맞춘 진입 전략을 설계합니다.",
+    why: "한국에서의 성공 방정식이 미국에서 그대로 작동하는 경우는 드뭅니다. 도시 하나가 하나의 국가만큼 다른 소비 성향을 가진 시장에서, 첫 진입 지역과 진입 방식의 선택은 이후 3~5년의 자본 효율성을 결정합니다. 잘못된 시장에서의 '작은 실패'는 미국 시장 전체에 대한 브랜드 인식을 조기에 훼손시킬 수도 있습니다.",
     items: ["시장 · 경쟁 · 상권 분석", "카테고리 및 지역 진입 우선순위", "진입 방식(직진출 · JV · 프랜차이즈) 평가", "재무 시뮬레이션 및 초기 자본 계획"],
   },
   {
@@ -17,6 +18,7 @@ const PILLARS = [
     en: "Franchise Development",
     title: "프랜차이즈 확장",
     body: "한국형 프랜차이즈 모델은 미국 시장에서 그대로 작동하지 않습니다. FDD, 로열티 구조, 지역 개발권, 마스터 프랜차이지 모델까지 — 미국형 프랜차이즈 실무를 함께 설계합니다.",
+    why: "미국의 프랜차이즈는 연방과 주 단위의 규제(FDD, State Registration)를 갖춘 정교한 법적 구조 위에서 움직입니다. 한국의 가맹 계약 관행을 그대로 옮겨오면 초기부터 리스크가 누적되고, 좋은 로컬 파트너를 만날 확률도 낮아집니다. 반대로 미국형 구조를 처음부터 갖추면, 자본과 운영을 분산하면서도 브랜드 통제권을 유지하는 확장이 가능해집니다.",
     items: ["미국형 프랜차이즈 전략 수립", "마스터 프랜차이지 모델 평가", "로컬 파트너 발굴 및 매칭", "브랜드 로컬라이제이션 자문"],
   },
   {
@@ -24,6 +26,7 @@ const PILLARS = [
     en: "Business Setup & Launch",
     title: "법인 설립 · 오픈 지원",
     body: "법인 설립부터 EIN, 각종 라이센싱, 시공 파트너 매칭, 오퍼레이션 준비까지. 오픈 전 모든 실무를 통합적으로 조율합니다.",
+    why: "미국의 법인 설립은 단순한 서류 절차가 아닙니다. 어떤 주에 어떤 형태(LLC · C-Corp · S-Corp)로 세우느냐가 향후 세금, 투자 유치, 프랜차이즈 확장, 심지어 오너의 개인 리스크 노출까지 좌우합니다. 여기에 도시별로 다른 인·허가 절차, 리테일과 F&B에 각기 다른 라이센싱 실무가 얽히면, 이 단계에서만 3~6개월의 지연이 흔히 발생합니다. 통합 조율이 필요한 이유입니다.",
     items: ["법인 · EIN · 사업자 등록", "전문가 네트워크 조정 (회계 · 법률)", "인·허가 및 라이센싱", "시공 · 공급업체 · 오픈 준비"],
   },
 ];
@@ -52,7 +55,13 @@ export default function Services() {
                   <h3 className="font-serif-kr text-4xl md:text-5xl font-light leading-tight">
                     <MaskedLineInView>{p.title}</MaskedLineInView>
                   </h3>
-                  <p className="mt-6 text-lg text-[color:var(--kb-text)]/75 leading-relaxed max-w-2xl">{p.body}</p>
+                  <p className="mt-6 text-lg text-[color:var(--kb-text)]/75 leading-[1.9] max-w-2xl">{p.body}</p>
+                  <div className="mt-6 pl-5 border-l-2 border-[color:var(--kb-gold)]/40 max-w-2xl">
+                    <div className="text-[10px] tracking-[0.3em] uppercase text-[color:var(--kb-gold)] mb-2">
+                      왜 중요한가
+                    </div>
+                    <p className="text-[15px] text-[color:var(--kb-text)]/70 leading-[1.85]">{p.why}</p>
+                  </div>
                   <ul className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3 max-w-2xl">
                     {p.items.map((it, j) => (
                       <li key={j} className="flex items-start gap-3 text-sm text-[color:var(--kb-text)]/85">
