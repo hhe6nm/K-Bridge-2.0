@@ -1,0 +1,93 @@
+{
+  "brand": "K Bridge Partners",
+  "app_type": "hybrid_fullstack",
+  "target_audience": "Korean brands and franchises expanding into the U.S. market.",
+  "language": "Korean ONLY (All text, navigation, headings, body, and UI elements must be generated in Korean by the main agent. Do not use English unless for stylistic micro-labels like 'EST. 2026').",
+  "design_philosophy": "Museum-grade restraint, luxury editorial, cinematic visuals. Awwwards SOTD level. Aesthetic reflects high-end professional services, private wealth advisory, or boutique commercial real estate. Avoid bright startup colors. Emphasize trust, real-world experience, and premium execution.",
+  "colors": {
+    "primary_dark": "#050914",
+    "primary_navy": "#0A1128",
+    "accent_gold": "#C6A87C",
+    "accent_champagne": "#E5D3B3",
+    "background_light": "#F9F9F7",
+    "surface_dark": "#12161F",
+    "text_dark": "#111827",
+    "text_light": "#F9F9F7",
+    "text_muted": "#6B7280",
+    "border_subtle": "rgba(198, 168, 124, 0.2)"
+  },
+  "typography": {
+    "instructions": "Import these fonts in index.css: @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;500;700&display=swap'); @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');",
+    "heading_font": "'Noto Serif KR', serif",
+    "body_font": "'Pretendard', sans-serif",
+    "scale": {
+      "h1": "text-5xl md:text-7xl font-light tracking-tighter leading-tight",
+      "h2": "text-4xl md:text-5xl font-light tracking-tight",
+      "h3": "text-2xl md:text-3xl font-medium",
+      "body": "text-base md:text-lg leading-relaxed text-text_dark/80",
+      "overline": "text-xs uppercase tracking-[0.2em] font-sans font-semibold text-accent_gold"
+    }
+  },
+  "layout_and_spacing": {
+    "strategy": "Generous white space, highly structured grids, editorial asymmetry. Padding should be 2x standard (e.g., py-24 or py-32 for sections).",
+    "alignment": "Strict left-alignment for copy to mimic high-end magazines. Center-alignment reserved strictly for specific visual breaks.",
+    "borders": "Use 1px borders using 'border_subtle' to divide sections elegantly without heavy shadows."
+  },
+  "key_features_and_pages": {
+    "home_hero": "Kinetic typography. Background must be deep navy/black overlay on a subtle parallax city skyline. Text must use Framer Motion for a masked line-by-line reveal (translateY from 100% to 0 with overflow-hidden on parent).",
+    "marquee": "Use react-fast-marquee. Slow, elegant editorial drift. Large Noto Serif KR text, italicized, low contrast (e.g., pale grey text on bone-white background).",
+    "manifesto": "Numbered chapters for About Us and Services. Huge Noto Serif KR numbers (e.g., '01', '02') in gold, acting as structural graphic elements alongside text.",
+    "services_pillars": "4 Pillars bento grid. The 4th pillar ('Commercial Real Estate & Site Selection') MUST carry more visual weight: make it span 2 columns/rows or give it a prominent clipped image.",
+    "process_flow": "6-step visual flow. Step 4 ('Site Selection') must be highlighted (e.g., active state, gold borders, or larger node) to show it's the core differentiator.",
+    "editorial_photos": "Images must have 'spotlight' treatment or clipped frames (e.g., sharp corners rounded-none, slight inset borders). No generic drop shadows.",
+    "contact_form": "Premium fields. Only bottom borders for inputs (border-b), transparent backgrounds. No standard generic boxes. Must integrate with MongoDB.",
+    "blog_insights": "CMS-backed (MongoDB) grid structure. Editorial cards with sharp corners and elegant typography."
+  },
+  "motion_and_interaction": {
+    "libraries_to_use": ["framer-motion", "lenis"],
+    "scroll": "Lenis smooth scroll is MANDATORY for premium momentum feel.",
+    "reveals": "Every section must use Framer Motion 'whileInView' with a subtle 40px Y-axis lift and opacity fade.",
+    "hover_states": "Subtle and luxurious. Image zooms within clipped boundaries (overflow-hidden). Text color shifts to gold."
+  },
+  "components_strategy": {
+    "nav": "Glassmorphism header (backdrop-blur-xl bg-primary_navy/80). Include a language toggle UI (Korean active). Logo in Serif. Gold CTA button.",
+    "buttons": "Sharp pill or completely square. If solid, use primary_navy with gold text. Hover should add a subtle glow or fill transition.",
+    "faq": "Accordion style using Shadcn, styled minimalistically with 1px bottom borders."
+  },
+  "universal_guidelines_for_main_agent": [
+    "ALL content, headings, and labels MUST be in Korean.",
+    "Ensure high contrast ratios per APCA/WCAG standards.",
+    "DO NOT use fully transparent backgrounds on elements that overlap text.",
+    "Add `data-testid` attributes to all buttons, links, and forms.",
+    "NO EMOJIS for icons. Use lucide-react.",
+    "Build using .js/.jsx (no TypeScript).",
+    "Avoid generic centered startup-style layouts. Lean heavily into editorial luxury."
+  ],
+  "images": [
+    {
+      "category": "Hero / City Parallax",
+      "url": "https://images.unsplash.com/photo-1664353655151-9d94a9170eb0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1MDV8MHwxfHNlYXJjaHw0fHxjaXR5JTIwc2t5bGluZSUyMG5pZ2h0fGVufDB8fHx8MTc4NDIyODk3Mnww&ixlib=rb-4.1.0&q=85",
+      "description": "A dark, moody city skyline at night"
+    },
+    {
+      "category": "Commercial Real Estate / Process",
+      "url": "https://images.unsplash.com/photo-1614595737476-42487331b8a1?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzB8MHwxfHNlYXJjaHwxfHxjb21tZXJjaWFsJTIwYXJjaGl0ZWN0dXJlJTIwbW9kZXJufGVufDB8fHx8MTc4NDIyODk3M3ww&ixlib=rb-4.1.0&q=85",
+      "description": "Gray concrete commercial building"
+    },
+    {
+      "category": "Trust / Team / Leadership",
+      "url": "https://images.unsplash.com/photo-1779700210487-a01758a3c55a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHw0fHxidXNpbmVzcyUyMG1lZXRpbmclMjBoYW5kc2hha2UlMjBsdXh1cnl8ZW58MHx8fHwxNzg0MjI4OTczfDA&ixlib=rb-4.1.0&q=85",
+      "description": "Empty luxury conference room with panoramic view"
+    },
+    {
+      "category": "Site Selection Highlight",
+      "url": "https://images.unsplash.com/photo-1576831371356-d6e9411ae501?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzB8MHwxfHNlYXJjaHwzfHxjb21tZXJjaWFsJTIwYXJjaGl0ZWN0dXJlJTIwbW9kZXJufGVufDB8fHx8MTc4NDIyODk3M3ww&ixlib=rb-4.1.0&q=85",
+      "description": "Closeup of high-rise building during daytime"
+    },
+    {
+      "category": "About Us / Handshake",
+      "url": "https://images.unsplash.com/photo-1770217615204-bde2afff8c7f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMG1lZXRpbmclMjBoYW5kc2hha2UlMjBsdXh1cnl8ZW58MHx8fHwxNzg0MjI4OTczfDA&ixlib=rb-4.1.0&q=85",
+      "description": "Man in a light blue suit representing professionalism"
+    }
+  ]
+}
