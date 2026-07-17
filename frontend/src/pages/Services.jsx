@@ -86,11 +86,10 @@ export default function Services() {
             {t.pillars.map((p, i) => {
               const Icon = p.icon;
               return (
-                <FadeUp key={i} delay={i * 0.06}>
+                <FadeUp key={i} delay={i * 0.06} className="h-full">
                   <div data-testid={`service-pillar-${i}`} className="bg-white border border-[color:var(--kb-border)] p-8 md:p-10 h-full flex flex-col hover:-translate-y-1 hover:border-[color:var(--kb-gold)] hover:shadow-[0_28px_60px_-20px_rgba(5,9,20,0.2)] transition-all duration-500">
                     <div className="flex items-start justify-between">
                       <Icon size={26} strokeWidth={1.2} className="text-[color:var(--kb-gold)]" />
-                      <span className="text-[10px] tracking-[0.3em] uppercase text-[color:var(--kb-muted)]">{p.en}</span>
                     </div>
                     <h3 className="font-serif-kr text-2xl md:text-3xl font-light mt-10 leading-tight">
                       <MaskedLineInView>{p.title}</MaskedLineInView>
@@ -100,7 +99,7 @@ export default function Services() {
                       <div className="text-[10px] tracking-[0.3em] uppercase text-[color:var(--kb-gold)] mb-2">{t.why}</div>
                       <p className="text-[14px] text-[color:var(--kb-text)]/70 leading-[1.8]">{p.why}</p>
                     </div>
-                    <ul className="mt-6 space-y-2 pt-6 border-t border-[color:var(--kb-border)]">
+                    <ul className="mt-6 space-y-2 pt-6 border-t border-[color:var(--kb-border)] mt-auto">
                       {p.items.map((it, j) => (
                         <li key={j} className="flex items-start gap-3 text-sm text-[color:var(--kb-text)]/85">
                           <span className="text-[color:var(--kb-gold)] mt-1">—</span>

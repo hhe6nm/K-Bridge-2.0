@@ -231,9 +231,6 @@ export default function Home() {
                     <div className="mt-6 font-serif-kr text-2xl md:text-3xl font-light text-[color:var(--kb-ink)]">
                       {p.label}
                     </div>
-                    <div className="mt-2 text-[10px] tracking-[0.35em] uppercase text-[color:var(--kb-muted)]">
-                      {p.en}
-                    </div>
                   </div>
                 </FadeUp>
               );
@@ -348,17 +345,14 @@ export default function Home() {
             {t.services.map((s, i) => {
               const Icon = s.icon;
               return (
-                <FadeUp key={i} delay={i * 0.06}>
+                <FadeUp key={i} delay={i * 0.06} className="h-full">
                   <Link
                     to="/services"
                     data-testid={`${TID.homeServiceCard}-${String(i + 1).padStart(2, "0")}`}
-                    className="group relative block bg-white p-8 min-h-[300px] border border-[color:var(--kb-border)] hover:-translate-y-1 hover:border-[color:var(--kb-gold)] hover:shadow-[0_28px_60px_-20px_rgba(5,9,20,0.25)] transition-all duration-500 h-full flex flex-col"
+                    className="group relative block bg-white p-8 border border-[color:var(--kb-border)] hover:-translate-y-1 hover:border-[color:var(--kb-gold)] hover:shadow-[0_28px_60px_-20px_rgba(5,9,20,0.25)] transition-all duration-500 h-full flex flex-col"
                   >
                     <div className="flex items-start justify-between">
                       <Icon size={26} strokeWidth={1.2} className="text-[color:var(--kb-gold)]" />
-                      <span className="text-[10px] tracking-[0.3em] uppercase text-[color:var(--kb-muted)]">
-                        {s.en}
-                      </span>
                     </div>
                     <div className="mt-16 flex-1 flex flex-col">
                       <h3 className="font-serif-kr text-2xl font-light leading-tight">{s.title}</h3>
