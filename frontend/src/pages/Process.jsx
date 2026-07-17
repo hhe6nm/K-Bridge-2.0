@@ -1,75 +1,112 @@
 import PageHeader from "@/components/PageHeader";
 import { FadeUp } from "@/components/MaskedReveal";
 import { Link } from "react-router-dom";
+import {
+  Accordion, AccordionContent, AccordionItem, AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Clock } from "lucide-react";
+import { useLang } from "@/lib/i18n";
 
-const STEPS = [
-  { num: "01", title: "상담 및 브랜드 분석",
-    body: "브랜드의 현재 위치, 미국 진출의 동기, 사용 가능한 자본과 인적 자원을 진단합니다. 이 단계에서 진짜 목표와 감정적 기대치를 분리하는 것이 이후 모든 판단의 기준이 됩니다.",
-    side: "left" },
-  { num: "02", title: "미국 시장 리서치 및 전략",
-    body: "카테고리별 경쟁 지도, 지역별 소비 성향, 진입 방식별 재무 시뮬레이션을 결합해 진입 전략을 확정합니다. 이 단계의 밀도가 이후 자본 효율을 좌우합니다.",
-    side: "right" },
-  { num: "03", title: "법인 설립 및 셋업",
-    body: "설립 주(State), 법인 형태(LLC · C-Corp), 라이센싱, 세제 구조를 향후 확장 시나리오에 맞춰 설계합니다. 지금의 편의보다 5년 뒤의 유연성이 우선입니다.",
-    side: "left" },
-  { num: "04", title: "상권 분석 및 입지 선정",
-    body: "K Bridge의 핵심 역량. 데이터로 후보를 좁히고, 서로 다른 요일과 시간대에 반복 실사를 진행합니다. 이후 임대차 조건과 매출 시뮬레이션을 교차 검증해 부지를 확정합니다.",
-    side: "right", feature: true },
-  { num: "05", title: "시공 및 오퍼레이션 준비",
-    body: "예산과 일정을 지키는 시공 파트너 매칭, 공급망 셋업, 인력 채용, 오픈 마케팅까지 — 오픈 전 모든 실무 라인을 병렬로 조율합니다.",
-    side: "left" },
-  { num: "06", title: "오픈 및 성장 지원",
-    body: "오픈은 끝이 아니라 시작입니다. 첫 90일의 운영 지표를 함께 검토하고, 확장 단계로 넘어갈 준비를 지속 파트너로서 함께합니다.",
-    side: "right" },
-];
+const CONTENT = {
+  ko: {
+    eyebrow: "Our Process",
+    title: "다섯 단계, 하나의 여정.",
+    subtitle: "초기 상담부터 매장 오픈 이후 안정화까지, 미국 진출의 전 과정을 다섯 단계로 구조화했습니다. 각 단계의 진행 기간은 브랜드 상황에 따라 조정됩니다.",
+    timelineLabel: "예상 기간",
+    placeholderNote: "* 기간은 브랜드 상황에 따라 조정됩니다. 실제 프로젝트 킥오프 시 상세 일정을 함께 확정합니다.",
+    cta: "여정 시작하기",
+    steps: [
+      {
+        title: "초기 상담 & 시장 진단",
+        timeline: "약 1–2주",
+        body: "브랜드의 사업 모델과 목표 시장을 파악하고, 미국 진출 가능성과 방향성을 함께 진단합니다. 타겟 지역, 예상 비용, 진출 방식(직진출/프랜차이즈 등)에 대한 초기 그림을 그립니다.",
+      },
+      {
+        title: "법인 설립 & 인허가",
+        timeline: "약 2–4주",
+        body: "주(state)별로 다른 법인 형태와 세제를 검토해 최적의 구조를 설계하고, 설립 및 필요한 인허가 절차를 지원합니다.",
+      },
+      {
+        title: "상업용 부동산",
+        timeline: "약 4–8주",
+        body: "타겟 상권을 분석하고 후보 입지를 조사한 뒤, 임대차 조건 협상까지 함께 진행합니다. 계약서 이면의 관행과 임대인 심리를 반영해 불리한 조건을 사전에 걸러냅니다.",
+      },
+      {
+        title: "프랜차이즈 개발 & FDD 준비",
+        timeline: "약 4–6주",
+        body: "프랜차이즈로 확장할 경우, 미국 프랜차이즈 규제(FDD)에 맞춘 문서 준비와 등록 절차를 지원합니다.",
+      },
+      {
+        title: "매장 오픈 & 초기 운영 지원",
+        timeline: "오픈 전후 지속",
+        body: "오픈 전후 운영 셋업, 초기 스태핑, 현지 규정 준수 등 실제 매장이 안정적으로 자리잡을 때까지 함께합니다.",
+      },
+    ],
+  },
+  en: {
+    eyebrow: "Our Process",
+    title: "Five stages, one journey.",
+    subtitle: "From first consultation to post-opening stabilization, the U.S. entry journey structured into five clear stages. Timelines flex to your brand's situation.",
+    timelineLabel: "Estimated timeline",
+    placeholderNote: "* Timelines flex with your brand's situation. Detailed schedules are locked in at project kickoff.",
+    cta: "Start your journey",
+    steps: [
+      { title: "Initial Consultation & Market Diagnosis", timeline: "~ 1–2 weeks",
+        body: "We understand your business model and target market, and diagnose the shape of your U.S. entry. Early views on target region, ballpark cost, and entry method (direct vs. franchise) are formed here." },
+      { title: "Entity Formation & Permits", timeline: "~ 2–4 weeks",
+        body: "State-by-state entity structures and tax regimes are compared to design the optimal setup. We support formation and any required permitting." },
+      { title: "Commercial Real Estate", timeline: "~ 4–8 weeks",
+        body: "We analyze target trade areas, screen candidate sites, and lead lease negotiations — filtering out disadvantageous terms based on landlord behavior we've seen firsthand." },
+      { title: "Franchise Development & FDD", timeline: "~ 4–6 weeks",
+        body: "If franchising is on the roadmap, we support U.S. FDD documentation and state registration end-to-end." },
+      { title: "Store Opening & Early Ops", timeline: "Through opening and beyond",
+        body: "Pre- and post-opening operational setup, initial staffing, and compliance — we stay with you until the store is stable." },
+    ],
+  },
+};
 
 export default function Process() {
+  const { lang } = useLang();
+  const t = CONTENT[lang];
   return (
     <div>
-      <PageHeader
-        chapter="04"
-        eyebrow="Our Process"
-        title="여섯 단계, 하나의 여정."
-        subtitle="상담부터 오픈 이후 성장까지, 미국 진출의 전 과정을 여섯 단계로 구조화했습니다."
-      />
+      <PageHeader eyebrow={t.eyebrow} title={t.title} subtitle={t.subtitle} />
 
       <section className="bg-[color:var(--kb-bone)] py-24 md:py-32">
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
-          <div className="relative">
-            {/* central line - desktop only */}
-            <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-px bg-[color:var(--kb-border)] -translate-x-1/2" />
-
-            {STEPS.map((s, i) => (
-              <FadeUp key={s.num} delay={i * 0.05}>
-                <div className={`relative py-12 lg:py-20 grid grid-cols-12 gap-8 items-center`}>
-                  {/* node */}
-                  <div className="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center justify-center">
-                    <div className={`${s.feature ? "w-6 h-6 bg-[color:var(--kb-gold)]" : "w-3 h-3 bg-[color:var(--kb-ink)]"} rounded-full ring-8 ring-[color:var(--kb-bone)]`} />
-                  </div>
-
-                  {s.side === "left" ? (
-                    <>
-                      <div className="col-span-12 lg:col-span-5 lg:pr-10 lg:text-right">
-                        <ProcessCard step={s} />
+        <div className="max-w-[1100px] mx-auto px-6 lg:px-10">
+          <FadeUp>
+            <Accordion type="single" collapsible defaultValue="step-0" className="w-full">
+              {t.steps.map((s, i) => (
+                <AccordionItem key={i} value={`step-${i}`} className="border-b border-[color:var(--kb-border)]" data-testid={`process-step-${i}`}>
+                  <AccordionTrigger className="py-8 hover:no-underline group">
+                    <div className="flex-1 flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-left">
+                      <div className="flex items-start gap-6">
+                        <span className="mt-2 w-8 h-px bg-[color:var(--kb-gold)]" />
+                        <span className="font-serif-kr text-2xl md:text-3xl font-light text-[color:var(--kb-ink)] leading-tight group-hover:text-[color:var(--kb-gold)] transition-colors">
+                          {s.title}
+                        </span>
                       </div>
-                      <div className="col-span-12 lg:col-span-5 lg:col-start-8" />
-                    </>
-                  ) : (
-                    <>
-                      <div className="col-span-12 lg:col-span-5" />
-                      <div className="col-span-12 lg:col-span-5 lg:col-start-8 lg:pl-10">
-                        <ProcessCard step={s} />
+                      <div className="flex items-center gap-2 text-[11px] tracking-[0.25em] uppercase text-[color:var(--kb-muted)]">
+                        <Clock size={14} strokeWidth={1.5} className="text-[color:var(--kb-gold)]" />
+                        <span>{t.timelineLabel} · {s.timeline}</span>
                       </div>
-                    </>
-                  )}
-                </div>
-              </FadeUp>
-            ))}
-          </div>
+                    </div>
+                  </AccordionTrigger>
+                  <AccordionContent className="pb-10 pl-14 md:pl-16">
+                    <p className="text-[15px] md:text-base text-[color:var(--kb-text)]/80 leading-[1.9] max-w-3xl">
+                      {s.body}
+                    </p>
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
+          </FadeUp>
 
-          <div className="mt-24 text-center">
+          <div className="mt-10 text-xs text-[color:var(--kb-muted)] italic">{t.placeholderNote}</div>
+
+          <div className="mt-16 text-center">
             <Link to="/contact" className="inline-flex items-center gap-3 bg-[color:var(--kb-ink)] text-white px-10 py-4 text-sm tracking-[0.25em] uppercase hover:bg-[color:var(--kb-gold)] hover:text-[color:var(--kb-ink)] transition-colors">
-              여정 시작하기
+              {t.cta}
             </Link>
           </div>
         </div>
@@ -77,28 +114,3 @@ export default function Process() {
     </div>
   );
 }
-
-const ProcessCard = ({ step }) => (
-  <div
-    className={`inline-block max-w-md ${
-      step.feature
-        ? "bg-[color:var(--kb-ink)] text-white p-10 border border-[color:var(--kb-gold)]"
-        : "bg-white p-8 border border-[color:var(--kb-border)]"
-    }`}
-  >
-    <div className="flex items-center gap-4 mb-4">
-      <span className={`editorial-num text-4xl ${step.feature ? "text-[color:var(--kb-gold)]" : "text-[color:var(--kb-gold)]"}`}>
-        {step.num}
-      </span>
-      {step.feature && (
-        <span className="text-[10px] tracking-[0.3em] uppercase text-[color:var(--kb-champagne)]">Core Strength</span>
-      )}
-    </div>
-    <h3 className={`font-serif-kr text-2xl md:text-3xl font-light leading-tight ${step.feature ? "text-white" : "text-[color:var(--kb-ink)]"}`}>
-      {step.title}
-    </h3>
-    <p className={`mt-4 text-[15px] leading-[1.85] ${step.feature ? "text-white/75" : "text-[color:var(--kb-muted)]"}`}>
-      {step.body}
-    </p>
-  </div>
-);

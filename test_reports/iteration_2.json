@@ -1,0 +1,30 @@
+{
+  "summary": "Iteration 2 verified the K Bridge bug-fix batch. Backend regression (4 pytest cases) 100% pass. Frontend verified: language toggle works and persists via localStorage; KO/EN switching flips nav + content; hero wordmark 'K BRIDGE PARTNERS' visible with new KO headline and sub-headline; no '00' eyebrow numerals sitewide; Home renders 회사의 관점 with exact copy and About K Bridge stat placeholders ([수십]/[Decades], [X], [X], [8]); About page has 4 about-stat cards and no standalone 01/02/03/04 large numerals; Services renders 5 equal-width pillar cards (Market Research, Entity Setup, Commercial Real Estate, Franchise Development, Store Opening); Process is a 5-item Accordion with the first item open by default; FAQ has 6 items with all 6 exact KO questions; Locations renders 8 city cards (dc, va, mia, nyc, nj, dal, atl, lv) each with an image; Contact form submits and shows KO toast '문의가 접수되었습니다'.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "Services page", "issues": ["service-pillar cards have equal widths (437px) but slightly uneven heights (611px vs 575px) between first 3 and last 2 cards. Spec says 'equal-weight' — visually close but not perfectly uniform."]},
+      {"screen": "Home page (EN mode)", "issues": ["A few Korean fragments still appear in EN mode Home body text (e.g. '신뢰','실전','경험','전문성','현지','네트워크','시장 조사','법인 설립','상업용 부동산','프랜차이즈','매장 오픈'). These likely leak from pillar/short-label sections that were not localized. Bulk of page (hero, nav, CTAs, stats) is properly EN."]}
+    ]
+  },
+  "test_report_links": ["/app/backend/tests/backend_test.py", "/app/test_reports/pytest/pytest_results.xml"],
+  "action_items": [
+    "(Minor) Normalize Services 5-pillar card heights so all five are visually the same size (add min-height or ensure equal body length).",
+    "(Minor) Localize the remaining Korean short-labels leaking into EN Home page (pillar teaser tags and small callout labels)."
+  ],
+  "critical_code_review_comments": [
+    "i18n implementation: content stored inline per page is manageable now but will grow; consider extracting to /src/i18n/{lang}.json for maintainability if more languages are added.",
+    "Accordion accessibility looks good (data-state=open on process-step-0 by default). Ensure aria-expanded is also set by shadcn primitives (verified visually).",
+    "Locations city cards each render an <img> tag — verify lazy-loading and alt text for the 8 skyline images (not inspected in depth)."
+  ],
+  "updated_files": ["/app/backend/tests/backend_test.py"],
+  "success_rate": {"backend": "100%", "frontend": "~95%"},
+  "test_credentials": "N/A",
+  "seed_data_creation": "One TEST_ contact submission created via /api/contact during regression.",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "iteration_1 covered baseline API + insights CRUD + contact submit. iteration_2 focused on bilingual toggle, hero updates, section revamps (Home 회사의 관점, About stats, Process accordion, FAQ 6 items, Locations 8 cities). Backend endpoints untouched from iteration_1; regression trimmed to 4 core endpoints. lang-toggle button data-testid works; use localStorage.setItem('kb-lang','en'|'ko') for deterministic switching.",
+  "rca of the issue": "N/A — bug fix iteration validated successfully. All primary acceptance criteria met."
+}

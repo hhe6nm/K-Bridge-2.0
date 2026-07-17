@@ -1,6 +1,6 @@
 import { MaskedLine } from "./MaskedReveal";
 
-export default function PageHeader({ eyebrow, title, subtitle, chapter }) {
+export default function PageHeader({ eyebrow, title, subtitle }) {
   return (
     <section className="relative bg-[color:var(--kb-ink)] text-white pt-40 pb-24 overflow-hidden">
       <div className="absolute inset-0 pointer-events-none opacity-[0.06]">
@@ -15,9 +15,7 @@ export default function PageHeader({ eyebrow, title, subtitle, chapter }) {
       </div>
       <div className="max-w-[1440px] mx-auto px-6 lg:px-10 relative">
         <div className="flex items-center gap-4 mb-8">
-          {chapter && (
-            <span className="editorial-num text-[color:var(--kb-gold)] text-5xl">{chapter}</span>
-          )}
+          <span className="inline-block w-10 h-px bg-[color:var(--kb-gold)]" />
           <span className="text-[11px] tracking-[0.35em] uppercase text-[color:var(--kb-gold)]">
             {eyebrow}
           </span>
