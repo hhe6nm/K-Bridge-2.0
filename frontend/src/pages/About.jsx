@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import PageHeader from "@/components/PageHeader";
 import { FadeUp, MaskedLineInView } from "@/components/MaskedReveal";
+import AnimatedCounter from "@/components/AnimatedCounter";
 import { useLang } from "@/lib/i18n";
 
 const CONTENT = {
@@ -149,9 +150,13 @@ export default function About() {
               <div className="grid grid-cols-2 gap-4 md:gap-6">
                 {t.stats.map((s, i) => (
                   <FadeUp key={i} delay={0.2 + i * 0.08}>
-                    <div data-testid={`about-stat-${i}`} className="border border-[color:var(--kb-border)] p-8 h-full min-h-[200px] flex flex-col justify-between hover:border-[color:var(--kb-gold)] transition-colors">
+                    <div data-testid={`about-stat-${i}`} className="border border-[color:var(--kb-border)] p-8 h-full min-h-[200px] flex flex-col justify-between hover:border-[color:var(--kb-gold)] hover:-translate-y-1 transition-all duration-500">
                       <div className="flex items-baseline gap-2">
-                        <span className="font-serif-kr text-5xl md:text-6xl font-light text-[color:var(--kb-gold)]">{s.value}</span>
+                        <AnimatedCounter
+                          value={s.value}
+                          className="font-serif-kr text-5xl md:text-6xl font-light text-[color:var(--kb-gold)]"
+                          data-testid={`about-stat-value-${i}`}
+                        />
                         <span className="text-sm text-[color:var(--kb-champagne)]/80 tracking-widest">{s.unit}</span>
                       </div>
                       <div className="mt-6 text-[13px] text-white/75 leading-relaxed">{s.label}</div>

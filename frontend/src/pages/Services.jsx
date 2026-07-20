@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Compass, Landmark, Building2, Store, Rocket } from "lucide-react";
+import { Compass, Landmark, Building2, Store, Rocket, ArrowUpRight } from "lucide-react";
 import PageHeader from "@/components/PageHeader";
 import { FadeUp, MaskedLineInView } from "@/components/MaskedReveal";
 import { useLang } from "@/lib/i18n";
@@ -75,8 +75,7 @@ const CONTENT = {
 
 export default function Services() {
   const { lang } = useLang();
-  const t = CONTENT[lang];
-  return (
+  const t = CONTENT[lang];  return (
     <div>
       <PageHeader eyebrow={t.eyebrow} title={t.title} subtitle={t.subtitle} />
 
@@ -112,6 +111,46 @@ export default function Services() {
               );
             })}
           </div>
+        </div>
+      </section>
+
+      {/* Services CTA banner */}
+      <section className="bg-[color:var(--kb-ink)] text-white py-24 md:py-32">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10 text-center">
+          <FadeUp>
+            <div className="text-[11px] tracking-[0.4em] uppercase text-[color:var(--kb-gold)] mb-8">
+              {lang === "ko" ? "다음 단계" : "Next step"}
+            </div>
+            <h2 className="font-serif-kr text-4xl md:text-6xl font-light leading-[1.1] text-balance">
+              <MaskedLineInView>
+                {lang === "ko" ? "브랜드에 맞는" : "The right service mix"}
+              </MaskedLineInView>{" "}
+              <MaskedLineInView delay={0.15} className="italic text-[color:var(--kb-gold)]">
+                {lang === "ko" ? "서비스 조합을 함께 설계합니다." : "for your brand — designed together."}
+              </MaskedLineInView>
+            </h2>
+            <p className="mt-8 max-w-2xl mx-auto text-lg text-white/70 leading-relaxed">
+              {lang === "ko"
+                ? "무료 상담에서 브랜드의 현재 위치와 목표를 청취하고, 어떤 서비스 조합이 필요한지 함께 정의합니다."
+                : "In a free consultation, we listen for where your brand stands today and where it wants to go — and define the right service mix together."}
+            </p>
+            <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
+              <Link
+                to="/contact"
+                data-testid="services-cta-consult"
+                className="inline-flex items-center gap-3 bg-[color:var(--kb-gold)] text-[color:var(--kb-ink)] px-10 py-5 text-sm tracking-[0.25em] uppercase hover:bg-[color:var(--kb-champagne)] transition-colors"
+              >
+                {lang === "ko" ? "무료 상담 예약" : "Book a consultation"} <ArrowUpRight size={16} />
+              </Link>
+              <a
+                href="mailto:contact@kbridgepartners.com"
+                data-testid="services-cta-email"
+                className="inline-flex items-center gap-3 text-white/80 border border-[color:var(--kb-border)] px-8 py-5 text-sm tracking-[0.25em] uppercase hover:text-[color:var(--kb-gold)] hover:border-[color:var(--kb-gold)] transition-colors"
+              >
+                {lang === "ko" ? "이메일로 문의" : "Email us"}
+              </a>
+            </div>
+          </FadeUp>
         </div>
       </section>
     </div>

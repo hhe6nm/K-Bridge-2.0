@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { TID } from "@/lib/testIds";
 import { useLang } from "@/lib/i18n";
+import Logo from "@/components/Logo";
 
 const LINK_META = [
   { to: "/", ko: "홈", en: "Home", tid: TID.navHome },
@@ -44,14 +45,12 @@ export default function Navbar() {
       }`}
       data-testid="site-navbar"
     >
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-10 h-20 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-3 group" data-testid="nav-logo">
-          <span className="font-serif-kr text-[color:var(--kb-champagne)] text-2xl tracking-tight">
-            K Bridge
-          </span>
-          <span className="hidden sm:inline text-[10px] tracking-[0.28em] uppercase text-[color:var(--kb-gold)]/70 border-l border-[color:var(--kb-border)] pl-3">
-            Partners
-          </span>
+      <div className={`max-w-[1440px] mx-auto px-6 lg:px-10 flex items-center justify-between transition-all duration-500 ${scrolled ? "h-20" : "h-24"}`}>
+        <Link to="/" className="flex items-center group" data-testid="nav-logo" aria-label="K Bridge Partners — Home">
+          <Logo
+            variant="light"
+            className={`w-auto transition-all duration-500 ${scrolled ? "h-10" : "h-14"}`}
+          />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-0.5 xl:gap-1">

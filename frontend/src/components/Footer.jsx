@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useLang } from "@/lib/i18n";
+import { LOCATIONS } from "@/lib/locations";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -11,7 +12,7 @@ export default function Footer() {
         services: "서비스",
         s1: "시장 진입 전략", s2: "프랜차이즈 확장", s3: "법인 설립 · 오픈 지원", s4: "상업 부동산 · 입지 선정",
         company: "회사", a1: "소개", a2: "팀", a3: "프로세스", a4: "인사이트",
-        contact: "문의", cta: "상담 신청",
+        offices: "지역", cta: "상담 신청",
       }
     : {
         tagline1: "The U.S. market-entry partner for Korean brands.",
@@ -19,7 +20,7 @@ export default function Footer() {
         services: "Services",
         s1: "Market Entry Strategy", s2: "Franchise Development", s3: "Business Setup & Launch", s4: "Real Estate & Site Selection",
         company: "Company", a1: "About", a2: "Team", a3: "Process", a4: "Insights",
-        contact: "Contact", cta: "Request Consultation",
+        offices: "Locations", cta: "Request Consultation",
       };
 
   return (
@@ -54,11 +55,13 @@ export default function Footer() {
           </div>
 
           <div className="md:col-span-2">
-            <div className="text-[11px] tracking-[0.25em] uppercase text-[color:var(--kb-gold)] mb-5">{t.contact}</div>
-            <ul className="space-y-3 text-sm">
-              <li className="text-white/70">Washington DC</li>
-              <li className="text-white/70">New York</li>
-              <li className="text-white/70">Miami · Dallas</li>
+            <div className="text-[11px] tracking-[0.25em] uppercase text-[color:var(--kb-gold)] mb-5">{t.offices}</div>
+            <ul className="space-y-3 text-sm" data-testid="footer-locations-list">
+              {LOCATIONS.map((loc) => (
+                <li key={loc.key} className="text-white/70">
+                  {lang === "ko" ? loc.ko : loc.en}
+                </li>
+              ))}
               <li className="pt-3"><Link to="/contact" className="text-[color:var(--kb-champagne)] tick-arrow">{t.cta}</Link></li>
             </ul>
           </div>

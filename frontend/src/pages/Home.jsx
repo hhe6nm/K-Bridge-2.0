@@ -3,6 +3,8 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { ArrowUpRight, Building2, Compass, Store, Landmark, Rocket, ShieldCheck, Award, Users, MapPin } from "lucide-react";
 import { MaskedLine, MaskedLineInView, FadeUp } from "@/components/MaskedReveal";
+import AnimatedCounter from "@/components/AnimatedCounter";
+import Logo from "@/components/Logo";
 import { TID } from "@/lib/testIds";
 import { useLang } from "@/lib/i18n";
 
@@ -154,16 +156,13 @@ export default function Home() {
           }} />
         </div>
 
-        {/* Wordmark inside hero */}
+        {/* Wordmark logo inside hero — anchor moment above the headline */}
         <motion.div
-          initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6, duration: 0.9 }}
-          className="absolute top-28 lg:top-32 left-6 lg:left-10 flex items-center gap-3"
+          initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.9 }}
+          className="absolute top-28 lg:top-32 left-6 lg:left-10"
           data-testid="hero-wordmark"
         >
-          <span className="w-10 h-px bg-[color:var(--kb-gold)]" />
-          <span className="font-serif-kr text-[color:var(--kb-champagne)] text-lg tracking-widest">
-            K BRIDGE PARTNERS
-          </span>
+          <Logo variant="light" className="w-40 md:w-52 h-auto" />
         </motion.div>
 
         <div className="relative max-w-[1440px] mx-auto px-6 lg:px-10 pt-40 lg:pt-48 pb-24 min-h-[100svh] flex flex-col justify-between">
@@ -266,11 +265,13 @@ export default function Home() {
               <div className="grid grid-cols-2 gap-4 md:gap-6">
                 {t.stats.map((s, i) => (
                   <FadeUp key={i} delay={0.2 + i * 0.08}>
-                    <div className="border border-[color:var(--kb-border)] p-8 h-full min-h-[200px] flex flex-col justify-between hover:border-[color:var(--kb-gold)] transition-colors">
+                    <div data-testid={`home-stat-${i}`} className="border border-[color:var(--kb-border)] p-8 h-full min-h-[200px] flex flex-col justify-between hover:border-[color:var(--kb-gold)] hover:-translate-y-1 transition-all duration-500">
                       <div className="flex items-baseline gap-2">
-                        <span className="font-serif-kr text-5xl md:text-6xl font-light text-[color:var(--kb-gold)]">
-                          {s.value}
-                        </span>
+                        <AnimatedCounter
+                          value={s.value}
+                          className="font-serif-kr text-5xl md:text-6xl font-light text-[color:var(--kb-gold)]"
+                          data-testid={`home-stat-value-${i}`}
+                        />
                         <span className="text-sm text-[color:var(--kb-champagne)]/80 tracking-widest">{s.unit}</span>
                       </div>
                       <div className="mt-6 text-[13px] text-white/75 leading-relaxed">{s.label}</div>

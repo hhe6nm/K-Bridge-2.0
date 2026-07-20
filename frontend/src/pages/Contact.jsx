@@ -2,10 +2,12 @@ import { useState } from "react";
 import { toast } from "sonner";
 import PageHeader from "@/components/PageHeader";
 import { FadeUp } from "@/components/MaskedReveal";
+import Logo from "@/components/Logo";
 import { submitContact } from "@/lib/api";
 import { TID } from "@/lib/testIds";
 import { ArrowUpRight } from "lucide-react";
 import { useLang } from "@/lib/i18n";
+import { LOCATIONS } from "@/lib/locations";
 
 const INITIAL = { name: "", company: "", email: "", phone: "", message: "" };
 
@@ -83,6 +85,9 @@ export default function Contact() {
         <div className="max-w-[1440px] mx-auto px-6 lg:px-10 grid grid-cols-12 gap-10">
           <FadeUp className="col-span-12 lg:col-span-5">
             <div className="lg:sticky lg:top-32">
+              <div className="mb-8" data-testid="contact-logo">
+                <Logo variant="dark" className="w-40 h-auto" />
+              </div>
               <div className="text-[10px] tracking-[0.3em] uppercase text-[color:var(--kb-gold)] mb-4">{t.sideEyebrow}</div>
               <h2 className="font-serif-kr text-4xl md:text-5xl font-light leading-tight">
                 {t.sideTitle1}<br />
@@ -101,7 +106,14 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="text-[10px] tracking-[0.3em] uppercase text-[color:var(--kb-muted)] mb-2">{t.labelOffices}</div>
-                  <div className="font-serif-kr text-xl">{t.officesValue}</div>
+                  <ul className="space-y-1" data-testid="contact-locations-list">
+                    {LOCATIONS.map((loc) => (
+                      <li key={loc.key} className="font-serif-kr text-lg text-[color:var(--kb-text)]/85">
+                        {lang === "ko" ? loc.ko : loc.en}
+                        <span className="ml-2 text-xs text-[color:var(--kb-muted)] tracking-widest">{loc.state.split(" · ")[0]}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             </div>

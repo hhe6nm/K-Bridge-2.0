@@ -1,3 +1,4 @@
+import { useState } from "react";
 import PageHeader from "@/components/PageHeader";
 import { FadeUp } from "@/components/MaskedReveal";
 import { Link } from "react-router-dom";
@@ -11,6 +12,8 @@ const CONTENT = {
     portraitCaption: "Portrait — Coming soon",
     featuredLabel: "Featured",
     yearsUnit: "년 경력",
+    revealCta: "프로필 보기",
+    closeCta: "닫기",
     awardsNote: "수상 · 인증 · 자격 — 추후 업데이트",
     cta: "팀과 대화하기",
     team: [
@@ -32,6 +35,8 @@ const CONTENT = {
     portraitCaption: "Portrait — Coming soon",
     featuredLabel: "Featured",
     yearsUnit: "years",
+    revealCta: "View profile",
+    closeCta: "Close",
     awardsNote: "Awards & certifications — updates coming soon",
     cta: "Talk to the team",
     team: [
@@ -48,6 +53,64 @@ const CONTENT = {
   },
 };
 
+function TeamCard({ member, t, index }) {
+  const [revealed, setRevealed] = useState(false);
+  return (
+    <div
+      className="group relative aspect-[3/4] overflow-hidden border border-[color:var(--kb-border)] hover:border-[color:var(--kb-gold)] transition-colors cursor-pointer bg-[color:var(--kb-ink)]"
+      onMouseEnter={() => setRevealed(true)}
+      onMouseLeave={() => setRevealed(false)}
+      onClick={() => setRevealed((r) => !r)}
+      data-testid={`team-card-${index}`}
+    >
+      {/* Portrait placeholder — SVG monogram */}
+      <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#0A1128] via-[#050914] to-[#12161F]">
+        <span className="font-serif-kr text-[color:var(--kb-gold)]/25 text-[160px] leading-none select-none">
+          K B
+        </span>
+      </div>
+      {/* Base labels */}
+      <div className={`absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-[#050914] via-[#050914]/85 to-transparent transition-opacity duration-500 ${revealed ? "opacity-0" : "opacity-100"}`}>
+        <div className="text-[10px] tracking-[0.3em] uppercase text-[color:var(--kb-gold)]">{member.role}</div>
+        <h3 className="mt-2 font-serif-kr text-2xl md:text-3xl font-light text-[color:var(--kb-champagne)]">{member.name}</h3>
+        <div className="mt-3 text-xs text-white/60">
+          <span className="text-white">{member.years}</span> {t.yearsUnit} · {member.specialty}
+        </div>
+      </div>
+      {member.featured && !revealed && (
+        <div className="absolute top-4 right-4 text-[10px] tracking-[0.3em] uppercase text-[color:var(--kb-gold)] border border-[color:var(--kb-gold)]/40 px-3 py-1.5 bg-[#050914]/60 backdrop-blur-sm">
+          {t.featuredLabel}
+        </div>
+      )}
+
+      {/* Reveal overlay */}
+      <div
+        className={`absolute inset-0 bg-[#050914]/95 backdrop-blur-sm p-8 flex flex-col justify-between transition-all duration-500 ${
+          revealed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4 pointer-events-none"
+        }`}
+        data-testid={`team-reveal-${index}`}
+      >
+        <div>
+          <div className="text-[10px] tracking-[0.3em] uppercase text-[color:var(--kb-gold)]">{member.role}</div>
+          <h3 className="mt-2 font-serif-kr text-2xl font-light text-[color:var(--kb-champagne)] leading-tight">{member.name}</h3>
+          <div className="mt-4 h-px bg-[color:var(--kb-gold)]/40 w-12" />
+          <p className="mt-4 text-[13px] text-white/80 leading-[1.75]">{member.bio}</p>
+        </div>
+        <div>
+          <div className="flex flex-wrap gap-1.5">
+            {member.tags.map((tag) => (
+              <span key={tag} className="text-[9px] tracking-[0.2em] uppercase border border-[color:var(--kb-gold)]/30 px-2 py-1 text-[color:var(--kb-champagne)]/85">
+                {tag}
+              </span>
+            ))}
+          </div>
+          <div className="mt-4 text-[10px] tracking-[0.3em] uppercase text-white/40">{t.awardsNote}</div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function Team() {
   const { lang } = useLang();
   const t = CONTENT[lang];
@@ -57,50 +120,17 @@ export default function Team() {
 
       <section className="bg-[color:var(--kb-bone)] py-24 md:py-32">
         <div className="max-w-[1440px] mx-auto px-6 lg:px-10">
-          {t.team.map((m, i) => (
-            <FadeUp key={i} delay={i * 0.08}>
-              <div className="grid grid-cols-12 gap-10 py-16 border-b border-[color:var(--kb-border)]">
-                <div className="col-span-12 lg:col-span-5">
-                  <div className="relative aspect-[4/5] overflow-hidden bg-[color:var(--kb-ink)] border border-[color:var(--kb-border)]">
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="font-serif-kr text-[color:var(--kb-gold)]/30 text-9xl">K B</span>
-                    </div>
-                    <div className="absolute bottom-4 left-4 text-[10px] tracking-[0.3em] uppercase text-white/50">
-                      {t.portraitCaption}
-                    </div>
-                    {m.featured && (
-                      <div className="absolute top-4 right-4 text-[10px] tracking-[0.3em] uppercase text-[color:var(--kb-gold)] border border-[color:var(--kb-gold)]/40 px-3 py-1.5">
-                        {t.featuredLabel}
-                      </div>
-                    )}
-                  </div>
-                </div>
-
-                <div className="col-span-12 lg:col-span-7 flex flex-col justify-center">
-                  <div className="text-[11px] tracking-[0.3em] uppercase text-[color:var(--kb-gold)]">{m.role}</div>
-                  <h3 className={`font-serif-kr font-light mt-4 leading-tight ${m.featured ? "text-5xl md:text-6xl" : "text-4xl"}`}>
-                    {m.name}
-                  </h3>
-                  <div className="mt-6 flex items-center gap-6 text-sm text-[color:var(--kb-muted)] flex-wrap">
-                    <span><span className="text-[color:var(--kb-ink)] font-medium">{m.years}</span> {t.yearsUnit}</span>
-                    <span className="w-px h-4 bg-[color:var(--kb-border)]" />
-                    <span>{m.specialty}</span>
-                  </div>
-                  <p className="mt-6 text-lg text-[color:var(--kb-text)]/75 leading-relaxed max-w-2xl">{m.bio}</p>
-                  <div className="mt-8 flex flex-wrap gap-2">
-                    {m.tags.map((tag) => (
-                      <span key={tag} className="text-[11px] tracking-[0.2em] uppercase border border-[color:var(--kb-border)] px-3 py-1.5 text-[color:var(--kb-ink)]/70">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="mt-8 text-xs text-[color:var(--kb-muted)]">{t.awardsNote}</div>
-                </div>
-              </div>
-            </FadeUp>
-          ))}
-          <div className="mt-16 text-center">
-            <Link to="/contact" className="inline-flex items-center gap-2 text-[color:var(--kb-ink)] tick-arrow text-sm tracking-[0.25em] uppercase">{t.cta}</Link>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            {t.team.map((m, i) => (
+              <FadeUp key={i} delay={i * 0.08} className="h-full">
+                <TeamCard member={m} t={t} index={i} />
+              </FadeUp>
+            ))}
+          </div>
+          <div className="mt-20 text-center">
+            <Link to="/contact" className="inline-flex items-center gap-3 bg-[color:var(--kb-ink)] text-white px-10 py-4 text-sm tracking-[0.25em] uppercase hover:bg-[color:var(--kb-gold)] hover:text-[color:var(--kb-ink)] transition-colors">
+              {t.cta}
+            </Link>
           </div>
         </div>
       </section>

@@ -105,7 +105,7 @@ async def create_contact_message(payload: ContactMessageCreate):
 
 
 @api_router.get("/contact", response_model=List[ContactMessage])
-async def list_contact_messages(limit: int = Query(100, ge=1, le=500)):
+async def  list_contact_messages(limit: int = Query(100, ge=1, le=500)):
     docs = await db.contact_messages.find({}, {"_id": 0}).sort("created_at", -1).to_list(limit)
     return [serialize_doc(d) for d in docs]
 
