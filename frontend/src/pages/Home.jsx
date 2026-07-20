@@ -4,7 +4,6 @@ import { useRef } from "react";
 import { ArrowUpRight, Building2, Compass, Store, Landmark, Rocket, ShieldCheck, Award, Users, MapPin } from "lucide-react";
 import { MaskedLine, MaskedLineInView, FadeUp } from "@/components/MaskedReveal";
 import AnimatedCounter from "@/components/AnimatedCounter";
-import Logo from "@/components/Logo";
 import { TID } from "@/lib/testIds";
 import { useLang } from "@/lib/i18n";
 
@@ -156,14 +155,7 @@ export default function Home() {
           }} />
         </div>
 
-        {/* Wordmark logo inside hero — anchor moment above the headline */}
-        <motion.div
-          initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4, duration: 0.9 }}
-          className="absolute top-28 lg:top-32 left-6 lg:left-10"
-          data-testid="hero-wordmark"
-        >
-          <Logo variant="light" className="w-40 md:w-52 h-auto" />
-        </motion.div>
+        {/* Wordmark is rendered by the fixed Navbar — no duplicate in hero */}
 
         <div className="relative max-w-[1440px] mx-auto px-6 lg:px-10 pt-40 lg:pt-48 pb-24 min-h-[100svh] flex flex-col justify-between">
           <motion.div

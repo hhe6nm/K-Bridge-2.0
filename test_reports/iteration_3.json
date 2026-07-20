@@ -1,0 +1,31 @@
+{
+  "summary": "Iteration 3 — Visual & Interactive Upgrade Pass validation. Backend regression 4/4 pytest passing (root, insights list, insights slug, contact POST). Frontend: navbar renders the new raster wordmark /kbp-logo-gold.png (naturalWidth=954, loaded on all 10 pages). Duplicate hero wordmark on Home REMOVED — exactly one kbp-logo* img on Home and it lives in the navbar (not in hero section). Favicon assets all HTTP 200 (/favicon.ico, /favicon-32.png, /favicon-64.png). KO/EN toggle flips hero copy ('한국 브랜드의…' → 'Your Trusted Local Partner…') and persists to localStorage as kb-lang. All 10 nav links present and routable. Home: 4 pillars, 5 equal service cards, home-stat-value-0..3 render. Process: 5 interactive steps (STEP 01–05) — spec text said '6 steps' but design shipped 5 (consistent with iteration_2 acceptance). Team: 3 team-card-* with team-reveal-* hover panels (photos are KB monogram placeholders, names still '성함 예정'). Success: 5 filters + 4 case cards. Locations: 8 city cards, all skyline images loaded (naturalWidth=1600) including Dallas & New Jersey. Insights: 5 posts fetched from /api/insights; detail page renders. Contact form submits and shows KO toast '문의가 접수되었습니다'. FAQ accordion toggles state on click. Zero console/page errors during full site walk.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "Process page", "issues": ["Spec/review request mentions 6 process steps with Step 04 (Site Selection) emphasized; live page renders 5 steps (STEP 01 초기 상담, 02 법인 설립, 03 상업용 부동산, 04 프랜차이즈 개발 & FDD, 05 매장 오픈). Step 04 in live build is 'Franchise Development & FDD', not 'Site Selection'. Site Selection is covered by the 03 상업용 부동산 step. Not a regression from iteration_2 (which accepted 5), but a discrepancy vs current review-request wording — flag for E1 to confirm intent."]},
+      {"screen": "Team page", "issues": ["All 3 team-card names still read '성함 예정' (Name TBD) and cards use a large 'KB' monogram in place of member photos. Hover-reveals do render (team-reveal-0..2 present). Content placeholders, not a code bug — intentional per current CMS state."]},
+      {"screen": "Home stats", "issues": ["AnimatedCounter is fed placeholder bracketed strings ('[수십]', '[X]', '[X]', '[8]') so there is no numeric counting animation to speak of — component correctly renders the raw text. Intentional per iteration_2 spec."]}
+    ]
+  },
+  "test_report_links": ["/app/backend/tests/backend_test.py", "/app/test_reports/pytest/pytest_results.xml"],
+  "action_items": [
+    "Confirm intended Process step count (5 vs 6) and whether Step 04 should be renamed / re-emphasized to 'Site Selection' per review-request wording.",
+    "Replace Team placeholder names ('성함 예정') and KB monogram covers with real member data + photos when available."
+  ],
+  "critical_code_review_comments": [
+    "Logo.jsx now a thin <img> wrapper — clean. Consider adding width/height attributes to prevent CLS on slow networks.",
+    "Home.jsx hero wordmark correctly removed; comment on line 158 documents the intent — good.",
+    "AnimatedCounter receiving non-numeric bracketed placeholders means the 'counter animation' feature is inert on Home stats. If those placeholders survive to production, consider hiding the counter animation or wrapping in a guard so the component isn't misleadingly named.",
+    "Team page still has no real photos — SEO/OG image quality suffers. Not a code issue but flag for content."
+  ],
+  "updated_files": [],
+  "success_rate": {"backend": "100%", "frontend": "~98%"},
+  "test_credentials": "N/A",
+  "seed_data_creation": "1 TEST_Playwright contact submission created via POST /api/contact during regression + 1 TEST_user from pytest.",
+  "retest_needed": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Logo swap (inline SVG → raster PNG at /kbp-logo-gold.png in navbar, /kbp-logo.png full color for light bg) validated. Duplicate hero wordmark removal validated. All favicons served 200. i18n toggle key = localStorage['kb-lang'] ('ko'|'en'). Team page currently uses testids team-card-{i} + team-reveal-{i} (NOT team-member-*). Process page ships 5 steps not 6. Backend endpoints unchanged since iteration_1."
+}
