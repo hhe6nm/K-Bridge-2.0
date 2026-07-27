@@ -107,15 +107,18 @@ export default function Locations() {
             ))}
           </div>
 
-          <div className="mt-24 border-t border-[color:var(--kb-border)] pt-16 grid grid-cols-12 gap-8">
-            <div className="col-span-12 lg:col-span-6">
+          <div className="mt-24 border-t border-[color:var(--kb-border)] pt-16 grid grid-cols-12 gap-8 lg:gap-12">
+            <div className="col-span-12 lg:col-span-7">
               <div className="text-[10px] tracking-[0.3em] uppercase text-[color:var(--kb-gold)] mb-4">{t.footEyebrow}</div>
-              <h3 className="font-serif-kr text-3xl md:text-4xl font-light leading-tight">
+              <h3
+                className="font-serif-kr text-3xl md:text-[42px] font-light leading-[1.25] text-balance"
+                style={{ wordBreak: "keep-all", overflowWrap: "break-word" }}
+              >
                 {t.footTitle1} <span className="italic text-[color:var(--kb-gold)]">{t.footTitleItalic}</span>
               </h3>
             </div>
-            <div className="col-span-12 lg:col-span-6 lg:pl-10 flex items-center">
-              <p className="text-white/70 text-lg leading-relaxed">{t.footBody}</p>
+            <div className="col-span-12 lg:col-span-5 flex items-start lg:items-center">
+              <p className="text-white/70 text-base md:text-lg leading-relaxed max-w-md">{t.footBody}</p>
             </div>
           </div>
 

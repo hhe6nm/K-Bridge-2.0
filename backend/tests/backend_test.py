@@ -87,6 +87,30 @@ def test_insights_all_slugs_detail(api):
         assert data["category"]
 
 
+def test_insights_round2_content_strings(api):
+    """Round 2 brief: three articles must contain specific Korean phrases."""
+    checks = {
+        "foreign-owned-ein-application-timeline": [
+            "Third Party Designee 항목 누락",
+            "책임 당사자(Responsible Party) 정보 오류",
+        ],
+        "e2-investor-visa-korean-founders": [
+            "Marginal Business(한계 사업) 판정",
+            "50% 이상 소유 및 실질적 통제",
+        ],
+        "co-tenancy-clause-anchor-tenant-loss": [
+            "개점 코테넌시(Opening Co-Tenancy)",
+            "운영 코테넌시(Operating Co-Tenancy)",
+        ],
+    }
+    for slug, phrases in checks.items():
+        r = api.get(f"{BASE_URL}/api/insights/{slug}")
+        assert r.status_code == 200, f"{slug} returned {r.status_code}"
+        body = r.json()["content"]
+        for phrase in phrases:
+            assert phrase in body, f"Missing phrase in {slug}: {phrase}"
+
+
 def test_insights_korea_to_us_returns_404_or_content(api):
     """Review request mentions GET /api/insights/korea-to-us returns full content.
     However server.py lists korea-to-us as a LEGACY slug to remove. Test whichever behavior is live."""

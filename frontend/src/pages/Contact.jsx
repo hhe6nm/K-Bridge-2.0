@@ -2,7 +2,6 @@ import { useState } from "react";
 import { toast } from "sonner";
 import PageHeader from "@/components/PageHeader";
 import { FadeUp } from "@/components/MaskedReveal";
-import Logo from "@/components/Logo";
 import { submitContact } from "@/lib/api";
 import { TID } from "@/lib/testIds";
 import { ArrowUpRight, Mail, Phone } from "lucide-react";
@@ -85,17 +84,10 @@ export default function Contact() {
         <div className="max-w-[1440px] mx-auto px-6 lg:px-10 grid grid-cols-12 gap-10">
           <FadeUp className="col-span-12 lg:col-span-5">
             <div className="lg:sticky lg:top-32">
-              <div className="mb-8" data-testid="contact-logo">
-                <Logo variant="dark" className="h-12 w-auto" />
-              </div>
               <div className="text-[10px] tracking-[0.3em] uppercase text-[color:var(--kb-gold)] mb-4">{t.sideEyebrow}</div>
-              <h2 className="font-serif-kr text-4xl md:text-5xl font-light leading-tight">
-                {t.sideTitle1}<br />
-                <span className="italic text-[color:var(--kb-gold)]">{t.sideTitleItalic}</span>
-              </h2>
-              <p className="mt-8 text-lg text-[color:var(--kb-text)]/70 leading-relaxed max-w-md">{t.sideBody}</p>
+              <p className="text-base md:text-lg text-[color:var(--kb-text)]/75 leading-[1.9] max-w-md">{t.sideBody}</p>
 
-              <div className="mt-14 space-y-7">
+              <div className="mt-12 space-y-7">
                 <div>
                   <div className="flex items-center gap-2 text-[10px] tracking-[0.3em] uppercase text-[color:var(--kb-muted)] mb-2">
                     <Mail size={12} className="text-[color:var(--kb-gold)]" /> {t.labelEmail}

@@ -32,10 +32,9 @@ const CONTENT = {
       {
         name: "Samantha Cho",
         title: "Principal Consultant",
-        role: "Cross-Border Strategy",
-        stat: "15개 기업 자문 · 5개 산업 · UVA McIntire",
-        bio: "University of Virginia McIntire 상경대학 졸업 후, 부동산·IT·핀테크·소비재·에너지 산업의 한국 스타트업 15곳에 자문을 제공했습니다. 데이터 분석 역량과 한영 이중언어를 바탕으로, 한국 기업이 미국 시장에서 실질적으로 필요로 하는 전략을 설계합니다.",
-        bioCompanies: "Solidcore · Stridefow · HALO · Trinova · Beevly · Purenova · XMSoftlabs · FullDay · DIYONJU · Carpe Diem · Ren AI · Faraday Energy",
+        role: "Principal Consultant · Cross-Border Strategy",
+        stat: "15개 한국 스타트업 자문 · 5개 산업 · UVA McIntire",
+        bio: "15개 한국 스타트업의 미국 진출 전략을 설계해온 크로스보더 전략가입니다. University of Virginia McIntire에서 데이터 사이언스를 전공했으며, Solidcore를 비롯해 부동산·IT·핀테크·소비재·에너지 등 다양한 산업의 기업에 자문을 제공했습니다. 데이터와 현장 감각을 모두 갖춘, 몇 안 되는 한영 이중언어 전략가입니다.",
         tags: ["Market Analytics", "Cross-Border Strategy", "Startup Advisory", "Bilingual"],
       },
     ],
@@ -67,10 +66,9 @@ const CONTENT = {
       {
         name: "Samantha Cho",
         title: "Principal Consultant",
-        role: "Cross-Border Strategy",
-        stat: "15 companies advised · 5 industries · UVA McIntire",
-        bio: "A University of Virginia McIntire School of Commerce graduate, Samantha has advised 15 Korean startups across real estate, IT, fintech, consumer goods, and energy. Combining data analytics with fluent Korean-English bilingualism, she designs strategies that reflect what Korean companies actually need in the U.S. market.",
-        bioCompanies: "Solidcore · Stridefow · HALO · Trinova · Beevly · Purenova · XMSoftlabs · FullDay · DIYONJU · Carpe Diem · Ren AI · Faraday Energy",
+        role: "Principal Consultant · Cross-Border Strategy",
+        stat: "15 Korean startups advised · 5 industries · UVA McIntire",
+        bio: "Samantha is a cross-border strategist who has designed U.S. market-entry strategies for 15 Korean startups. She studied Data Science at the University of Virginia's McIntire School of Commerce, and has advised companies including Solidcore across real estate, IT, fintech, consumer goods, and energy. She's one of few strategists who combine deep data fluency with real ground sense — in both English and Korean.",
         tags: ["Market Analytics", "Cross-Border Strategy", "Startup Advisory", "Bilingual"],
       },
     ],
@@ -150,7 +148,7 @@ export default function Team() {
     <div>
       <PageHeader eyebrow={t.eyebrow} title={t.title} subtitle={t.subtitle} />
 
-      <section className="bg-[color:var(--kb-bone)] py-20 md:py-28">
+      <section className="bg-[color:var(--kb-bone)] pt-14 md:pt-20 pb-20 md:pb-24">
         <div className="max-w-[1440px] mx-auto px-6 lg:px-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {t.team.map((m, i) => (

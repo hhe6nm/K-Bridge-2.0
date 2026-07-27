@@ -1,0 +1,27 @@
+{
+  "summary": "Round 2 revision brief full regression. Backend: 10/10 pytest pass (added new content-string assertions for the 3 rewritten articles). Frontend: all Round 2 items verified — navbar auto-hide on scroll >200 & restore on scroll up, Home & About stats 20+/8/28/6 with count-up, Home perspective image (1555636222) and body copy, About mission-statement-block visible with gold bar, mission-pills rendered as separate UI components, Mission/Approach both use shared SectionQuote (identical class), Approach headline '한 팀이, 처음부터 끝까지.' and about-approach-timeline continuous gold gradient connector, Founding image (1441984904996), founding hook plain (no italic, no smart quotes), 창업팀 replaces 창업 가족, founding closing gold text-xl/2xl (24px, rgb(198,168,124)), Samantha role 'Principal Consultant · Cross-Border Strategy' + Solidcore bio, Services first section pt-10 md:pt-14 with 6 pillars, Locations coverage headline no orphan '다.' + foot body fully visible, Contact contact-logo removed + sidebar heading removed + PageHeader H1 '한 통의 메시지로 시작됩니다.', 9 nav items, no 'CHAPTER —', KO/EN toggle works, 10 insights returned.",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "Home — About/overview paragraph (KO)", "issues": ["Body copy still says '26년간 워싱턴 DC 및 버지니아 지역을 중심으로 상업용 부동산 실무를 쌓아온 팀' while the first stat now shows 20+년 상업 부동산 실무 경험. Numbers disagree within the same section. Consider harmonising to '20년 이상' (matches About page intro copy) or explaining the two figures. About.jsx Joy Chong bio also still uses '26년간' — same inconsistency."]}
+    ]
+  },
+  "test_report_links": ["/app/backend/tests/backend_test.py", "/app/test_reports/pytest/pytest_results.xml"],
+  "action_items": [
+    "Align Home KO aboutBody number (currently '26년간') with the 20+ stat, or clarify why the paragraph uses a different figure. Same for About Joy Chong bio ('26년간') vs 20+ stat label.",
+    "Optional cleanup: /app/frontend/src/pages/Success.jsx exists but is no longer imported/routed in App.js (regression 'no Success page' satisfied because route is gone, but the orphan file can be deleted to avoid confusion)."
+  ],
+  "critical_code_review_comments": [
+    "Home.jsx & About.jsx duplicate the same stats array in-page. StatsBlock is shared but its input arrays are not — a single source (e.g. src/lib/stats.js) would prevent future drift like the 26/20 mismatch that just occurred.",
+    "Orphan file /app/frontend/src/pages/Success.jsx (~230 lines) is unreferenced; delete or move to /archive to reduce dead code."
+  ],
+  "updated_files": ["/app/backend/tests/backend_test.py"],
+  "success_rate": {"backend": "100% (10/10)", "frontend": "100% of Round 2 items verified"},
+  "seed_data_creation": "1 TEST_iter4_user contact message inserted via pytest (persistence check).",
+  "should_call_test_agent_after_fix": false,
+  "should_main_agent_self_test": true,
+  "context_for_next_testing_agent": "Round 2 verified. data-testids in use: home-stat-value-0..3 (20+/8/28/6), about-stat-value-0..3 (20+/8/28/6), mission-statement-block, mission-pills, about-approach-timeline, service-pillar-0..5. Nav auto-hide toggles '-translate-y-full' class on [data-testid=site-navbar]. Only outstanding cosmetic inconsistency is the '26년간' body-copy vs '20+' stat mismatch on Home (KO) and Joy Chong bio (both KO/EN uses 26 years).",
+  "rca_of_the_issue": "n/a — no failing tests. The 26/20 copy vs stat mismatch is a content inconsistency introduced when the Round 2 brief updated the stat block to '20+' without touching the surrounding narrative paragraphs."
+}

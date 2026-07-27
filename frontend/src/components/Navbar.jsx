@@ -20,18 +20,36 @@ const LINK_META = [
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const [open, setOpen] = useState(false);
   const location = useLocation();
   const { lang, toggle } = useLang();
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    let lastY = window.scrollY;
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const y = window.scrollY;
+        setScrolled(y > 20);
+        // Auto-hide when scrolling down past the hero threshold; reveal on scroll up
+        if (y > 200 && y > lastY + 4) {
+          setHidden(true);
+        } else if (y < lastY - 4 || y <= 60) {
+          setHidden(false);
+        }
+        lastY = y;
+        ticking = false;
+      });
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => { setOpen(false); }, [location.pathname]);
+  useEffect(() => { setOpen(false); setHidden(false); }, [location.pathname]);
 
   const cta = lang === "ko" ? "무료 상담 신청" : "Free Consultation";
   const menuLabel = lang === "ko" ? "메뉴" : "Menu";
@@ -39,9 +57,9 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 will-change-transform ${
         scrolled ? "bg-[#050914]/92 backdrop-blur-xl border-b border-[color:var(--kb-border)]" : "bg-transparent"
-      }`}
+      } ${hidden ? "-translate-y-full" : "translate-y-0"}`}
       data-testid="site-navbar"
     >
       <div className={`max-w-[1440px] mx-auto px-6 lg:px-10 flex items-center justify-between transition-all duration-500 ${scrolled ? "h-[68px]" : "h-[76px]"}`}>

@@ -3,14 +3,14 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { ArrowUpRight, Building2, Compass, Store, Landmark, Rocket, ShieldCheck, Award, Users, MapPin, Network } from "lucide-react";
 import { MaskedLine, MaskedLineInView, FadeUp } from "@/components/MaskedReveal";
-import AnimatedCounter from "@/components/AnimatedCounter";
+import StatsBlock from "@/components/StatsBlock";
 import ChapterBadge from "@/components/ChapterBadge";
 import { TID } from "@/lib/testIds";
 import { useLang } from "@/lib/i18n";
 
 const HERO_IMG = "https://images.unsplash.com/photo-1664353655151-9d94a9170eb0?crop=entropy&cs=srgb&fm=jpg&q=85&w=2000";
-// DC / Northern Virginia retail streetscape — Georgetown corridor
-const PERSPECTIVE_IMG = "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?crop=entropy&cs=srgb&fm=jpg&q=85&w=1600";
+// DC / Northern Virginia commercial storefront corridor (M Street, Georgetown-style retail)
+const PERSPECTIVE_IMG = "https://images.unsplash.com/photo-1555636222-cae831e670b3?crop=entropy&cs=srgb&fm=jpg&q=85&w=1600";
 
 const CONTENT = {
   ko: {
@@ -34,7 +34,7 @@ const CONTENT = {
       "26년간 워싱턴 DC 및 버지니아 지역을 중심으로 상업용 부동산 실무를 쌓아온 팀이, 한국 브랜드가 미국 시장에서 겪는 실질적인 어려움을 가까이에서 지켜보며 시작한 파트너십입니다.",
     ],
     stats: [
-      { value: "26", unit: "년", label: "상업 부동산 실무 경험" },
+      { value: "20+", unit: "년", label: "상업 부동산 실무 경험" },
       { value: "8", unit: "개", label: "커버하는 미국 주요 시장" },
       { value: "28", unit: "곳", label: "전문 네트워크 파트너" },
       { value: "6", unit: "개", label: "제공 서비스 분야" },
@@ -43,9 +43,9 @@ const CONTENT = {
     challengeTitle: "한국 브랜드의 미국 시장 진출,",
     challengeTitleItalic: "가장 든든한 현지 파트너.",
     challengeBody: [
-      "한국에서 통했던 방식이 미국에서도 통할 것이라 생각하기 쉽습니다. 하지만 미국은 다릅니다. 주마다 다른 임대차 조건, 프랜차이즈 규제(FDD), 라이센싱과 세제. 그리고 한국과는 전혀 다른 소비자 문화.",
-      "브랜드가 실패하는 이유는 실력이 부족해서가 아닙니다. 잘못된 입지, 놓친 계약 조건, 준비되지 않은 초기 운영. 현장을 몰랐기 때문입니다.",
-      "K Bridge Partners는 그 현장에서 시작합니다. 리포트가 알려주지 않는 것들을, 직접 확인하고 전달합니다.",
+      "미국 시장은 하나의 기준으로 움직이지 않습니다. 주(State)마다 임대차 관행이 다르고, 프랜차이즈 규제(FDD)가 다르며, 소비자의 결도 다릅니다. 한국에서 검증된 방식이라 해도, 그대로 옮겨질 수는 없습니다.",
+      "브랜드가 흔들리는 지점은 대개 같습니다. 입지 선정의 오판, 계약서 안에 놓인 조항 하나, 그리고 충분히 준비되지 않은 초기 운영. 이는 실력의 문제가 아니라, 현장에 대한 이해의 문제입니다.",
+      "K Bridge Partners는 그 이해에서 출발합니다.",
     ],
     challengeCta: "회사의 관점 자세히 보기",
     servicesBadge: "서비스",
@@ -86,7 +86,7 @@ const CONTENT = {
       "Our team has spent 26 years in the Washington DC and Virginia commercial real estate market — watching, up close, the challenges Korean brands face entering the U.S. This partnership was built from that vantage point.",
     ],
     stats: [
-      { value: "26", unit: "yrs", label: "of commercial real estate experience" },
+      { value: "20+", unit: "yrs", label: "of commercial real estate experience" },
       { value: "8", unit: "markets", label: "U.S. metros we cover" },
       { value: "28", unit: "partners", label: "in our vetted network" },
       { value: "6", unit: "services", label: "verticals we deliver" },
@@ -95,9 +95,9 @@ const CONTENT = {
     challengeTitle: "The most reliable local partner",
     challengeTitleItalic: "for Korean brands entering the U.S.",
     challengeBody: [
-      "It's tempting to assume that what worked in Korea will work in the U.S. It won't. Lease terms, franchise regulation (FDD), licensing and taxation — different from state to state. And a consumer culture nothing like Korea's.",
-      "Brands don't fail because of quality. They fail because of the wrong location, the missed contract clause, the unprepared opening. Because they didn't know the field.",
-      "K Bridge Partners starts on that field. What the reports don't tell you, we verify and translate for you.",
+      "The U.S. market doesn't move on a single standard. Lease practice differs state to state; franchise regulation (FDD) differs; even consumer grain differs. What was validated in Korea can rarely be transplanted as-is.",
+      "The places brands stumble are usually the same: a misread of location, a single clause hiding in the contract, and an under-prepared early operation. It's not a question of capability — it's a question of understanding the ground.",
+      "K Bridge Partners begins from that understanding.",
     ],
     challengeCta: "Read our perspective",
     servicesBadge: "Services",
@@ -215,48 +215,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ABOUT K BRIDGE + STATS */}
-      <section className="bg-[color:var(--kb-ink)] text-white py-20 md:py-24">
-        <div className="max-w-[1440px] mx-auto px-6 lg:px-10">
-          <FadeUp>
-            <ChapterBadge number={1} label={t.aboutBadge} variant="dark" className="mb-8" />
-          </FadeUp>
-          <div className="grid grid-cols-12 gap-8 lg:gap-16">
-            <div className="col-span-12 lg:col-span-6">
-              <h2 className="font-serif-kr text-4xl md:text-5xl font-light leading-[1.15] text-balance">
-                <MaskedLineInView>{t.aboutTitle}</MaskedLineInView>
-              </h2>
-              <FadeUp delay={0.15}>
-                {t.aboutBody.map((p, i) => (
-                  <p key={i} className="mt-6 text-base md:text-lg text-white/75 leading-[1.9] max-w-xl">
-                    {p}
-                  </p>
-                ))}
-              </FadeUp>
-            </div>
-
-            <div className="col-span-12 lg:col-span-6">
-              <div className="grid grid-cols-2 gap-4 md:gap-6">
-                {t.stats.map((s, i) => (
-                  <FadeUp key={i} delay={0.2 + i * 0.08}>
-                    <div data-testid={`home-stat-${i}`} className="border border-[color:var(--kb-border)] p-8 h-full min-h-[180px] flex flex-col justify-between hover:border-[color:var(--kb-gold)] hover:-translate-y-1 transition-all duration-500">
-                      <div className="flex items-baseline gap-2">
-                        <AnimatedCounter
-                          value={s.value}
-                          className="font-serif-kr text-5xl md:text-6xl font-light text-[color:var(--kb-gold)]"
-                          data-testid={`home-stat-value-${i}`}
-                        />
-                        <span className="text-sm text-[color:var(--kb-champagne)]/80 tracking-widest">{s.unit}</span>
-                      </div>
-                      <div className="mt-6 text-[13px] text-white/75 leading-relaxed">{s.label}</div>
-                    </div>
-                  </FadeUp>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* ABOUT K BRIDGE + STATS (shared block) */}
+      <StatsBlock
+        badge={{ number: 1, label: t.aboutBadge }}
+        stats={t.stats}
+        testIdPrefix="home-stat"
+        overviewTitle={<MaskedLineInView>{t.aboutTitle}</MaskedLineInView>}
+        overviewBody={t.aboutBody}
+      />
 
       {/* CHALLENGE — Company perspective (with photo) */}
       <section className="bg-[color:var(--kb-bone)] py-20 md:py-24">

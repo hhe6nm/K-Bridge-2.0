@@ -90,7 +90,7 @@ export default function Services() {
     <div>
       <PageHeader eyebrow={t.eyebrow} title={t.title} subtitle={t.subtitle} />
 
-      <section className="bg-[color:var(--kb-bone)] py-20 md:py-28">
+      <section className="bg-[color:var(--kb-bone)] pt-10 md:pt-14 pb-20 md:pb-28">
         <div className="max-w-[1440px] mx-auto px-6 lg:px-10">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {t.pillars.map((p, i) => {
