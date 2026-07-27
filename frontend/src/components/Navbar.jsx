@@ -12,7 +12,6 @@ const LINK_META = [
   { to: "/team", ko: "팀", en: "Team", tid: TID.navTeam },
   { to: "/services", ko: "서비스", en: "Services", tid: TID.navServices },
   { to: "/process", ko: "프로세스", en: "Process", tid: TID.navProcess },
-  { to: "/success", ko: "성공 사례", en: "Success", tid: TID.navSuccess },
   { to: "/insights", ko: "인사이트", en: "Insights", tid: TID.navInsights },
   { to: "/faq", ko: "FAQ", en: "FAQ", tid: TID.navFaq },
   { to: "/locations", ko: "지역", en: "Locations", tid: TID.navLocations },
@@ -41,15 +40,15 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
-        scrolled ? "bg-[#050914]/85 backdrop-blur-xl border-b border-[color:var(--kb-border)]" : "bg-transparent"
+        scrolled ? "bg-[#050914]/92 backdrop-blur-xl border-b border-[color:var(--kb-border)]" : "bg-transparent"
       }`}
       data-testid="site-navbar"
     >
-      <div className={`max-w-[1440px] mx-auto px-6 lg:px-10 flex items-center justify-between transition-all duration-500 ${scrolled ? "h-20" : "h-24"}`}>
+      <div className={`max-w-[1440px] mx-auto px-6 lg:px-10 flex items-center justify-between transition-all duration-500 ${scrolled ? "h-[68px]" : "h-[76px]"}`}>
         <Link to="/" className="flex items-center group" data-testid="nav-logo" aria-label="K Bridge Partners — Home">
           <Logo
             variant="light"
-            className={`w-auto transition-all duration-500 ${scrolled ? "h-10" : "h-14"}`}
+            className={`w-auto transition-all duration-500 ${scrolled ? "h-7" : "h-9"}`}
           />
         </Link>
 

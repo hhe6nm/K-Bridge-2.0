@@ -1,17 +1,19 @@
 import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { ArrowUpRight, Building2, Compass, Store, Landmark, Rocket, ShieldCheck, Award, Users, MapPin } from "lucide-react";
+import { ArrowUpRight, Building2, Compass, Store, Landmark, Rocket, ShieldCheck, Award, Users, MapPin, Network } from "lucide-react";
 import { MaskedLine, MaskedLineInView, FadeUp } from "@/components/MaskedReveal";
 import AnimatedCounter from "@/components/AnimatedCounter";
+import ChapterBadge from "@/components/ChapterBadge";
 import { TID } from "@/lib/testIds";
 import { useLang } from "@/lib/i18n";
 
 const HERO_IMG = "https://images.unsplash.com/photo-1664353655151-9d94a9170eb0?crop=entropy&cs=srgb&fm=jpg&q=85&w=2000";
+// DC / Northern Virginia retail streetscape — Georgetown corridor
+const PERSPECTIVE_IMG = "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?crop=entropy&cs=srgb&fm=jpg&q=85&w=1600";
 
 const CONTENT = {
   ko: {
-    eyebrow: "FROM KOREA TO AMERICA",
     heroLine1: "한국 브랜드의",
     heroLine2: "미국 시장 진출,",
     heroLine3: "가장 든든한 현지 파트너.",
@@ -25,48 +27,45 @@ const CONTENT = {
       { label: "전문성", en: "Professionalism" },
       { label: "현지 네트워크", en: "Local Expertise" },
     ],
-    aboutEyebrow: "CHAPTER — ABOUT K BRIDGE",
+    aboutBadge: "회사 개요",
     aboutTitle: "이론이 아닌, 현장에서 배운 것을 전달합니다.",
     aboutBody: [
       "K Bridge Partners는 미국 상업 부동산과 프랜차이즈 실무 경험, 그리고 데이터 기반 시장 분석 역량을 바탕으로 설립되었습니다.",
-      "[수년/수십 년]간 워싱턴 DC 및 버지니아 지역을 중심으로 상업용 부동산 실무를 쌓아온 팀이, 한국 브랜드가 미국 시장에서 겪는 실질적인 어려움을 가까이에서 지켜보며 시작한 파트너십입니다.",
-      "저희는 이론이 아닌 현장에서 배운 것을 전달합니다.",
+      "26년간 워싱턴 DC 및 버지니아 지역을 중심으로 상업용 부동산 실무를 쌓아온 팀이, 한국 브랜드가 미국 시장에서 겪는 실질적인 어려움을 가까이에서 지켜보며 시작한 파트너십입니다.",
     ],
     stats: [
-      { value: "[수십]", unit: "년", label: "미국 상업 부동산 실무 경험" },
-      { value: "[X]", unit: "개사", label: "지원한 브랜드 · 클라이언트" },
-      { value: "[X]", unit: "건", label: "완결된 딜 · 프로젝트" },
-      { value: "[8]", unit: "개", label: "커버하는 미국 주요 시장" },
+      { value: "26", unit: "년", label: "상업 부동산 실무 경험" },
+      { value: "8", unit: "개", label: "커버하는 미국 주요 시장" },
+      { value: "28", unit: "곳", label: "전문 네트워크 파트너" },
+      { value: "6", unit: "개", label: "제공 서비스 분야" },
     ],
-    statsFootnote: "* 수치는 실 데이터로 교체 예정 (placeholder)",
-    challengeEyebrow: "CHAPTER — 회사의 관점",
+    challengeBadge: "회사의 관점",
     challengeTitle: "한국 브랜드의 미국 시장 진출,",
     challengeTitleItalic: "가장 든든한 현지 파트너.",
     challengeBody: [
-      "많은 한국 브랜드가 국내에서의 성공 방정식이 미국에서도 통할 것이라 기대합니다. 하지만 미국은 임대차 조건, 프랜차이즈 규제(FDD), 주마다 다른 라이센싱과 세제, 소비자 문화까지 한국과는 전혀 다른 기준으로 움직입니다.",
-      "실패의 대부분은 브랜드의 실력이 부족해서가 아닙니다. 시장의 규칙을 모른 채 입지를 잘못 고르거나, 임대차 계약의 세부 조건을 놓치거나, 초기 운영 셋업에서 발이 묶이기 때문입니다.",
-      "K Bridge Partners는 이 지점에서 시작되었습니다. 수십 년간 미국 현장에서 쌓은 경험으로, 리포트만으로는 알 수 없는 것들을 알려드립니다.",
+      "한국에서 통했던 방식이 미국에서도 통할 것이라 생각하기 쉽습니다. 하지만 미국은 다릅니다. 주마다 다른 임대차 조건, 프랜차이즈 규제(FDD), 라이센싱과 세제. 그리고 한국과는 전혀 다른 소비자 문화.",
+      "브랜드가 실패하는 이유는 실력이 부족해서가 아닙니다. 잘못된 입지, 놓친 계약 조건, 준비되지 않은 초기 운영. 현장을 몰랐기 때문입니다.",
+      "K Bridge Partners는 그 현장에서 시작합니다. 리포트가 알려주지 않는 것들을, 직접 확인하고 전달합니다.",
     ],
     challengeCta: "회사의 관점 자세히 보기",
-    servicesEyebrow: "CHAPTER — 서비스",
+    servicesBadge: "서비스",
     servicesTitle1: "미국 진출의 모든 단계를,",
     servicesTitle2: "단 하나의 파트너와.",
-    servicesLead: "시장 조사부터 매장 오픈까지 — 다섯 개의 축을 하나의 팀이 책임집니다.",
+    servicesLead: "시장 조사부터 매장 오픈까지, 하나의 팀이 함께합니다.",
     services: [
-      { title: "시장 조사 · 진입 전략", en: "Market Research", desc: "지역별 상권과 소비 성향을 정밀 분석해 최적의 진입 방식과 우선 시장을 결정합니다.", icon: Compass },
-      { title: "법인 설립 · 셋업", en: "Entity Setup", desc: "주별 법인 형태 · 세제 · 라이센싱을 검토해 향후 확장에 유리한 구조를 설계합니다.", icon: Landmark },
-      { title: "상업용 부동산", en: "Commercial Real Estate", desc: "부지 분석부터 임대차 협상까지, 현장 경험이 있는 팀과 함께합니다.", icon: Building2 },
-      { title: "프랜차이즈 개발", en: "Franchise Development", desc: "미국형 FDD 문서와 파트너 매칭까지, 프랜차이즈 확장의 전 과정을 함께합니다.", icon: Store },
-      { title: "매장 오픈 · 초기 운영", en: "Store Opening", desc: "시공 · 스태핑 · 오픈 마케팅까지 오픈 이후 안정화 단계를 함께 챙깁니다.", icon: Rocket },
+      { title: "시장 조사 · 진입 전략", desc: "지역별 상권과 소비 성향을 정밀 분석해 최적의 진입 방식과 우선 시장을 결정합니다.", icon: Compass },
+      { title: "현지 네트워크 연결", desc: "변호사, 회계사, 시공업체까지 — 검증된 현지 파트너 네트워크를 연결합니다.", icon: Network },
+      { title: "법인 설립 · 셋업", desc: "주별 법인 형태 · 세제 · 라이센싱을 검토해 향후 확장에 유리한 구조를 설계합니다.", icon: Landmark },
+      { title: "상업용 부동산", desc: "부지 분석부터 임대차 협상까지, 현장 경험이 있는 팀과 함께합니다.", icon: Building2 },
+      { title: "프랜차이즈 개발", desc: "미국형 FDD 문서와 파트너 매칭까지, 프랜차이즈 확장의 전 과정을 함께합니다.", icon: Store },
+      { title: "매장 오픈 · 초기 운영", desc: "시공 · 스태핑 · 오픈 마케팅까지 오픈 이후 안정화 단계를 함께 챙깁니다.", icon: Rocket },
     ],
     servicesMore: "더 알아보기",
-    ctaEyebrow: "FROM KOREA TO AMERICA",
     ctaTitle1: "당신의 다음 매장은",
     ctaTitle2: "미국에서 시작됩니다.",
     ctaButton: "무료 상담 신청",
   },
   en: {
-    eyebrow: "FROM KOREA TO AMERICA",
     heroLine1: "Your Trusted",
     heroLine2: "Local Partner for",
     heroLine3: "U.S. Market Entry.",
@@ -80,42 +79,40 @@ const CONTENT = {
       { label: "Professionalism", en: "전문성" },
       { label: "Local Expertise", en: "현지 네트워크" },
     ],
-    aboutEyebrow: "CHAPTER — ABOUT K BRIDGE",
+    aboutBadge: "Company Overview",
     aboutTitle: "What we've learned in the field — not from reports.",
     aboutBody: [
       "K Bridge Partners was founded on hands-on U.S. commercial real estate and franchise experience, combined with data-driven market analysis.",
-      "For [years/decades], our team has operated in Washington DC and Virginia commercial real estate — watching, up close, the challenges Korean brands face entering the U.S. market. This partnership was built from that vantage point.",
-      "We share what we've learned on the ground, not what's written in reports.",
+      "Our team has spent 26 years in the Washington DC and Virginia commercial real estate market — watching, up close, the challenges Korean brands face entering the U.S. This partnership was built from that vantage point.",
     ],
     stats: [
-      { value: "[Decades]", unit: "yrs", label: "of U.S. real estate experience" },
-      { value: "[X]", unit: "brands", label: "supported to date" },
-      { value: "[X]", unit: "deals", label: "closed & projects delivered" },
-      { value: "[8]", unit: "markets", label: "U.S. metros we cover" },
+      { value: "26", unit: "yrs", label: "of commercial real estate experience" },
+      { value: "8", unit: "markets", label: "U.S. metros we cover" },
+      { value: "28", unit: "partners", label: "in our vetted network" },
+      { value: "6", unit: "services", label: "verticals we deliver" },
     ],
-    statsFootnote: "* Numbers are placeholders — to be replaced with real data.",
-    challengeEyebrow: "CHAPTER — OUR PERSPECTIVE",
+    challengeBadge: "Our Perspective",
     challengeTitle: "The most reliable local partner",
     challengeTitleItalic: "for Korean brands entering the U.S.",
     challengeBody: [
-      "Many Korean brands assume the playbook that worked at home will also work in the U.S. But America operates by fundamentally different rules — lease structures, franchise regulation (FDD), state-by-state licensing and tax, consumer culture.",
-      "Most failures aren't about brand quality. They happen when brands pick the wrong location without understanding the market's rules, miss the fine print of a lease, or get stuck during the early operational setup.",
-      "K Bridge Partners was founded at that exact gap. Decades of on-the-ground U.S. experience surface the things reports simply cannot show you.",
+      "It's tempting to assume that what worked in Korea will work in the U.S. It won't. Lease terms, franchise regulation (FDD), licensing and taxation — different from state to state. And a consumer culture nothing like Korea's.",
+      "Brands don't fail because of quality. They fail because of the wrong location, the missed contract clause, the unprepared opening. Because they didn't know the field.",
+      "K Bridge Partners starts on that field. What the reports don't tell you, we verify and translate for you.",
     ],
     challengeCta: "Read our perspective",
-    servicesEyebrow: "CHAPTER — SERVICES",
+    servicesBadge: "Services",
     servicesTitle1: "Every stage of U.S. entry —",
     servicesTitle2: "under one partner.",
-    servicesLead: "From research to store opening — five pillars, one accountable team.",
+    servicesLead: "From market research to store opening, one team with you throughout.",
     services: [
-      { title: "Market Research & Strategy", en: "시장 조사", desc: "Region-by-region trade area and consumer analysis. We define entry priorities and the right method for your brand.", icon: Compass },
-      { title: "Entity Setup", en: "법인 설립", desc: "State selection, entity form, tax structure, and licensing — designed for the expansion you'll want in five years.", icon: Landmark },
-      { title: "Commercial Real Estate", en: "상업용 부동산", desc: "Site analysis, market study, lease review, and negotiation — led by a team that has sat on both sides of the table.", icon: Building2 },
-      { title: "Franchise Development", en: "프랜차이즈", desc: "FDD documents, state registrations, master franchisee models, and local partner introductions.", icon: Store },
-      { title: "Store Opening & Ops", en: "매장 오픈", desc: "Buildout, staffing, opening marketing — we stay with you until the store is stable and running.", icon: Rocket },
+      { title: "Market Research & Strategy", desc: "Region-by-region trade area and consumer analysis. We define entry priorities and the right method for your brand.", icon: Compass },
+      { title: "Local Network Connections", desc: "Lawyers, accountants, contractors — we connect you to a vetted network of local partners.", icon: Network },
+      { title: "Entity Setup", desc: "State selection, entity form, tax structure, and licensing — designed for the expansion you'll want in five years.", icon: Landmark },
+      { title: "Commercial Real Estate", desc: "Site analysis, market study, lease review, and negotiation — led by a team that has sat on both sides of the table.", icon: Building2 },
+      { title: "Franchise Development", desc: "FDD documents, state registrations, master franchisee models, and local partner introductions.", icon: Store },
+      { title: "Store Opening & Ops", desc: "Buildout, staffing, opening marketing — we stay with you until the store is stable and running.", icon: Rocket },
     ],
     servicesMore: "Learn more",
-    ctaEyebrow: "FROM KOREA TO AMERICA",
     ctaTitle1: "Your next store",
     ctaTitle2: "starts in America.",
     ctaButton: "Free Consultation",
@@ -155,60 +152,48 @@ export default function Home() {
           }} />
         </div>
 
-        {/* Wordmark is rendered by the fixed Navbar — no duplicate in hero */}
-
-        <div className="relative max-w-[1440px] mx-auto px-6 lg:px-10 pt-40 lg:pt-48 pb-24 min-h-[100svh] flex flex-col justify-between">
-          <motion.div
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1 }}
-            className="flex items-center gap-6"
-          >
-            <span className="inline-block w-10 h-px bg-[color:var(--kb-gold)]" />
-            <span className="text-[11px] tracking-[0.4em] uppercase text-[color:var(--kb-gold)]">
-              {t.eyebrow}
-            </span>
-          </motion.div>
-
-          <div className="mt-16">
-            <h1 className="font-serif-kr font-light tracking-tight leading-[0.98] text-[clamp(2.5rem,7vw,7rem)]">
-              <div><MaskedLine delay={0.1}>{t.heroLine1}</MaskedLine></div>
-              <div><MaskedLine delay={0.25}>{t.heroLine2}</MaskedLine></div>
+        <div className="relative max-w-[1440px] mx-auto px-6 lg:px-10 pt-32 lg:pt-40 pb-24 min-h-[100svh] flex flex-col justify-center">
+          <div>
+            <h1 className="font-serif-kr font-light tracking-tight leading-[1.14] text-[clamp(2.25rem,6vw,6rem)]">
+              <div className="mb-2 md:mb-3"><MaskedLine delay={0.1}>{t.heroLine1}</MaskedLine></div>
+              <div className="mb-2 md:mb-3"><MaskedLine delay={0.25}>{t.heroLine2}</MaskedLine></div>
               <div className="text-[color:var(--kb-champagne)] italic"><MaskedLine delay={0.4}>{t.heroLine3}</MaskedLine></div>
             </h1>
             <motion.p
               initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.75, duration: 0.8 }}
-              className="mt-12 max-w-2xl text-base md:text-lg text-white/75 leading-[1.85]"
+              className="mt-10 max-w-2xl text-base md:text-lg text-white/75 leading-[1.85]"
             >
               {t.heroSub}
             </motion.p>
-          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.0, duration: 0.8 }}
-            className="mt-16 flex flex-wrap items-center gap-4"
-          >
-            <Link
-              to="/contact"
-              data-testid={TID.heroCta}
-              className="group inline-flex items-center gap-3 bg-[color:var(--kb-gold)] text-[color:var(--kb-ink)] px-8 py-4 text-sm tracking-[0.2em] uppercase font-medium hover:bg-[color:var(--kb-champagne)] transition-colors"
+            <motion.div
+              initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.0, duration: 0.8 }}
+              className="mt-12 flex flex-wrap items-center gap-4"
             >
-              {t.ctaPrimary} <ArrowUpRight size={16} />
-            </Link>
-            <Link
-              to="/services"
-              data-testid={TID.heroSecondaryCta}
-              className="inline-flex items-center gap-3 text-white/80 border border-[color:var(--kb-border)] px-8 py-4 text-sm tracking-[0.2em] uppercase hover:text-[color:var(--kb-gold)] hover:border-[color:var(--kb-gold)] transition-colors"
-            >
-              {t.ctaSecondary}
-            </Link>
-          </motion.div>
+              <Link
+                to="/contact"
+                data-testid={TID.heroCta}
+                className="group inline-flex items-center gap-3 bg-[color:var(--kb-gold)] text-[color:var(--kb-ink)] px-8 py-4 text-sm tracking-[0.2em] uppercase font-medium hover:bg-[color:var(--kb-champagne)] transition-colors"
+              >
+                {t.ctaPrimary} <ArrowUpRight size={16} />
+              </Link>
+              <Link
+                to="/services"
+                data-testid={TID.heroSecondaryCta}
+                className="inline-flex items-center gap-3 text-white/80 border border-[color:var(--kb-border)] px-8 py-4 text-sm tracking-[0.2em] uppercase hover:text-[color:var(--kb-gold)] hover:border-[color:var(--kb-gold)] transition-colors"
+              >
+                {t.ctaSecondary}
+              </Link>
+            </motion.div>
+          </div>
         </div>
       </section>
 
       {/* PILLARS */}
-      <section className="bg-[color:var(--kb-paper)] py-20 md:py-24 border-y border-[color:var(--kb-border)]">
+      <section className="bg-[color:var(--kb-paper)] py-14 md:py-16 border-y border-[color:var(--kb-border)]">
         <div className="max-w-[1440px] mx-auto px-6 lg:px-10">
           <FadeUp>
-            <div className="text-[11px] tracking-[0.35em] uppercase text-[color:var(--kb-gold)] mb-10 text-center">
+            <div className="text-[11px] tracking-[0.35em] uppercase text-[color:var(--kb-gold)] mb-8 text-center">
               {t.pillarsLabel}
             </div>
           </FadeUp>
@@ -219,7 +204,7 @@ export default function Home() {
                 <FadeUp key={p.label} delay={i * 0.08}>
                   <div className="flex flex-col items-center text-center px-4 group">
                     <Icon size={26} strokeWidth={1.2} className="text-[color:var(--kb-gold)] transition-transform duration-500 group-hover:-translate-y-1" />
-                    <div className="mt-6 font-serif-kr text-2xl md:text-3xl font-light text-[color:var(--kb-ink)]">
+                    <div className="mt-5 font-serif-kr text-2xl md:text-3xl font-light text-[color:var(--kb-ink)]">
                       {p.label}
                     </div>
                   </div>
@@ -231,13 +216,10 @@ export default function Home() {
       </section>
 
       {/* ABOUT K BRIDGE + STATS */}
-      <section className="bg-[color:var(--kb-ink)] text-white py-24 md:py-32">
+      <section className="bg-[color:var(--kb-ink)] text-white py-20 md:py-24">
         <div className="max-w-[1440px] mx-auto px-6 lg:px-10">
           <FadeUp>
-            <div className="flex items-center gap-4 mb-8">
-              <span className="w-10 h-px bg-[color:var(--kb-gold)]" />
-              <span className="text-[11px] tracking-[0.35em] uppercase text-[color:var(--kb-gold)]">{t.aboutEyebrow}</span>
-            </div>
+            <ChapterBadge number={1} label={t.aboutBadge} variant="dark" className="mb-8" />
           </FadeUp>
           <div className="grid grid-cols-12 gap-8 lg:gap-16">
             <div className="col-span-12 lg:col-span-6">
@@ -257,7 +239,7 @@ export default function Home() {
               <div className="grid grid-cols-2 gap-4 md:gap-6">
                 {t.stats.map((s, i) => (
                   <FadeUp key={i} delay={0.2 + i * 0.08}>
-                    <div data-testid={`home-stat-${i}`} className="border border-[color:var(--kb-border)] p-8 h-full min-h-[200px] flex flex-col justify-between hover:border-[color:var(--kb-gold)] hover:-translate-y-1 transition-all duration-500">
+                    <div data-testid={`home-stat-${i}`} className="border border-[color:var(--kb-border)] p-8 h-full min-h-[180px] flex flex-col justify-between hover:border-[color:var(--kb-gold)] hover:-translate-y-1 transition-all duration-500">
                       <div className="flex items-baseline gap-2">
                         <AnimatedCounter
                           value={s.value}
@@ -271,25 +253,30 @@ export default function Home() {
                   </FadeUp>
                 ))}
               </div>
-              <div className="mt-6 text-xs text-white/40 italic">{t.statsFootnote}</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CHALLENGE — Company perspective */}
-      <section className="bg-[color:var(--kb-bone)] py-24 md:py-32">
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
-          <div className="grid grid-cols-12 gap-10">
-            <div className="col-span-12 md:col-span-4">
-              <div className="flex items-center gap-4">
-                <span className="w-10 h-px bg-[color:var(--kb-gold)]" />
-                <span className="text-[11px] tracking-[0.35em] uppercase text-[color:var(--kb-gold)]">
-                  {t.challengeEyebrow}
-                </span>
+      {/* CHALLENGE — Company perspective (with photo) */}
+      <section className="bg-[color:var(--kb-bone)] py-20 md:py-24">
+        <div className="max-w-[1440px] mx-auto px-6 lg:px-10">
+          <div className="grid grid-cols-12 gap-10 lg:gap-14 items-start">
+            <FadeUp className="col-span-12 lg:col-span-5">
+              <div className="relative aspect-[4/5] overflow-hidden bg-[color:var(--kb-ink)] clip-corner">
+                <img
+                  src={PERSPECTIVE_IMG}
+                  alt=""
+                  className="absolute inset-0 w-full h-full object-cover"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 ring-1 ring-inset ring-[color:var(--kb-gold)]/15 pointer-events-none" />
               </div>
-            </div>
-            <div className="col-span-12 md:col-span-8">
+            </FadeUp>
+            <div className="col-span-12 lg:col-span-7">
+              <FadeUp>
+                <ChapterBadge number={2} label={t.challengeBadge} className="mb-6" />
+              </FadeUp>
               <h2 className="font-serif-kr text-4xl md:text-5xl font-light leading-[1.15]">
                 <MaskedLineInView>{t.challengeTitle}</MaskedLineInView><br />
                 <MaskedLineInView delay={0.15} className="italic text-[color:var(--kb-gold)]">{t.challengeTitleItalic}</MaskedLineInView>
@@ -300,7 +287,7 @@ export default function Home() {
                 ))}
               </FadeUp>
               <FadeUp delay={0.5}>
-                <div className="mt-12">
+                <div className="mt-10">
                   <Link to="/about" className="inline-flex items-center gap-3 text-[color:var(--kb-ink)] text-sm tracking-[0.25em] uppercase tick-arrow border-b border-[color:var(--kb-ink)] pb-1">
                     {t.challengeCta}
                   </Link>
@@ -311,24 +298,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SERVICES — 5 equal cards */}
-      <section className="bg-[color:var(--kb-paper)] py-24 md:py-32">
+      {/* SERVICES — 6 cards in 3x2 grid */}
+      <section className="bg-[color:var(--kb-paper)] py-20 md:py-24">
         <div className="max-w-[1440px] mx-auto px-6 lg:px-10">
-          <div className="grid grid-cols-12 gap-10 mb-16">
+          <div className="grid grid-cols-12 gap-10 mb-14">
             <div className="col-span-12 md:col-span-4">
-              <div className="flex items-center gap-4">
-                <span className="w-10 h-px bg-[color:var(--kb-gold)]" />
-                <span className="text-[11px] tracking-[0.35em] uppercase text-[color:var(--kb-gold)]">
-                  {t.servicesEyebrow}
-                </span>
-              </div>
+              <ChapterBadge number={3} label={t.servicesBadge} />
             </div>
             <div className="col-span-12 md:col-span-8">
               <h2 className="font-serif-kr text-4xl md:text-6xl font-light tracking-tight leading-[1.1]">
                 <MaskedLineInView delay={0}>{t.servicesTitle1}</MaskedLineInView><br />
                 <MaskedLineInView delay={0.15} className="text-[color:var(--kb-gold)] italic">{t.servicesTitle2}</MaskedLineInView>
               </h2>
-              <FadeUp delay={0.3} className="mt-8 max-w-2xl text-lg text-[color:var(--kb-muted)] leading-relaxed">
+              <FadeUp delay={0.3} className="mt-6 max-w-2xl text-lg text-[color:var(--kb-muted)] leading-relaxed">
                 {t.servicesLead}
               </FadeUp>
             </div>
@@ -338,7 +320,7 @@ export default function Home() {
             {t.services.map((s, i) => {
               const Icon = s.icon;
               return (
-                <FadeUp key={i} delay={i * 0.06} className="h-full">
+                <FadeUp key={i} delay={i * 0.05} className="h-full">
                   <Link
                     to="/services"
                     data-testid={`${TID.homeServiceCard}-${String(i + 1).padStart(2, "0")}`}
@@ -346,8 +328,11 @@ export default function Home() {
                   >
                     <div className="flex items-start justify-between">
                       <Icon size={26} strokeWidth={1.2} className="text-[color:var(--kb-gold)]" />
+                      <span className="text-[10px] tracking-[0.25em] text-[color:var(--kb-muted)]/70">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
                     </div>
-                    <div className="mt-16 flex-1 flex flex-col">
+                    <div className="mt-14 flex-1 flex flex-col">
                       <h3 className="font-serif-kr text-2xl font-light leading-tight">{s.title}</h3>
                       <p className="mt-4 text-sm text-[color:var(--kb-muted)] leading-relaxed flex-1">
                         {s.desc}
@@ -365,17 +350,14 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section className="bg-[color:var(--kb-paper)] pb-32">
+      <section className="bg-[color:var(--kb-paper)] pb-24">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10 text-center">
           <FadeUp>
-            <div className="text-[11px] tracking-[0.4em] uppercase text-[color:var(--kb-gold)] mb-8">
-              {t.ctaEyebrow}
-            </div>
             <h2 className="font-serif-kr text-4xl md:text-6xl font-light leading-[1.1] text-balance">
               <MaskedLineInView>{t.ctaTitle1}</MaskedLineInView>{" "}
               <MaskedLineInView delay={0.15} className="italic text-[color:var(--kb-gold)]">{t.ctaTitle2}</MaskedLineInView>
             </h2>
-            <div className="mt-12">
+            <div className="mt-10">
               <Link
                 to="/contact"
                 className="inline-flex items-center gap-3 bg-[color:var(--kb-ink)] text-white px-10 py-5 text-sm tracking-[0.25em] uppercase hover:bg-[color:var(--kb-gold)] hover:text-[color:var(--kb-ink)] transition-colors"

@@ -42,14 +42,14 @@ export const LOCATIONS = [
     tags: ["Retail", "Fashion", "F&B"],
   },
   {
-    key: "nj",
-    ko: "뉴저지",
-    en: "New Jersey",
-    state: "NJ · Bergen · Fort Lee · Palisades Park",
-    // Jersey City / Hudson waterfront night skyline (Manhattan view from NJ)
-    img: "https://images.unsplash.com/photo-1497015289639-54688650d173?crop=entropy&cs=srgb&fm=jpg&q=85&w=1600",
-    ko_note: "미국에서 가장 밀도 높은 한인 커뮤니티. F&B와 리테일의 검증된 진입 상권.",
-    en_note: "One of the densest Korean-American communities in the U.S. — proven ground for F&B and retail.",
+    key: "chi",
+    ko: "시카고",
+    en: "Chicago",
+    state: "IL · Chicagoland",
+    // Chicago skyline (verified Unsplash)
+    img: "https://images.unsplash.com/photo-1494522855154-9297ac14b55f?crop=entropy&cs=srgb&fm=jpg&q=85&w=1600",
+    ko_note: "미국 중서부 최대 상권. 다양한 이민자 커뮤니티가 만든 검증된 F&B 리테일 시장.",
+    en_note: "The Midwest's largest commercial hub — a proven F&B and retail market powered by diverse immigrant communities.",
     tags: ["F&B", "Retail"],
   },
   {
@@ -57,7 +57,6 @@ export const LOCATIONS = [
     ko: "댈러스",
     en: "Dallas",
     state: "TX · DFW Metroplex",
-    // Verified Dallas skyline at dusk
     img: "https://images.unsplash.com/photo-1531218150217-54595bc2b934?crop=entropy&cs=srgb&fm=jpg&q=85&w=1600",
     ko_note: "빠르게 성장하는 아시안 커뮤니티와 상대적으로 낮은 진입 비용의 균형 시장.",
     en_note: "A fast-growing Asian community balanced with relatively lower entry cost.",

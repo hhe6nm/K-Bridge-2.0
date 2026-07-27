@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useLang } from "@/lib/i18n";
-import { LOCATIONS } from "@/lib/locations";
+import { Mail, Phone, Linkedin } from "lucide-react";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -12,7 +12,9 @@ export default function Footer() {
         services: "서비스",
         s1: "시장 진입 전략", s2: "프랜차이즈 확장", s3: "법인 설립 · 오픈 지원", s4: "상업 부동산 · 입지 선정",
         company: "회사", a1: "소개", a2: "팀", a3: "프로세스", a4: "인사이트",
-        offices: "지역", cta: "상담 신청",
+        contact: "문의", ctaLabel: "무료 상담 신청",
+        legalLabel: "정책",
+        privacy: "개인정보처리방침", terms: "이용약관",
       }
     : {
         tagline1: "The U.S. market-entry partner for Korean brands.",
@@ -20,18 +22,27 @@ export default function Footer() {
         services: "Services",
         s1: "Market Entry Strategy", s2: "Franchise Development", s3: "Business Setup & Launch", s4: "Real Estate & Site Selection",
         company: "Company", a1: "About", a2: "Team", a3: "Process", a4: "Insights",
-        offices: "Locations", cta: "Request Consultation",
+        contact: "Contact", ctaLabel: "Free Consultation",
+        legalLabel: "Legal",
+        privacy: "Privacy Policy", terms: "Terms of Service",
       };
 
   return (
     <footer className="bg-[color:var(--kb-ink)] text-white/70" data-testid="site-footer">
       <div className="max-w-[1440px] mx-auto px-6 lg:px-10 pt-20 pb-10">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-16 border-b border-[color:var(--kb-border)]">
-          <div className="md:col-span-5">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-14 border-b border-[color:var(--kb-border)]">
+          <div className="md:col-span-4">
             <div className="font-serif-kr text-3xl text-[color:var(--kb-champagne)]">K Bridge Partners</div>
             <p className="mt-6 max-w-md text-sm leading-relaxed text-white/60">
               {t.tagline1}<br />{t.tagline2}
             </p>
+            <Link
+              to="/contact"
+              data-testid="footer-cta"
+              className="mt-8 inline-flex items-center gap-3 bg-[color:var(--kb-gold)] text-[color:var(--kb-ink)] px-6 py-3 text-[11px] tracking-[0.25em] uppercase font-medium hover:bg-[color:var(--kb-champagne)] transition-colors"
+            >
+              {t.ctaLabel}
+            </Link>
           </div>
 
           <div className="md:col-span-3">
@@ -51,27 +62,46 @@ export default function Footer() {
               <li><Link to="/team" className="hover:text-[color:var(--kb-champagne)]">{t.a2}</Link></li>
               <li><Link to="/process" className="hover:text-[color:var(--kb-champagne)]">{t.a3}</Link></li>
               <li><Link to="/insights" className="hover:text-[color:var(--kb-champagne)]">{t.a4}</Link></li>
+              <li><Link to="/locations" className="hover:text-[color:var(--kb-champagne)]">{lang === "ko" ? "지역" : "Locations"}</Link></li>
             </ul>
           </div>
 
-          <div className="md:col-span-2">
-            <div className="text-[11px] tracking-[0.25em] uppercase text-[color:var(--kb-gold)] mb-5">{t.offices}</div>
-            <ul className="space-y-3 text-sm" data-testid="footer-locations-list">
-              {LOCATIONS.map((loc) => (
-                <li key={loc.key} className="text-white/70">
-                  {lang === "ko" ? loc.ko : loc.en}
-                </li>
-              ))}
-              <li className="pt-3"><Link to="/contact" className="text-[color:var(--kb-champagne)] tick-arrow">{t.cta}</Link></li>
+          <div className="md:col-span-3">
+            <div className="text-[11px] tracking-[0.25em] uppercase text-[color:var(--kb-gold)] mb-5">{t.contact}</div>
+            <ul className="space-y-3 text-sm" data-testid="footer-contact-list">
+              <li className="flex items-start gap-2.5">
+                <Mail size={14} className="mt-1 text-[color:var(--kb-gold)]" strokeWidth={1.5} />
+                <a href="mailto:contact@k-bridge-partners.com" className="hover:text-[color:var(--kb-champagne)] break-all">contact@k-bridge-partners.com</a>
+              </li>
+              <li className="flex items-center gap-2.5">
+                <Phone size={14} className="text-[color:var(--kb-gold)]" strokeWidth={1.5} />
+                <a href="tel:+17036299056" className="hover:text-[color:var(--kb-champagne)]">(703) 629-9056</a>
+              </li>
+              <li className="flex items-center gap-2.5">
+                <Linkedin size={14} className="text-[color:var(--kb-gold)]" strokeWidth={1.5} />
+                <a
+                  href="https://www.linkedin.com/company/k-bridge-partners"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[color:var(--kb-champagne)]"
+                >
+                  LinkedIn
+                </a>
+              </li>
+            </ul>
+
+            <div className="text-[11px] tracking-[0.25em] uppercase text-[color:var(--kb-gold)] mt-8 mb-4">{t.legalLabel}</div>
+            <ul className="space-y-2 text-sm">
+              <li><Link to="/privacy" className="hover:text-[color:var(--kb-champagne)]" data-testid="footer-privacy">{t.privacy}</Link></li>
+              <li><Link to="/terms" className="hover:text-[color:var(--kb-champagne)]" data-testid="footer-terms">{t.terms}</Link></li>
             </ul>
           </div>
         </div>
 
         <div className="pt-8 flex flex-col sm:flex-row justify-between gap-4 text-xs text-white/40">
-          <div>© {year} K Bridge Partners. All rights reserved.</div>
+          <div>© {year} K Bridge Partners LLC. All rights reserved.</div>
           <div className="flex gap-6">
             <span>KO · EN</span>
-            <span>Est. 2026</span>
           </div>
         </div>
       </div>

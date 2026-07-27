@@ -43,7 +43,7 @@
   }
 }
 
-html { scroll-behavior: auto; }
+html { scroll-behavior: auto; scroll-padding-top: 96px; }
 
 body {
   margin: 0;

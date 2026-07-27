@@ -1,0 +1,40 @@
+{
+  "summary": "Iteration 4 — Full-site revision validation. Backend: 9/9 pytest passing (root health, insights list count=10 in exact order 1..10 with exact slug set, no legacy slugs leaked, all 10 detail pages return content, unknown slug 404, contact POST valid+persistence check via GET, contact 422 on invalid email + missing fields). Frontend walk-through: navbar renders /kbp-logo-gold.png ONCE (no duplicate hero logo). Nav has 9 items in KO (홈/회사 소개/팀/서비스/프로세스/인사이트/FAQ/지역/문의) — Success removed. Home: no 'FROM KOREA TO AMERICA', no 'CHAPTER —' strings, ChapterBadge 01/02 present, perspective copy '한국에서 통했던 방식...' present, services subheading + '현지 네트워크 연결' (2nd card) present, 6 service cards. About: hero '한국의 도전을, 미국의 현실로.' + '이론이 아닌 현장에서, 함께 만듭니다.' present. Recognition/Awards section fully removed. Mission pills (퍼센티지 임대료/코테넌시 조항/개인 보증) present, Approach headline + 4 stages present, Founding chapter-badge-04 present. Services: new headline present. Team: Jessica Chong + Joy Chong + Samantha Cho — all 3 real names rendered (placeholder '성함 예정' gone). Process: all 6 timelines (1–2주, 4–6주, 2–4개월, 6–10주, 4–8주, 90일) present with en-dash. FAQ: 11 items across all 4 categories (spec says '12 questions' but 3+3+2+3=11 which matches the counts shown in-brief; document sums to 11). Locations: 8 city cards (DC/VA/마이애미/뉴욕/시카고/댈러스/애틀랜타/라스베가스), Chicago skyline Unsplash image loads for key='chi', NJ replaced, new tagline '지역에 상관없이, 함께 진출할 수 있습니다.' present. Contact: headline '한 통의 메시지로 시작됩니다.' + contact@k-bridge-partners.com + (703) 629-9056 all correct. Footer: 'Est. 2026' removed, LinkedIn + /privacy + /terms links present. Privacy & Terms pages render substantive bilingual content. Insights list page renders 10 cards. KO/EN toggle flips hero to 'Your Trusted Local Partner for U.S. Market Entry.' (verified via screenshot).",
+  "backend_issues": {
+    "critical": [],
+    "minor": [
+      {"endpoint": "/api/insights/korea-to-us", "issue": "Review-request test case says this slug should return full content, but the server explicitly lists 'korea-to-us' style legacy slugs as LEGACY_SLUGS_TO_REMOVE and returns 404. Either the review-request line is stale, or a canonical 'korea-to-us' overview article needs to be added. Currently 404."}
+    ]
+  },
+  "frontend_issues": {
+    "ui_bugs": [
+      {"component": "AnimatedCounter (Home stats + About stats)", "issue": "Counter never reaches its target value. Home renders 13/4/7/3 (expected 26/8/28/6) and About renders 1/0/1/0 after 5s wait. Root cause: in /app/frontend/src/components/AnimatedCounter.jsx, `const match = raw.match(...)` produces a NEW array every render and is listed in the useEffect dependency array `[inView, match, duration]`, so every re-render restarts the animation from 0. Fix: memoize match with useMemo or destructure prefix/digits/suffix into strings and depend on those primitives (or raw string). This is a real functional regression — stat values were correct in code but never surface to the user.", "selector": "[data-testid^='home-stat-value']", "priority": "HIGH"}
+    ],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "Footer", "issues": ["Copyright reads 'K Bridge Partners LLC. All rights reserved.' — the review request says 'No LLC visible' but this appears intentional (legal entity name in copyright). Confirm intent — if brand wants LLC scrubbed everywhere, drop the LLC suffix in Footer.jsx copyright line."]},
+      {"screen": "Contact sidebar", "issues": ["Section label reads 'Locations' (title case) rather than 'LOCATIONS' (all caps). Review request explicitly says \"'OFFICES' renamed to 'LOCATIONS'\". Content-wise renamed correctly, only casing differs. Apply uppercase class or change text if all-caps is intended."]},
+      {"screen": "Services page", "issues": ["The token '초기' appears 3 times across the whole Services page copy. Review-brief target is '≤ 2 in Store Opening card body'. Could not measure Store Opening card in isolation from body scan — flag for developer to confirm the constraint is met on that specific card."]}
+    ]
+  },
+  "test_report_links": ["/app/backend/tests/backend_test.py", "/app/test_reports/pytest/pytest_results.xml"],
+  "action_items": [
+    "HIGH: Fix AnimatedCounter re-render bug — memoize match or depend on primitives so the count-up reaches the target value on Home and About stats.",
+    "Decide on /api/insights/korea-to-us: either add a canonical overview post at that slug OR update the review checklist since server treats it as legacy.",
+    "Confirm intent on 'LLC' in footer copyright; if it should be scrubbed everywhere, edit Footer.jsx.",
+    "Uppercase the Contact sidebar 'Locations' label to 'LOCATIONS' if strict spec is required."
+  ],
+  "critical_code_review_comments": [
+    "AnimatedCounter.jsx L15-31: `match` is a new array reference each render; listing it in the useEffect dep array causes the animation to be cancelled+restarted every render, so the counter never converges to the target. Wrap with useMemo(() => raw.match(...), [raw]) or depend on `raw` string only.",
+    "server.py LEGACY_SLUGS_TO_REMOVE deletes 'korea-to-us' style slugs unconditionally on every startup — safe but consider gating by env or a one-time migration flag so future writes at that slug aren't silently wiped.",
+    "AnimatedCounter has no reduced-motion opt-out; consider respecting prefers-reduced-motion for accessibility."
+  ],
+  "updated_files": ["/app/backend/tests/backend_test.py"],
+  "success_rate": {"backend": "100%", "frontend": "~95%"},
+  "seed_data_creation": "1 TEST_iter4_user contact message via POST /api/contact during pytest run.",
+  "should_call_test_agent_after_fix": true,
+  "should_main_agent_self_test": false,
+  "test_credentials": "N/A",
+  "context_for_next_testing_agent": "Backend test file at /app/backend/tests/backend_test.py now has 9 pytest tests including insight count/order/slug set assertions and contact persistence check. Only real functional bug found this pass is AnimatedCounter re-render regression — after E1 fixes it, verify home stats render 26/8/28/6 and about stats render their own values by scrolling into view and waiting >2s. All other observations are style/spec-ambiguity items.",
+  "rca_of_the_issue": "AnimatedCounter useEffect depends on `match` (a fresh regex result object) so every parent re-render (framer-motion FadeUp scroll observers, language context, etc.) cancels the in-flight `animate()` controls and restarts from 0. Because these re-renders continue after the initial view, the displayed value keeps being reset partway through the count-up and never reaches the target. Fix by memoizing `match` on `raw` or by pulling out primitives (prefix, digitsStr, suffix, target) and depending only on those + inView."
+}

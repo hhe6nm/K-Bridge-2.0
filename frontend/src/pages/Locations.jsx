@@ -12,8 +12,8 @@ const CONTENT = {
     marketLabel: "타겟 시장",
     hoverCta: "브리핑 요청",
     footEyebrow: "COVERAGE",
-    footTitle1: "주요 도시가 아니라도",
-    footTitleItalic: "문의는 언제나 환영입니다.",
+    footTitle1: "지역에 상관없이,",
+    footTitleItalic: "함께 진출할 수 있습니다.",
     footBody: "브랜드의 특성에 따라 상기 도시 외 다른 지역이 적합할 수 있습니다. 시장 특성과 브랜드 포지셔닝을 종합해 최적의 진입 지역을 함께 판단해 드립니다.",
     cta: "지역별 상담 요청",
     noteKey: "ko_note",
@@ -25,8 +25,8 @@ const CONTENT = {
     marketLabel: "Target market",
     hoverCta: "Request a briefing",
     footEyebrow: "COVERAGE",
-    footTitle1: "Not on this list?",
-    footTitleItalic: "Reach out anyway.",
+    footTitle1: "Wherever your brand belongs,",
+    footTitleItalic: "we can go there together.",
     footBody: "Depending on your brand, a different market may be the right fit. We help you pick the right region based on market character and brand positioning.",
     cta: "Request a market briefing",
     noteKey: "en_note",
@@ -68,7 +68,6 @@ export default function Locations() {
                   style={{ background: LOCATION_FALLBACK_GRADIENT }}
                 >
                   <LocationImg src={c.img} alt={c.en} />
-                  {/* Navy overlay to unify palette */}
                   <div className="absolute inset-0 bg-gradient-to-t from-[#050914] via-[#050914]/70 to-[#050914]/20 pointer-events-none" />
                   <div className="absolute inset-0 ring-1 ring-inset ring-[color:var(--kb-gold)]/10 pointer-events-none" />
 
@@ -94,7 +93,6 @@ export default function Locations() {
                     </div>
                   </div>
 
-                  {/* Hover overlay — description slides up */}
                   <div className="absolute inset-x-0 bottom-0 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out bg-[#050914]/95 backdrop-blur-sm border-t border-[color:var(--kb-gold)]/40 p-6">
                     <p className="text-[13px] text-white/85 leading-[1.7]">{c[t.noteKey]}</p>
                     <Link

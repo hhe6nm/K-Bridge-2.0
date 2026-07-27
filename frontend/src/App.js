@@ -9,12 +9,13 @@ import About from "@/pages/About";
 import Team from "@/pages/Team";
 import Services from "@/pages/Services";
 import Process from "@/pages/Process";
-import Success from "@/pages/Success";
 import Insights from "@/pages/Insights";
 import InsightPost from "@/pages/InsightPost";
 import Faq from "@/pages/Faq";
 import Locations from "@/pages/Locations";
 import Contact from "@/pages/Contact";
+import Privacy from "@/pages/Privacy";
+import Terms from "@/pages/Terms";
 
 function App() {
   return (
@@ -29,12 +30,13 @@ function App() {
                 <Route path="/team" element={<Team />} />
                 <Route path="/services" element={<Services />} />
                 <Route path="/process" element={<Process />} />
-                <Route path="/success" element={<Success />} />
                 <Route path="/insights" element={<Insights />} />
                 <Route path="/insights/:slug" element={<InsightPost />} />
                 <Route path="/faq" element={<Faq />} />
                 <Route path="/locations" element={<Locations />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/privacy" element={<Privacy />} />
+                <Route path="/terms" element={<Terms />} />
               </Route>
             </Routes>
           </SmoothScroll>
