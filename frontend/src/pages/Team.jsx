@@ -26,7 +26,7 @@ const CONTENT = {
         title: "이사 (Director)",
         role: "상업 부동산 · 다각적 사업 운영 경험",
         stat: "20+ 년 경력 · 상업 부동산 · 다산업 사업 운영",
-        bio: "26년간 상업 부동산 분야에서 활동하며, 동시에 호텔 개발, 리테일, 이커머스 등 다양한 산업에서 직접 사업을 운영해왔습니다. 한 분야에 머무르지 않고, 여러 산업에서 실제로 사업을 일으키고 이끌어본 경험을 갖추고 있습니다.",
+        bio: "20년 이상 상업 부동산 분야에서 활동하며, 동시에 호텔 개발, 리테일, 이커머스 등 다양한 산업에서 직접 사업을 운영해왔습니다. 한 분야에 머무르지 않고, 여러 산업에서 실제로 사업을 일으키고 이끌어본 경험을 갖추고 있습니다.",
         tags: ["Commercial Real Estate", "Hospitality", "Retail", "E-Commerce"],
       },
       {
@@ -60,7 +60,7 @@ const CONTENT = {
         title: "Director",
         role: "Commercial Real Estate · Multi-Industry Operator",
         stat: "20+ years · CRE · Multi-industry operator",
-        bio: "Joy has worked in commercial real estate for 26 years, and simultaneously operated businesses across hospitality, retail, and e-commerce. Her experience isn't confined to one lane — she has built and run businesses across multiple industries, not just observed them.",
+        bio: "Joy has worked in commercial real estate for 20+ years, and simultaneously operated businesses across hospitality, retail, and e-commerce. Her experience isn't confined to one lane — she has built and run businesses across multiple industries, not just observed them.",
         tags: ["Commercial Real Estate", "Hospitality", "Retail", "E-Commerce"],
       },
       {

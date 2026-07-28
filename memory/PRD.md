@@ -31,7 +31,7 @@ of firsthand U.S. commercial real estate + franchise experience, delivered as ex
 - Frontend: React 19 + React Router 7 + framer-motion + lenis + Shadcn UI
 - Contact + Insights collections in MongoDB
 
-## What's Implemented (Latest: 2026-02)
+## What's Implemented (Latest: 2026-02 Round 2)
 
 ### Core (previously shipped)
 - 12 routes: /, /about, /team, /services, /process, /insights, /insights/:slug, /faq, /locations, /contact, /privacy, /terms
@@ -111,8 +111,24 @@ of firsthand U.S. commercial real estate + franchise experience, delivered as ex
 
 ## Testing
 - iteration_1..3: backend 100%, frontend ~95–98%
-- iteration_4: backend 100% (9/9 pytest), found 1 HIGH bug (AnimatedCounter re-render)
-- iteration_5: verified AnimatedCounter fix — counters now converge to 26/8/28/6 on Home + About. Frontend 100%.
+- iteration_4: backend 100%, found 1 HIGH bug (AnimatedCounter re-render)
+- iteration_5: AnimatedCounter fix verified — frontend 100%
+- iteration_6 (Round 2): **backend 100% (10/10 pytest)**, **frontend 100%** of Round 2 items. All build bugs fixed (mission statement visible, chips as real components, Approach headline+connector line, Founding restyle, Contact logo removed). Only flagged item was content inconsistency 26년→20년, now fixed.
+
+## Round 2 Revision (2026-02)
+- **Shared components created**: `StatsBlock` (Home + About now share one source), `SectionQuote` (Mission + Approach share one component)
+- **Nav auto-hide**: navbar slides out on scroll-down past 200px, slides back on scroll-up — solves the site-wide "sticky nav overlap" complaint
+- **About Mission section — BUILD BUGS FIXED**: mission statement now visibly renders inside gold left-bar block; 3 pills now real UI components (not inline text); body copy rewritten; closing quote updated to "숫자와 조항 너머의 판단은, 현장에서 나옵니다."
+- **About Approach**: new headline "한 팀이, 처음부터 끝까지."; continuous gold gradient connector line through all 4 timeline dots
+- **About Founding Story**: photo replaced with commercial storefront corridor; hook line restyled to plain text (no italic, no quote marks); small gold divider between failure lines and credibility; closing line larger + gold; 창업 가족 → 창업팀
+- **Home perspective section**: new commercial storefront image; body copy rewritten to the locked Round 2 version
+- **Services**: tightened whitespace between subheading and grid
+- **Team — Samantha Cho**: role now displays "Principal Consultant · Cross-Border Strategy" together; bio replaced (leads with achievement, mentions Solidcore as anchor example)
+- **Locations**: coverage banner fixed — `word-break:keep-all` prevents "다." orphan; 7:5 grid contains right-column body copy within max-w-md
+- **Contact**: sidebar Logo removed (redundant with navbar); large sidebar headline removed (PageHeader is now sole page headline)
+- **Insights**: 3 articles (EIN, E-2, Co-Tenancy) now have full-depth body content per Round 2 locked copy; other 7 pending client deliverable
+- **Content consistency**: 26년 → 20년 이상 (20+) across Home, About, Team narratives to match the stat block
+- **Cleanup**: orphan `pages/Success.jsx` deleted
 
 ## Deployment Health
 - deployment_agent: **PASS** — no hardcoded secrets, env externalized, CORS OK, supervisor valid, `/api` prefix consistent, no build errors. Ready to promote.

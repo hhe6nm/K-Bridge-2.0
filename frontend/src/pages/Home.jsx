@@ -31,7 +31,7 @@ const CONTENT = {
     aboutTitle: "이론이 아닌, 현장에서 배운 것을 전달합니다.",
     aboutBody: [
       "K Bridge Partners는 미국 상업 부동산과 프랜차이즈 실무 경험, 그리고 데이터 기반 시장 분석 역량을 바탕으로 설립되었습니다.",
-      "26년간 워싱턴 DC 및 버지니아 지역을 중심으로 상업용 부동산 실무를 쌓아온 팀이, 한국 브랜드가 미국 시장에서 겪는 실질적인 어려움을 가까이에서 지켜보며 시작한 파트너십입니다.",
+      "20년 이상 워싱턴 DC 및 버지니아 지역을 중심으로 상업용 부동산 실무를 쌓아온 팀이, 한국 브랜드가 미국 시장에서 겪는 실질적인 어려움을 가까이에서 지켜보며 시작한 파트너십입니다.",
     ],
     stats: [
       { value: "20+", unit: "년", label: "상업 부동산 실무 경험" },
@@ -83,7 +83,7 @@ const CONTENT = {
     aboutTitle: "What we've learned in the field — not from reports.",
     aboutBody: [
       "K Bridge Partners was founded on hands-on U.S. commercial real estate and franchise experience, combined with data-driven market analysis.",
-      "Our team has spent 26 years in the Washington DC and Virginia commercial real estate market — watching, up close, the challenges Korean brands face entering the U.S. This partnership was built from that vantage point.",
+      "Our team has spent 20+ years in the Washington DC and Virginia commercial real estate market — watching, up close, the challenges Korean brands face entering the U.S. This partnership was built from that vantage point.",
     ],
     stats: [
       { value: "20+", unit: "yrs", label: "of commercial real estate experience" },
