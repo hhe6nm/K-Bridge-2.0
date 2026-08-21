@@ -10,7 +10,7 @@ import { useLang } from "@/lib/i18n";
 
 const HERO_IMG = "https://images.unsplash.com/photo-1664353655151-9d94a9170eb0?crop=entropy&cs=srgb&fm=jpg&q=85&w=2000";
 // DC / Northern Virginia commercial storefront corridor (M Street, Georgetown-style retail)
-const PERSPECTIVE_IMG = "https://images.unsplash.com/photo-1555636222-cae831e670b3?crop=entropy&cs=srgb&fm=jpg&q=85&w=1600";
+const PERSPECTIVE_IMG = "https://images.unsplash.com/photo-1508385082359-f38ae991e8f2?fm=jpg&q=80&w=1200&auto=format&fit=crop";
 
 const CONTENT = {
   ko: {
