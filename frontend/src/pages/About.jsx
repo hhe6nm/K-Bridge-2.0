@@ -8,7 +8,7 @@ import SectionQuote from "@/components/SectionQuote";
 import { useLang } from "@/lib/i18n";
 
 // Commercial storefront / retail corridor — reflects the CRE background
-const FOUNDING_IMG = "https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?crop=entropy&cs=srgb&fm=jpg&q=85&w=1600";
+const FOUNDING_IMG = "https://images.unsplash.com/photo-1480944657103-7fed22359e1d?fm=jpg&q=85&w=1600&auto=format&fit=crop";
 
 const CONTENT = {
   ko: {
