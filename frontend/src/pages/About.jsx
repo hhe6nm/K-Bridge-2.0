@@ -143,10 +143,10 @@ export default function About() {
 
           {/* Gap ~40px, then isolated mission statement w/ gold left bar */}
           <FadeUp delay={0.1}>
-            <div className="mt-10 flex gap-6 md:gap-8 max-w-4xl" data-testid="mission-statement-block">
-              <span className="w-[3px] rounded-full bg-[color:var(--kb-gold)] self-stretch flex-shrink-0" aria-hidden />
-              <p className="font-serif-kr text-[22px] md:text-[26px] font-light leading-[1.5] text-[color:var(--kb-ink)]">
-                <MaskedLineInView>{t.missionStatement}</MaskedLineInView>
+            <div className="mt-10 flex items-center gap-4" data-testid="mission-statement-block">
+              <span className="w-1 self-stretch flex-shrink-0 bg-gradient-to-b from-[color:var(--kb-gold)] to-transparent" aria-hidden />
+              <p className="font-serif text-2xl md:text-3xl font-light italic leading-[1.4] text-[color:var(--kb-gold)] whitespace-nowrap">
+                {t.missionQuote}
               </p>
             </div>
           </FadeUp>
@@ -166,15 +166,6 @@ export default function About() {
               ))}
             </div>
           </FadeUp>
-
-          {/* Gap ~40px, then divider + shared closing quote */}
-          <FadeUp delay={0.5}>
-            <div className="mt-10">
-              <SectionQuote>{t.missionQuote}</SectionQuote>
-            </div>
-          </FadeUp>
-        </div>
-      </section>
 
       {/* Approach — new headline + timeline with connector line + ~32px between steps */}
       <section className="bg-[color:var(--kb-paper)] pt-16 md:pt-20 pb-24 md:pb-28">
