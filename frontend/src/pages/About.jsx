@@ -257,27 +257,21 @@ export default function About() {
             </ul>
           </FadeUp>
 
-          {/* Small gold divider mark separating "the problem" from "the credibility" */}
-          <FadeUp delay={0.4}>
-            <div className="mt-14 mb-14 flex items-center gap-4 max-w-3xl" aria-hidden>
-              <span className="w-2 h-2 rounded-full bg-[color:var(--kb-gold)]" />
-              <span className="flex-1 h-px bg-[color:var(--kb-gold)]/40" />
-              <span className="w-2 h-2 rounded-full bg-[color:var(--kb-gold)]" />
-            </div>
-          </FadeUp>
-
           {/* Credibility paragraph */}
-          <FadeUp delay={0.5}>
-            <p className="text-lg text-[color:var(--kb-text)]/80 leading-[1.9] max-w-3xl">
+          <FadeUp delay={0.4}>
+            <p className="mt-14 text-lg text-[color:var(--kb-text)]/80 leading-[1.9] max-w-3xl">
               {t.foundingCredibility}
             </p>
           </FadeUp>
 
-          {/* Section conclusion — larger + gold accent so it reads as conclusion */}
-          <FadeUp delay={0.65}>
-            <p className="mt-14 font-serif-kr text-xl md:text-2xl leading-[1.55] max-w-3xl text-[color:var(--kb-gold)] font-light">
-              {t.foundingClosing}
-            </p>
+          {/* Closing quote — gold bar treatment matching Mission/Approach sections */}
+          <FadeUp delay={0.5}>
+            <div className="mt-12 flex items-center gap-5 max-w-3xl" data-testid="founding-quote-block">
+              <span className="w-1.5 self-stretch flex-shrink-0 bg-[color:var(--kb-gold)]" aria-hidden />
+              <p className="font-serif text-3xl md:text-4xl font-light italic leading-[1.4] text-[color:var(--kb-gold)]">
+                {t.foundingClosing}
+              </p>
+            </div>
           </FadeUp>
         </div>
       </section>
