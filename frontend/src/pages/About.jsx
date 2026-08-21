@@ -141,10 +141,10 @@ export default function About() {
             <ChapterBadge number={2} label={t.missionBadge} />
           </FadeUp>
 
-          {/* Gap ~40px, then quote w/ gold left bar */}
+          {/* Gap ~40px, then quote w/ solid gold left bar */}
           <FadeUp delay={0.1}>
             <div className="mt-10 flex items-center gap-4" data-testid="mission-statement-block">
-              <span className="w-1 self-stretch flex-shrink-0 bg-gradient-to-b from-[color:var(--kb-gold)] to-transparent" aria-hidden />
+              <span className="w-1 self-stretch flex-shrink-0 bg-[color:var(--kb-gold)]" aria-hidden />
               <p className="font-serif text-2xl md:text-3xl font-light italic leading-[1.4] text-[color:var(--kb-gold)] whitespace-nowrap">
                 {t.missionQuote}
               </p>
@@ -175,8 +175,19 @@ export default function About() {
           <FadeUp>
             <ChapterBadge number={3} label={t.approachBadge} />
           </FadeUp>
+
+          {/* Closing quote moved to top, styled to match Mission section's gold-bar quote */}
           <FadeUp delay={0.1}>
-            <h2 className="mt-8 font-serif-kr text-4xl md:text-5xl font-light leading-[1.2] text-[color:var(--kb-ink)] max-w-3xl">
+            <div className="mt-10 flex items-center gap-4" data-testid="approach-quote-block">
+              <span className="w-1 self-stretch flex-shrink-0 bg-[color:var(--kb-gold)]" aria-hidden />
+              <p className="font-serif text-2xl md:text-3xl font-light italic leading-[1.4] text-[color:var(--kb-gold)] whitespace-nowrap">
+                {t.approachClosing}
+              </p>
+            </div>
+          </FadeUp>
+
+          <FadeUp delay={0.2}>
+            <h2 className="mt-14 font-serif-kr text-4xl md:text-5xl font-light leading-[1.2] text-[color:var(--kb-ink)] max-w-3xl">
               <MaskedLineInView>{t.approachTitle}</MaskedLineInView>
             </h2>
           </FadeUp>
@@ -189,7 +200,7 @@ export default function About() {
             />
 
             {t.approachStages.map((stage, i) => (
-              <FadeUp key={i} delay={0.15 + i * 0.08}>
+              <FadeUp key={i} delay={0.25 + i * 0.08}>
                 <li className={`relative pl-12 ${i < t.approachStages.length - 1 ? "pb-8" : ""}`}>
                   <span
                     className="absolute left-0 top-1.5 w-[19px] h-[19px] rounded-full border-2 border-[color:var(--kb-gold)] bg-[color:var(--kb-paper)] flex items-center justify-center z-10"
@@ -205,13 +216,6 @@ export default function About() {
               </FadeUp>
             ))}
           </ol>
-
-          {/* Shared closing quote — matches Mission section style */}
-          <FadeUp delay={0.55}>
-            <div className="mt-12 max-w-3xl">
-              <SectionQuote>{t.approachClosing}</SectionQuote>
-            </div>
-          </FadeUp>
         </div>
       </section>
 
