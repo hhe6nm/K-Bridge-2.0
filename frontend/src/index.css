@@ -45,8 +45,7 @@
 
 html { scroll-behavior: auto; 
        scroll-padding-top: 96px;
-       overflow-x: hidden;
-       max-width: 100vw;}
+     }
 
 body {
   margin: 0;
@@ -54,9 +53,7 @@ body {
   color: var(--kb-text);
   font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale
-  overflow-x: hidden;
-  max-width: 100vw;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection { background: var(--kb-gold); color: var(--kb-ink); }
