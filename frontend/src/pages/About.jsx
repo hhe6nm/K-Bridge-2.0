@@ -158,14 +158,19 @@ export default function About() {
             </p>
           </FadeUp>
 
-          {/* Gap ~24px, then chip row (real components, not inline text) */}
-          <FadeUp delay={0.35}>
-            <div className="mt-6 flex flex-wrap gap-3" data-testid="mission-pills">
-              {t.missionPills.map((p) => (
-                <Pill key={p.ko} ko={p.ko} en={p.en} />
-              ))}
-            </div>
-          </FadeUp>
+{/* Gap ~24px, then chip row (real components, not inline text) */}
+<FadeUp delay={0.35}>
+  <div className="mt-6 flex flex-wrap gap-3" data-testid="mission-pills">
+    {t.missionPills.map((p) => (
+      <Pill key={p.ko} ko={p.ko} en={p.en} />
+    ))}
+  </div>
+</FadeUp>
+        </div>
+      </section>
+
+      {/* Approach — new headline + timeline with connector line + ~32px between steps */}
+      <section className="bg-[color:var(--kb-paper)] pt-16 md:pt-20 pb-24 md:pb-28">
 
       {/* Approach — new headline + timeline with connector line + ~32px between steps */}
       <section className="bg-[color:var(--kb-paper)] pt-16 md:pt-20 pb-24 md:pb-28">
