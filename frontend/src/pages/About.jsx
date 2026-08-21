@@ -143,9 +143,9 @@ export default function About() {
 
           {/* Gap ~40px, then quote w/ solid gold left bar */}
           <FadeUp delay={0.1}>
-            <div className="mt-10 flex items-center gap-4" data-testid="mission-statement-block">
-              <span className="w-1 self-stretch flex-shrink-0 bg-[color:var(--kb-gold)]" aria-hidden />
-              <p className="font-serif text-2xl md:text-3xl font-light italic leading-[1.4] text-[color:var(--kb-gold)] whitespace-nowrap">
+            <div className="mt-10 flex items-center gap-5" data-testid="mission-statement-block">
+              <span className="w-1.5 self-stretch flex-shrink-0 bg-[color:var(--kb-gold)]" aria-hidden />
+              <p className="font-serif text-3xl md:text-4xl font-light italic leading-[1.4] text-[color:var(--kb-gold)] whitespace-nowrap">
                 {t.missionQuote}
               </p>
             </div>
@@ -178,16 +178,16 @@ export default function About() {
 
           {/* Closing quote moved to top, styled to match Mission section's gold-bar quote */}
           <FadeUp delay={0.1}>
-            <div className="mt-10 flex items-center gap-4" data-testid="approach-quote-block">
-              <span className="w-1 self-stretch flex-shrink-0 bg-[color:var(--kb-gold)]" aria-hidden />
-              <p className="font-serif text-2xl md:text-3xl font-light italic leading-[1.4] text-[color:var(--kb-gold)] whitespace-nowrap">
+            <div className="mt-10 flex items-center gap-5" data-testid="approach-quote-block">
+              <span className="w-1.5 self-stretch flex-shrink-0 bg-[color:var(--kb-gold)]" aria-hidden />
+              <p className="font-serif text-3xl md:text-4xl font-light italic leading-[1.4] text-[color:var(--kb-gold)] whitespace-nowrap">
                 {t.approachClosing}
               </p>
             </div>
           </FadeUp>
 
           <FadeUp delay={0.2}>
-            <h2 className="mt-14 font-serif-kr text-4xl md:text-5xl font-light leading-[1.2] text-[color:var(--kb-ink)] max-w-3xl">
+            <h2 className="mt-12 font-serif-kr text-4xl md:text-5xl font-light leading-[1.2] text-[color:var(--kb-ink)] max-w-3xl">
               <MaskedLineInView>{t.approachTitle}</MaskedLineInView>
             </h2>
           </FadeUp>
