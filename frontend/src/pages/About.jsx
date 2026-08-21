@@ -57,7 +57,7 @@ const CONTENT = {
       "좋은 파트너를 만나기까지의 우회 비용을 감당하지 못한 브랜드.",
     ],
     foundingCredibility: "K Bridge는 수십 년간 미국 상업 부동산 현장에서 활동해온 창업팀의 실전 경험에서 출발했습니다. 그 시간이 만들어 낸 것은 계약서에는 적히지 않은 감각입니다 — 임대인이 어떤 조건에서 유연해지는지, 어떤 상권이 데이터와 달리 실제로 걷기 어려운지, 어떤 시공 업체가 예산을 지키는지.",
-    foundingClosing: "리서치로는 얻어지지 않는 이 감각을, 처음부터 열어드리는 것 — 그것이 K Bridge Partners가 존재하는 이유입니다.",
+    foundingClosing: "리서치로는 얻어지지 않는 이 감각을, 처음부터 열어드리는 것 — 그것이 우리가 존재하는 이유입니다.",
 
     ctaTitle: "다음 단계를 함께 그려봅니다.",
     ctaButton: "무료 상담 신청",
@@ -109,7 +109,7 @@ const CONTENT = {
       "Brands who lost momentum before finding the right partners.",
     ],
     foundingCredibility: "K Bridge began with the hands-on experience of a founding team that has worked in U.S. commercial real estate for decades. That time produced an intuition contracts can't articulate — when landlords flex, which trade areas are hard to walk despite the data, which builders actually hit budget.",
-    foundingClosing: "Opening up that intuition, from day one — that's why K Bridge Partners exists.",
+    foundingClosing: "Opening up that intuition, from day one — that's why we exist.",
 
     ctaTitle: "Let's sketch the next step together.",
     ctaButton: "Free Consultation",
@@ -144,16 +144,16 @@ export default function About() {
           {/* Gap ~40px, then quote w/ solid gold left bar */}
           <FadeUp delay={0.1}>
             <div className="mt-10 flex items-center gap-5" data-testid="mission-statement-block">
-              <span className="w-1.5 self-stretch flex-shrink-0 bg-[color:var(--kb-gold)]" aria-hidden />
+              <span className="w-2 self-stretch flex-shrink-0 bg-[color:var(--kb-gold)]" aria-hidden />
               <p className="font-serif text-3xl md:text-4xl font-light italic leading-[1.4] text-[color:var(--kb-gold)] whitespace-nowrap">
                 {t.missionQuote}
               </p>
             </div>
           </FadeUp>
 
-          {/* Gap ~48px, then body paragraph */}
+          {/* Gap ~32px, then body paragraph */}
           <FadeUp delay={0.25}>
-            <p className="mt-12 text-base md:text-[17px] text-[color:var(--kb-text)]/80 leading-[1.9] max-w-3xl">
+            <p className="mt-8 text-base md:text-[17px] text-[color:var(--kb-text)]/80 leading-[1.9] max-w-3xl">
               {t.missionBody}
             </p>
           </FadeUp>
@@ -179,7 +179,7 @@ export default function About() {
           {/* Closing quote moved to top, styled to match Mission section's gold-bar quote */}
           <FadeUp delay={0.1}>
             <div className="mt-10 flex items-center gap-5" data-testid="approach-quote-block">
-              <span className="w-1.5 self-stretch flex-shrink-0 bg-[color:var(--kb-gold)]" aria-hidden />
+              <span className="w-2 self-stretch flex-shrink-0 bg-[color:var(--kb-gold)]" aria-hidden />
               <p className="font-serif text-3xl md:text-4xl font-light italic leading-[1.4] text-[color:var(--kb-gold)] whitespace-nowrap">
                 {t.approachClosing}
               </p>
@@ -187,7 +187,7 @@ export default function About() {
           </FadeUp>
 
           <FadeUp delay={0.2}>
-            <h2 className="mt-12 font-serif-kr text-4xl md:text-5xl font-light leading-[1.2] text-[color:var(--kb-ink)] max-w-3xl">
+            <h2 className="mt-8 font-serif-kr text-4xl md:text-5xl font-light leading-[1.2] text-[color:var(--kb-ink)] max-w-3xl">
               <MaskedLineInView>{t.approachTitle}</MaskedLineInView>
             </h2>
           </FadeUp>
@@ -238,9 +238,19 @@ export default function About() {
             </div>
           </FadeUp>
 
-          {/* Narrative hook — NOT italic, no quote marks. Large plain narration. */}
+          {/* Quote — gold bar treatment matching Mission/Approach sections, right after image */}
           <FadeUp delay={0.15}>
-            <p className="font-serif-kr text-2xl md:text-3xl leading-[1.45] text-[color:var(--kb-ink)] max-w-3xl">
+            <div className="flex items-center gap-5 max-w-3xl" data-testid="founding-quote-block">
+              <span className="w-2 self-stretch flex-shrink-0 bg-[color:var(--kb-gold)]" aria-hidden />
+              <p className="font-serif text-3xl md:text-4xl font-light italic leading-[1.4] text-[color:var(--kb-gold)]">
+                {t.foundingClosing}
+              </p>
+            </div>
+          </FadeUp>
+
+          {/* Narrative hook — NOT italic, no quote marks. Large plain narration. */}
+          <FadeUp delay={0.2}>
+            <p className="mt-8 font-serif-kr text-2xl md:text-3xl leading-[1.45] text-[color:var(--kb-ink)] max-w-3xl">
               {t.foundingHook}
             </p>
           </FadeUp>
@@ -262,16 +272,6 @@ export default function About() {
             <p className="mt-14 text-lg text-[color:var(--kb-text)]/80 leading-[1.9] max-w-3xl">
               {t.foundingCredibility}
             </p>
-          </FadeUp>
-
-          {/* Closing quote — gold bar treatment matching Mission/Approach sections */}
-          <FadeUp delay={0.5}>
-            <div className="mt-12 flex items-center gap-5 max-w-3xl" data-testid="founding-quote-block">
-              <span className="w-1.5 self-stretch flex-shrink-0 bg-[color:var(--kb-gold)]" aria-hidden />
-              <p className="font-serif text-3xl md:text-4xl font-light italic leading-[1.4] text-[color:var(--kb-gold)]">
-                {t.foundingClosing}
-              </p>
-            </div>
           </FadeUp>
         </div>
       </section>
