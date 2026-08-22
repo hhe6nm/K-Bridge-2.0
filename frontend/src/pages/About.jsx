@@ -127,6 +127,7 @@ export default function About() {
       {/* Intro + stats — shared component */}
       <StatsBlock
         badge={{ number: 1, label: t.introBadge }}
+        badgeClassName="mb-10"
         stats={t.stats}
         testIdPrefix="about-stat"
         overviewTitle={<MaskedLineInView>{t.introTitle}</MaskedLineInView>}
@@ -145,7 +146,7 @@ export default function About() {
           <FadeUp delay={0.1}>
             <div className="mt-10 flex items-center gap-5" data-testid="mission-statement-block">
               <span className="w-2 self-stretch flex-shrink-0 bg-[color:var(--kb-gold)]" aria-hidden />
-              <p className="font-serif text-3xl md:text-4xl font-light italic leading-[1.4] text-[color:var(--kb-gold)] whitespace-nowrap">
+              <p className="font-serif text-3xl md:text-4xl font-light italic leading-[1.4] text-[color:var(--kb-gold)]">
                 {t.missionQuote}
               </p>
             </div>
@@ -180,7 +181,7 @@ export default function About() {
           <FadeUp delay={0.1}>
             <div className="mt-10 flex items-center gap-5" data-testid="approach-quote-block">
               <span className="w-2 self-stretch flex-shrink-0 bg-[color:var(--kb-gold)]" aria-hidden />
-              <p className="font-serif text-3xl md:text-4xl font-light italic leading-[1.4] text-[color:var(--kb-gold)] whitespace-nowrap">
+              <p className="font-serif text-3xl md:text-4xl font-light italic leading-[1.4] text-[color:var(--kb-gold)]">
                 {t.approachClosing}
               </p>
             </div>
@@ -250,7 +251,7 @@ export default function About() {
 
           {/* Narrative hook — NOT italic, no quote marks. Large plain narration. */}
           <FadeUp delay={0.2}>
-            <p className="mt-8 font-serif-kr text-2xl md:text-3xl leading-[1.45] text-[color:var(--kb-ink)] max-w-3xl">
+            <p className="mt-8 text-lg text-[color:var(--kb-text)]/80 leading-[1.9] max-w-3xl">
               {t.foundingHook}
             </p>
           </FadeUp>
@@ -297,3 +298,4 @@ export default function About() {
     </div>
   );
 }
+
