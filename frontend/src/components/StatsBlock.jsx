@@ -9,16 +9,18 @@ import ChapterBadge from "@/components/ChapterBadge";
  * Props:
  *   stats: [{ value, unit, label }]
  *   badge: { number, label } — the ChapterBadge shown above the stats
+ *   badgeClassName: string — spacing under the badge (default "mb-6"); pass
+ *     "mb-10" to match pages that use a 40px badge-to-content gap elsewhere
  *   testIdPrefix: string — e.g. "home-stat" or "about-stat"
  *   overviewTitle, overviewBody[]: left column content
  */
-export default function StatsBlock({ stats, badge, testIdPrefix, overviewTitle, overviewBody, children }) {
+export default function StatsBlock({ stats, badge, badgeClassName = "mb-6", testIdPrefix, overviewTitle, overviewBody, children }) {
   return (
     <section className="bg-[color:var(--kb-ink)] text-white py-16 md:py-20">
       <div className="max-w-[1440px] mx-auto px-6 lg:px-10">
         {badge && (
           <FadeUp>
-            <ChapterBadge number={badge.number} label={badge.label} variant="dark" className="mb-6" />
+            <ChapterBadge number={badge.number} label={badge.label} variant="dark" className={badgeClassName} />
           </FadeUp>
         )}
         <div className="grid grid-cols-12 gap-8 lg:gap-16">
@@ -65,3 +67,4 @@ export default function StatsBlock({ stats, badge, testIdPrefix, overviewTitle, 
     </section>
   );
 }
+
