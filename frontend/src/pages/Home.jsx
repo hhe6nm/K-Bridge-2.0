@@ -227,9 +227,9 @@ export default function Home() {
       {/* CHALLENGE — Company perspective (with photo) */}
       <section className="bg-[color:var(--kb-bone)] py-20 md:py-24">
         <div className="max-w-[1440px] mx-auto px-6 lg:px-10">
-          <div className="grid grid-cols-12 gap-10 lg:gap-14 items-start">
+          <div className="grid grid-cols-12 gap-8 lg:gap-10 items-start">
             <FadeUp className="col-span-12 lg:col-span-5">
-              <div className="relative aspect-[4/5] overflow-hidden bg-[color:var(--kb-ink)] clip-corner">
+              <div className="relative aspect-[4/3] overflow-hidden bg-[color:var(--kb-ink)] clip-corner">
                 <img
                   src={PERSPECTIVE_IMG}
                   alt=""
@@ -241,7 +241,7 @@ export default function Home() {
             </FadeUp>
             <div className="col-span-12 lg:col-span-7">
               <FadeUp>
-                <ChapterBadge number={2} label={t.challengeBadge} className="mb-6" />
+                <ChapterBadge number={2} label={t.challengeBadge} className="mb-4" />
               </FadeUp>
               <h2 className="font-serif-kr text-4xl md:text-5xl font-light leading-[1.15]">
                 <MaskedLineInView>{t.challengeTitle}</MaskedLineInView><br />
