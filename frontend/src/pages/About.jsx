@@ -206,27 +206,63 @@ export default function About() {
           </FadeUp>
 
           <FadeUp delay={0.25}>
-            <ol className="mt-16 relative max-w-3xl" data-testid="about-approach-timeline">
-              {/* Continuous vertical connector line — spans all dots */}
+            <ol className="mt-16 relative max-w-4xl mx-auto" data-testid="about-approach-timeline">
+              {/* Center connector line — desktop only */}
               <div
-                className="absolute left-[9px] top-2 bottom-2 w-px bg-gradient-to-b from-[color:var(--kb-gold)] via-[color:var(--kb-gold)]/60 to-[color:var(--kb-gold)]/30"
+                className="hidden md:block absolute left-1/2 top-2 bottom-2 w-px -translate-x-1/2 bg-gradient-to-b from-[color:var(--kb-gold)] via-[color:var(--kb-gold)]/60 to-[color:var(--kb-gold)]/30"
+                aria-hidden
+              />
+              {/* Left connector line — mobile only */}
+              <div
+                className="md:hidden absolute left-[9px] top-2 bottom-2 w-px bg-gradient-to-b from-[color:var(--kb-gold)] via-[color:var(--kb-gold)]/60 to-[color:var(--kb-gold)]/30"
                 aria-hidden
               />
 
-              {t.approachStages.map((stage, i) => (
-                <li key={i} className={`relative pl-12 ${i < t.approachStages.length - 1 ? "pb-8" : ""}`}>
-                  <span
-                    className="absolute left-0 top-1.5 w-[19px] h-[19px] rounded-full border-2 border-[color:var(--kb-gold)] bg-[color:var(--kb-paper)] flex items-center justify-center z-10"
-                    aria-hidden
-                  >
-                    <span className="w-2 h-2 rounded-full bg-[color:var(--kb-gold)]" />
-                  </span>
-                  <h3 className="font-serif-kr text-2xl md:text-3xl font-light text-[color:var(--kb-ink)]">
-                    {stage.title}
-                  </h3>
-                  <p className="mt-3 text-lg text-[color:var(--kb-text)]/75 leading-[1.85]">{stage.body}</p>
-                </li>
-              ))}
+              <div className="space-y-10 md:space-y-4">
+                {t.approachStages.map((stage, i) => {
+                  const isLeft = i % 2 === 0;
+                  const card = (
+                    <div>
+                      <h3 className="font-serif-kr text-2xl md:text-3xl font-light text-[color:var(--kb-ink)]">
+                        {stage.title}
+                      </h3>
+                      <p className="mt-3 text-base md:text-lg text-[color:var(--kb-text)]/75 leading-[1.8]">
+                        {stage.body}
+                      </p>
+                    </div>
+                  );
+                  return (
+                    <li key={i} className="relative pl-12 md:pl-0 md:grid md:grid-cols-2 md:gap-14 md:items-center">
+                      {/* Mobile dot — left-aligned */}
+                      <span
+                        className="md:hidden absolute left-0 top-1.5 w-[19px] h-[19px] rounded-full border-2 border-[color:var(--kb-gold)] bg-[color:var(--kb-paper)] flex items-center justify-center z-10"
+                        aria-hidden
+                      >
+                        <span className="w-2 h-2 rounded-full bg-[color:var(--kb-gold)]" />
+                      </span>
+                      {/* Desktop dot — centered on the line */}
+                      <span
+                        className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[19px] h-[19px] rounded-full border-2 border-[color:var(--kb-gold)] bg-[color:var(--kb-paper)] items-center justify-center z-10"
+                        aria-hidden
+                      >
+                        <span className="w-2 h-2 rounded-full bg-[color:var(--kb-gold)]" />
+                      </span>
+
+                      {isLeft ? (
+                        <>
+                          <div className="md:text-right md:pr-6">{card}</div>
+                          <div className="hidden md:block" />
+                        </>
+                      ) : (
+                        <>
+                          <div className="hidden md:block" />
+                          <div className="md:pl-6">{card}</div>
+                        </>
+                      )}
+                    </li>
+                  );
+                })}
+              </div>
             </ol>
           </FadeUp>
         </div>
