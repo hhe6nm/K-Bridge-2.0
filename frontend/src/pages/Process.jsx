@@ -71,13 +71,14 @@ export default function Process() {
 
       <section className="bg-[color:var(--kb-bone)] py-24 md:py-32">
         <div className="max-w-[1000px] mx-auto px-6 lg:px-10">
-          <ol className="relative">
-            {/* connecting line */}
-            <div className="hidden md:block absolute left-6 top-6 bottom-6 w-px bg-[color:var(--kb-border)]" />
+          <FadeUp>
+            <ol className="relative">
+              {/* connecting line */}
+              <div className="hidden md:block absolute left-6 top-6 bottom-6 w-px bg-[color:var(--kb-border)]" />
 
-            {t.steps.map((s, i) => (
-              <FadeUp key={i} delay={i * 60}>
+              {t.steps.map((s, i) => (
                 <li
+                  key={i}
                   data-testid={`process-step-${i}`}
                   className="relative pb-14 md:pb-16 last:pb-0 md:pl-20"
                 >
@@ -110,9 +111,9 @@ export default function Process() {
                     </div>
                   </div>
                 </li>
-              </FadeUp>
-            ))}
-          </ol>
+              ))}
+            </ol>
+          </FadeUp>
 
           <div className="mt-10 text-xs text-[color:var(--kb-muted)] italic">{t.placeholderNote}</div>
 
