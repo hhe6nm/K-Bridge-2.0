@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+mport { Link } from "react-router-dom";
 import PageHeader from "@/components/PageHeader";
 import { FadeUp, MaskedLineInView } from "@/components/MaskedReveal";
 import ChapterBadge from "@/components/ChapterBadge";
@@ -208,12 +208,12 @@ export default function About() {
         testIdPrefix="about-stat"
         overviewTitle={t.introTitle}
         overviewBody={t.introBody}
-        containerClassName="max-w-[1200px] px-6 lg:px-10"
+        containerClassName="max-w-[1200px] mx-auto px-6 lg:px-10"
       />
 
       {/* CEO's Message */}
       <section className="bg-[color:var(--kb-bone)] pt-16 md:pt-20 pb-24 md:pb-28">
-        <div className="max-w-[1200px] px-6 lg:px-10">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           {/* Chapter badge */}
           <FadeUp>
             <ChapterBadge number={2} label={t.ceoBadge} />
@@ -221,7 +221,7 @@ export default function About() {
 
           {/* Section heading */}
           <FadeUp delay={0.1}>
-            <h2 className="mt-10 font-serif-kr text-4xl md:text-5xl font-light leading-[1.2] text-[color:var(--kb-ink)] max-w-5xl text-balance">
+            <h2 className="mt-10 font-serif-kr text-4xl md:text-5xl font-light leading-[1.2] text-[color:var(--kb-ink)] max-w-5xl text-balance break-keep">
               {t.ceoQuote}
             </h2>
           </FadeUp>
@@ -249,14 +249,14 @@ export default function About() {
 
       {/* Market Challenges (formerly Founding Story) — now sits before Why K Bridge */}
       <section className="bg-[color:var(--kb-bone)] pt-16 md:pt-20 pb-24 md:pb-28">
-        <div className="max-w-[1200px] px-6 lg:px-10">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <FadeUp>
             <ChapterBadge number={3} label={t.foundingBadge} />
           </FadeUp>
 
           {/* Section heading */}
           <FadeUp delay={0.1}>
-            <h2 className="mt-10 font-serif-kr text-4xl md:text-5xl font-light leading-[1.2] text-[color:var(--kb-ink)] max-w-5xl text-balance">
+            <h2 className="mt-10 font-serif-kr text-4xl md:text-5xl font-light leading-[1.2] text-[color:var(--kb-ink)] max-w-5xl text-balance break-keep">
               {t.foundingClosing}
             </h2>
           </FadeUp>
@@ -293,13 +293,13 @@ export default function About() {
 
       {/* Why K Bridge — bento grid: one featured navy card + 4 supporting cards */}
       <section className="bg-[color:var(--kb-paper)] pt-16 md:pt-20 pb-24 md:pb-28">
-        <div className="max-w-[1200px] px-6 lg:px-10">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <FadeUp>
             <ChapterBadge number={4} label={t.approachBadge} />
           </FadeUp>
 
           <FadeUp delay={0.1}>
-            <h2 className="mt-10 font-serif-kr text-4xl md:text-5xl font-light leading-[1.2] text-[color:var(--kb-ink)] max-w-5xl text-balance">
+            <h2 className="mt-10 font-serif-kr text-4xl md:text-5xl font-light leading-[1.2] text-[color:var(--kb-ink)] max-w-5xl text-balance break-keep">
               {t.approachTitle}
             </h2>
           </FadeUp>
