@@ -212,7 +212,7 @@ export default function About() {
       />
 
       {/* CEO's Message */}
-      <section className="bg-[color:var(--kb-bone)] pt-16 md:pt-20 pb-24 md:pb-28">
+      <section className="bg-[color:var(--kb-champagne)]/25 pt-16 md:pt-20 pb-24 md:pb-28">
         <div className="max-w-[1440px] mx-auto px-6 lg:px-10">
           {/* Chapter badge */}
           <FadeUp>
@@ -378,3 +378,4 @@ export default function About() {
     </div>
   );
 }
+
