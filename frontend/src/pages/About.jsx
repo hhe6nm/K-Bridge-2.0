@@ -42,10 +42,16 @@ const CONTENT = {
     approachBadge: "접근 방식",
     approachTitle: "한 팀이, 처음부터 끝까지.",
     approachStages: [
-      { title: "법인 설립", body: "어떤 주에 법인을 낼지, 어떤 구조가 세제상 유리한지 결정합니다." },
+      { title: "미국 시장 조사", body: "미국 시장과 소비자, 경쟁 브랜드를 분석해 진출 방향을 그립니다." },
+      { title: "미국 법인 설립 지원", body: "어떤 주에 법인을 낼지, 어떤 구조가 세제상 유리한지 결정하고 등록과 EIN 발급까지 지원합니다." },
+      { title: "상표 등록 지원", body: "미국 상표 출원과 브랜드 보호 절차를 함께 진행합니다." },
+      { title: "상권 분석", body: "후보 지역의 유동인구와 경쟁 환경을 데이터로 검토합니다." },
+      { title: "부동산 입지 선정", body: "상권 리서치를 바탕으로 최적의 입지 후보를 함께 좁혀갑니다." },
       { title: "임대차 협상", body: "퍼센티지 임대료, 코테넌시 조항 같은 조건을 직접 조율합니다." },
+      { title: "인허가 및 사업자 등록 지원", body: "업종별 인허가와 사업자 등록 절차를 안내하고 대행합니다." },
       { title: "시공 조율", body: "시공 파트너 선정부터 일정 관리까지 현장에서 함께합니다." },
       { title: "오픈 이후 운영", body: "매장이 문을 연 후, 안정화될 때까지 오퍼레이션을 튜닝합니다." },
+      { title: "프랜차이즈 확장", body: "운영 데이터를 바탕으로 추가 매장과 가맹 확장 전략을 수립합니다." },
     ],
     approachClosing: "한 번에 소수의 브랜드만 맡습니다. 깊이 있게, 끝까지.",
 
@@ -94,10 +100,16 @@ const CONTENT = {
     approachBadge: "Our Approach",
     approachTitle: "One team, from start to finish.",
     approachStages: [
-      { title: "Entity Formation", body: "We decide which state to form in and which structure is tax-optimal for your plan." },
+      { title: "U.S. Market Research", body: "We analyze the U.S. market, target consumers, and competing brands to shape your entry." },
+      { title: "U.S. Entity Formation", body: "We decide which state to form in and which structure is tax-optimal, then handle registration and EIN issuance." },
+      { title: "Trademark Registration", body: "We file your U.S. trademark and manage brand protection." },
+      { title: "Trade Area Analysis", body: "We assess foot traffic and the competitive landscape across candidate regions." },
+      { title: "Site Selection", body: "Building on trade area research, we narrow down the strongest location candidates together." },
       { title: "Lease Negotiation", body: "Percentage rent, co-tenancy, personal guarantees — we negotiate the terms with you." },
+      { title: "Permits & Business Registration", body: "We guide and manage industry-specific permits and business registration." },
       { title: "Buildout Coordination", body: "From contractor selection to schedule management — we're on-site with you." },
       { title: "Post-Opening Ops", body: "After the doors open, we stay to tune operations until the store stabilizes." },
+      { title: "Franchise Expansion", body: "Using performance data, we build strategies for additional locations and franchise growth." },
     ],
     approachClosing: "We only take on a handful of brands at a time — deep, and to the end.",
 
@@ -194,14 +206,14 @@ export default function About() {
           </FadeUp>
 
           <ol className="mt-16 relative max-w-3xl" data-testid="about-approach-timeline">
-            {/* Continuous vertical connector line — spans all 4 dots */}
+            {/* Continuous vertical connector line — spans all dots */}
             <div
               className="absolute left-[9px] top-2 bottom-2 w-px bg-gradient-to-b from-[color:var(--kb-gold)] via-[color:var(--kb-gold)]/60 to-[color:var(--kb-gold)]/30"
               aria-hidden
             />
 
             {t.approachStages.map((stage, i) => (
-              <FadeUp key={i} delay={0.25 + i * 0.08}>
+              <FadeUp key={i} delay={0.25 + i * 0.06}>
                 <li className={`relative pl-12 ${i < t.approachStages.length - 1 ? "pb-8" : ""}`}>
                   <span
                     className="absolute left-0 top-1.5 w-[19px] h-[19px] rounded-full border-2 border-[color:var(--kb-gold)] bg-[color:var(--kb-paper)] flex items-center justify-center z-10"
@@ -298,4 +310,3 @@ export default function About() {
     </div>
   );
 }
-
