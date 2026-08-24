@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { ArrowUpRight, Building2, Compass, Store, Landmark, Rocket, ShieldCheck, Award, Users, MapPin, Network } from "lucide-react";
-import { MaskedLine, MaskedLineInView, FadeUp } from "@/components/MaskedReveal";
+import { MaskedLine, FadeUp } from "@/components/MaskedReveal";
 import StatsBlock from "@/components/StatsBlock";
 import ChapterBadge from "@/components/ChapterBadge";
 import { TID } from "@/lib/testIds";
@@ -28,10 +28,12 @@ const CONTENT = {
       { label: "현지 네트워크", en: "Local Expertise" },
     ],
     aboutBadge: "회사 개요",
-    aboutTitle: "이론이 아닌, 현장에서 배운 것을 전달합니다.",
+    aboutTitle: "한국과 미국을 잇는, 하나의 파트너.",
     aboutBody: [
-      "K Bridge Partners는 미국 상업 부동산과 프랜차이즈 실무 경험, 그리고 데이터 기반 시장 분석 역량을 바탕으로 설립되었습니다.",
-      "20년 이상 워싱턴 DC 및 버지니아 지역을 중심으로 상업용 부동산 실무를 쌓아온 팀이, 한국 브랜드가 미국 시장에서 겪는 실질적인 어려움을 가까이에서 지켜보며 시작한 파트너십입니다.",
+      "K Bridge Partners LLC는 한국의 유망한 프랜차이즈 및 소비재 브랜드가 미국 시장에 성공적으로 진출하고 안정적으로 성장할 수 있도록 지원하는 U.S. Market Entry & Business Development 전문 파트너입니다.",
+      "한국과 미국의 서로 다른 시장환경, 소비자 문화, 법률 및 비즈니스 시스템에 대한 이해를 바탕으로 단순한 컨설팅을 넘어 시장조사부터 사업구조 구축, 현지 파트너 발굴, 입지 선정, 프랜차이즈 개발, 마케팅 및 사업 확장까지 실제 시장 진입에 필요한 전 과정을 연결하고 실행합니다.",
+      "K Bridge Partners의 핵심 가치는 \"Bridge\"에 있습니다.",
+      "한국의 좋은 브랜드와 미국의 시장·자본·파트너·소비자를 연결하여, 한국 브랜드가 미국에서 지속 가능한 비즈니스로 성장할 수 있도록 돕습니다.",
     ],
     stats: [
       { value: "20+", unit: "년", label: "상업 부동산 실무 경험" },
@@ -80,10 +82,12 @@ const CONTENT = {
       { label: "Local Expertise", en: "현지 네트워크" },
     ],
     aboutBadge: "Company Overview",
-    aboutTitle: "What we've learned in the field — not from reports.",
+    aboutTitle: "One partner, bridging Korea and the U.S.",
     aboutBody: [
-      "K Bridge Partners was founded on hands-on U.S. commercial real estate and franchise experience, combined with data-driven market analysis.",
-      "Our team has spent 20+ years in the Washington DC and Virginia commercial real estate market — watching, up close, the challenges Korean brands face entering the U.S. This partnership was built from that vantage point.",
+      "K Bridge Partners LLC is a specialized U.S. Market Entry & Business Development partner, helping promising Korean franchise and consumer brands enter the U.S. market successfully and grow sustainably.",
+      "Built on an understanding of the differing market environments, consumer cultures, legal frameworks, and business systems between Korea and the U.S., we go beyond simple consulting — connecting and executing the full process a real market entry requires, from market research and business structuring to local partner sourcing, site selection, franchise development, marketing, and business expansion.",
+      "K Bridge Partners' core value lies in being the \"Bridge.\"",
+      "We connect great Korean brands with the U.S. market, capital, partners, and consumers — helping Korean brands grow into sustainable businesses in America.",
     ],
     stats: [
       { value: "20+", unit: "yrs", label: "of commercial real estate experience" },
@@ -154,7 +158,7 @@ export default function Home() {
 
         <div className="relative max-w-[1440px] mx-auto px-6 lg:px-10 pt-32 lg:pt-40 pb-24 min-h-[100svh] flex flex-col justify-center">
           <div>
-            <h1 className="font-serif-kr font-light tracking-tight leading-[1.14] text-[clamp(2.25rem,6vw,6rem)]">
+            <h1 className="font-serif-kr font-light tracking-tight leading-[1.14] text-[clamp(2.25rem,6vw,6rem)] break-keep">
               <div className="mb-2 md:mb-3"><MaskedLine delay={0.1}>{t.heroLine1}</MaskedLine></div>
               <div className="mb-2 md:mb-3"><MaskedLine delay={0.25}>{t.heroLine2}</MaskedLine></div>
               <div className="text-[color:var(--kb-champagne)] italic"><MaskedLine delay={0.4}>{t.heroLine3}</MaskedLine></div>
@@ -220,7 +224,7 @@ export default function Home() {
         badge={{ number: 1, label: t.aboutBadge }}
         stats={t.stats}
         testIdPrefix="home-stat"
-        overviewTitle={<MaskedLineInView>{t.aboutTitle}</MaskedLineInView>}
+        overviewTitle={t.aboutTitle}
         overviewBody={t.aboutBody}
       />
 
@@ -229,11 +233,11 @@ export default function Home() {
         <div className="max-w-[1440px] mx-auto px-6 lg:px-10">
           <div className="grid grid-cols-12 gap-8 lg:gap-10 items-start">
             <FadeUp className="col-span-12 lg:col-span-5">
-              <div className="relative aspect-[4/3] overflow-hidden bg-[color:var(--kb-ink)] clip-corner">
+              <div className="relative overflow-hidden bg-[color:var(--kb-ink)] clip-corner">
                 <img
                   src={PERSPECTIVE_IMG}
                   alt=""
-                  className="absolute inset-0 w-full h-full object-cover"
+                  className="w-full h-auto block"
                   loading="lazy"
                 />
                 <div className="absolute inset-0 ring-1 ring-inset ring-[color:var(--kb-gold)]/15 pointer-events-none" />
@@ -243,10 +247,13 @@ export default function Home() {
               <FadeUp>
                 <ChapterBadge number={2} label={t.challengeBadge} className="mb-4" />
               </FadeUp>
-              <h2 className="font-serif-kr text-4xl md:text-5xl font-light leading-[1.15]">
-                <MaskedLineInView>{t.challengeTitle}</MaskedLineInView><br />
-                <MaskedLineInView delay={0.15} className="italic text-[color:var(--kb-gold)]">{t.challengeTitleItalic}</MaskedLineInView>
-              </h2>
+              <FadeUp delay={0.1}>
+                <h2 className="font-serif-kr text-4xl md:text-5xl font-light leading-[1.15] text-balance break-keep text-[color:var(--kb-ink)]">
+                  {t.challengeTitle}
+                  <br />
+                  <span className="italic text-[color:var(--kb-gold)]">{t.challengeTitleItalic}</span>
+                </h2>
+              </FadeUp>
               <FadeUp delay={0.3}>
                 {t.challengeBody.map((p, i) => (
                   <p key={i} className="mt-6 text-lg text-[color:var(--kb-text)]/80 leading-[1.9] max-w-2xl">{p}</p>
@@ -272,10 +279,13 @@ export default function Home() {
               <ChapterBadge number={3} label={t.servicesBadge} />
             </div>
             <div className="col-span-12 md:col-span-8">
-              <h2 className="font-serif-kr text-4xl md:text-6xl font-light tracking-tight leading-[1.1]">
-                <MaskedLineInView delay={0}>{t.servicesTitle1}</MaskedLineInView><br />
-                <MaskedLineInView delay={0.15} className="text-[color:var(--kb-gold)] italic">{t.servicesTitle2}</MaskedLineInView>
-              </h2>
+              <FadeUp delay={0.1}>
+                <h2 className="font-serif-kr text-4xl md:text-6xl font-light tracking-tight leading-[1.1] text-balance break-keep">
+                  {t.servicesTitle1}
+                  <br />
+                  <span className="text-[color:var(--kb-gold)] italic">{t.servicesTitle2}</span>
+                </h2>
+              </FadeUp>
               <FadeUp delay={0.3} className="mt-6 max-w-2xl text-lg text-[color:var(--kb-muted)] leading-relaxed">
                 {t.servicesLead}
               </FadeUp>
@@ -319,9 +329,9 @@ export default function Home() {
       <section className="bg-[color:var(--kb-paper)] pb-24">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10 text-center">
           <FadeUp>
-            <h2 className="font-serif-kr text-4xl md:text-6xl font-light leading-[1.1] text-balance">
-              <MaskedLineInView>{t.ctaTitle1}</MaskedLineInView>{" "}
-              <MaskedLineInView delay={0.15} className="italic text-[color:var(--kb-gold)]">{t.ctaTitle2}</MaskedLineInView>
+            <h2 className="font-serif-kr text-4xl md:text-6xl font-light leading-[1.1] text-balance break-keep">
+              {t.ctaTitle1}{" "}
+              <span className="italic text-[color:var(--kb-gold)]">{t.ctaTitle2}</span>
             </h2>
             <div className="mt-10">
               <Link
