@@ -1,7 +1,6 @@
 import { FadeUp } from "@/components/MaskedReveal";
 import AnimatedCounter from "@/components/AnimatedCounter";
 import ChapterBadge from "@/components/ChapterBadge";
-
 /**
  * Shared 4-stat block with animated count-up. Used by Home and About so both
  * pages stay in sync (previously drifted after independent edits).
@@ -13,11 +12,24 @@ import ChapterBadge from "@/components/ChapterBadge";
  *     "mb-10" to match pages that use a 40px badge-to-content gap elsewhere
  *   testIdPrefix: string — e.g. "home-stat" or "about-stat"
  *   overviewTitle, overviewBody[]: left column content
+ *   containerClassName: string — overrides the inner max-width/padding
+ *     wrapper (default "max-w-[1440px] mx-auto px-6 lg:px-10"). Pass this
+ *     when a page's other sections use a narrower container, so this
+ *     section's left/right edges line up with the rest of the page.
  */
-export default function StatsBlock({ stats, badge, badgeClassName = "mb-6", testIdPrefix, overviewTitle, overviewBody, children }) {
+export default function StatsBlock({
+  stats,
+  badge,
+  badgeClassName = "mb-6",
+  testIdPrefix,
+  overviewTitle,
+  overviewBody,
+  children,
+  containerClassName = "max-w-[1440px] mx-auto px-6 lg:px-10",
+}) {
   return (
     <section className="bg-[color:var(--kb-ink)] text-white py-16 md:py-20">
-      <div className="max-w-[1440px] mx-auto px-6 lg:px-10">
+      <div className={containerClassName}>
         {badge && (
           <FadeUp>
             <ChapterBadge number={badge.number} label={badge.label} variant="dark" className={badgeClassName} />
@@ -39,7 +51,6 @@ export default function StatsBlock({ stats, badge, badgeClassName = "mb-6", test
             )}
             {children}
           </div>
-
           <div className="col-span-12 lg:col-span-6">
             <div className="grid grid-cols-2 gap-4 md:gap-6">
               {stats.map((s, i) => (
@@ -67,4 +78,3 @@ export default function StatsBlock({ stats, badge, badgeClassName = "mb-6", test
     </section>
   );
 }
-
