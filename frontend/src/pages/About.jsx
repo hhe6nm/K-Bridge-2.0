@@ -29,7 +29,7 @@ const CONTENT = {
     subtitle: "이론이 아닌 현장에서, 함께 만듭니다.",
 
     introBadge: "회사 개요",
-    introTitle: "이론이 아닌, 현장에서 배운 것을 전달합니다.",
+    introTitle: "한국과 미국을 잇는, 하나의 파트너.",
     introBody: [
       "K Bridge Partners LLC는 한국의 유망한 프랜차이즈 및 소비재 브랜드가 미국 시장에 성공적으로 진출하고 안정적으로 성장할 수 있도록 지원하는 U.S. Market Entry & Business Development 전문 파트너입니다.",
       "한국과 미국의 서로 다른 시장환경, 소비자 문화, 법률 및 비즈니스 시스템에 대한 이해를 바탕으로 단순한 컨설팅을 넘어 시장조사부터 사업구조 구축, 현지 파트너 발굴, 입지 선정, 프랜차이즈 개발, 마케팅 및 사업 확장까지 실제 시장 진입에 필요한 전 과정을 연결하고 실행합니다.",
@@ -113,7 +113,7 @@ const CONTENT = {
     subtitle: "Built in the field — with you, not for you.",
 
     introBadge: "Company Overview",
-    introTitle: "What we've learned in the field — not from reports.",
+    introTitle: "One partner, bridging Korea and the U.S.",
     introBody: [
       "K Bridge Partners LLC is a specialized U.S. Market Entry & Business Development partner, helping promising Korean franchise and consumer brands enter the U.S. market successfully and grow sustainably.",
       "Built on an understanding of the differing market environments, consumer cultures, legal frameworks, and business systems between Korea and the U.S., we go beyond simple consulting — connecting and executing the full process a real market entry requires, from market research and business structuring to local partner sourcing, site selection, franchise development, marketing, and business expansion.",
@@ -206,7 +206,7 @@ export default function About() {
         badgeClassName="mb-10"
         stats={t.stats}
         testIdPrefix="about-stat"
-        overviewTitle={<MaskedLineInView>{t.introTitle}</MaskedLineInView>}
+        overviewTitle={t.introTitle}
         overviewBody={t.introBody}
         containerClassName="max-w-[1200px] mx-auto px-6 lg:px-10"
       />
