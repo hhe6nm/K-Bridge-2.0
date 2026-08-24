@@ -46,7 +46,7 @@ const CONTENT = {
     ceoBadge: "대표 인사말",
     ceoQuote: "한 걸음, 한 걸음을 함께 걷겠습니다.",
     ceoBody: [
-      "안녕하십니까. K Bridge Partners CEO Jessica Chong입니다.",
+      "안녕하십니까. K Bridge Partners CEO입니다.",
       "저는 오랫동안 미국에서 다양한 비즈니스와 시장을 경험하면서, 한국에는 충분한 경쟁력과 가능성을 갖추고도 미국 진출 과정의 정보와 네트워크 부족으로 기회를 놓치는 좋은 브랜드들이 많다는 것을 보아왔습니다.",
       "\"이 좋은 브랜드들이 미국 시장에서도 제대로 평가받고 성장할 수 있도록 도울 수 없을까?\" 그 고민과 바람에서 K Bridge Partners는 시작되었습니다.",
       "K Bridge Partners는 한국의 경쟁력 있는 브랜드와 미국 시장을 연결하는 비즈니스 파트너입니다. 시장에 대한 이해와 현지 경험을 바탕으로 진입 전략, 프랜차이즈 구축, 현지 파트너 발굴부터 안정적인 정착과 성장까지 함께하고 있습니다.",
@@ -69,7 +69,7 @@ const CONTENT = {
       "운영 시스템 구축",
     ],
     foundingCredibility: "K Bridge는 수십 년간 미국 상업 부동산 현장에서 활동해온 창업팀의 실전 경험에서 출발했습니다. 그 시간이 만들어 낸 것은 계약서에는 적히지 않은 감각입니다 — 임대인이 어떤 조건에서 유연해지는지, 어떤 상권이 데이터와 달리 실제로 걷기 어려운지, 어떤 시공 업체가 예산을 지키는지.",
-    foundingClosing: "리서치로는 얻어지지 않는 이 감각을, 처음부터 열어드리는 것 — 그것이 우리가 존재하는 이유입니다.",
+    foundingClosing: "미국 진출, 왜 어려울까요?",
 
     approachBadge: "Why K Bridge",
     approachTitle: "왜 K Bridge와 함께해야 할까요.",
@@ -153,7 +153,7 @@ const CONTENT = {
       "Building operational systems",
     ],
     foundingCredibility: "K Bridge began with the hands-on experience of a founding team that has worked in U.S. commercial real estate for decades. That time produced an intuition contracts can't articulate — when landlords flex, which trade areas are hard to walk despite the data, which builders actually hit budget.",
-    foundingClosing: "Opening up that intuition, from day one — that's why we exist.",
+    foundingClosing: "Why is entering the U.S. market so hard?",
 
     approachBadge: "Why K Bridge",
     approachTitle: "Why brands choose K Bridge.",
@@ -208,12 +208,12 @@ export default function About() {
         testIdPrefix="about-stat"
         overviewTitle={t.introTitle}
         overviewBody={t.introBody}
-        containerClassName="max-w-[1200px] mx-auto px-6 lg:px-10"
+        containerClassName="max-w-[1200px] px-6 lg:px-10"
       />
 
       {/* CEO's Message */}
       <section className="bg-[color:var(--kb-bone)] pt-16 md:pt-20 pb-24 md:pb-28">
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
+        <div className="max-w-[1200px] px-6 lg:px-10">
           {/* Chapter badge */}
           <FadeUp>
             <ChapterBadge number={2} label={t.ceoBadge} />
@@ -221,7 +221,7 @@ export default function About() {
 
           {/* Section heading */}
           <FadeUp delay={0.1}>
-            <h2 className="mt-10 font-serif-kr text-4xl md:text-5xl font-light leading-[1.2] text-[color:var(--kb-ink)] max-w-4xl text-balance">
+            <h2 className="mt-10 font-serif-kr text-4xl md:text-5xl font-light leading-[1.2] text-[color:var(--kb-ink)] max-w-5xl text-balance">
               {t.ceoQuote}
             </h2>
           </FadeUp>
@@ -249,14 +249,14 @@ export default function About() {
 
       {/* Market Challenges (formerly Founding Story) — now sits before Why K Bridge */}
       <section className="bg-[color:var(--kb-bone)] pt-16 md:pt-20 pb-24 md:pb-28">
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
+        <div className="max-w-[1200px] px-6 lg:px-10">
           <FadeUp>
             <ChapterBadge number={3} label={t.foundingBadge} />
           </FadeUp>
 
           {/* Section heading */}
           <FadeUp delay={0.1}>
-            <h2 className="mt-10 font-serif-kr text-4xl md:text-5xl font-light leading-[1.2] text-[color:var(--kb-ink)] max-w-4xl text-balance">
+            <h2 className="mt-10 font-serif-kr text-4xl md:text-5xl font-light leading-[1.2] text-[color:var(--kb-ink)] max-w-5xl text-balance">
               {t.foundingClosing}
             </h2>
           </FadeUp>
@@ -293,13 +293,13 @@ export default function About() {
 
       {/* Why K Bridge — bento grid: one featured navy card + 4 supporting cards */}
       <section className="bg-[color:var(--kb-paper)] pt-16 md:pt-20 pb-24 md:pb-28">
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
+        <div className="max-w-[1200px] px-6 lg:px-10">
           <FadeUp>
             <ChapterBadge number={4} label={t.approachBadge} />
           </FadeUp>
 
           <FadeUp delay={0.1}>
-            <h2 className="mt-10 font-serif-kr text-4xl md:text-5xl font-light leading-[1.2] text-[color:var(--kb-ink)] max-w-4xl text-balance">
+            <h2 className="mt-10 font-serif-kr text-4xl md:text-5xl font-light leading-[1.2] text-[color:var(--kb-ink)] max-w-5xl text-balance">
               {t.approachTitle}
             </h2>
           </FadeUp>
