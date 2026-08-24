@@ -33,9 +33,6 @@ const WHY_ICONS = {
   rocket: Rocket,
 };
 
-// Commercial storefront / retail corridor — reflects the CRE background
-const FOUNDING_IMG = "https://images.unsplash.com/photo-1480944657103-7fed22359e1d?fm=jpg&q=85&w=1600&auto=format&fit=crop";
-
 const CONTENT = {
   ko: {
     eyebrow: "About K Bridge",
@@ -342,14 +339,11 @@ export default function About() {
             <ChapterBadge number={2} label={t.ceoBadge} />
           </FadeUp>
 
-          {/* Gap ~40px, then quote w/ solid gold left bar */}
+          {/* Section heading */}
           <FadeUp delay={0.1}>
-            <div className="mt-10 flex items-center gap-5" data-testid="ceo-quote-block">
-              <span className="w-2 self-stretch flex-shrink-0 bg-[color:var(--kb-gold)]" aria-hidden />
-              <p className="font-serif text-3xl md:text-4xl font-light italic leading-[1.4] text-[color:var(--kb-gold)]">
-                {t.ceoQuote}
-              </p>
-            </div>
+            <h2 className="mt-10 font-serif-kr text-4xl md:text-5xl font-light leading-[1.2] text-[color:var(--kb-ink)] max-w-3xl">
+              {t.ceoQuote}
+            </h2>
           </FadeUp>
 
           {/* Body paragraphs */}
@@ -381,18 +375,15 @@ export default function About() {
           </FadeUp>
 
           <FadeUp delay={0.1}>
-            <div className="mt-10 flex items-center gap-5" data-testid="approach-quote-block">
-              <span className="w-2 self-stretch flex-shrink-0 bg-[color:var(--kb-gold)]" aria-hidden />
-              <p className="font-serif text-3xl md:text-4xl font-light italic leading-[1.4] text-[color:var(--kb-gold)]">
-                {t.approachClosing}
-              </p>
-            </div>
+            <h2 className="mt-10 font-serif-kr text-4xl md:text-5xl font-light leading-[1.2] text-[color:var(--kb-ink)] max-w-3xl">
+              <MaskedLineInView>{t.approachTitle}</MaskedLineInView>
+            </h2>
           </FadeUp>
 
           <FadeUp delay={0.2}>
-            <h2 className="mt-8 font-serif-kr text-4xl md:text-5xl font-light leading-[1.2] text-[color:var(--kb-ink)] max-w-3xl">
-              <MaskedLineInView>{t.approachTitle}</MaskedLineInView>
-            </h2>
+            <p className="mt-4 text-base text-[color:var(--kb-text)]/60 max-w-3xl">
+              {t.approachClosing}
+            </p>
           </FadeUp>
 
           <FadeUp delay={0.25}>
@@ -449,26 +440,11 @@ export default function About() {
             <ChapterBadge number={4} label={t.foundingBadge} />
           </FadeUp>
 
+          {/* Section heading */}
           <FadeUp delay={0.1}>
-            <div className="relative aspect-[21/9] overflow-hidden mt-10 mb-14 clip-corner bg-[color:var(--kb-ink)]">
-              <img
-                src={FOUNDING_IMG}
-                alt=""
-                className="absolute inset-0 w-full h-full object-cover"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 ring-1 ring-inset ring-[color:var(--kb-gold)]/15 pointer-events-none" />
-            </div>
-          </FadeUp>
-
-          {/* Quote — gold bar treatment matching Mission/Approach sections, right after image */}
-          <FadeUp delay={0.15}>
-            <div className="flex items-center gap-5 max-w-3xl" data-testid="founding-quote-block">
-              <span className="w-2 self-stretch flex-shrink-0 bg-[color:var(--kb-gold)]" aria-hidden />
-              <p className="font-serif text-3xl md:text-4xl font-light italic leading-[1.4] text-[color:var(--kb-gold)]">
-                {t.foundingClosing}
-              </p>
-            </div>
+            <h2 className="mt-10 font-serif-kr text-4xl md:text-5xl font-light leading-[1.2] text-[color:var(--kb-ink)] max-w-3xl">
+              {t.foundingClosing}
+            </h2>
           </FadeUp>
 
           {/* Hook line — introduces the challenges list */}
@@ -648,3 +624,4 @@ export default function About() {
     </div>
   );
 }
+
