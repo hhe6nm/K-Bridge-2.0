@@ -6,7 +6,18 @@ import Pill from "@/components/Pill";
 import StatsBlock from "@/components/StatsBlock";
 import SectionQuote from "@/components/SectionQuote";
 import { useLang } from "@/lib/i18n";
-import { Route, Building2, Network, Languages, Target } from "lucide-react";
+import {
+  Route,
+  Building2,
+  Network,
+  Languages,
+  Target,
+  Check,
+  Globe,
+  TrendingUp,
+  Users,
+  Rocket,
+} from "lucide-react";
 
 const APPROACH_ICONS = {
   route: Route,
@@ -14,6 +25,13 @@ const APPROACH_ICONS = {
   network: Network,
   language: Languages,
   "target-arrow": Target,
+};
+
+const WHY_ICONS = {
+  globe: Globe,
+  "trending-up": TrendingUp,
+  users: Users,
+  rocket: Rocket,
 };
 
 // Commercial storefront / retail corridor — reflects the CRE background
@@ -80,15 +98,37 @@ const CONTENT = {
     ],
     approachClosing: "한 번에 소수의 브랜드만 맡습니다. 깊이 있게, 끝까지.",
 
-    foundingBadge: "창업 이야기",
-    foundingHook: "좋은 브랜드가, 좋은 아이템을 가지고, 잘못된 자리에서 시작하는 순간을 우리는 수십 년간 지켜봤습니다.",
+    foundingBadge: "진출 과제",
+    foundingHook: "많은 한국 기업이 미국 진출 과정에서 다음과 같은 어려움을 경험합니다.",
     foundingPatterns: [
-      "임대인의 언어를 몰라서 불리한 조건에 서명하는 브랜드.",
-      "상권의 결을 읽지 못해 열정만으로 위치를 정한 브랜드.",
-      "좋은 파트너를 만나기까지의 우회 비용을 감당하지 못한 브랜드.",
+      "적합한 지역 선정의 어려움",
+      "현지 부동산 시장 이해 부족",
+      "법인 및 인허가 절차",
+      "현지 파트너 발굴",
+      "브랜드 현지화",
+      "운영 시스템 구축",
     ],
     foundingCredibility: "K Bridge는 수십 년간 미국 상업 부동산 현장에서 활동해온 창업팀의 실전 경험에서 출발했습니다. 그 시간이 만들어 낸 것은 계약서에는 적히지 않은 감각입니다 — 임대인이 어떤 조건에서 유연해지는지, 어떤 상권이 데이터와 달리 실제로 걷기 어려운지, 어떤 시공 업체가 예산을 지키는지.",
     foundingClosing: "리서치로는 얻어지지 않는 이 감각을, 처음부터 열어드리는 것 — 그것이 우리가 존재하는 이유입니다.",
+
+    whyBadge: "시장 기회",
+    whyTitle: "미국 시장은, 새로운 성장 기회입니다.",
+    whyStats: [
+      { value: "$1.0T+", label: "한국의 대미 투자 잔액 (사상 최초 기록)" },
+      { value: "107.6%", label: "2026년 1분기 대미 투자 증가율 (전년 동기 대비)" },
+      { value: "24%", label: "미국의 한식 프랜차이즈 글로벌 매장 점유율" },
+    ],
+    whyCrossoverTitle: "한식 프랜차이즈, 미국이 최대 해외 시장으로",
+    whyCrossoverNote: "2020년 중국이 압도적 우위였으나, 2025년 미국이 역전했습니다.",
+    whyCrossoverUS: { label: "미국", from: "528개", to: "1,100개+", change: "+109%" },
+    whyCrossoverCN: { label: "중국", from: "1,368개", to: "830개", change: "-39%" },
+    whyCrossoverYears: { start: "2020년", end: "2025년" },
+    whyBullets: [
+      { icon: "globe", text: "세계 최대 소비 시장" },
+      { icon: "trending-up", text: "다양한 K-Brand 성장 기회" },
+      { icon: "users", text: "아시안 브랜드 수요 증가" },
+      { icon: "rocket", text: "글로벌 브랜드로 성장할 수 있는 시장" },
+    ],
 
     ctaTitle: "다음 단계를 함께 그려봅니다.",
     ctaButton: "무료 상담 신청",
@@ -154,20 +194,73 @@ const CONTENT = {
     ],
     approachClosing: "We only take on a handful of brands at a time — deep, and to the end.",
 
-    foundingBadge: "Founding Story",
-    foundingHook: "For decades, we've watched the same moment repeat: a strong brand, with a strong product, starting in the wrong location.",
+    foundingBadge: "Market Challenges",
+    foundingHook: "Many Korean companies face the same challenges when entering the U.S. market.",
     foundingPatterns: [
-      "Brands who signed disadvantageous terms because they didn't speak the landlord's language.",
-      "Brands who picked a location on enthusiasm alone, missing the market's real texture.",
-      "Brands who lost momentum before finding the right partners.",
+      "Selecting the right target region",
+      "Limited understanding of the local real estate market",
+      "Entity formation and licensing procedures",
+      "Finding trustworthy local partners",
+      "Brand localization",
+      "Building operational systems",
     ],
     foundingCredibility: "K Bridge began with the hands-on experience of a founding team that has worked in U.S. commercial real estate for decades. That time produced an intuition contracts can't articulate — when landlords flex, which trade areas are hard to walk despite the data, which builders actually hit budget.",
     foundingClosing: "Opening up that intuition, from day one — that's why we exist.",
+
+    whyBadge: "Market Opportunity",
+    whyTitle: "The U.S. market is a new growth opportunity.",
+    whyStats: [
+      { value: "$1.0T+", label: "Korea's cumulative investment in the U.S. (an all-time high)" },
+      { value: "107.6%", label: "YoY growth in Korean investment into the U.S., Q1 2026" },
+      { value: "24%", label: "U.S. share of global Korean F&B franchise locations" },
+    ],
+    whyCrossoverTitle: "Korean F&B franchises: the U.S. is now the largest overseas market",
+    whyCrossoverNote: "China led decisively in 2020 — by 2025, the U.S. had overtaken it.",
+    whyCrossoverUS: { label: "U.S.", from: "528", to: "1,100+", change: "+109%" },
+    whyCrossoverCN: { label: "China", from: "1,368", to: "830", change: "-39%" },
+    whyCrossoverYears: { start: "2020", end: "2025" },
+    whyBullets: [
+      { icon: "globe", text: "The world's largest consumer market" },
+      { icon: "trending-up", text: "Broad growth opportunities for K-brands" },
+      { icon: "users", text: "Rising demand for Asian brands" },
+      { icon: "rocket", text: "A market where brands can scale globally" },
+    ],
 
     ctaTitle: "Let's sketch the next step together.",
     ctaButton: "Free Consultation",
   },
 };
+
+function CrossoverChart({ us, cn, years }) {
+  // Fixed geometry: three x-positions (start, crossover, end), y mapped from value/1400 range.
+  const usPoints = "60,140 300,90 540,74";
+  const cnPoints = "60,44 300,90 540,105";
+
+  return (
+    <svg viewBox="0 0 600 220" className="w-full h-auto" role="img" aria-label="US vs China Korean F&B franchise store count crossover chart">
+      <line x1="60" y1="200" x2="540" y2="200" stroke="var(--kb-border)" strokeWidth="1" />
+      <line x1="300" y1="30" x2="300" y2="200" stroke="var(--kb-border)" strokeWidth="1" strokeDasharray="4 4" />
+
+      <polyline points={cnPoints} fill="none" stroke="var(--kb-text)" strokeOpacity="0.35" strokeWidth="2" />
+      <polyline points={usPoints} fill="none" stroke="var(--kb-gold)" strokeWidth="2.5" />
+
+      {usPoints.split(" ").map((p, i) => {
+        const [x, y] = p.split(",");
+        return <circle key={`us-${i}`} cx={x} cy={y} r="4" fill="var(--kb-gold)" />;
+      })}
+      {cnPoints.split(" ").map((p, i) => {
+        const [x, y] = p.split(",");
+        return <circle key={`cn-${i}`} cx={x} cy={y} r="4" fill="var(--kb-text)" fillOpacity="0.5" />;
+      })}
+
+      <text x="60" y="210" fontSize="12" fill="var(--kb-muted)" textAnchor="middle">{years.start}</text>
+      <text x="540" y="210" fontSize="12" fill="var(--kb-muted)" textAnchor="middle">{years.end}</text>
+
+      <text x="545" y="70" fontSize="13" fill="var(--kb-gold)" fontWeight="500">{us.label}</text>
+      <text x="545" y="112" fontSize="13" fill="var(--kb-text)" fillOpacity="0.6">{cn.label}</text>
+    </svg>
+  );
+}
 
 export default function About() {
   const { lang } = useLang();
@@ -292,7 +385,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Founding Story */}
+      {/* Market Challenges (formerly Founding Story) */}
       <section className="bg-[color:var(--kb-bone)] pt-16 md:pt-20 pb-24 md:pb-28">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <FadeUp>
@@ -321,19 +414,21 @@ export default function About() {
             </div>
           </FadeUp>
 
-          {/* Narrative hook — NOT italic, no quote marks. Large plain narration. */}
+          {/* Hook line — introduces the challenges list */}
           <FadeUp delay={0.2}>
             <p className="mt-8 text-lg text-[color:var(--kb-text)]/80 leading-[1.9] max-w-3xl">
               {t.foundingHook}
             </p>
           </FadeUp>
 
-          {/* Three failure patterns */}
+          {/* Six challenge points — checklist grid */}
           <FadeUp delay={0.3}>
-            <ul className="mt-14 space-y-6 max-w-3xl">
+            <ul className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-5 max-w-3xl">
               {t.foundingPatterns.map((line, i) => (
-                <li key={i} className="flex gap-5 text-lg text-[color:var(--kb-text)]/85 leading-[1.7]">
-                  <span className="mt-3 flex-shrink-0 w-8 h-px bg-[color:var(--kb-gold)]" />
+                <li key={i} className="flex items-center gap-3 text-base md:text-lg text-[color:var(--kb-text)]/85">
+                  <span className="flex-shrink-0 w-6 h-6 rounded-full border border-[color:var(--kb-gold)] flex items-center justify-center">
+                    <Check size={13} strokeWidth={2} className="text-[color:var(--kb-gold)]" />
+                  </span>
                   <span>{line}</span>
                 </li>
               ))}
@@ -345,6 +440,76 @@ export default function About() {
             <p className="mt-14 text-lg text-[color:var(--kb-text)]/80 leading-[1.9] max-w-3xl">
               {t.foundingCredibility}
             </p>
+          </FadeUp>
+        </div>
+      </section>
+
+      {/* Why Enter the U.S. Market — stats + crossover chart + opportunity bullets */}
+      <section className="bg-[color:var(--kb-paper)] pt-16 md:pt-20 pb-24 md:pb-28">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
+          <FadeUp>
+            <ChapterBadge number={5} label={t.whyBadge} />
+          </FadeUp>
+
+          <FadeUp delay={0.1}>
+            <h2 className="mt-10 font-serif-kr text-4xl md:text-5xl font-light leading-[1.2] text-[color:var(--kb-ink)] max-w-3xl">
+              <MaskedLineInView>{t.whyTitle}</MaskedLineInView>
+            </h2>
+          </FadeUp>
+
+          {/* Stat row */}
+          <FadeUp delay={0.2}>
+            <div className="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-5" data-testid="why-stats">
+              {t.whyStats.map((s, i) => (
+                <div key={i} className="bg-[color:var(--kb-bone)] border border-[color:var(--kb-border)] p-7">
+                  <p className="font-serif text-3xl md:text-4xl font-light text-[color:var(--kb-gold)] mb-2">
+                    {s.value}
+                  </p>
+                  <p className="text-[13px] md:text-sm text-[color:var(--kb-text)]/70 leading-[1.6]">
+                    {s.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </FadeUp>
+
+          {/* Crossover chart */}
+          <FadeUp delay={0.3}>
+            <div className="mt-8 bg-[color:var(--kb-bone)] border border-[color:var(--kb-border)] p-7 md:p-10">
+              <h3 className="font-serif-kr text-xl md:text-2xl font-light text-[color:var(--kb-ink)] mb-2">
+                {t.whyCrossoverTitle}
+              </h3>
+              <p className="text-[13px] md:text-sm text-[color:var(--kb-text)]/60 mb-6">
+                {t.whyCrossoverNote}
+              </p>
+              <CrossoverChart us={t.whyCrossoverUS} cn={t.whyCrossoverCN} years={t.whyCrossoverYears} />
+              <div className="mt-4 flex flex-wrap gap-x-8 gap-y-2 text-sm">
+                <span className="text-[color:var(--kb-gold)]">
+                  {t.whyCrossoverUS.label} {t.whyCrossoverUS.from} → {t.whyCrossoverUS.to} ({t.whyCrossoverUS.change})
+                </span>
+                <span className="text-[color:var(--kb-text)]/60">
+                  {t.whyCrossoverCN.label} {t.whyCrossoverCN.from} → {t.whyCrossoverCN.to} ({t.whyCrossoverCN.change})
+                </span>
+              </div>
+            </div>
+          </FadeUp>
+
+          {/* Opportunity bullets */}
+          <FadeUp delay={0.4}>
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {t.whyBullets.map((b, i) => {
+                const Icon = WHY_ICONS[b.icon] || Globe;
+                return (
+                  <div
+                    key={i}
+                    className="flex items-center gap-4 bg-[color:var(--kb-bone)] border border-[color:var(--kb-border)] p-5"
+                  >
+                    <Icon size={20} strokeWidth={1.5} className="flex-shrink-0 text-[color:var(--kb-gold)]" />
+                    <span className="text-base text-[color:var(--kb-ink)]">{b.text}</span>
+                  </div>
+                );
+              })}
+            </div>
           </FadeUp>
         </div>
       </section>
@@ -370,3 +535,4 @@ export default function About() {
     </div>
   );
 }
+
