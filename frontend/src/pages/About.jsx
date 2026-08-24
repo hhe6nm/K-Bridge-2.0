@@ -12,10 +12,6 @@ import {
   Languages,
   Target,
   Check,
-  Globe,
-  TrendingUp,
-  Users,
-  Rocket,
 } from "lucide-react";
 
 const APPROACH_ICONS = {
@@ -24,13 +20,6 @@ const APPROACH_ICONS = {
   network: Network,
   language: Languages,
   "target-arrow": Target,
-};
-
-const WHY_ICONS = {
-  globe: Globe,
-  "trending-up": TrendingUp,
-  users: Users,
-  rocket: Rocket,
 };
 
 const CONTENT = {
@@ -94,7 +83,7 @@ const CONTENT = {
         icon: "target-arrow",
       },
     ],
-    approachClosing: "한 번에 소수의 브랜드만 맡습니다. 깊이 있게, 끝까지.",
+    approachClosing: "다섯 가지 이유, 하나의 확신.",
 
     foundingBadge: "진출 과제",
     foundingHook: "많은 한국 기업이 미국 진출 과정에서 다음과 같은 어려움을 경험합니다.",
@@ -145,13 +134,6 @@ const CONTENT = {
       ],
     },
     whyCitation: "출처: 한국은행 국제투자대조표, 2026년 기준",
-    whyBullets: [
-      { icon: "globe", text: "세계 최대 소비 시장" },
-      { icon: "trending-up", text: "다양한 K-Brand 성장 기회" },
-      { icon: "users", text: "아시안 브랜드 수요 증가" },
-      { icon: "rocket", text: "글로벌 브랜드로 성장할 수 있는 시장" },
-    ],
-
     ctaTitle: "다음 단계를 함께 그려봅니다.",
     ctaButton: "무료 상담 신청",
   },
@@ -216,7 +198,7 @@ const CONTENT = {
         icon: "target-arrow",
       },
     ],
-    approachClosing: "We only take on a handful of brands at a time — deep, and to the end.",
+    approachClosing: "Five reasons. One conviction.",
 
     foundingBadge: "Market Challenges",
     foundingHook: "Many Korean companies face the same challenges when entering the U.S. market.",
@@ -267,12 +249,6 @@ const CONTENT = {
       ],
     },
     whyCitation: "Source: Bank of Korea, International Investment Position, as of 2026",
-    whyBullets: [
-      { icon: "globe", text: "The world's largest consumer market" },
-      { icon: "trending-up", text: "Broad growth opportunities for K-brands" },
-      { icon: "users", text: "Rising demand for Asian brands" },
-      { icon: "rocket", text: "A market where brands can scale globally" },
-    ],
 
     ctaTitle: "Let's sketch the next step together.",
     ctaButton: "Free Consultation",
@@ -341,7 +317,7 @@ export default function About() {
 
           {/* Section heading */}
           <FadeUp delay={0.1}>
-            <h2 className="mt-10 font-serif-kr text-4xl md:text-5xl font-light leading-[1.2] text-[color:var(--kb-ink)] max-w-3xl">
+            <h2 className="mt-10 font-serif-kr text-4xl md:text-5xl font-light leading-[1.2] text-[color:var(--kb-ink)] max-w-4xl text-balance">
               {t.ceoQuote}
             </h2>
           </FadeUp>
@@ -375,8 +351,8 @@ export default function About() {
           </FadeUp>
 
           <FadeUp delay={0.1}>
-            <h2 className="mt-10 font-serif-kr text-4xl md:text-5xl font-light leading-[1.2] text-[color:var(--kb-ink)] max-w-3xl">
-              <MaskedLineInView>{t.approachTitle}</MaskedLineInView>
+            <h2 className="mt-10 font-serif-kr text-4xl md:text-5xl font-light leading-[1.2] text-[color:var(--kb-ink)] max-w-4xl text-balance">
+              {t.approachTitle}
             </h2>
           </FadeUp>
 
@@ -442,7 +418,7 @@ export default function About() {
 
           {/* Section heading */}
           <FadeUp delay={0.1}>
-            <h2 className="mt-10 font-serif-kr text-4xl md:text-5xl font-light leading-[1.2] text-[color:var(--kb-ink)] max-w-3xl">
+            <h2 className="mt-10 font-serif-kr text-4xl md:text-5xl font-light leading-[1.2] text-[color:var(--kb-ink)] max-w-4xl text-balance">
               {t.foundingClosing}
             </h2>
           </FadeUp>
@@ -485,8 +461,8 @@ export default function About() {
           </FadeUp>
 
           <FadeUp delay={0.1}>
-            <h2 className="mt-10 font-serif-kr text-4xl md:text-5xl font-light leading-[1.2] text-[color:var(--kb-ink)] max-w-3xl">
-              <MaskedLineInView>{t.whyTitle}</MaskedLineInView>
+            <h2 className="mt-10 font-serif-kr text-4xl md:text-5xl font-light leading-[1.2] text-[color:var(--kb-ink)] max-w-4xl text-balance">
+              {t.whyTitle}
             </h2>
           </FadeUp>
 
@@ -496,10 +472,13 @@ export default function About() {
             </p>
           </FadeUp>
 
-          {/* Investment data — headline stat + bullets, bar chart, breakdown table */}
+          {/* Investment data — small rectangle (headline stat + bullets), big rectangle (chart + table) */}
           <FadeUp delay={0.2}>
-            <div className="mt-14 grid grid-cols-1 lg:grid-cols-3 gap-6 items-start" data-testid="why-investment">
-              {/* Headline stat + bullets */}
+            <div
+              className="mt-14 grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] gap-6 items-start"
+              data-testid="why-investment"
+            >
+              {/* Small rectangle — headline stat + bullets */}
               <div className="bg-[color:var(--kb-bone)] border border-[color:var(--kb-border)] p-7 md:p-8">
                 <p className="font-serif text-4xl md:text-5xl font-light text-[color:var(--kb-ink)]">
                   {t.whyInvestment.value}
@@ -520,85 +499,70 @@ export default function About() {
                 </ul>
               </div>
 
-              {/* Bar chart */}
-              <div className="bg-[color:var(--kb-bone)] border border-[color:var(--kb-border)] p-7 md:p-8">
-                <h3 className="text-sm font-medium text-[color:var(--kb-ink)] mb-4">{t.whyChart.title}</h3>
-                <BarChart bars={t.whyChart.bars} title={t.whyChart.title} />
-                <ul className="mt-4 space-y-1">
-                  {t.whyChart.notes.map((n, i) => (
-                    <li key={i} className="text-[13px] text-[color:var(--kb-text)]/70 flex items-center gap-2">
-                      <span className="w-1 h-1 rounded-full bg-[color:var(--kb-gold)]" />
-                      {n}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Breakdown table */}
-              <div className="bg-[color:var(--kb-bone)] border border-[color:var(--kb-border)] p-7 md:p-8 overflow-x-auto">
-                <table className="w-full text-[12px] border-collapse" style={{ tableLayout: "fixed" }}>
-                  <thead>
-                    <tr>
-                      <th className="w-[38%]"></th>
-                      <th className="bg-[color:var(--kb-ink)] text-white font-medium py-2 px-2 text-center">
-                        {t.whyTable.headers.total}
-                      </th>
-                      <th className="bg-[color:var(--kb-gold)] text-[color:var(--kb-ink)] font-medium py-2 px-2 text-center">
-                        {t.whyTable.headers.us}
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {t.whyTable.rows.map((row, i) => (
-                      <tr
-                        key={i}
-                        className={`border-b border-[color:var(--kb-border)] ${row.emphasis ? "font-medium" : ""}`}
-                      >
-                        <td className="py-2 pr-1 text-[color:var(--kb-text)]/80">{row.label}</td>
-                        <td className="py-2 px-2 text-right text-[color:var(--kb-ink)]">
-                          {row.total}
-                          {row.totalPct && (
-                            <span className="block text-[10px] font-normal text-[color:var(--kb-muted)]">
-                              ({row.totalPct})
-                            </span>
-                          )}
-                        </td>
-                        <td className="py-2 px-2 text-right text-[color:var(--kb-ink)]">
-                          {row.us}
-                          {row.usPct && (
-                            <span className="block text-[10px] font-normal text-[color:var(--kb-muted)]">
-                              ({row.usPct})
-                            </span>
-                          )}
-                        </td>
-                      </tr>
+              {/* Big rectangle — chart and table together */}
+              <div className="bg-[color:var(--kb-bone)] border border-[color:var(--kb-border)] p-7 md:p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+                {/* Bar chart */}
+                <div>
+                  <h3 className="text-sm font-medium text-[color:var(--kb-ink)] mb-4">{t.whyChart.title}</h3>
+                  <BarChart bars={t.whyChart.bars} title={t.whyChart.title} />
+                  <ul className="mt-4 space-y-1">
+                    {t.whyChart.notes.map((n, i) => (
+                      <li key={i} className="text-[13px] text-[color:var(--kb-text)]/70 flex items-center gap-2">
+                        <span className="w-1 h-1 rounded-full bg-[color:var(--kb-gold)]" />
+                        {n}
+                      </li>
                     ))}
-                  </tbody>
-                </table>
+                  </ul>
+                </div>
+
+                {/* Breakdown table */}
+                <div className="md:border-l md:border-[color:var(--kb-border)] md:pl-8 overflow-x-auto">
+                  <table className="w-full text-[12px] border-collapse" style={{ tableLayout: "fixed" }}>
+                    <thead>
+                      <tr>
+                        <th className="w-[38%]"></th>
+                        <th className="bg-[color:var(--kb-ink)] text-white font-medium py-2 px-2 text-center">
+                          {t.whyTable.headers.total}
+                        </th>
+                        <th className="bg-[color:var(--kb-gold)] text-[color:var(--kb-ink)] font-medium py-2 px-2 text-center">
+                          {t.whyTable.headers.us}
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {t.whyTable.rows.map((row, i) => (
+                        <tr
+                          key={i}
+                          className={`border-b border-[color:var(--kb-border)] ${row.emphasis ? "font-medium" : ""}`}
+                        >
+                          <td className="py-2 pr-1 text-[color:var(--kb-text)]/80">{row.label}</td>
+                          <td className="py-2 px-2 text-right text-[color:var(--kb-ink)]">
+                            {row.total}
+                            {row.totalPct && (
+                              <span className="block text-[10px] font-normal text-[color:var(--kb-muted)]">
+                                ({row.totalPct})
+                              </span>
+                            )}
+                          </td>
+                          <td className="py-2 px-2 text-right text-[color:var(--kb-ink)]">
+                            {row.us}
+                            {row.usPct && (
+                              <span className="block text-[10px] font-normal text-[color:var(--kb-muted)]">
+                                ({row.usPct})
+                              </span>
+                            )}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </FadeUp>
 
           <FadeUp delay={0.25}>
             <p className="mt-4 text-xs italic text-[color:var(--kb-muted)]">{t.whyCitation}</p>
-          </FadeUp>
-
-          {/* Opportunity bullets */}
-          <FadeUp delay={0.35}>
-            <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {t.whyBullets.map((b, i) => {
-                const Icon = WHY_ICONS[b.icon] || Globe;
-                return (
-                  <div
-                    key={i}
-                    className="flex items-center gap-4 bg-[color:var(--kb-bone)] border border-[color:var(--kb-border)] p-5"
-                  >
-                    <Icon size={20} strokeWidth={1.5} className="flex-shrink-0 text-[color:var(--kb-gold)]" />
-                    <span className="text-base text-[color:var(--kb-ink)]">{b.text}</span>
-                  </div>
-                );
-              })}
-            </div>
           </FadeUp>
         </div>
       </section>
@@ -624,4 +588,3 @@ export default function About() {
     </div>
   );
 }
-
