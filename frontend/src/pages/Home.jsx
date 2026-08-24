@@ -61,8 +61,6 @@ const CONTENT = {
       { title: "매장 오픈 · 초기 운영", desc: "시공 · 스태핑 · 오픈 마케팅까지 오픈 이후 안정화 단계를 함께 챙깁니다.", icon: Rocket },
     ],
     servicesMore: "더 알아보기",
-    ctaTitle1: "당신의 다음 매장은",
-    ctaTitle2: "미국에서 시작됩니다.",
     ctaButton: "무료 상담 신청",
   },
   en: {
