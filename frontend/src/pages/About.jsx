@@ -53,7 +53,7 @@ const CONTENT = {
     approachStages: [
       {
         title: "처음부터 오픈까지, 원스톱 솔루션",
-        body: "보고서를 남기고 떠나지 않습니다. 매장이 문을 열 때까지 함께합니다.",
+        body: "여러 업체를 거치지 않고, 한 팀이 시장 조사부터 매장 오픈까지 함께 실행합니다.",
         icon: "route",
         featured: true,
       },
@@ -127,7 +127,7 @@ const CONTENT = {
     approachStages: [
       {
         title: "One-stop, from day one to opening day",
-        body: "We don't hand off a report and leave — we stay through execution, until the doors open.",
+        body: "No handoffs between vendors — one team executes everything from market research to opening day.",
         icon: "route",
         featured: true,
       },
@@ -264,7 +264,7 @@ export default function About() {
                         <h3 className="font-serif-kr text-xl md:text-2xl font-light leading-[1.4] text-[color:var(--kb-champagne)] mb-3">
                           {stage.title}
                         </h3>
-                        <p className="text-[13px] md:text-sm text-[color:var(--kb-gold)]/70 leading-[1.7]">
+                        <p className="text-[13px] md:text-sm text-white/85 leading-[1.7]">
                           {stage.body}
                         </p>
                       </div>
