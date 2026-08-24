@@ -51,8 +51,6 @@ const CONTENT = {
     ],
     challengeCta: "회사의 관점 자세히 보기",
     servicesBadge: "서비스",
-    servicesTitle1: "미국 진출의 모든 단계를,",
-    servicesTitle2: "단 하나의 파트너와.",
     servicesLead: "시장 조사부터 매장 오픈까지, 하나의 팀이 함께합니다.",
     services: [
       { title: "시장 조사 · 진입 전략", desc: "지역별 상권과 소비 성향을 정밀 분석해 최적의 진입 방식과 우선 시장을 결정합니다.", icon: Compass },
@@ -105,8 +103,6 @@ const CONTENT = {
     ],
     challengeCta: "Read our perspective",
     servicesBadge: "Services",
-    servicesTitle1: "Every stage of U.S. entry —",
-    servicesTitle2: "under one partner.",
     servicesLead: "From market research to store opening, one team with you throughout.",
     services: [
       { title: "Market Research & Strategy", desc: "Region-by-region trade area and consumer analysis. We define entry priorities and the right method for your brand.", icon: Compass },
@@ -233,11 +229,11 @@ export default function Home() {
         <div className="max-w-[1440px] mx-auto px-6 lg:px-10">
           <div className="grid grid-cols-12 gap-8 lg:gap-10 items-start">
             <FadeUp className="col-span-12 lg:col-span-5">
-              <div className="relative overflow-hidden bg-[color:var(--kb-ink)] clip-corner">
+              <div className="relative aspect-[4/5] overflow-hidden bg-[color:var(--kb-ink)] clip-corner">
                 <img
                   src={PERSPECTIVE_IMG}
                   alt=""
-                  className="w-full h-auto block"
+                  className="absolute inset-0 w-full h-full object-cover"
                   loading="lazy"
                 />
                 <div className="absolute inset-0 ring-1 ring-inset ring-[color:var(--kb-gold)]/15 pointer-events-none" />
@@ -279,14 +275,7 @@ export default function Home() {
               <ChapterBadge number={3} label={t.servicesBadge} />
             </div>
             <div className="col-span-12 md:col-span-8">
-              <FadeUp delay={0.1}>
-                <h2 className="font-serif-kr text-4xl md:text-6xl font-light tracking-tight leading-[1.1] text-balance break-keep">
-                  {t.servicesTitle1}
-                  <br />
-                  <span className="text-[color:var(--kb-gold)] italic">{t.servicesTitle2}</span>
-                </h2>
-              </FadeUp>
-              <FadeUp delay={0.3} className="mt-6 max-w-2xl text-lg text-[color:var(--kb-muted)] leading-relaxed">
+              <FadeUp delay={0.3} className="text-lg text-[color:var(--kb-muted)] leading-relaxed max-w-2xl">
                 {t.servicesLead}
               </FadeUp>
             </div>
