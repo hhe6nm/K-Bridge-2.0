@@ -1,8 +1,7 @@
-import { useState } from "react";
 import PageHeader from "@/components/PageHeader";
 import { FadeUp } from "@/components/MaskedReveal";
 import { Link } from "react-router-dom";
-import { Clock, Plus, Minus } from "lucide-react";
+import { Clock } from "lucide-react";
 import { useLang } from "@/lib/i18n";
 
 const CONTENT = {
@@ -65,139 +64,55 @@ const CONTENT = {
 export default function Process() {
   const { lang } = useLang();
   const t = CONTENT[lang];
-  const [active, setActive] = useState(0);
 
   return (
     <div>
       <PageHeader eyebrow={t.eyebrow} title={t.title} subtitle={t.subtitle} />
 
       <section className="bg-[color:var(--kb-bone)] py-24 md:py-32">
-        <div className="max-w-[1440px] mx-auto px-6 lg:px-10">
-          <div className="hidden md:block">
-            <FadeUp>
-              <div className="relative">
-                <div className="absolute left-0 right-0 top-6 h-px bg-[color:var(--kb-border)]" />
-                <div
-                  className="absolute left-0 top-6 h-px bg-[color:var(--kb-gold)] transition-[width] duration-700 ease-out"
-                  style={{ width: `${((active + 1) / t.steps.length) * 100}%` }}
-                />
+        <div className="max-w-[1000px] mx-auto px-6 lg:px-10">
+          <ol className="relative">
+            {/* connecting line */}
+            <div className="hidden md:block absolute left-6 top-6 bottom-6 w-px bg-[color:var(--kb-border)]" />
 
-                <div
-                  className="relative grid gap-2"
-                  style={{ gridTemplateColumns: `repeat(${t.steps.length}, minmax(0, 1fr))` }}
+            {t.steps.map((s, i) => (
+              <FadeUp key={i} delay={i * 60}>
+                <li
+                  data-testid={`process-step-${i}`}
+                  className="relative pb-14 md:pb-16 last:pb-0 md:pl-20"
                 >
-                  {t.steps.map((s, i) => {
-                    const isActive = i === active;
-                    const isPast = i < active;
-                    return (
-                      <button
-                        key={i}
-                        type="button"
-                        onClick={() => setActive(i)}
-                        data-testid={`process-step-${i}`}
-                        aria-pressed={isActive}
-                        className="text-left group focus:outline-none"
-                      >
-                        <div className="relative h-12 flex items-center">
-                          <span
-                            className={`block w-3 h-3 rounded-full transition-all duration-500 ${
-                              isActive
-                                ? "bg-[color:var(--kb-gold)] ring-8 ring-[color:var(--kb-gold)]/15 scale-125"
-                                : isPast
-                                ? "bg-[color:var(--kb-gold)]"
-                                : "bg-[color:var(--kb-border)] group-hover:bg-[color:var(--kb-gold)]/60"
-                            }`}
-                          />
-                        </div>
-                        <div className={`mt-4 text-[10px] tracking-[0.35em] uppercase transition-colors ${
-                          isActive ? "text-[color:var(--kb-gold)]" : "text-[color:var(--kb-muted)]"
-                        }`}>
-                          {t.stepLabel} {String(i + 1).padStart(2, "0")}
-                        </div>
-                        <div className={`mt-2 font-serif-kr text-lg leading-tight max-w-[220px] transition-colors ${
-                          isActive ? "text-[color:var(--kb-ink)]" : "text-[color:var(--kb-ink)]/60 group-hover:text-[color:var(--kb-ink)]/90"
-                        }`}>
-                          {s.title}
-                        </div>
-                      </button>
-                    );
-                  })}
-                </div>
-              </div>
-            </FadeUp>
+                  {/* number marker */}
+                  <div className="hidden md:flex absolute left-0 top-0 w-12 h-12 rounded-full bg-white border border-[color:var(--kb-border)] items-center justify-center z-10">
+                    <span className="text-[13px] tracking-[0.1em] text-[color:var(--kb-gold)] font-medium">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                  </div>
 
-            <div className="mt-16 min-h-[240px]">
-              {t.steps.map((s, i) => (
-                <div
-                  key={i}
-                  aria-hidden={i !== active}
-                  data-testid={`process-detail-${i}`}
-                  className={`transition-all duration-500 ${
-                    i === active
-                      ? "opacity-100 translate-y-0 pointer-events-auto relative"
-                      : "opacity-0 pointer-events-none absolute translate-y-4"
-                  }`}
-                >
-                  {i === active && (
-                    <div className="grid grid-cols-12 gap-10 bg-white border border-[color:var(--kb-border)] p-10 md:p-14">
-                      <div className="col-span-12 md:col-span-4">
-                        <div className="text-[10px] tracking-[0.35em] uppercase text-[color:var(--kb-gold)] mb-4">
-                          {t.stepLabel} {String(i + 1).padStart(2, "0")}
-                        </div>
-                        <h3 className="font-serif-kr text-3xl md:text-4xl font-light leading-tight">{s.title}</h3>
-                        <div className="mt-6 inline-flex items-center gap-2 text-[11px] tracking-[0.25em] uppercase text-[color:var(--kb-muted)] border border-[color:var(--kb-border)] px-4 py-2">
-                          <Clock size={14} strokeWidth={1.5} className="text-[color:var(--kb-gold)]" />
-                          {t.timelineLabel} · {s.timeline}
-                        </div>
-                      </div>
-                      <div className="col-span-12 md:col-span-8">
-                        <p className="text-lg text-[color:var(--kb-text)]/80 leading-[1.9]">{s.body}</p>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
+                  <div className="text-[10px] tracking-[0.35em] uppercase text-[color:var(--kb-gold)] mb-3 md:hidden">
+                    {t.stepLabel} {String(i + 1).padStart(2, "0")}
+                  </div>
 
-          <div className="md:hidden">
-            <ol className="relative border-l border-[color:var(--kb-border)] ml-3">
-              {t.steps.map((s, i) => {
-                const isActive = i === active;
-                return (
-                  <li key={i} className="pl-8 pb-8 relative">
-                    <span
-                      className={`absolute -left-[7px] top-1 w-3 h-3 rounded-full ${
-                        isActive ? "bg-[color:var(--kb-gold)] ring-4 ring-[color:var(--kb-gold)]/20" : "bg-[color:var(--kb-border)]"
-                      }`}
-                    />
-                    <button
-                      onClick={() => setActive(isActive ? -1 : i)}
-                      className="w-full text-left"
-                      data-testid={`process-step-mobile-${i}`}
-                    >
-                      <div className="flex items-center justify-between gap-4">
-                        <div>
-                          <div className="text-[10px] tracking-[0.3em] uppercase text-[color:var(--kb-gold)]">
-                            {t.stepLabel} {String(i + 1).padStart(2, "0")} · {s.timeline}
-                          </div>
-                          <h3 className="mt-2 font-serif-kr text-xl font-light leading-tight text-[color:var(--kb-ink)]">
-                            {s.title}
-                          </h3>
-                        </div>
-                        {isActive ? <Minus size={18} className="text-[color:var(--kb-gold)]" /> : <Plus size={18} className="text-[color:var(--kb-muted)]" />}
-                      </div>
-                    </button>
-                    <div className={`overflow-hidden transition-[max-height,margin] duration-500 ease-out ${
-                      isActive ? "max-h-96 mt-4" : "max-h-0"
-                    }`}>
-                      <p className="text-[15px] text-[color:var(--kb-text)]/80 leading-[1.85]">{s.body}</p>
+                  <div className="bg-white border border-[color:var(--kb-border)] p-8 md:p-10">
+                    <div className="hidden md:block text-[10px] tracking-[0.35em] uppercase text-[color:var(--kb-gold)] mb-3">
+                      {t.stepLabel} {String(i + 1).padStart(2, "0")}
                     </div>
-                  </li>
-                );
-              })}
-            </ol>
-          </div>
+                    <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 md:gap-10">
+                      <h3 className="font-serif-kr text-2xl md:text-3xl font-light leading-tight md:max-w-[280px]">
+                        {s.title}
+                      </h3>
+                      <p className="text-base md:text-lg text-[color:var(--kb-text)]/80 leading-[1.85] md:flex-1">
+                        {s.body}
+                      </p>
+                    </div>
+                    <div className="mt-6 inline-flex items-center gap-2 text-[11px] tracking-[0.2em] uppercase text-[color:var(--kb-muted)] border border-[color:var(--kb-border)] px-4 py-2">
+                      <Clock size={14} strokeWidth={1.5} className="text-[color:var(--kb-gold)]" />
+                      {t.timelineLabel} · {s.timeline}
+                    </div>
+                  </div>
+                </li>
+              </FadeUp>
+            ))}
+          </ol>
 
           <div className="mt-10 text-xs text-[color:var(--kb-muted)] italic">{t.placeholderNote}</div>
 
@@ -211,4 +126,3 @@ export default function Process() {
     </div>
   );
 }
-
