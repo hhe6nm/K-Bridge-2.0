@@ -331,6 +331,7 @@ export default function About() {
         testIdPrefix="about-stat"
         overviewTitle={<MaskedLineInView>{t.introTitle}</MaskedLineInView>}
         overviewBody={t.introBody}
+        containerClassName="max-w-[1200px] mx-auto px-6 lg:px-10"
       />
 
       {/* CEO's Message */}
