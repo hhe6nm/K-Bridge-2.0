@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+mport { Link } from "react-router-dom";
 import PageHeader from "@/components/PageHeader";
 import { FadeUp, MaskedLineInView } from "@/components/MaskedReveal";
 import ChapterBadge from "@/components/ChapterBadge";
@@ -46,7 +46,7 @@ const CONTENT = {
     ceoBadge: "대표 인사말",
     ceoQuote: "한 걸음, 한 걸음을 함께 걷겠습니다.",
     ceoBody: [
-      "안녕하십니까. K Bridge Partners CEO Jessica Chong 입니다.",
+      "안녕하십니까. K Bridge Partners CEO입니다.",
       "저는 오랫동안 미국에서 다양한 비즈니스와 시장을 경험하면서, 한국에는 충분한 경쟁력과 가능성을 갖추고도 미국 진출 과정의 정보와 네트워크 부족으로 기회를 놓치는 좋은 브랜드들이 많다는 것을 보아왔습니다.",
       "\"이 좋은 브랜드들이 미국 시장에서도 제대로 평가받고 성장할 수 있도록 도울 수 없을까?\" 그 고민과 바람에서 K Bridge Partners는 시작되었습니다.",
       "K Bridge Partners는 한국의 경쟁력 있는 브랜드와 미국 시장을 연결하는 비즈니스 파트너입니다. 시장에 대한 이해와 현지 경험을 바탕으로 진입 전략, 프랜차이즈 구축, 현지 파트너 발굴부터 안정적인 정착과 성장까지 함께하고 있습니다.",
@@ -57,6 +57,19 @@ const CONTENT = {
     ],
     ceoSignatureName: "Jessica Chong",
     ceoSignatureTitle: "K Bridge Partners 대표",
+
+    foundingBadge: "진출 과제",
+    foundingHook: "많은 한국 기업이 미국 진출 과정에서 다음과 같은 어려움을 경험합니다.",
+    foundingPatterns: [
+      "적합한 지역 선정의 어려움",
+      "현지 부동산 시장 이해 부족",
+      "법인 및 인허가 절차",
+      "현지 파트너 발굴",
+      "브랜드 현지화",
+      "운영 시스템 구축",
+    ],
+    foundingCredibility: "K Bridge는 수십 년간 미국 상업 부동산 현장에서 활동해온 창업팀의 실전 경험에서 출발했습니다. 그 시간이 만들어 낸 것은 계약서에는 적히지 않은 감각입니다 — 임대인이 어떤 조건에서 유연해지는지, 어떤 상권이 데이터와 달리 실제로 걷기 어려운지, 어떤 시공 업체가 예산을 지키는지.",
+    foundingClosing: "리서치로는 얻어지지 않는 이 감각을, 처음부터 열어드리는 것 — 그것이 우리가 존재하는 이유입니다.",
 
     approachBadge: "Why K Bridge",
     approachTitle: "왜 K Bridge와 함께해야 할까요.",
@@ -90,55 +103,6 @@ const CONTENT = {
     ],
     approachClosing: "다섯 가지 이유, 하나의 확신.",
 
-    foundingBadge: "진출 과제",
-    foundingHook: "많은 한국 기업이 미국 진출 과정에서 다음과 같은 어려움을 경험합니다.",
-    foundingPatterns: [
-      "적합한 지역 선정의 어려움",
-      "현지 부동산 시장 이해 부족",
-      "법인 및 인허가 절차",
-      "현지 파트너 발굴",
-      "브랜드 현지화",
-      "운영 시스템 구축",
-    ],
-    foundingCredibility: "K Bridge는 수십 년간 미국 상업 부동산 현장에서 활동해온 창업팀의 실전 경험에서 출발했습니다. 그 시간이 만들어 낸 것은 계약서에는 적히지 않은 감각입니다 — 임대인이 어떤 조건에서 유연해지는지, 어떤 상권이 데이터와 달리 실제로 걷기 어려운지, 어떤 시공 업체가 예산을 지키는지.",
-    foundingClosing: "리서치로는 얻어지지 않는 이 감각을, 처음부터 열어드리는 것 — 그것이 우리가 존재하는 이유입니다.",
-
-    whyBadge: "시장 기회",
-    whyTitle: "미국 시장은, 새로운 성장 기회입니다.",
-    whyIntro: "미국은 한국 기업의 해외 투자에서 가장 큰 비중을 차지하는 시장이며, 최근 수년간 그 성장 속도가 뚜렷하게 빨라지고 있습니다. 특히 소비재와 프랜차이즈 분야에서 유통·수입 인프라 투자가 본격화되고 있다는 것은, 지금이 진출을 준비할 시점이라는 신호입니다.",
-    whyInvestment: {
-      value: "$1.0T+",
-      valueSub: "1조 달러",
-      label: "한국의 대미 투자 잔액",
-      labelBold: "사상 최초 기록",
-      bullets: [
-        { pre: "2019–2024년 한국은 대미 외국인직접투자(FDIUS) 증가율 ", bold: "3위국(70% 성장)", suf: ", 그중 약 4분의 3이 도소매업에 집중" },
-        { pre: "미국은 한국 ", bold: "해외투자의 최대 대상국", suf: " 지위를 지속적으로 유지 중이며, EU·동남아 대비 압도적 비중을 차지함" },
-        { pre: "2026년 1분기 대미 투자, 전년 동기 대비 ", bold: "107.6% 증가", suf: " — 최근 4년 내 최고 수준을 기록함" },
-        { pre: "도소매업 투자 51.0% 급증, ", bold: "27.3억 달러", suf: " — 소비재 브랜드가 활용할 유통·수입 인프라 구축이 본격화되고 있음을 시사" },
-      ],
-    },
-    whyChart: {
-      title: "대미 총 금융자산 (억 달러)",
-      bars: [
-        { label: "2024년말", value: 9450 },
-        { label: "2025년말", value: 11492 },
-      ],
-      notes: ["전년 대비 12.9% 증가", "2022년 이후 첫 증가 전환"],
-    },
-    whyTable: {
-      headers: { total: "총액", us: "미국" },
-      rows: [
-        { label: "2025년말(A)", total: "24,396", totalPct: "100.0", us: "11,492", usPct: "47.1", emphasis: true },
-        { label: "직접투자", total: "8,363", totalPct: "100.0", us: "2,501", usPct: "29.9" },
-        { label: "증권투자", total: "12,532", totalPct: "100.0", us: "8,028", usPct: "64.1" },
-        { label: "파생금융상품", total: "360", totalPct: "100.0", us: "40", usPct: "11.0" },
-        { label: "기타투자", total: "3,141", totalPct: "100.0", us: "923", usPct: "29.4" },
-        { label: "2024년말(B)", total: "20,947", totalPct: "100.0", us: "9,450", usPct: "45.1", emphasis: true },
-        { label: "증감(A-B)", total: "3,448", totalPct: null, us: "2,042", usPct: null, emphasis: true },
-      ],
-    },
-    whyCitation: "출처: 한국은행 국제투자대조표, 2026년 기준",
     ctaTitle: "다음 단계를 함께 그려봅니다.",
     ctaButton: "무료 상담 신청",
   },
@@ -178,6 +142,19 @@ const CONTENT = {
     ceoSignatureName: "Jessica Chong",
     ceoSignatureTitle: "CEO, K Bridge Partners",
 
+    foundingBadge: "Market Challenges",
+    foundingHook: "Many Korean companies face the same challenges when entering the U.S. market.",
+    foundingPatterns: [
+      "Selecting the right target region",
+      "Limited understanding of the local real estate market",
+      "Entity formation and licensing procedures",
+      "Finding trustworthy local partners",
+      "Brand localization",
+      "Building operational systems",
+    ],
+    foundingCredibility: "K Bridge began with the hands-on experience of a founding team that has worked in U.S. commercial real estate for decades. That time produced an intuition contracts can't articulate — when landlords flex, which trade areas are hard to walk despite the data, which builders actually hit budget.",
+    foundingClosing: "Opening up that intuition, from day one — that's why we exist.",
+
     approachBadge: "Why K Bridge",
     approachTitle: "Why brands choose K Bridge.",
     approachStages: [
@@ -210,93 +187,10 @@ const CONTENT = {
     ],
     approachClosing: "Five reasons. One conviction.",
 
-    foundingBadge: "Market Challenges",
-    foundingHook: "Many Korean companies face the same challenges when entering the U.S. market.",
-    foundingPatterns: [
-      "Selecting the right target region",
-      "Limited understanding of the local real estate market",
-      "Entity formation and licensing procedures",
-      "Finding trustworthy local partners",
-      "Brand localization",
-      "Building operational systems",
-    ],
-    foundingCredibility: "K Bridge began with the hands-on experience of a founding team that has worked in U.S. commercial real estate for decades. That time produced an intuition contracts can't articulate — when landlords flex, which trade areas are hard to walk despite the data, which builders actually hit budget.",
-    foundingClosing: "Opening up that intuition, from day one — that's why we exist.",
-
-    whyBadge: "Market Opportunity",
-    whyTitle: "The U.S. market is a new growth opportunity.",
-    whyIntro: "The U.S. accounts for the largest share of Korea's outbound investment, and that growth has clearly accelerated in recent years. Investment in distribution and import infrastructure — especially in consumer goods and franchising — is picking up: a clear signal that now is the moment to prepare for entry.",
-    whyInvestment: {
-      value: "$1.0T+",
-      valueSub: "USD 1 trillion+",
-      label: "Korea's cumulative investment balance in the U.S.",
-      labelBold: "An all-time high",
-      bullets: [
-        { pre: "From 2019–2024, Korea ranked ", bold: "3rd globally in U.S. FDI growth (+70%)", suf: ", with roughly three-quarters concentrated in wholesale and retail." },
-        { pre: "The U.S. remains Korea's ", bold: "largest destination for outbound investment", suf: ", holding an overwhelming share versus the EU and Southeast Asia." },
-        { pre: "Q1 2026 investment into the U.S. grew ", bold: "107.6% year-over-year", suf: " — the highest level in the past four years." },
-        { pre: "Wholesale/retail investment surged 51.0% to ", bold: "$2.73B", suf: ", signaling accelerating build-out of distribution and import infrastructure for consumer brands." },
-      ],
-    },
-    whyChart: {
-      title: "Korea's U.S.-bound financial assets ($100M)",
-      bars: [
-        { label: "End of 2024", value: 9450 },
-        { label: "End of 2025", value: 11492 },
-      ],
-      notes: ["Up 12.9% year-over-year", "First increase since 2022"],
-    },
-    whyTable: {
-      headers: { total: "Total", us: "U.S." },
-      rows: [
-        { label: "End of 2025 (A)", total: "24,396", totalPct: "100.0", us: "11,492", usPct: "47.1", emphasis: true },
-        { label: "Direct investment", total: "8,363", totalPct: "100.0", us: "2,501", usPct: "29.9" },
-        { label: "Portfolio investment", total: "12,532", totalPct: "100.0", us: "8,028", usPct: "64.1" },
-        { label: "Derivatives", total: "360", totalPct: "100.0", us: "40", usPct: "11.0" },
-        { label: "Other investment", total: "3,141", totalPct: "100.0", us: "923", usPct: "29.4" },
-        { label: "End of 2024 (B)", total: "20,947", totalPct: "100.0", us: "9,450", usPct: "45.1", emphasis: true },
-        { label: "Change (A−B)", total: "3,448", totalPct: null, us: "2,042", usPct: null, emphasis: true },
-      ],
-    },
-    whyCitation: "Source: Bank of Korea, International Investment Position, as of 2026",
-
     ctaTitle: "Let's sketch the next step together.",
     ctaButton: "Free Consultation",
   },
 };
-
-function BarChart({ bars, title }) {
-  const max = 12000;
-  const chartTop = 20;
-  const chartBottom = 190;
-  const chartHeight = chartBottom - chartTop;
-  const barWidth = 70;
-  const positions = [150, 330];
-  const colors = ["var(--kb-text)", "var(--kb-gold)"];
-  const opacities = [0.35, 1];
-
-  return (
-    <svg viewBox="0 0 500 220" className="w-full h-auto" role="img" aria-label={title}>
-      <line x1="40" y1={chartBottom} x2="460" y2={chartBottom} stroke="var(--kb-border)" strokeWidth="1" />
-      {bars.map((bar, i) => {
-        const h = (bar.value / max) * chartHeight;
-        const y = chartBottom - h;
-        const x = positions[i];
-        return (
-          <g key={i}>
-            <rect x={x} y={y} width={barWidth} height={h} fill={colors[i]} fillOpacity={opacities[i]} rx="2" />
-            <text x={x + barWidth / 2} y={y - 10} fontSize="14" fontWeight="500" fill="var(--kb-ink)" textAnchor="middle">
-              {bar.value.toLocaleString()}
-            </text>
-            <text x={x + barWidth / 2} y={chartBottom + 20} fontSize="13" fill="var(--kb-muted)" textAnchor="middle">
-              {bar.label}
-            </text>
-          </g>
-        );
-      })}
-    </svg>
-  );
-}
 
 export default function About() {
   const { lang } = useLang();
@@ -353,11 +247,55 @@ export default function About() {
         </div>
       </section>
 
+      {/* Market Challenges (formerly Founding Story) — now sits before Why K Bridge */}
+      <section className="bg-[color:var(--kb-bone)] pt-16 md:pt-20 pb-24 md:pb-28">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
+          <FadeUp>
+            <ChapterBadge number={3} label={t.foundingBadge} />
+          </FadeUp>
+
+          {/* Section heading */}
+          <FadeUp delay={0.1}>
+            <h2 className="mt-10 font-serif-kr text-4xl md:text-5xl font-light leading-[1.2] text-[color:var(--kb-ink)] max-w-4xl text-balance">
+              {t.foundingClosing}
+            </h2>
+          </FadeUp>
+
+          {/* Hook line — introduces the challenges list */}
+          <FadeUp delay={0.2}>
+            <p className="mt-8 text-lg text-[color:var(--kb-text)]/80 leading-[1.9] max-w-3xl">
+              {t.foundingHook}
+            </p>
+          </FadeUp>
+
+          {/* Six challenge points — checklist grid */}
+          <FadeUp delay={0.3}>
+            <ul className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-5 max-w-3xl">
+              {t.foundingPatterns.map((line, i) => (
+                <li key={i} className="flex items-center gap-3 text-base md:text-lg text-[color:var(--kb-text)]/85">
+                  <span className="flex-shrink-0 w-6 h-6 rounded-full border border-[color:var(--kb-gold)] flex items-center justify-center">
+                    <Check size={13} strokeWidth={2} className="text-[color:var(--kb-gold)]" />
+                  </span>
+                  <span>{line}</span>
+                </li>
+              ))}
+            </ul>
+          </FadeUp>
+
+          {/* Credibility paragraph */}
+          <FadeUp delay={0.4}>
+            <p className="mt-14 text-lg text-[color:var(--kb-text)]/80 leading-[1.9] max-w-3xl">
+              {t.foundingCredibility}
+            </p>
+          </FadeUp>
+        </div>
+      </section>
+
       {/* Why K Bridge — bento grid: one featured navy card + 4 supporting cards */}
       <section className="bg-[color:var(--kb-paper)] pt-16 md:pt-20 pb-24 md:pb-28">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <FadeUp>
-            <ChapterBadge number={3} label={t.approachBadge} />
+            <ChapterBadge number={4} label={t.approachBadge} />
           </FadeUp>
 
           <FadeUp delay={0.1}>
@@ -415,164 +353,6 @@ export default function About() {
                 );
               })}
             </div>
-          </FadeUp>
-        </div>
-      </section>
-
-      {/* Market Challenges (formerly Founding Story) */}
-      <section className="bg-[color:var(--kb-bone)] pt-16 md:pt-20 pb-24 md:pb-28">
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
-          <FadeUp>
-            <ChapterBadge number={4} label={t.foundingBadge} />
-          </FadeUp>
-
-          {/* Section heading */}
-          <FadeUp delay={0.1}>
-            <h2 className="mt-10 font-serif-kr text-4xl md:text-5xl font-light leading-[1.2] text-[color:var(--kb-ink)] max-w-4xl text-balance">
-              {t.foundingClosing}
-            </h2>
-          </FadeUp>
-
-          {/* Hook line — introduces the challenges list */}
-          <FadeUp delay={0.2}>
-            <p className="mt-8 text-lg text-[color:var(--kb-text)]/80 leading-[1.9] max-w-3xl">
-              {t.foundingHook}
-            </p>
-          </FadeUp>
-
-          {/* Six challenge points — checklist grid */}
-          <FadeUp delay={0.3}>
-            <ul className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-5 max-w-3xl">
-              {t.foundingPatterns.map((line, i) => (
-                <li key={i} className="flex items-center gap-3 text-base md:text-lg text-[color:var(--kb-text)]/85">
-                  <span className="flex-shrink-0 w-6 h-6 rounded-full border border-[color:var(--kb-gold)] flex items-center justify-center">
-                    <Check size={13} strokeWidth={2} className="text-[color:var(--kb-gold)]" />
-                  </span>
-                  <span>{line}</span>
-                </li>
-              ))}
-            </ul>
-          </FadeUp>
-
-          {/* Credibility paragraph */}
-          <FadeUp delay={0.4}>
-            <p className="mt-14 text-lg text-[color:var(--kb-text)]/80 leading-[1.9] max-w-3xl">
-              {t.foundingCredibility}
-            </p>
-          </FadeUp>
-        </div>
-      </section>
-
-      {/* Why Enter the U.S. Market — intro, investment stats, opportunity bullets */}
-      <section className="bg-[color:var(--kb-paper)] pt-16 md:pt-20 pb-24 md:pb-28">
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
-          <FadeUp>
-            <ChapterBadge number={5} label={t.whyBadge} />
-          </FadeUp>
-
-          <FadeUp delay={0.1}>
-            <h2 className="mt-10 font-serif-kr text-4xl md:text-5xl font-light leading-[1.2] text-[color:var(--kb-ink)] max-w-4xl text-balance">
-              {t.whyTitle}
-            </h2>
-          </FadeUp>
-
-          <FadeUp delay={0.15}>
-            <p className="mt-6 text-base md:text-lg text-[color:var(--kb-text)]/80 leading-[1.9] max-w-3xl">
-              {t.whyIntro}
-            </p>
-          </FadeUp>
-
-          {/* Investment data — small rectangle (headline stat + bullets), big rectangle (chart + table) */}
-          <FadeUp delay={0.2}>
-            <div
-              className="mt-14 grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(0,2fr)] gap-6 items-start"
-              data-testid="why-investment"
-            >
-              {/* Small rectangle — headline stat + bullets */}
-              <div className="bg-[color:var(--kb-bone)] border border-[color:var(--kb-border)] p-7 md:p-8">
-                <p className="font-serif text-4xl md:text-5xl font-light text-[color:var(--kb-ink)]">
-                  {t.whyInvestment.value}
-                  <span className="ml-2 text-base font-normal text-[color:var(--kb-muted)]">
-                    {t.whyInvestment.valueSub}
-                  </span>
-                </p>
-                <p className="mt-3 text-sm text-[color:var(--kb-text)]/70">{t.whyInvestment.label}</p>
-                <p className="text-sm font-medium text-[color:var(--kb-gold)] mb-5">{t.whyInvestment.labelBold}</p>
-                <ul className="space-y-4">
-                  {t.whyInvestment.bullets.map((b, i) => (
-                    <li key={i} className="text-[13px] leading-[1.7] text-[color:var(--kb-text)]/75">
-                      {b.pre}
-                      <span className="font-medium text-[color:var(--kb-ink)]">{b.bold}</span>
-                      {b.suf}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Big rectangle — chart and table together */}
-              <div className="bg-[color:var(--kb-bone)] border border-[color:var(--kb-border)] p-7 md:p-8 grid grid-cols-1 md:grid-cols-2 gap-8">
-                {/* Bar chart */}
-                <div>
-                  <h3 className="text-sm font-medium text-[color:var(--kb-ink)] mb-4">{t.whyChart.title}</h3>
-                  <BarChart bars={t.whyChart.bars} title={t.whyChart.title} />
-                  <ul className="mt-4 space-y-1">
-                    {t.whyChart.notes.map((n, i) => (
-                      <li key={i} className="text-[13px] text-[color:var(--kb-text)]/70 flex items-center gap-2">
-                        <span className="w-1 h-1 rounded-full bg-[color:var(--kb-gold)]" />
-                        {n}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Breakdown table */}
-                <div className="md:border-l md:border-[color:var(--kb-border)] md:pl-8 overflow-x-auto">
-                  <table className="w-full text-[12px] border-collapse" style={{ tableLayout: "fixed" }}>
-                    <thead>
-                      <tr>
-                        <th className="w-[38%]"></th>
-                        <th className="bg-[color:var(--kb-ink)] text-white font-medium py-2 px-2 text-center">
-                          {t.whyTable.headers.total}
-                        </th>
-                        <th className="bg-[color:var(--kb-gold)] text-[color:var(--kb-ink)] font-medium py-2 px-2 text-center">
-                          {t.whyTable.headers.us}
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {t.whyTable.rows.map((row, i) => (
-                        <tr
-                          key={i}
-                          className={`border-b border-[color:var(--kb-border)] ${row.emphasis ? "font-medium" : ""}`}
-                        >
-                          <td className="py-2 pr-1 text-[color:var(--kb-text)]/80">{row.label}</td>
-                          <td className="py-2 px-2 text-right text-[color:var(--kb-ink)]">
-                            {row.total}
-                            {row.totalPct && (
-                              <span className="block text-[10px] font-normal text-[color:var(--kb-muted)]">
-                                ({row.totalPct})
-                              </span>
-                            )}
-                          </td>
-                          <td className="py-2 px-2 text-right text-[color:var(--kb-ink)]">
-                            {row.us}
-                            {row.usPct && (
-                              <span className="block text-[10px] font-normal text-[color:var(--kb-muted)]">
-                                ({row.usPct})
-                              </span>
-                            )}
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </FadeUp>
-
-          <FadeUp delay={0.25}>
-            <p className="mt-4 text-xs italic text-[color:var(--kb-muted)]">{t.whyCitation}</p>
           </FadeUp>
         </div>
       </section>
