@@ -6,6 +6,15 @@ import Pill from "@/components/Pill";
 import StatsBlock from "@/components/StatsBlock";
 import SectionQuote from "@/components/SectionQuote";
 import { useLang } from "@/lib/i18n";
+import { Route, Building2, Network, Languages, Target } from "lucide-react";
+
+const APPROACH_ICONS: Record<string, React.ComponentType<{ size?: number; strokeWidth?: number; className?: string }>> = {
+  route: Route,
+  "building-skyscraper": Building2,
+  network: Network,
+  language: Languages,
+  "target-arrow": Target,
+};
 
 // Commercial storefront / retail corridor — reflects the CRE background
 const FOUNDING_IMG = "https://images.unsplash.com/photo-1480944657103-7fed22359e1d?fm=jpg&q=85&w=1600&auto=format&fit=crop";
@@ -39,19 +48,35 @@ const CONTENT = {
     ],
     missionQuote: "숫자와 조항 너머의 판단은, 현장에서 나옵니다.",
 
-    approachBadge: "접근 방식",
-    approachTitle: "한 팀이, 처음부터 끝까지.",
+    approachBadge: "Why K Bridge",
+    approachTitle: "왜 K Bridge와 함께해야 할까요.",
     approachStages: [
-      { title: "미국 시장 조사", body: "미국 시장과 소비자, 경쟁 브랜드를 분석해 진출 방향을 그립니다." },
-      { title: "미국 법인 설립 지원", body: "어떤 주에 법인을 낼지, 어떤 구조가 세제상 유리한지 결정하고 등록과 EIN 발급까지 지원합니다." },
-      { title: "상표 등록 지원", body: "미국 상표 출원과 브랜드 보호 절차를 함께 진행합니다." },
-      { title: "상권 분석", body: "후보 지역의 유동인구와 경쟁 환경을 데이터로 검토합니다." },
-      { title: "부동산 입지 선정", body: "상권 리서치를 바탕으로 최적의 입지 후보를 함께 좁혀갑니다." },
-      { title: "임대차 협상", body: "퍼센티지 임대료, 코테넌시 조항 같은 조건을 직접 조율합니다." },
-      { title: "인허가 및 사업자 등록 지원", body: "업종별 인허가와 사업자 등록 절차를 안내하고 대행합니다." },
-      { title: "시공 조율", body: "시공 파트너 선정부터 일정 관리까지 현장에서 함께합니다." },
-      { title: "오픈 이후 운영", body: "매장이 문을 연 후, 안정화될 때까지 오퍼레이션을 튜닝합니다." },
-      { title: "프랜차이즈 확장", body: "운영 데이터를 바탕으로 추가 매장과 가맹 확장 전략을 수립합니다." },
+      {
+        title: "처음부터 오픈까지, 원스톱 솔루션",
+        body: "보고서를 남기고 떠나지 않습니다. 매장이 문을 열 때까지 함께합니다.",
+        icon: "route",
+        featured: true,
+      },
+      {
+        title: "프랜차이즈 & 상업용 부동산 전문성",
+        body: "일반 컨설팅이 아닌, 실전 부동산과 프랜차이즈 실무에서 나온 전문성입니다.",
+        icon: "building-skyscraper",
+      },
+      {
+        title: "미국 현지 네트워크",
+        body: "20년 이상 다져온 임대인, 시공사, 전문가 네트워크로 실행력을 더합니다.",
+        icon: "network",
+      },
+      {
+        title: "한미 비즈니스 환경에 대한 이해",
+        body: "한국의 사업 관행과 미국의 실무 방식, 양쪽 언어로 협상합니다.",
+        icon: "language",
+      },
+      {
+        title: "현장에서 실행 가능한 현실적인 전략",
+        body: "이론이 아닌, 실제로 작동하는 전략만 제안합니다.",
+        icon: "target-arrow",
+      },
     ],
     approachClosing: "한 번에 소수의 브랜드만 맡습니다. 깊이 있게, 끝까지.",
 
@@ -97,17 +122,37 @@ const CONTENT = {
     ],
     missionQuote: "Judgment beyond the numbers and clauses comes from being on the ground.",
 
-    approachBadge: "Our Approach",
-    approachTitle: "One team, from start to finish.",
+    approachBadge: "Why K Bridge",
+    approachTitle: "Why brands choose K Bridge.",
     approachStages: [
-      { title: "U.S. Market Research", body: "We analyze the U.S. market, target consumers, and competing brands to shape your entry." },
-      { title: "U.S. Entity Formation", body: "We decide which state to form in and which structure is tax-optimal, then handle registration and EIN issuance." },
-      { title: "Trademark Registration", body: "We file your U.S. trademark and manage brand protection." },
-      { title: "Trade Area Analysis", body: "We assess foot traffic and the competitive landscape across candidate regions." },
-      { title: "Site Selection", body: "Building on trade area research, we narrow down the strongest location candidates together." },
-      { title: "Lease Negotiation", body: "Percentage rent, co-tenancy, personal guarantees — we negotiate the terms with you." },
-      { title: "Permits & Business Registration", body: "We guide and manage industry-specific permits and business registration." },
-      { title: "Buildout Coordination", body: "From contractor selection to schedule management — we're on-site with you." },
+      {
+        title: "One-stop, from day one to opening day",
+        body: "We don't hand off a report and leave — we stay through execution, until the doors open.",
+        icon: "route",
+        featured: true,
+      },
+      {
+        title: "Franchise & commercial real estate expertise",
+        body: "Specialized expertise from real commercial real estate and franchise work — not generalist consulting.",
+        icon: "building-skyscraper",
+      },
+      {
+        title: "A real network on the ground",
+        body: "20+ years of relationships with landlords, contractors, and vetted partners.",
+        icon: "network",
+      },
+      {
+        title: "Fluent in both business cultures",
+        body: "We understand Korean business norms and how deals actually get done in the U.S.",
+        icon: "language",
+      },
+      {
+        title: "Strategy that's actually executable",
+        body: "Not theoretical playbooks — advice that's built to work on the ground.",
+        icon: "target-arrow",
+      },
+    ],
+    approachClosing: "We only take on a handful of brands at a time — deep, and to the end.",
       { title: "Post-Opening Ops", body: "After the doors open, we stay to tune operations until the store stabilizes." },
       { title: "Franchise Expansion", body: "Using performance data, we build strategies for additional locations and franchise growth." },
     ],
@@ -206,31 +251,46 @@ export default function About() {
           </FadeUp>
 
           <FadeUp delay={0.25}>
-            <ol
-              className="mt-16 grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6"
-              data-testid="about-approach-timeline"
+            <div
+              className="mt-16 grid grid-cols-1 md:grid-cols-2 md:grid-rows-3 gap-4 md:gap-5"
+              data-testid="about-why-grid"
             >
-              {t.approachStages.map((stage, i) => (
-                <li
-                  key={i}
-                  className="bg-[color:var(--kb-bone)] border border-[color:var(--kb-border)] p-7 md:p-8"
-                >
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="flex-shrink-0 w-9 h-9 rounded-full border border-[color:var(--kb-gold)] flex items-center justify-center">
-                      <span className="text-[13px] text-[color:var(--kb-gold)] font-medium">
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                    </span>
-                    <h3 className="font-serif-kr text-xl md:text-2xl font-light text-[color:var(--kb-ink)]">
+              {t.approachStages.map((stage, i) => {
+                const Icon = APPROACH_ICONS[stage.icon] ?? Route;
+                if (stage.featured) {
+                  return (
+                    <div
+                      key={i}
+                      className="md:col-start-1 md:row-start-1 md:row-span-2 bg-[color:var(--kb-ink)] p-8 md:p-10 flex flex-col justify-between min-h-[220px]"
+                    >
+                      <Icon size={26} strokeWidth={1.5} className="text-[color:var(--kb-gold)]" />
+                      <div>
+                        <h3 className="font-serif-kr text-xl md:text-2xl font-light leading-[1.4] text-[color:var(--kb-champagne)] mb-3">
+                          {stage.title}
+                        </h3>
+                        <p className="text-[13px] md:text-sm text-[color:var(--kb-gold)]/70 leading-[1.7]">
+                          {stage.body}
+                        </p>
+                      </div>
+                    </div>
+                  );
+                }
+                return (
+                  <div
+                    key={i}
+                    className="bg-[color:var(--kb-bone)] border border-[color:var(--kb-border)] p-7 md:p-8"
+                  >
+                    <Icon size={22} strokeWidth={1.5} className="text-[color:var(--kb-gold)]" />
+                    <h3 className="mt-3 font-serif-kr text-lg md:text-xl font-light leading-[1.4] text-[color:var(--kb-ink)] mb-2">
                       {stage.title}
                     </h3>
+                    <p className="text-[13px] md:text-sm text-[color:var(--kb-text)]/70 leading-[1.7]">
+                      {stage.body}
+                    </p>
                   </div>
-                  <p className="text-[15px] md:text-base text-[color:var(--kb-text)]/75 leading-[1.75]">
-                    {stage.body}
-                  </p>
-                </li>
-              ))}
-            </ol>
+                );
+              })}
+            </div>
           </FadeUp>
         </div>
       </section>
