@@ -113,11 +113,38 @@ const CONTENT = {
 
     whyBadge: "시장 기회",
     whyTitle: "미국 시장은, 새로운 성장 기회입니다.",
-    whyStats: [
-      { value: "$1.0T+", label: "한국의 대미 투자 잔액 (사상 최초 기록)" },
-      { value: "107.6%", label: "2026년 1분기 대미 투자 증가율 (전년 동기 대비)" },
-      { value: "24%", label: "미국의 한식 프랜차이즈 글로벌 매장 점유율" },
-    ],
+    whyInvestment: {
+      value: "$1.0T+",
+      valueSub: "1조 달러",
+      label: "한국의 대미 투자 잔액",
+      labelBold: "사상 최초 기록",
+      bullets: [
+        { pre: "2019–2024년 한국은 대미 외국인직접투자(FDIUS) 증가율 ", bold: "3위국(70% 성장)", suf: ", 그중 약 4분의 3이 도소매업에 집중" },
+        { pre: "미국은 한국 ", bold: "해외투자의 최대 대상국", suf: " 지위를 지속적으로 유지 중이며, EU·동남아 대비 압도적 비중을 차지함" },
+        { pre: "2026년 1분기 대미 투자, 전년 동기 대비 ", bold: "107.6% 증가", suf: " — 최근 4년 내 최고 수준을 기록함" },
+        { pre: "도소매업 투자 51.0% 급증, ", bold: "27.3억 달러", suf: " — 소비재 브랜드가 활용할 유통·수입 인프라 구축이 본격화되고 있음을 시사" },
+      ],
+    },
+    whyChart: {
+      title: "대미 총 금융자산 (억 달러)",
+      bars: [
+        { label: "2024년말", value: 9450 },
+        { label: "2025년말", value: 11492 },
+      ],
+      notes: ["전년 대비 12.9% 증가", "2022년 이후 첫 증가 전환"],
+    },
+    whyTable: {
+      headers: { total: "총액", us: "미국" },
+      rows: [
+        { label: "2025년말(A)", total: "24,396", totalPct: "100.0", us: "11,492", usPct: "47.1", emphasis: true },
+        { label: "직접투자", total: "8,363", totalPct: "100.0", us: "2,501", usPct: "29.9" },
+        { label: "증권투자", total: "12,532", totalPct: "100.0", us: "8,028", usPct: "64.1" },
+        { label: "파생금융상품", total: "360", totalPct: "100.0", us: "40", usPct: "11.0" },
+        { label: "기타투자", total: "3,141", totalPct: "100.0", us: "923", usPct: "29.4" },
+        { label: "2024년말(B)", total: "20,947", totalPct: "100.0", us: "9,450", usPct: "45.1", emphasis: true },
+        { label: "증감(A-B)", total: "3,448", totalPct: null, us: "2,042", usPct: null, emphasis: true },
+      ],
+    },
     whyCrossoverTitle: "한식 프랜차이즈, 미국이 최대 해외 시장으로",
     whyCrossoverNote: "2020년 중국이 압도적 우위였으나, 2025년 미국이 역전했습니다.",
     whyCrossoverUS: { label: "미국", from: "528개", to: "1,100개+", change: "+109%" },
@@ -209,11 +236,38 @@ const CONTENT = {
 
     whyBadge: "Market Opportunity",
     whyTitle: "The U.S. market is a new growth opportunity.",
-    whyStats: [
-      { value: "$1.0T+", label: "Korea's cumulative investment in the U.S. (an all-time high)" },
-      { value: "107.6%", label: "YoY growth in Korean investment into the U.S., Q1 2026" },
-      { value: "24%", label: "U.S. share of global Korean F&B franchise locations" },
-    ],
+    whyInvestment: {
+      value: "$1.0T+",
+      valueSub: "USD 1 trillion+",
+      label: "Korea's cumulative investment balance in the U.S.",
+      labelBold: "An all-time high",
+      bullets: [
+        { pre: "From 2019–2024, Korea ranked ", bold: "3rd globally in U.S. FDI growth (+70%)", suf: ", with roughly three-quarters concentrated in wholesale and retail." },
+        { pre: "The U.S. remains Korea's ", bold: "largest destination for outbound investment", suf: ", holding an overwhelming share versus the EU and Southeast Asia." },
+        { pre: "Q1 2026 investment into the U.S. grew ", bold: "107.6% year-over-year", suf: " — the highest level in the past four years." },
+        { pre: "Wholesale/retail investment surged 51.0% to ", bold: "$2.73B", suf: ", signaling accelerating build-out of distribution and import infrastructure for consumer brands." },
+      ],
+    },
+    whyChart: {
+      title: "Korea's U.S.-bound financial assets ($100M)",
+      bars: [
+        { label: "End of 2024", value: 9450 },
+        { label: "End of 2025", value: 11492 },
+      ],
+      notes: ["Up 12.9% year-over-year", "First increase since 2022"],
+    },
+    whyTable: {
+      headers: { total: "Total", us: "U.S." },
+      rows: [
+        { label: "End of 2025 (A)", total: "24,396", totalPct: "100.0", us: "11,492", usPct: "47.1", emphasis: true },
+        { label: "Direct investment", total: "8,363", totalPct: "100.0", us: "2,501", usPct: "29.9" },
+        { label: "Portfolio investment", total: "12,532", totalPct: "100.0", us: "8,028", usPct: "64.1" },
+        { label: "Derivatives", total: "360", totalPct: "100.0", us: "40", usPct: "11.0" },
+        { label: "Other investment", total: "3,141", totalPct: "100.0", us: "923", usPct: "29.4" },
+        { label: "End of 2024 (B)", total: "20,947", totalPct: "100.0", us: "9,450", usPct: "45.1", emphasis: true },
+        { label: "Change (A−B)", total: "3,448", totalPct: null, us: "2,042", usPct: null, emphasis: true },
+      ],
+    },
     whyCrossoverTitle: "Korean F&B franchises: the U.S. is now the largest overseas market",
     whyCrossoverNote: "China led decisively in 2020 — by 2025, the U.S. had overtaken it.",
     whyCrossoverUS: { label: "U.S.", from: "528", to: "1,100+", change: "+109%" },
@@ -230,6 +284,39 @@ const CONTENT = {
     ctaButton: "Free Consultation",
   },
 };
+
+function BarChart({ bars, title }) {
+  const max = 12000;
+  const chartTop = 20;
+  const chartBottom = 190;
+  const chartHeight = chartBottom - chartTop;
+  const barWidth = 70;
+  const positions = [150, 330];
+  const colors = ["var(--kb-text)", "var(--kb-gold)"];
+  const opacities = [0.35, 1];
+
+  return (
+    <svg viewBox="0 0 500 220" className="w-full h-auto" role="img" aria-label={title}>
+      <line x1="40" y1={chartBottom} x2="460" y2={chartBottom} stroke="var(--kb-border)" strokeWidth="1" />
+      {bars.map((bar, i) => {
+        const h = (bar.value / max) * chartHeight;
+        const y = chartBottom - h;
+        const x = positions[i];
+        return (
+          <g key={i}>
+            <rect x={x} y={y} width={barWidth} height={h} fill={colors[i]} fillOpacity={opacities[i]} rx="2" />
+            <text x={x + barWidth / 2} y={y - 10} fontSize="14" fontWeight="500" fill="var(--kb-ink)" textAnchor="middle">
+              {bar.value.toLocaleString()}
+            </text>
+            <text x={x + barWidth / 2} y={chartBottom + 20} fontSize="13" fill="var(--kb-muted)" textAnchor="middle">
+              {bar.label}
+            </text>
+          </g>
+        );
+      })}
+    </svg>
+  );
+}
 
 function CrossoverChart({ us, cn, years }) {
   // Fixed geometry: three x-positions (start, crossover, end), y mapped from value/1400 range.
@@ -457,19 +544,86 @@ export default function About() {
             </h2>
           </FadeUp>
 
-          {/* Stat row */}
+          {/* Investment data — headline stat + bullets, bar chart, breakdown table */}
           <FadeUp delay={0.2}>
-            <div className="mt-14 grid grid-cols-1 sm:grid-cols-3 gap-5" data-testid="why-stats">
-              {t.whyStats.map((s, i) => (
-                <div key={i} className="bg-[color:var(--kb-bone)] border border-[color:var(--kb-border)] p-7">
-                  <p className="font-serif text-3xl md:text-4xl font-light text-[color:var(--kb-gold)] mb-2">
-                    {s.value}
-                  </p>
-                  <p className="text-[13px] md:text-sm text-[color:var(--kb-text)]/70 leading-[1.6]">
-                    {s.label}
-                  </p>
-                </div>
-              ))}
+            <div className="mt-14 grid grid-cols-1 lg:grid-cols-3 gap-6" data-testid="why-investment">
+              {/* Headline stat + bullets */}
+              <div className="bg-[color:var(--kb-bone)] border border-[color:var(--kb-border)] p-7 md:p-8">
+                <p className="font-serif text-4xl md:text-5xl font-light text-[color:var(--kb-ink)]">
+                  {t.whyInvestment.value}
+                  <span className="ml-2 text-base font-normal text-[color:var(--kb-muted)]">
+                    {t.whyInvestment.valueSub}
+                  </span>
+                </p>
+                <p className="mt-3 text-sm text-[color:var(--kb-text)]/70">{t.whyInvestment.label}</p>
+                <p className="text-sm font-medium text-[color:var(--kb-gold)] mb-5">{t.whyInvestment.labelBold}</p>
+                <ul className="space-y-4">
+                  {t.whyInvestment.bullets.map((b, i) => (
+                    <li key={i} className="text-[13px] leading-[1.7] text-[color:var(--kb-text)]/75">
+                      {b.pre}
+                      <span className="font-medium text-[color:var(--kb-ink)]">{b.bold}</span>
+                      {b.suf}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Bar chart */}
+              <div className="bg-[color:var(--kb-bone)] border border-[color:var(--kb-border)] p-7 md:p-8">
+                <h3 className="text-sm font-medium text-[color:var(--kb-ink)] mb-4">{t.whyChart.title}</h3>
+                <BarChart bars={t.whyChart.bars} title={t.whyChart.title} />
+                <ul className="mt-2 space-y-1">
+                  {t.whyChart.notes.map((n, i) => (
+                    <li key={i} className="text-[13px] text-[color:var(--kb-text)]/70 flex items-center gap-2">
+                      <span className="w-1 h-1 rounded-full bg-[color:var(--kb-gold)]" />
+                      {n}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Breakdown table */}
+              <div className="bg-[color:var(--kb-bone)] border border-[color:var(--kb-border)] p-7 md:p-8 overflow-x-auto">
+                <table className="w-full text-[12px] border-collapse" style={{ tableLayout: "fixed" }}>
+                  <thead>
+                    <tr>
+                      <th className="w-[38%]"></th>
+                      <th className="bg-[color:var(--kb-ink)] text-white font-medium py-2 px-2 text-center">
+                        {t.whyTable.headers.total}
+                      </th>
+                      <th className="bg-[color:var(--kb-gold)] text-[color:var(--kb-ink)] font-medium py-2 px-2 text-center">
+                        {t.whyTable.headers.us}
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {t.whyTable.rows.map((row, i) => (
+                      <tr
+                        key={i}
+                        className={`border-b border-[color:var(--kb-border)] ${row.emphasis ? "font-medium" : ""}`}
+                      >
+                        <td className="py-2 pr-1 text-[color:var(--kb-text)]/80">{row.label}</td>
+                        <td className="py-2 px-2 text-right text-[color:var(--kb-ink)]">
+                          {row.total}
+                          {row.totalPct && (
+                            <span className="block text-[10px] font-normal text-[color:var(--kb-muted)]">
+                              ({row.totalPct})
+                            </span>
+                          )}
+                        </td>
+                        <td className="py-2 px-2 text-right text-[color:var(--kb-ink)]">
+                          {row.us}
+                          {row.usPct && (
+                            <span className="block text-[10px] font-normal text-[color:var(--kb-muted)]">
+                              ({row.usPct})
+                            </span>
+                          )}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
             </div>
           </FadeUp>
 
@@ -535,4 +689,3 @@ export default function About() {
     </div>
   );
 }
-
