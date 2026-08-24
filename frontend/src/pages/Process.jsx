@@ -99,7 +99,12 @@ export default function Process() {
                     </div>
                     <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 md:gap-10">
                       <h3 className="font-serif-kr text-2xl md:text-3xl font-light leading-tight md:max-w-[280px]">
-                        {s.title}
+                        {s.title.split(" & ").map((part, idx, arr) => (
+                          <span key={idx}>
+                            {idx === 0 ? `${part} &` : part}
+                            {idx < arr.length - 1 && <br />}
+                          </span>
+                        ))}
                       </h3>
                       <p className="text-base md:text-lg text-[color:var(--kb-text)]/80 leading-[1.85] md:flex-1">
                         {s.body}
