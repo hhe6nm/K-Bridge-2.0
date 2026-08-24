@@ -8,7 +8,7 @@ import SectionQuote from "@/components/SectionQuote";
 import { useLang } from "@/lib/i18n";
 import { Route, Building2, Network, Languages, Target } from "lucide-react";
 
-const APPROACH_ICONS: Record<string, React.ComponentType<{ size?: number; strokeWidth?: number; className?: string }>> = {
+const APPROACH_ICONS = {
   route: Route,
   "building-skyscraper": Building2,
   network: Network,
