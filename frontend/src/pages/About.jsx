@@ -1,4 +1,4 @@
-mport { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import PageHeader from "@/components/PageHeader";
 import { FadeUp, MaskedLineInView } from "@/components/MaskedReveal";
 import ChapterBadge from "@/components/ChapterBadge";
