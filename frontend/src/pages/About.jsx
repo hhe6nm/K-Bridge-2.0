@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import PageHeader from "@/components/PageHeader";
 import { FadeUp, MaskedLineInView } from "@/components/MaskedReveal";
 import ChapterBadge from "@/components/ChapterBadge";
-import Pill from "@/components/Pill";
 import StatsBlock from "@/components/StatsBlock";
 import SectionQuote from "@/components/SectionQuote";
 import { useLang } from "@/lib/i18n";
@@ -58,15 +57,15 @@ const CONTENT = {
       { value: "6", unit: "개", label: "제공 서비스 분야" },
     ],
 
-    missionBadge: "미션",
-    missionStatement: "한국 브랜드가 미국 시장에서 지속 가능한 성공을 이루도록, 실질적으로 함께 실행합니다.",
-    missionBody: "미국 상업 임대차 계약에는 한국에 없는 구조가 있습니다. 퍼센티지 임대료, 코테넌시 조항, 개인 보증 — 이름조차 낯선 이 조항들이, 실제로는 브랜드의 손익을 결정합니다.",
-    missionPills: [
-      { ko: "퍼센티지 임대료", en: "percentage rent" },
-      { ko: "코테넌시 조항", en: "co-tenancy clause" },
-      { ko: "개인 보증", en: "personal guarantee" },
+    ceoBadge: "대표 인사말",
+    ceoQuote: "한 걸음, 한 걸음을 함께 걷겠습니다.",
+    ceoBody: [
+      "K Bridge Partners를 찾아주셔서 감사합니다.",
+      "저희는 지난 20년간 워싱턴 DC와 버지니아를 중심으로 상업용 부동산 현장에서 일하며, 많은 한국 브랜드가 미국이라는 낯선 시장 앞에서 겪는 어려움을 가까이서 지켜봐 왔습니다. 좋은 브랜드가 정보 부족과 신뢰할 수 있는 파트너의 부재로 기회를 놓치는 모습을 볼 때마다, 저희가 가진 현장의 경험과 네트워크가 누군가에게는 반드시 필요한 다리가 될 수 있다고 확신했습니다.",
+      "K Bridge Partners는 그 확신에서 출발했습니다. 시장 조사부터 매장 오픈, 그리고 그 이후의 안정화까지 — 저희는 한 팀으로서 브랜드의 미국 진출 여정을 처음부터 끝까지 함께합니다.",
     ],
-    missionQuote: "숫자와 조항 너머의 판단은, 현장에서 나옵니다.",
+    ceoSignatureName: "Jessica Chong",
+    ceoSignatureTitle: "K Bridge Partners 대표",
 
     approachBadge: "Why K Bridge",
     approachTitle: "왜 K Bridge와 함께해야 할까요.",
@@ -180,15 +179,15 @@ const CONTENT = {
       { value: "6", unit: "services", label: "verticals we deliver" },
     ],
 
-    missionBadge: "Mission",
-    missionStatement: "Help Korean brands achieve sustainable success in the U.S. — by executing alongside them, not advising from a distance.",
-    missionBody: "U.S. commercial leases carry structures Korea simply doesn't have. Percentage rent, co-tenancy clauses, personal guarantees — clauses whose names alone are unfamiliar are the ones that actually decide a brand's P&L.",
-    missionPills: [
-      { ko: "Percentage Rent", en: "퍼센티지 임대료" },
-      { ko: "Co-Tenancy Clause", en: "코테넌시 조항" },
-      { ko: "Personal Guarantee", en: "개인 보증" },
+    ceoBadge: "A Message from Our CEO",
+    ceoQuote: "We'll walk this journey with you, step by step.",
+    ceoBody: [
+      "Thank you for visiting K Bridge Partners.",
+      "For the past 20 years, working in commercial real estate across Washington DC and Virginia, I've watched many strong Korean brands struggle with the unfamiliar terrain of the U.S. market. Time and again, I saw good brands lose real opportunities simply because they lacked the right information or a partner they could trust. I became convinced that the experience and network we'd built on the ground could become the bridge someone needed.",
+      "K Bridge Partners began from that conviction. From initial market research to opening day, and the stabilization that follows — we stay as one team, with you, from the very first step to the last.",
     ],
-    missionQuote: "Judgment beyond the numbers and clauses comes from being on the ground.",
+    ceoSignatureName: "Jessica Chong",
+    ceoSignatureTitle: "CEO, K Bridge Partners",
 
     approachBadge: "Why K Bridge",
     approachTitle: "Why brands choose K Bridge.",
@@ -334,37 +333,40 @@ export default function About() {
         overviewBody={t.introBody}
       />
 
-      {/* Mission — precise spec-per-brief layout */}
+      {/* CEO's Message */}
       <section className="bg-[color:var(--kb-bone)] pt-16 md:pt-20 pb-24 md:pb-28">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           {/* Chapter badge */}
           <FadeUp>
-            <ChapterBadge number={2} label={t.missionBadge} />
+            <ChapterBadge number={2} label={t.ceoBadge} />
           </FadeUp>
 
           {/* Gap ~40px, then quote w/ solid gold left bar */}
           <FadeUp delay={0.1}>
-            <div className="mt-10 flex items-center gap-5" data-testid="mission-statement-block">
+            <div className="mt-10 flex items-center gap-5" data-testid="ceo-quote-block">
               <span className="w-2 self-stretch flex-shrink-0 bg-[color:var(--kb-gold)]" aria-hidden />
               <p className="font-serif text-3xl md:text-4xl font-light italic leading-[1.4] text-[color:var(--kb-gold)]">
-                {t.missionQuote}
+                {t.ceoQuote}
               </p>
             </div>
           </FadeUp>
 
-          {/* Gap ~32px, then body paragraph */}
+          {/* Body paragraphs */}
           <FadeUp delay={0.25}>
-            <p className="mt-8 text-base md:text-[17px] text-[color:var(--kb-text)]/80 leading-[1.9] max-w-3xl">
-              {t.missionBody}
-            </p>
+            <div className="mt-8 space-y-5 max-w-3xl">
+              {t.ceoBody.map((p, i) => (
+                <p key={i} className="text-base md:text-[17px] text-[color:var(--kb-text)]/80 leading-[1.9]">
+                  {p}
+                </p>
+              ))}
+            </div>
           </FadeUp>
 
-          {/* Gap ~24px, then chip row (real components, not inline text) */}
+          {/* Signature */}
           <FadeUp delay={0.35}>
-            <div className="mt-6 flex flex-wrap gap-3" data-testid="mission-pills">
-              {t.missionPills.map((p) => (
-                <Pill key={p.ko} ko={p.ko} en={p.en} />
-              ))}
+            <div className="mt-10 max-w-3xl" data-testid="ceo-signature">
+              <p className="font-serif text-xl italic text-[color:var(--kb-ink)]">{t.ceoSignatureName}</p>
+              <p className="mt-1 text-sm text-[color:var(--kb-text)]/60">{t.ceoSignatureTitle}</p>
             </div>
           </FadeUp>
         </div>
@@ -645,4 +647,3 @@ export default function About() {
     </div>
   );
 }
-
