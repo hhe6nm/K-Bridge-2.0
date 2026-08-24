@@ -153,10 +153,6 @@ const CONTENT = {
       },
     ],
     approachClosing: "We only take on a handful of brands at a time — deep, and to the end.",
-      { title: "Post-Opening Ops", body: "After the doors open, we stay to tune operations until the store stabilizes." },
-      { title: "Franchise Expansion", body: "Using performance data, we build strategies for additional locations and franchise growth." },
-    ],
-    approachClosing: "We only take on a handful of brands at a time — deep, and to the end.",
 
     foundingBadge: "Founding Story",
     foundingHook: "For decades, we've watched the same moment repeat: a strong brand, with a strong product, starting in the wrong location.",
@@ -227,14 +223,13 @@ export default function About() {
         </div>
       </section>
 
-      {/* Approach — new headline + timeline with connector line + ~32px between steps */}
+      {/* Why K Bridge — bento grid: one featured navy card + 4 supporting cards */}
       <section className="bg-[color:var(--kb-paper)] pt-16 md:pt-20 pb-24 md:pb-28">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <FadeUp>
             <ChapterBadge number={3} label={t.approachBadge} />
           </FadeUp>
 
-          {/* Closing quote moved to top, styled to match Mission section's gold-bar quote */}
           <FadeUp delay={0.1}>
             <div className="mt-10 flex items-center gap-5" data-testid="approach-quote-block">
               <span className="w-2 self-stretch flex-shrink-0 bg-[color:var(--kb-gold)]" aria-hidden />
@@ -256,7 +251,8 @@ export default function About() {
               data-testid="about-why-grid"
             >
               {t.approachStages.map((stage, i) => {
-                const Icon = APPROACH_ICONS[stage.icon] ?? Route;
+                const Icon = APPROACH_ICONS[stage.icon] || Route;
+
                 if (stage.featured) {
                   return (
                     <div
@@ -275,6 +271,7 @@ export default function About() {
                     </div>
                   );
                 }
+
                 return (
                   <div
                     key={i}
