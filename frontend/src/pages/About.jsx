@@ -113,6 +113,7 @@ const CONTENT = {
 
     whyBadge: "시장 기회",
     whyTitle: "미국 시장은, 새로운 성장 기회입니다.",
+    whyIntro: "미국은 한국 기업의 해외 투자에서 가장 큰 비중을 차지하는 시장이며, 최근 수년간 그 성장 속도가 뚜렷하게 빨라지고 있습니다. 특히 소비재와 프랜차이즈 분야에서 유통·수입 인프라 투자가 본격화되고 있다는 것은, 지금이 진출을 준비할 시점이라는 신호입니다.",
     whyInvestment: {
       value: "$1.0T+",
       valueSub: "1조 달러",
@@ -145,11 +146,7 @@ const CONTENT = {
         { label: "증감(A-B)", total: "3,448", totalPct: null, us: "2,042", usPct: null, emphasis: true },
       ],
     },
-    whyCrossoverTitle: "한식 프랜차이즈, 미국이 최대 해외 시장으로",
-    whyCrossoverNote: "2020년 중국이 압도적 우위였으나, 2025년 미국이 역전했습니다.",
-    whyCrossoverUS: { label: "미국", from: "528개", to: "1,100개+", change: "+109%" },
-    whyCrossoverCN: { label: "중국", from: "1,368개", to: "830개", change: "-39%" },
-    whyCrossoverYears: { start: "2020년", end: "2025년" },
+    whyCitation: "출처: 한국은행 국제투자대조표, 2026년 기준",
     whyBullets: [
       { icon: "globe", text: "세계 최대 소비 시장" },
       { icon: "trending-up", text: "다양한 K-Brand 성장 기회" },
@@ -236,6 +233,7 @@ const CONTENT = {
 
     whyBadge: "Market Opportunity",
     whyTitle: "The U.S. market is a new growth opportunity.",
+    whyIntro: "The U.S. accounts for the largest share of Korea's outbound investment, and that growth has clearly accelerated in recent years. Investment in distribution and import infrastructure — especially in consumer goods and franchising — is picking up: a clear signal that now is the moment to prepare for entry.",
     whyInvestment: {
       value: "$1.0T+",
       valueSub: "USD 1 trillion+",
@@ -268,11 +266,7 @@ const CONTENT = {
         { label: "Change (A−B)", total: "3,448", totalPct: null, us: "2,042", usPct: null, emphasis: true },
       ],
     },
-    whyCrossoverTitle: "Korean F&B franchises: the U.S. is now the largest overseas market",
-    whyCrossoverNote: "China led decisively in 2020 — by 2025, the U.S. had overtaken it.",
-    whyCrossoverUS: { label: "U.S.", from: "528", to: "1,100+", change: "+109%" },
-    whyCrossoverCN: { label: "China", from: "1,368", to: "830", change: "-39%" },
-    whyCrossoverYears: { start: "2020", end: "2025" },
+    whyCitation: "Source: Bank of Korea, International Investment Position, as of 2026",
     whyBullets: [
       { icon: "globe", text: "The world's largest consumer market" },
       { icon: "trending-up", text: "Broad growth opportunities for K-brands" },
@@ -314,37 +308,6 @@ function BarChart({ bars, title }) {
           </g>
         );
       })}
-    </svg>
-  );
-}
-
-function CrossoverChart({ us, cn, years }) {
-  // Fixed geometry: three x-positions (start, crossover, end), y mapped from value/1400 range.
-  const usPoints = "60,140 300,90 540,74";
-  const cnPoints = "60,44 300,90 540,105";
-
-  return (
-    <svg viewBox="0 0 600 220" className="w-full h-auto" role="img" aria-label="US vs China Korean F&B franchise store count crossover chart">
-      <line x1="60" y1="200" x2="540" y2="200" stroke="var(--kb-border)" strokeWidth="1" />
-      <line x1="300" y1="30" x2="300" y2="200" stroke="var(--kb-border)" strokeWidth="1" strokeDasharray="4 4" />
-
-      <polyline points={cnPoints} fill="none" stroke="var(--kb-text)" strokeOpacity="0.35" strokeWidth="2" />
-      <polyline points={usPoints} fill="none" stroke="var(--kb-gold)" strokeWidth="2.5" />
-
-      {usPoints.split(" ").map((p, i) => {
-        const [x, y] = p.split(",");
-        return <circle key={`us-${i}`} cx={x} cy={y} r="4" fill="var(--kb-gold)" />;
-      })}
-      {cnPoints.split(" ").map((p, i) => {
-        const [x, y] = p.split(",");
-        return <circle key={`cn-${i}`} cx={x} cy={y} r="4" fill="var(--kb-text)" fillOpacity="0.5" />;
-      })}
-
-      <text x="60" y="210" fontSize="12" fill="var(--kb-muted)" textAnchor="middle">{years.start}</text>
-      <text x="540" y="210" fontSize="12" fill="var(--kb-muted)" textAnchor="middle">{years.end}</text>
-
-      <text x="545" y="70" fontSize="13" fill="var(--kb-gold)" fontWeight="500">{us.label}</text>
-      <text x="545" y="112" fontSize="13" fill="var(--kb-text)" fillOpacity="0.6">{cn.label}</text>
     </svg>
   );
 }
@@ -531,7 +494,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Why Enter the U.S. Market — stats + crossover chart + opportunity bullets */}
+      {/* Why Enter the U.S. Market — intro, investment stats, opportunity bullets */}
       <section className="bg-[color:var(--kb-paper)] pt-16 md:pt-20 pb-24 md:pb-28">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10">
           <FadeUp>
@@ -544,9 +507,15 @@ export default function About() {
             </h2>
           </FadeUp>
 
+          <FadeUp delay={0.15}>
+            <p className="mt-6 text-base md:text-lg text-[color:var(--kb-text)]/80 leading-[1.9] max-w-3xl">
+              {t.whyIntro}
+            </p>
+          </FadeUp>
+
           {/* Investment data — headline stat + bullets, bar chart, breakdown table */}
           <FadeUp delay={0.2}>
-            <div className="mt-14 grid grid-cols-1 lg:grid-cols-3 gap-6" data-testid="why-investment">
+            <div className="mt-14 grid grid-cols-1 lg:grid-cols-3 gap-6 items-start" data-testid="why-investment">
               {/* Headline stat + bullets */}
               <div className="bg-[color:var(--kb-bone)] border border-[color:var(--kb-border)] p-7 md:p-8">
                 <p className="font-serif text-4xl md:text-5xl font-light text-[color:var(--kb-ink)]">
@@ -572,7 +541,7 @@ export default function About() {
               <div className="bg-[color:var(--kb-bone)] border border-[color:var(--kb-border)] p-7 md:p-8">
                 <h3 className="text-sm font-medium text-[color:var(--kb-ink)] mb-4">{t.whyChart.title}</h3>
                 <BarChart bars={t.whyChart.bars} title={t.whyChart.title} />
-                <ul className="mt-2 space-y-1">
+                <ul className="mt-4 space-y-1">
                   {t.whyChart.notes.map((n, i) => (
                     <li key={i} className="text-[13px] text-[color:var(--kb-text)]/70 flex items-center gap-2">
                       <span className="w-1 h-1 rounded-full bg-[color:var(--kb-gold)]" />
@@ -627,30 +596,13 @@ export default function About() {
             </div>
           </FadeUp>
 
-          {/* Crossover chart */}
-          <FadeUp delay={0.3}>
-            <div className="mt-8 bg-[color:var(--kb-bone)] border border-[color:var(--kb-border)] p-7 md:p-10">
-              <h3 className="font-serif-kr text-xl md:text-2xl font-light text-[color:var(--kb-ink)] mb-2">
-                {t.whyCrossoverTitle}
-              </h3>
-              <p className="text-[13px] md:text-sm text-[color:var(--kb-text)]/60 mb-6">
-                {t.whyCrossoverNote}
-              </p>
-              <CrossoverChart us={t.whyCrossoverUS} cn={t.whyCrossoverCN} years={t.whyCrossoverYears} />
-              <div className="mt-4 flex flex-wrap gap-x-8 gap-y-2 text-sm">
-                <span className="text-[color:var(--kb-gold)]">
-                  {t.whyCrossoverUS.label} {t.whyCrossoverUS.from} → {t.whyCrossoverUS.to} ({t.whyCrossoverUS.change})
-                </span>
-                <span className="text-[color:var(--kb-text)]/60">
-                  {t.whyCrossoverCN.label} {t.whyCrossoverCN.from} → {t.whyCrossoverCN.to} ({t.whyCrossoverCN.change})
-                </span>
-              </div>
-            </div>
+          <FadeUp delay={0.25}>
+            <p className="mt-4 text-xs italic text-[color:var(--kb-muted)]">{t.whyCitation}</p>
           </FadeUp>
 
           {/* Opportunity bullets */}
-          <FadeUp delay={0.4}>
-            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <FadeUp delay={0.35}>
+            <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
               {t.whyBullets.map((b, i) => {
                 const Icon = WHY_ICONS[b.icon] || Globe;
                 return (
