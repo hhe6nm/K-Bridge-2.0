@@ -205,16 +205,16 @@ export default function About() {
             </h2>
           </FadeUp>
 
-          <ol className="mt-16 relative max-w-3xl" data-testid="about-approach-timeline">
-            {/* Continuous vertical connector line — spans all dots */}
-            <div
-              className="absolute left-[9px] top-2 bottom-2 w-px bg-gradient-to-b from-[color:var(--kb-gold)] via-[color:var(--kb-gold)]/60 to-[color:var(--kb-gold)]/30"
-              aria-hidden
-            />
+          <FadeUp delay={0.25}>
+            <ol className="mt-16 relative max-w-3xl" data-testid="about-approach-timeline">
+              {/* Continuous vertical connector line — spans all dots */}
+              <div
+                className="absolute left-[9px] top-2 bottom-2 w-px bg-gradient-to-b from-[color:var(--kb-gold)] via-[color:var(--kb-gold)]/60 to-[color:var(--kb-gold)]/30"
+                aria-hidden
+              />
 
-            {t.approachStages.map((stage, i) => (
-              <FadeUp key={i} delay={0.25 + i * 0.06}>
-                <li className={`relative pl-12 ${i < t.approachStages.length - 1 ? "pb-8" : ""}`}>
+              {t.approachStages.map((stage, i) => (
+                <li key={i} className={`relative pl-12 ${i < t.approachStages.length - 1 ? "pb-8" : ""}`}>
                   <span
                     className="absolute left-0 top-1.5 w-[19px] h-[19px] rounded-full border-2 border-[color:var(--kb-gold)] bg-[color:var(--kb-paper)] flex items-center justify-center z-10"
                     aria-hidden
@@ -226,9 +226,9 @@ export default function About() {
                   </h3>
                   <p className="mt-3 text-lg text-[color:var(--kb-text)]/75 leading-[1.85]">{stage.body}</p>
                 </li>
-              </FadeUp>
-            ))}
-          </ol>
+              ))}
+            </ol>
+          </FadeUp>
         </div>
       </section>
 
