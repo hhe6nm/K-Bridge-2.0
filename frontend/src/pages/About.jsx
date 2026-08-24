@@ -206,63 +206,30 @@ export default function About() {
           </FadeUp>
 
           <FadeUp delay={0.25}>
-            <ol className="mt-16 relative max-w-4xl mx-auto" data-testid="about-approach-timeline">
-              {/* Center connector line — desktop only */}
-              <div
-                className="hidden md:block absolute left-1/2 top-2 bottom-2 w-px -translate-x-1/2 bg-gradient-to-b from-[color:var(--kb-gold)] via-[color:var(--kb-gold)]/60 to-[color:var(--kb-gold)]/30"
-                aria-hidden
-              />
-              {/* Left connector line — mobile only */}
-              <div
-                className="md:hidden absolute left-[9px] top-2 bottom-2 w-px bg-gradient-to-b from-[color:var(--kb-gold)] via-[color:var(--kb-gold)]/60 to-[color:var(--kb-gold)]/30"
-                aria-hidden
-              />
-
-              <div className="space-y-10 md:space-y-4">
-                {t.approachStages.map((stage, i) => {
-                  const isLeft = i % 2 === 0;
-                  const card = (
-                    <div>
-                      <h3 className="font-serif-kr text-2xl md:text-3xl font-light text-[color:var(--kb-ink)]">
-                        {stage.title}
-                      </h3>
-                      <p className="mt-3 text-base md:text-lg text-[color:var(--kb-text)]/75 leading-[1.8]">
-                        {stage.body}
-                      </p>
-                    </div>
-                  );
-                  return (
-                    <li key={i} className="relative pl-12 md:pl-0 md:grid md:grid-cols-2 md:gap-14 md:items-center">
-                      {/* Mobile dot — left-aligned */}
-                      <span
-                        className="md:hidden absolute left-0 top-1.5 w-[19px] h-[19px] rounded-full border-2 border-[color:var(--kb-gold)] bg-[color:var(--kb-paper)] flex items-center justify-center z-10"
-                        aria-hidden
-                      >
-                        <span className="w-2 h-2 rounded-full bg-[color:var(--kb-gold)]" />
+            <ol
+              className="mt-16 grid grid-cols-1 sm:grid-cols-2 gap-5 md:gap-6"
+              data-testid="about-approach-timeline"
+            >
+              {t.approachStages.map((stage, i) => (
+                <li
+                  key={i}
+                  className="bg-[color:var(--kb-bone)] border border-[color:var(--kb-border)] p-7 md:p-8"
+                >
+                  <div className="flex items-center gap-3 mb-4">
+                    <span className="flex-shrink-0 w-9 h-9 rounded-full border border-[color:var(--kb-gold)] flex items-center justify-center">
+                      <span className="text-[13px] text-[color:var(--kb-gold)] font-medium">
+                        {String(i + 1).padStart(2, "0")}
                       </span>
-                      {/* Desktop dot — centered on the line */}
-                      <span
-                        className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[19px] h-[19px] rounded-full border-2 border-[color:var(--kb-gold)] bg-[color:var(--kb-paper)] items-center justify-center z-10"
-                        aria-hidden
-                      >
-                        <span className="w-2 h-2 rounded-full bg-[color:var(--kb-gold)]" />
-                      </span>
-
-                      {isLeft ? (
-                        <>
-                          <div className="md:text-right md:pr-6">{card}</div>
-                          <div className="hidden md:block" />
-                        </>
-                      ) : (
-                        <>
-                          <div className="hidden md:block" />
-                          <div className="md:pl-6">{card}</div>
-                        </>
-                      )}
-                    </li>
-                  );
-                })}
-              </div>
+                    </span>
+                    <h3 className="font-serif-kr text-xl md:text-2xl font-light text-[color:var(--kb-ink)]">
+                      {stage.title}
+                    </h3>
+                  </div>
+                  <p className="text-[15px] md:text-base text-[color:var(--kb-text)]/75 leading-[1.75]">
+                    {stage.body}
+                  </p>
+                </li>
+              ))}
             </ol>
           </FadeUp>
         </div>
