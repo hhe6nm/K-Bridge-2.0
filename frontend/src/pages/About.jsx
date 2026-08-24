@@ -46,8 +46,10 @@ const CONTENT = {
     introBadge: "회사 개요",
     introTitle: "이론이 아닌, 현장에서 배운 것을 전달합니다.",
     introBody: [
-      "K Bridge Partners는 미국 상업 부동산과 프랜차이즈 실무 경험, 그리고 데이터 기반 시장 분석 역량을 바탕으로 설립되었습니다.",
-      "20년 이상 워싱턴 DC 및 버지니아 지역을 중심으로 상업용 부동산 실무를 쌓아온 팀이, 한국 브랜드가 미국 시장에서 겪는 실질적인 어려움을 가까이에서 지켜보며 시작한 파트너십입니다.",
+      "K Bridge Partners LLC는 한국의 유망한 프랜차이즈 및 소비재 브랜드가 미국 시장에 성공적으로 진출하고 안정적으로 성장할 수 있도록 지원하는 U.S. Market Entry & Business Development 전문 파트너입니다.",
+      "한국과 미국의 서로 다른 시장환경, 소비자 문화, 법률 및 비즈니스 시스템에 대한 이해를 바탕으로 단순한 컨설팅을 넘어 시장조사부터 사업구조 구축, 현지 파트너 발굴, 입지 선정, 프랜차이즈 개발, 마케팅 및 사업 확장까지 실제 시장 진입에 필요한 전 과정을 연결하고 실행합니다.",
+      "K Bridge Partners의 핵심 가치는 \"Bridge\"에 있습니다.",
+      "한국의 좋은 브랜드와 미국의 시장·자본·파트너·소비자를 연결하여, 한국 브랜드가 미국에서 지속 가능한 비즈니스로 성장할 수 있도록 돕습니다.",
     ],
     stats: [
       { value: "20+", unit: "년", label: "상업 부동산 실무 경험" },
@@ -166,8 +168,10 @@ const CONTENT = {
     introBadge: "Company Overview",
     introTitle: "What we've learned in the field — not from reports.",
     introBody: [
-      "K Bridge Partners was founded on hands-on U.S. commercial real estate and franchise experience, combined with data-driven market analysis.",
-      "For 20+ years, our team has operated in Washington DC and Virginia commercial real estate — watching, up close, the challenges Korean brands face entering the U.S. This partnership was built from that vantage point.",
+      "K Bridge Partners LLC is a specialized U.S. Market Entry & Business Development partner, helping promising Korean franchise and consumer brands enter the U.S. market successfully and grow sustainably.",
+      "Built on an understanding of the differing market environments, consumer cultures, legal frameworks, and business systems between Korea and the U.S., we go beyond simple consulting — connecting and executing the full process a real market entry requires, from market research and business structuring to local partner sourcing, site selection, franchise development, marketing, and business expansion.",
+      "K Bridge Partners' core value lies in being the \"Bridge.\"",
+      "We connect great Korean brands with the U.S. market, capital, partners, and consumers — helping Korean brands grow into sustainable businesses in America.",
     ],
     stats: [
       { value: "20+", unit: "yrs", label: "of commercial real estate experience" },
@@ -641,3 +645,4 @@ export default function About() {
     </div>
   );
 }
+
