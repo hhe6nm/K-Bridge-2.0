@@ -51,7 +51,7 @@ const CONTENT = {
       "\"이 좋은 브랜드들이 미국 시장에서도 제대로 평가받고 성장할 수 있도록 도울 수 없을까?\" 그 고민과 바람에서 K Bridge Partners는 시작되었습니다.",
       "K Bridge Partners는 한국의 경쟁력 있는 브랜드와 미국 시장을 연결하는 비즈니스 파트너입니다. 시장에 대한 이해와 현지 경험을 바탕으로 진입 전략, 프랜차이즈 구축, 현지 파트너 발굴부터 안정적인 정착과 성장까지 함께하고 있습니다.",
       "저는 한국의 우수한 브랜드가 미국에서도 충분히 성공할 수 있다고 믿습니다. 좋은 브랜드에 올바른 전략과 신뢰할 수 있는 현지 파트너가 더해진다면, 낯선 시장은 더 이상 장벽이 아니라 새로운 성장의 기회가 될 수 있습니다.",
-      "저희의 목표는 단순히 미국 진출을 돕는 데 그치지 않습니다. 한 브랜드 한 브랜드의 가치와 이야기를 이해하고, 미국 시장에 성공적으로 뿌리내려 지속적으로 성장할 수 있도록 가까이에서 함께하는 것입니다.",
+      "저희의 목표는 단순히 미국 진출을 돕는 데 그치지 않습니다. 브랜드 하나 하나의 가치와 이야기를 이해하고, 미국 시장에 성공적으로 뿌리내려 지속적으로 성장할 수 있도록 가까이에서 함께하는 것입니다.",
       "가능성을 기회로, 기회를 성공으로 연결하겠습니다.",
       "좋은 인연을 만나 함께 새로운 성공 이야기를 만들어갈 수 있기를 기대합니다. 감사합니다.",
     ],
@@ -72,7 +72,7 @@ const CONTENT = {
     foundingClosing: "미국 진출, 왜 어려울까요?",
 
     approachBadge: "Why K Bridge",
-    approachTitle: "왜 K Bridge와 함께해야 할까요.",
+    approachTitle: "왜 K Bridge와 함께해야 할까요?",
     approachStages: [
       {
         title: "처음부터 오픈까지, 원스톱 솔루션",
@@ -243,10 +243,10 @@ export default function About() {
               <img
                 src="/jessica-chong-signature.svg"
                 alt={t.ceoSignatureName}
-                className="h-16 md:h-20 w-auto select-none"
+                className="h-20 md:h-24 w-auto -ml-3 md:-ml-4 select-none"
                 draggable={false}
               />
-              <p className="mt-2 text-sm text-[color:var(--kb-ink)]">{t.ceoSignatureName}</p>
+              <p className="mt-5 text-sm text-[color:var(--kb-ink)]">{t.ceoSignatureName}</p>
               <p className="mt-1 text-sm text-[color:var(--kb-text)]/60">{t.ceoSignatureTitle}</p>
             </div>
           </FadeUp>
