@@ -242,7 +242,7 @@ export default function Home() {
                 <ChapterBadge number={2} label={t.challengeBadge} className="mb-4" />
               </FadeUp>
               <FadeUp delay={0.1}>
-                <h2 className="font-serif-kr text-4xl md:text-5xl font-light leading-[1.15] text-balance break-keep text-[color:var(--kb-ink)]">
+                <h2 className="font-serif-kr text-4xl md:text-5xl font-light leading-[1.45] text-balance break-keep text-[color:var(--kb-ink)]">
                   {t.challengeTitle}
                   <br />
                   <span className="italic text-[color:var(--kb-gold)]">{t.challengeTitleItalic}</span>
