@@ -19,7 +19,7 @@ const CONTENT = {
         role: "부동산 · 금융 · 글로벌 브랜드 리더십",
         stat: "25+ 년 경력 · 부동산 · 글로벌 브랜드 운영",
         bio: "25년 이상 금융과 부동산, 글로벌 브랜드를 넘나들며 비즈니스를 이끌어왔습니다. 금융기관에서 근무하며 숫자와 리스크를 정확히 읽어내는 감각을 다졌고, 이 감각은 이후 비즈니스 전반의 의사결정에도 그대로 이어졌습니다. 글로벌 브랜드 현장에서 브랜드가 새로운 시장에서 자리 잡기 위해 필요한 기준을 직접 체득했으며, 20년간 부동산 회사를 직접 운영하며 상업용과 주거용 부동산을 모두 아우르는 실무 경험을 쌓았습니다. K Bridge Partners에서는 이 모든 경험을 바탕으로, 한국 브랜드가 미국 시장에서 흔들림 없이 자리 잡을 수 있도록 전체 방향을 이끌고 있습니다.",
-        tags: ["Executive Leadership", "Real Estate Leadership", "Global Brand Strategy", "Global Market Entry"],
+        tags: ["Real Estate Leadership", "Global Brand Strategy", "Global Market Entry"],
       },
       {
         name: "Joy Chong",
