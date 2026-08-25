@@ -154,6 +154,20 @@ LEGACY_SLUGS_TO_REMOVE = [
 
 SEED_INSIGHTS = [
     {
+    "slug": "korea-to-america-phased-market-entry-strategy",
+    "order": 0,
+    "title": "From Korea to America: 성공적인 미국 시장 진출을 위한 단계별 전략",
+    ...
+    "cover_image": "https://images.unsplash.com/photo-1508433957232-3107f5fd5995?crop=entropy&cs=srgb&fm=jpg&q=85&w=1600",
+},
+{
+    "slug": "why-korea-successful-brands-fail-in-us",
+    "order": 1,
+    "title": "한국에서 성공한 브랜드가 미국에서 실패하는 이유",
+    ...
+    "cover_image": "https://images.unsplash.com/photo-1741879871542-60f90be58ae0?crop=entropy&cs=srgb&fm=jpg&q=85&w=1600",
+},
+    {
         "slug": "foreign-owned-ein-application-timeline",
         "order": 1,
         "title": "해외 소유 법인, EIN 발급이 왜 더 오래 걸릴까",
