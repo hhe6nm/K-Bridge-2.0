@@ -31,10 +31,10 @@ const CONTENT = {
       },
       {
         name: "Samantha Cho",
-        title: "Principal Consultant",
+        title: "수석 컨설턴트 (Principal Consultant)",
         role: "Principal Consultant · Cross-Border Strategy",
-        stat: "15개 한국 스타트업 자문 · 5개 산업 · UVA McIntire",
-        bio: "15개 한국 스타트업의 미국 진출 전략을 설계해온 크로스보더 전략가입니다. University of Virginia McIntire에서 데이터 사이언스를 전공했으며, Solidcore를 비롯해 부동산·IT·핀테크·소비재·에너지 등 다양한 산업의 기업에 자문을 제공했습니다. 데이터와 현장 감각을 모두 갖춘, 몇 안 되는 한영 이중언어 전략가입니다.",
+        stat: "15개 한국 스타트업 자문 · 8개 산업 · UVA McIntire",
+        bio: "15개 한국 스타트업의 미국 진출 전략을 설계해온 컨설턴트입니다. University of Virginia McIntire School of Commerce 에서 경영학을 전공하고, IT를 집중전공(트랙)으로, 데이터사이언스를 부전공으로 이수했습니다., [solidcore] 를 비롯해 부동산·IT·핀테크·소비재·에너지·F&B·헬스&웰니스·헬스케어 등 다양한 산업의 기업에 자문을 제공해왔습니다. 데이터 분석과 현장 실무 경험을 바탕으로 한미 양쪽에서 프로젝트를 이끌고 있습니다.
         tags: ["Market Analytics", "Cross-Border Strategy", "Startup Advisory", "Bilingual"],
       },
     ],
