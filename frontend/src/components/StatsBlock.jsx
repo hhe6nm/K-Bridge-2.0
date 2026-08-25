@@ -38,7 +38,7 @@ export default function StatsBlock({
         <div className="grid grid-cols-12 gap-8 lg:gap-16">
           <div className="col-span-12 lg:col-span-6">
             {overviewTitle && (
-              <h2 className="font-serif-kr text-4xl md:text-5xl font-light leading-[1.15] text-balance break-keep text-white">
+              <h2 className="font-serif-kr text-4xl md:text-5xl font-light leading-[1.45] text-balance break-keep text-white">
                 {overviewTitle}
               </h2>
             )}
