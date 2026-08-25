@@ -131,7 +131,8 @@ const CONTENT = {
     ceoBadge: "A Message from Our CEO",
     ceoQuote: "We'll walk this journey with you, step by step.",
     ceoBody: [
-      "Hello. Thank you for visiting K Bridge Partners.",
+      "Hello. I'm Jessica Chong, CEO of K Bridge Partners.",
+      "Thank you for visiting K Bridge Partners.",
       "For years, working close to brands in the field, I've met so many Korean companies with real products and stories they poured themselves into — people who built their brands night after night, people who put their own name on the line to start something.",
       "And I kept seeing the same thing happen: brands like that shrinking in front of an unfamiliar U.S. market. Not for lack of skill. Simply because no one who had walked that road before was standing beside them.",
       "\"A brand this good, stopped for a reason like that?\" That feeling stayed with me, and it's where K Bridge Partners began.",
