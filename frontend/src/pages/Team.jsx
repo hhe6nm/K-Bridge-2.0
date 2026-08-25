@@ -22,7 +22,7 @@ const CONTENT = {
         tags: ["Real Estate Leadership", "Global Brand Strategy", "Global Market Entry"],
       },
       {
-        name: "Joy Jung",
+        name: "Joy Jeong",
         title: "이사 (Director)",
         role: "부동산 개발 · 다각적 사업 운영 경험",
         stat: "20+ 년 경력 · 부동산 개발 · 다산업 사업 운영",
@@ -31,7 +31,7 @@ const CONTENT = {
       },
       {
         name: "Samantha Cho",
-        title: "글로벌 성장 총괄 (Head of International Development)",
+        title: "글로벌 성장 총괄 (Head of Int. Development)",
         role: "시장진출 전략 · 데이터 분석",
         stat: "15개 한국 스타트업 자문 · 8개 산업 · UVA McIntire",
         bio: "15개 한국 스타트업의 미국 진출 전략을 설계해온 컨설턴트입니다. University of Virginia McIntire School of Commerce에서 경영학을 전공하고, IT를 집중전공(트랙)으로, 데이터사이언스를 부전공으로 이수했습니다. 시장 규모 분석, 입지 선정, 재무 모델링, 투자자 피칭, GTM 전략까지 미국 진출에 필요한 실무 전 과정을 직접 설계하고 실행합니다. Solidcore를 비롯해 부동산·IT·핀테크·소비재·에너지·F&B·헬스&웰니스·헬스케어 등 다양한 산업의 기업에 자문을 제공해왔습니다. 데이터 분석과 현장 실무 경험을 바탕으로 한미 양쪽에서 프로젝트를 이끌고 있습니다.",
