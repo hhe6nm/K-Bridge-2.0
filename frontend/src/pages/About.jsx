@@ -240,7 +240,13 @@ export default function About() {
           {/* Signature */}
           <FadeUp delay={0.35}>
             <div className="mt-10 max-w-3xl" data-testid="ceo-signature">
-              <p className="font-serif text-xl italic text-[color:var(--kb-ink)]">{t.ceoSignatureName}</p>
+              <img
+                src="/jessica-chong-signature.svg"
+                alt={t.ceoSignatureName}
+                className="h-16 md:h-20 w-auto select-none"
+                draggable={false}
+              />
+              <p className="mt-2 text-sm text-[color:var(--kb-ink)]">{t.ceoSignatureName}</p>
               <p className="mt-1 text-sm text-[color:var(--kb-text)]/60">{t.ceoSignatureTitle}</p>
             </div>
           </FadeUp>
