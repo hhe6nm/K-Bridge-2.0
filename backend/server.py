@@ -10,21 +10,21 @@ from pydantic import BaseModel, Field, ConfigDict, EmailStr
 from typing import List, Optional
 import uuid
 from datetime import datetime, timezone
-
-
+ 
+ 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
-
+ 
 mongo_url = os.environ['MONGO_URL']
 client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
-
+ 
 app = FastAPI(title="K Bridge Partners API")
 api_router = APIRouter(prefix="/api")
-
-
+ 
+ 
 # ============= Models =============
-
+ 
 class ContactMessage(BaseModel):
     model_config = ConfigDict(extra="ignore")
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
@@ -34,16 +34,16 @@ class ContactMessage(BaseModel):
     phone: Optional[str] = None
     message: str
     created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
-
-
+ 
+ 
 class ContactMessageCreate(BaseModel):
     name: str
     company: Optional[str] = None
     email: EmailStr
     phone: Optional[str] = None
     message: str
-
-
+ 
+ 
 class InsightPost(BaseModel):
     model_config = ConfigDict(extra="ignore")
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
@@ -58,8 +58,8 @@ class InsightPost(BaseModel):
     published: bool = True
     order: int = 0
     created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
-
-
+ 
+ 
 class InsightPostCreate(BaseModel):
     title: str
     category: str
@@ -70,15 +70,15 @@ class InsightPostCreate(BaseModel):
     reading_time: Optional[int] = 5
     published: Optional[bool] = True
     order: Optional[int] = 0
-
-
+ 
+ 
 def slugify(text: str) -> str:
     text = text.lower().strip()
     text = re.sub(r'[^\w\s-]', '', text)
     text = re.sub(r'[\s_-]+', '-', text)
     return text.strip('-') or str(uuid.uuid4())[:8]
-
-
+ 
+ 
 def serialize_doc(doc: dict) -> dict:
     if doc and '_id' in doc:
         doc.pop('_id')
@@ -88,15 +88,15 @@ def serialize_doc(doc: dict) -> dict:
         except Exception:
             pass
     return doc
-
-
+ 
+ 
 # ============= Routes =============
-
+ 
 @api_router.get("/")
 async def root():
     return {"message": "K Bridge Partners API", "status": "ok"}
-
-
+ 
+ 
 @api_router.post("/contact", response_model=ContactMessage)
 async def create_contact_message(payload: ContactMessageCreate):
     msg = ContactMessage(**payload.model_dump())
@@ -104,28 +104,28 @@ async def create_contact_message(payload: ContactMessageCreate):
     doc['created_at'] = doc['created_at'].isoformat()
     await db.contact_messages.insert_one(doc)
     return msg
-
-
+ 
+ 
 @api_router.get("/contact", response_model=List[ContactMessage])
 async def list_contact_messages(limit: int = Query(100, ge=1, le=500)):
     docs = await db.contact_messages.find({}, {"_id": 0}).sort("created_at", -1).to_list(limit)
     return [serialize_doc(d) for d in docs]
-
-
+ 
+ 
 @api_router.get("/insights", response_model=List[InsightPost])
 async def list_insights(limit: int = Query(50, ge=1, le=200)):
     docs = await db.insights.find({"published": True}, {"_id": 0}).sort("order", 1).to_list(limit)
     return [serialize_doc(d) for d in docs]
-
-
+ 
+ 
 @api_router.get("/insights/{slug}", response_model=InsightPost)
 async def get_insight(slug: str):
     doc = await db.insights.find_one({"slug": slug}, {"_id": 0})
     if not doc:
         raise HTTPException(status_code=404, detail="Insight not found")
     return serialize_doc(doc)
-
-
+ 
+ 
 @api_router.post("/insights", response_model=InsightPost)
 async def create_insight(payload: InsightPostCreate):
     base_slug = slugify(payload.title)
@@ -139,10 +139,10 @@ async def create_insight(payload: InsightPostCreate):
     doc['created_at'] = doc['created_at'].isoformat()
     await db.insights.insert_one(doc)
     return post
-
-
+ 
+ 
 # ============= Seed =============
-
+ 
 # Slugs of the older seed set (pre-2026-02) — removed at startup so the 10
 # curated articles below can take their place.
 LEGACY_SLUGS_TO_REMOVE = [
@@ -151,7 +151,7 @@ LEGACY_SLUGS_TO_REMOVE = [
     "understanding-us-commercial-lease-terms",
     "site-selection-methodology",
 ]
-
+ 
 SEED_INSIGHTS = [
     {
         "slug": "korea-to-america-phased-market-entry-strategy",
@@ -274,8 +274,8 @@ SEED_INSIGHTS = [
         "cover_image": "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?crop=entropy&cs=srgb&fm=jpg&q=85&w=1600",
     },
 ]
-
-
+ 
+ 
 @app.on_event("startup")
 async def seed_insights():
     # Remove any legacy seed posts to make room for the curated set.
@@ -301,10 +301,10 @@ async def seed_insights():
                     "order": post["order"],
                 }},
             )
-
-
+ 
+ 
 app.include_router(api_router)
-
+ 
 app.add_middleware(
     CORSMiddleware,
     allow_credentials=True,
@@ -312,14 +312,15 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
+ 
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
 logger = logging.getLogger(__name__)
-
-
+ 
+ 
 @app.on_event("shutdown")
 async def shutdown_db_client():
     client.close()
+ 
