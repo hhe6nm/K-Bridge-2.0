@@ -18,7 +18,7 @@ const CONTENT = {
         title: "대표이사 (CEO)",
         role: "럭셔리 브랜드 · 글로벌 비즈니스 리더십",
         stat: "20+ 년 경력 · 럭셔리 리테일 · 글로벌 브랜드 운영",
-        bio: "20년 이상 다양한 산업에서 비즈니스를 이끌어왔으며, 이탈리아 럭셔리 브랜드 Maxmara에서의 경험을 통해 글로벌 브랜드가 새로운 시장에서 자리 잡기 위해 필요한 기준을 직접 체득했습니다. K Bridge Partners에서는 이러한 경험을 바탕으로, 한국 브랜드가 미국 시장에서 흔들림 없이 자리 잡을 수 있도록 전체 방향을 이끌고 있습니다.",
+        bio: "20년 이상 여러 브랜드의 현장에서 일하며, 진심을 다해 브랜드를 키워온 사람들을 수없이 만나왔습니다. 그렇게 애써 키운 브랜드가 미국이라는 낯선 시장 앞에서 자꾸 작아지는 모습을 볼 때마다 마음이 쓰였습니다. 실력이 부족해서가 아니라, 이 시장을 먼저 겪어본 사람이 곁에 없었을 뿐이었습니다. 그 마음에서 K Bridge Partners를 시작했고, 지금은 한국 브랜드가 미국 땅에 실제로 자리 잡는 순간까지 함께 걷는 여정을 이끌고 있습니다.",
         tags: ["Executive Leadership", "Luxury Brand Strategy", "Global Market Entry"],
       },
       {
@@ -34,7 +34,7 @@ const CONTENT = {
         title: "수석 컨설턴트 (Principal Consultant)",
         role: "Principal Consultant · Cross-Border Strategy",
         stat: "15개 한국 스타트업 자문 · 8개 산업 · UVA McIntire",
-        bio: "15개 한국 스타트업의 미국 진출 전략을 설계해온 컨설턴트입니다. University of Virginia McIntire School of Commerce 에서 경영학을 전공하고, IT를 집중전공(트랙)으로, 데이터사이언스를 부전공으로 이수했습니다., [solidcore] 를 비롯해 부동산·IT·핀테크·소비재·에너지·F&B·헬스&웰니스·헬스케어 등 다양한 산업의 기업에 자문을 제공해왔습니다. 데이터 분석과 현장 실무 경험을 바탕으로 한미 양쪽에서 프로젝트를 이끌고 있습니다.
+        bio: "15개 한국 스타트업의 미국 진출 전략을 설계해온 컨설턴트입니다. University of Virginia McIntire School of Commerce에서 경영학을 전공하고, IT를 집중전공(트랙)으로, 데이터사이언스를 부전공으로 이수했습니다. Solidcore를 비롯해 부동산·IT·핀테크·소비재·에너지·F&B·헬스&웰니스·헬스케어 등 다양한 산업의 기업에 자문을 제공해왔습니다. 데이터 분석과 현장 실무 경험을 바탕으로 한미 양쪽에서 프로젝트를 이끌고 있습니다.",
         tags: ["Market Analytics", "Cross-Border Strategy", "Startup Advisory", "Bilingual"],
       },
     ],
@@ -52,7 +52,7 @@ const CONTENT = {
         title: "CEO",
         role: "Luxury Brand · Global Business Leadership",
         stat: "20+ years · Luxury retail · Global brand operations",
-        bio: "Jessica has led businesses across a range of industries for over 20 years. Through her tenure at Maxmara, the Italian luxury house, she developed a firsthand understanding of what a global brand needs to establish itself in a new market. At K Bridge Partners, she brings that experience to leading the overall direction — helping Korean brands land in the U.S. market on solid footing.",
+        bio: "For over 20 years, Jessica has worked alongside brands built with real care and conviction. Watching so many of them shrink in front of an unfamiliar U.S. market always stayed with her — not for lack of skill, but for lack of someone who had walked that road before. That feeling is why she started K Bridge Partners, and why she now leads the work of walking that road together, until a Korean brand is truly standing on its own ground in the U.S.",
         tags: ["Executive Leadership", "Luxury Brand Strategy", "Global Market Entry"],
       },
       {
@@ -67,8 +67,8 @@ const CONTENT = {
         name: "Samantha Cho",
         title: "Principal Consultant",
         role: "Principal Consultant · Cross-Border Strategy",
-        stat: "15 Korean startups advised · 5 industries · UVA McIntire",
-        bio: "Samantha is a cross-border strategist who has designed U.S. market-entry strategies for 15 Korean startups. She studied Data Science at the University of Virginia's McIntire School of Commerce, and has advised companies including Solidcore across real estate, IT, fintech, consumer goods, and energy. She's one of few strategists who combine deep data fluency with real ground sense — in both English and Korean.",
+        stat: "15 Korean startups advised · 8 industries · UVA McIntire",
+        bio: "Samantha is a cross-border strategist who has designed U.S. market-entry strategies for 15 Korean startups. She studied Commerce at the University of Virginia's McIntire School of Commerce, with a concentration in IT and a minor in Data Science. She has advised companies including Solidcore across real estate, IT, fintech, consumer goods, energy, F&B, health and wellness, and healthcare. She leads projects on both sides of the Pacific, grounded in data analysis and real on-the-ground experience, in both English and Korean.",
         tags: ["Market Analytics", "Cross-Border Strategy", "Startup Advisory", "Bilingual"],
       },
     ],
