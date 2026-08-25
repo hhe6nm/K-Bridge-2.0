@@ -22,7 +22,7 @@ const CONTENT = {
         tags: ["Real Estate Leadership", "Global Brand Strategy", "Global Market Entry"],
       },
       {
-        name: "Joy Joung",
+        name: "Joy Jung",
         title: "이사 (Director)",
         role: "부동산 개발 · 다각적 사업 운영 경험",
         stat: "20+ 년 경력 · 부동산 개발 · 다산업 사업 운영",
