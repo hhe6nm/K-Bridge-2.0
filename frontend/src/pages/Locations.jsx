@@ -20,7 +20,7 @@ const CONTENT = {
   },
   en: {
     eyebrow: "Locations",
-    title: "The cities we operate in.",
+    title: "The Cities We Stand In.",
     subtitle: `K Bridge Partners operates in ${LOCATIONS.length} core U.S. markets where Korean brands are actively expanding.`,
     marketLabel: "Target market",
     hoverCta: "Request a briefing",
