@@ -114,12 +114,11 @@ const CONTENT = {
     subtitle: "Built in the field — with you, not for you.",
 
     introBadge: "Company Overview",
-    introTitle: "One partner, bridging Korea and the U.S.",
+    introTitle: "Korea's brands, built for America.",
     introBody: [
-      "K Bridge Partners LLC is a specialized U.S. Market Entry & Business Development partner, helping promising Korean franchise and consumer brands enter the U.S. market successfully and grow sustainably.",
+      "K Bridge Partners LLC is a specialized U.S. Market Entry & Business Development partner, helping promising Korean franchise and consumer brands enter the U.S. market successfully and grow sustainably. The firm covers eight U.S. metro markets today, through a network of 28 vetted local partners built over 25 years of operating in U.S. commercial real estate.",
       "Built on an understanding of the differing market environments, consumer cultures, legal frameworks, and business systems between Korea and the U.S., we go beyond simple consulting — connecting and executing the full process a real market entry requires, from market research and business structuring to local partner sourcing, site selection, franchise development, marketing, and business expansion.",
-      "K Bridge Partners' core value lies in being the \"Bridge.\"",
-      "We connect great Korean brands with the U.S. market, capital, partners, and consumers — helping Korean brands grow into sustainable businesses in America.",
+      "That's the whole job. Getting it right the first time, so there isn't a second time.",
     ],
     stats: [
       { value: "20+", unit: "yrs", label: "of commercial real estate experience" },
