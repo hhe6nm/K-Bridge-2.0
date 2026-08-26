@@ -34,7 +34,7 @@ const CONTENT = {
   },
   en: {
     eyebrow: "Our Process",
-    title: "Eight stages, one journey.",
+    title: "Eight Stages, One Standard.",
     subtitle: "From first consultation to business expansion, the U.S. entry journey structured into eight clear stages. Timelines flex to your brand's situation.",
     timelineLabel: "Estimated timeline",
     placeholderNote: "* Timelines flex with your brand's situation. Detailed schedules are locked in at project kickoff.",
