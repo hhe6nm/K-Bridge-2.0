@@ -111,7 +111,7 @@ const CONTENT = {
   en: {
     eyebrow: "About K Bridge",
     title: "Your Vision, Our Mission.",
-    subtitle: "Built in the field, with you.",
+    subtitle: "Built in the field. With you. For you.",
 
     introBadge: "Company Overview",
     introTitle: "Korea's brands, built for America.",
@@ -128,7 +128,7 @@ const CONTENT = {
     ],
 
     ceoBadge: "A Message from Our CEO",
-    ceoQuote: "We'll walk this journey with you, step by step.",
+    ceoQuote: "One step at a time. Together.",
     ceoBody: [
       "Hello. I'm Jessica Chong, CEO of K Bridge Partners.",
       "Thank you for visiting K Bridge Partners.",
