@@ -51,7 +51,7 @@ const CONTENT = {
   },
   en: {
     eyebrow: "Services",
-    title: "From market research to store opening — one team, end to end.",
+    title: "From Market Research to Opening — One Team, End to End.",
     subtitle: "One team owns the whole journey. You won't be handing off between vendors between research, contracts, buildout, opening, and stabilization.",
     why: "Why it matters",
     pillars: [
