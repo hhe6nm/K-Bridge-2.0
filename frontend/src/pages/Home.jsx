@@ -67,10 +67,10 @@ const CONTENT = {
   },
   en: {
     heroLines: [
-      { text: "Your trusted local partner for" },
-      { text: "U.S. market entry.", accent: true },
+      { text: "Made in Korea." },
+      { text: "Built to win in America.", accent: true },
     ],
-    heroSub: "K Bridge Partners is the one-stop partner for Korean brands entering the U.S. — from market research and entity formation to commercial real estate, franchise development, and store opening.",
+    heroSub: "K Bridge Partners advises Korean brands on every stage of U.S. market entry — market research, entity formation, commercial real estate, franchise development, and store opening.",
     ctaPrimary: "Free Consultation",
     ctaSecondary: "Explore Services",
     pillarsLabel: "WHAT WE STAND FOR",
@@ -81,12 +81,11 @@ const CONTENT = {
       { label: "Local Expertise", en: "현지 네트워크" },
     ],
     aboutBadge: "Company Overview",
-    aboutTitle: "One partner, bridging Korea and the U.S.",
+    aboutTitle: "Korea's brands, built for America.",
     aboutBody: [
-      "K Bridge Partners LLC is a specialized U.S. Market Entry & Business Development partner, helping promising Korean franchise and consumer brands enter the U.S. market successfully and grow sustainably.",
+      "K Bridge Partners LLC is a specialized U.S. Market Entry & Business Development partner, helping promising Korean franchise and consumer brands enter the U.S. market successfully and grow sustainably. The firm covers eight U.S. metro markets today, through a network of 28 vetted local partners built over 25 years of operating in U.S. commercial real estate.",
       "Built on an understanding of the differing market environments, consumer cultures, legal frameworks, and business systems between Korea and the U.S., we go beyond simple consulting — connecting and executing the full process a real market entry requires, from market research and business structuring to local partner sourcing, site selection, franchise development, marketing, and business expansion.",
-      "K Bridge Partners' core value lies in being the \"Bridge.\"",
-      "We connect great Korean brands with the U.S. market, capital, partners, and consumers — helping Korean brands grow into sustainable businesses in America.",
+      "That's the whole job. Getting it right the first time, so there isn't a second time.",
     ],
     stats: [
       { value: "20+", unit: "yrs", label: "of commercial real estate experience" },
