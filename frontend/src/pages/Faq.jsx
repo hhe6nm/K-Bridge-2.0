@@ -135,7 +135,7 @@ const CONTENT = {
   },
   en: {
     eyebrow: "FAQ",
-    title: "Frequently asked questions.",
+    title: "Frequently Asked Questions.",
     subtitle: "The questions we hear most often from brands preparing to enter the U.S.",
     footer: "Have another question? Reach out directly.",
     cta: "Contact us",
