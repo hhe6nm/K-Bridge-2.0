@@ -113,8 +113,9 @@ const CONTENT = {
       { title: "Store Opening & Ops", desc: "Buildout, staffing, opening marketing — we stay with you until the store is stable and running.", icon: Rocket },
     ],
     servicesMore: "Learn more",
-    ctaTitle1: "Your next store",
-    ctaTitle2: "starts in America.",
+    ctaTitle1: "Ready when",
+    ctaTitleAccent: "you",
+    ctaTitle2: "are.",
     ctaButton: "Free Consultation",
   },
 };
@@ -325,7 +326,8 @@ export default function Home() {
           <FadeUp>
             <h2 className="font-serif-kr text-4xl md:text-6xl font-light leading-[1.1] text-balance break-keep">
               {t.ctaTitle1}{" "}
-              <span className="italic text-[color:var(--kb-gold)]">{t.ctaTitle2}</span>
+              <span className="italic text-[color:var(--kb-gold)]">{t.ctaTitleAccent}</span>{" "}
+              {t.ctaTitle2}
             </h2>
             <div className="mt-10">
               <Link
