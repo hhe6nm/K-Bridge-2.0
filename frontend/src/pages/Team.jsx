@@ -43,7 +43,7 @@ const CONTENT = {
         role: "사모투자 · 부동산 개발 · 투자자 관계",
         stat: "마이애미 대학교 졸업 · 개발 전 과정 실행 · 투자자 관계",
         bio: "마이애미 대학교(University of Miami)를 졸업했으며, 이후 부동산 개발과 이커머스, 사모투자 기반의 투자자 관계 분야를 아우르며 커리어를 쌓아왔습니다. 이커머스 분야에서는 데이터를 기반으로 재고, 소싱, 성장 전략을 이끄는 운영·분석 업무를 직접 수행해왔으며, 단순한 부업이 아닌 실제 사업 운영으로 접근해왔습니다. 부동산 부문에서는 매물 발굴부터 시공업체 조율, 협상, 실행까지 딜의 전 과정을 직접 관리합니다. 민간 투자자 그룹과 긴밀히 협력하며 자본 운용과 확장 전략을 자문하고, 외부 자본이 실제 완공된 프로젝트로 이어지도록 관계를 구축하며, 현장 프로젝트 매니지먼트를 통해 모든 개발이 기획부터 완료까지 흔들림 없이 진행되도록 이끕니다.",
-        tags: ["Private Equity", "Real Estate Development", "Investor Relations", "Franchise Expansion"],
+        tags: ["PE", "Real Estate Development", "Investor Relations", "Franchise Expansion"],
       },
       {
         name: "Seokyu Kim",
@@ -57,8 +57,8 @@ const CONTENT = {
   },
   en: {
     eyebrow: "The Team",
-    title: "People proven in the field.",
-    subtitle: "K Bridge Partners is built by operators whose credentials come from real work, not resumes.",
+    title: "Expertise, Put to Work.",
+    subtitle: "Behind K Bridge are people who know the U.S. market, know the challenges, and know what it takes to move things forward — so you don’t have to figure it out alone.",
     yearsUnit: "years",
     portraitCaption: "Portrait — Coming soon",
     cta: "Talk to the team",
@@ -93,7 +93,7 @@ const CONTENT = {
         role: "Private Equity · Development · Investor Relations",
         stat: "University of Miami · Full-cycle development · Investor relations",
         bio: "Daniel studied at the University of Miami before building a career across real estate development, e-commerce, and private equity-style investor relations. In e-commerce, he has worked on the operational and analytics side of the business, using data to guide inventory, sourcing, and growth decisions rather than treating it as a side venture. On the real estate side, he manages every stage of a deal from sourcing the property to coordinating contractors, negotiating terms, and overseeing execution through completion. He works closely with private investor groups on capital deployment and expansion strategy, structuring the relationships that turn outside capital into completed projects, and pairs that with hands-on project management to keep every development moving from concept to close.",
-        tags: ["Private Equity", "Real Estate Development", "Investor Relations", "Franchise Expansion"],
+        tags: ["PE", "Real Estate Development", "Investor Relations", "Franchise Expansion"],
       },
       {
         name: "Seokyu Kim",
