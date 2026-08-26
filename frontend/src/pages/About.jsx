@@ -110,8 +110,8 @@ const CONTENT = {
 
   en: {
     eyebrow: "About K Bridge",
-    title: "Turning Korean ambition into American reality.",
-    subtitle: "Built in the field — with you, not for you.",
+    title: "Your Vision, Our Mission.",
+    subtitle: "Built in the field, with you.",
 
     introBadge: "Company Overview",
     introTitle: "Korea's brands, built for America.",
