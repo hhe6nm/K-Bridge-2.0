@@ -14,9 +14,11 @@ const PERSPECTIVE_IMG = "https://images.unsplash.com/photo-1508385082359-f38ae99
 
 const CONTENT = {
   ko: {
-    heroLine1: "한국 브랜드의",
-    heroLine2: "미국 시장 진출,",
-    heroLine3: "가장 든든한 현지 파트너.",
+    heroLines: [
+      { text: "한국 브랜드의" },
+      { text: "미국 시장 진출," },
+      { text: "가장 든든한 현지 파트너.", accent: true },
+    ],
     heroSub: "K Bridge Partners는 미국 시장 조사부터 법인 설립, 상업용 부동산, 프랜차이즈 개발, 매장 오픈까지 한국 브랜드의 성공적인 미국 진출을 위한 원스톱 솔루션을 제공합니다.",
     ctaPrimary: "무료 상담 신청",
     ctaSecondary: "서비스 살펴보기",
@@ -64,9 +66,10 @@ const CONTENT = {
     ctaButton: "무료 상담 신청",
   },
   en: {
-    heroLine1: "Your Trusted",
-    heroLine2: "Local Partner for",
-    heroLine3: "U.S. Market Entry.",
+    heroLines: [
+      { text: "Your trusted local partner for" },
+      { text: "U.S. market entry.", accent: true },
+    ],
     heroSub: "K Bridge Partners is the one-stop partner for Korean brands entering the U.S. — from market research and entity formation to commercial real estate, franchise development, and store opening.",
     ctaPrimary: "Free Consultation",
     ctaSecondary: "Explore Services",
@@ -153,9 +156,14 @@ export default function Home() {
         <div className="relative max-w-[1440px] mx-auto px-6 lg:px-10 pt-32 lg:pt-40 pb-24 min-h-[100svh] flex flex-col justify-center">
           <div>
             <h1 className="font-serif-kr font-light tracking-tight leading-[1.14] text-[clamp(2.25rem,6vw,6rem)] break-keep">
-              <div className="mb-2 md:mb-3"><MaskedLine delay={0.1}>{t.heroLine1}</MaskedLine></div>
-              <div className="mb-2 md:mb-3"><MaskedLine delay={0.25}>{t.heroLine2}</MaskedLine></div>
-              <div className="text-[color:var(--kb-champagne)] italic"><MaskedLine delay={0.4}>{t.heroLine3}</MaskedLine></div>
+              {t.heroLines.map((line, i) => (
+                <div
+                  key={i}
+                  className={`mb-2 md:mb-3 ${line.accent ? "text-[color:var(--kb-champagne)] italic" : ""}`}
+                >
+                  <MaskedLine delay={0.1 + i * 0.15}>{line.text}</MaskedLine>
+                </div>
+              ))}
             </h1>
             <motion.p
               initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.75, duration: 0.8 }}
