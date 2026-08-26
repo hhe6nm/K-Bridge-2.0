@@ -103,7 +103,7 @@ const CONTENT = {
     ],
     challengeCta: "Read our perspective",
     servicesBadge: "Services",
-    servicesLead: "From market research to store opening, one team with you throughout.",
+    servicesLead: "Everything it takes. Already covered.",
     services: [
       { title: "Market Research & Strategy", desc: "Region-by-region trade area and consumer analysis. We define entry priorities and the right method for your brand.", icon: Compass },
       { title: "Local Network Connections", desc: "Lawyers, accountants, contractors — we connect you to a vetted network of local partners.", icon: Network },
