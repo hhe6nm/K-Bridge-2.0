@@ -30,7 +30,7 @@ const CONTENT = {
   },
   en: {
     eyebrow: "Contact",
-    title: "It starts with one message.",
+    title: "It Starts With One Message.",
     subtitle: "The first step into the U.S. begins with a good conversation. Reach out — no pressure.",
     sideEyebrow: "Free consultation",
     sideTitle1: "We'd love to",
