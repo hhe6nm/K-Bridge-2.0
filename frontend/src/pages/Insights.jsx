@@ -14,8 +14,8 @@ const CONTENT = {
     featuredLabel: "Featured", readMin: "분 읽기", read: "읽기",
   },
   en: {
-    eyebrow: "Insights", title: "Reading the market.",
-    subtitle: "Notes from the field — perspectives that actually help Korean brands entering the U.S.",
+    eyebrow: "Insights", title: "Reading the Market.",
+    subtitle: "Notes from the field. What we see and what it means for you.",
     loading: "Loading...", empty: "New posts are being prepared.",
     featuredLabel: "Featured", readMin: "min read", read: "Read",
   },
