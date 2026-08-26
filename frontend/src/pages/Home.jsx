@@ -81,7 +81,7 @@ const CONTENT = {
       { label: "Local Expertise", en: "현지 네트워크" },
     ],
     aboutBadge: "Company Overview",
-    aboutTitle: "Korea's brands, built for America.",
+    aboutTitle: "Korea's Brands, Built for America.",
     aboutBody: [
       "K Bridge Partners LLC is a specialized U.S. Market Entry & Business Development partner, helping promising Korean franchise and consumer brands enter the U.S. market successfully and grow sustainably. The firm covers eight U.S. metro markets today, through a network of 28 vetted local partners built over 25 years of operating in U.S. commercial real estate.",
       "Built on an understanding of the differing market environments, consumer cultures, legal frameworks, and business systems between Korea and the U.S., we go beyond simple consulting — connecting and executing the full process a real market entry requires, from market research and business structuring to local partner sourcing, site selection, franchise development, marketing, and business expansion.",
