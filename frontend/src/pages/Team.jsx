@@ -58,7 +58,7 @@ const CONTENT = {
   en: {
     eyebrow: "The Team",
     title: "Expertise, Put to Work.",
-    subtitle: "Behind K Bridge are people who know the U.S. market, know the challenges, and know what it takes to move things forward — so you don’t have to figure it out alone.",
+    subtitle: "Behind K Bridge are people who know the U.S. market, know the challenges, and know what it takes to move things forward, so you don’t have to figure it out alone.",
     yearsUnit: "years",
     portraitCaption: "Portrait — Coming soon",
     cta: "Talk to the team",
