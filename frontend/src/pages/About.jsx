@@ -60,7 +60,9 @@ const CONTENT = {
     ceoSignatureTitle: "K Bridge Partners 대표",
 
     foundingBadge: "진출 과제",
-    foundingHook: "많은 한국 기업이 미국 진출 과정에서 다음과 같은 어려움을 경험합니다.",
+    foundingHeading: "미국 진출, 왜 어려울까요?",
+    foundingIntro: "많은 한국 기업이 미국 진출 과정에서 다음과 같은 어려움을 경험합니다.",
+    foundingHook: "",
     foundingPatterns: [
       "적합한 지역 선정의 어려움",
       "현지 부동산 시장 이해 부족",
@@ -69,8 +71,8 @@ const CONTENT = {
       "브랜드 현지화",
       "운영 시스템 구축",
     ],
+    foundingLocalHeading: "",
     foundingCredibility: "K Bridge는 수십 년간 미국 상업 부동산 현장에서 활동해온 창업팀의 실전 경험에서 출발했습니다. 그 시간이 만들어 낸 것은 계약서에는 적히지 않은 감각입니다 — 임대인이 어떤 조건에서 유연해지는지, 어떤 상권이 데이터와 달리 실제로 걷기 어려운지, 어떤 시공 업체가 예산을 지키는지.",
-    foundingClosing: "미국 진출, 왜 어려울까요?",
 
     approachBadge: "Why K Bridge",
     approachTitle: "왜 K Bridge와 함께해야 할까요.",
@@ -117,7 +119,7 @@ const CONTENT = {
     introTitle: "Korea's Brands, Built for America.",
     introBody: [
       "K Bridge Partners LLC is a specialized U.S. Market Entry & Business Development partner, helping promising Korean franchise and consumer brands enter the U.S. market successfully and grow sustainably. The firm covers eight U.S. metro markets today, through a network of 28 vetted local partners built over 25 years of operating in U.S. commercial real estate.",
-      "Built on an understanding of the differing market environments, consumer cultures, legal frameworks, and business systems between Korea and the U.S., we go beyond simple consulting — connecting and executing the full process a real market entry requires, from market research and business structuring to local partner sourcing, site selection, franchise development, marketing, and business expansion.",
+      "Built on an understanding of the differing market environments, consumer cultures, legal frameworks, and business systems between Korea and the U.S., we go beyond simple consulting, connecting and executing the full process a real market entry requires, from market research and business structuring to local partner sourcing, site selection, franchise development, marketing, and business expansion.",
       "That's the whole job. Getting it right the first time, so there isn't a second time.",
     ],
     stats: [
@@ -130,59 +132,68 @@ const CONTENT = {
     ceoBadge: "A Message from Our CEO",
     ceoQuote: "One step at a time. Together.",
     ceoBody: [
-      "Hello. I'm Jessica Chong, CEO of K Bridge Partners.",
-      "Thank you for visiting K Bridge Partners.",
-      "For years, working close to brands in the field, I've met so many Korean companies with real products and stories they poured themselves into — people who built their brands night after night, people who put their own name on the line to start something.",
-      "And I kept seeing the same thing happen: brands like that shrinking in front of an unfamiliar U.S. market. Not for lack of skill. Simply because no one who had walked that road before was standing beside them.",
-      "\"A brand this good, stopped for a reason like that?\" That feeling stayed with me, and it's where K Bridge Partners began.",
-      "We're not a firm that hands you a report and calls it done. We stay through every step, until a brand is actually standing on its own ground in the U.S.",
-      "Honestly, this isn't just a business to us. Watching a brand someone built with real care get recognized in an unfamiliar place — that's why we keep doing this work.",
-      "I hope your brand becomes the next story. K Bridge Partners will be with you on that journey.",
+      "Hello, I'm Jessica Chong, CEO of K Bridge Partners.",
+      "Thank you for taking the time to learn more about K Bridge Partners.",
+      "Over the years, I've had the opportunity to work closely with Korean brands and the people behind them. I've seen firsthand the dedication, creativity, and care that go into building a business from the ground up. I've also seen how difficult it can be to bring that success into an unfamiliar market like the United States.",
+      "Entering a new market takes more than a good product. It requires a clear understanding of the market, the right strategy, strong local relationships, and the ability to navigate challenges along the way.",
+      "That is why we founded K Bridge Partners.",
+      "Our role is to work alongside our clients throughout that journey, not simply to provide recommendations, but to help turn those recommendations into action. From entering the U.S. market to building a lasting presence, we are committed to being a trusted partner every step of the way.",
+      "We believe that every brand has a story worth sharing, and that the right support can help that story reach a much larger audience.",
+      "As K Bridge Partners continues to grow, our commitment remains simple: to help Korean companies build meaningful, sustainable success in the United States.",
+      "I look forward to seeing where your journey takes you, and I hope K Bridge Partners can be there with you along the way.",
       "Thank you.",
     ],
     ceoSignatureName: "Jessica Chong",
-    ceoSignatureTitle: "CEO, K Bridge Partners",
+    ceoSignatureTitle: "Chief Executive Officer, K Bridge Partners",
 
     foundingBadge: "Market Challenges",
-    foundingHook: "Many Korean companies face the same challenges when entering the U.S. market.",
+    foundingHeading: "The U.S. market is full of opportunity. It's also easy to get wrong.",
+    foundingIntro:
+      "A strong product is only the beginning. Entering the U.S. means navigating an unfamiliar market, making decisions with limited local context, and building the right foundation for long-term growth.",
+    foundingHook: "What makes the journey challenging?",
     foundingPatterns: [
-      "Selecting the right target region",
-      "Limited understanding of the local real estate market",
-      "Entity formation and licensing procedures",
-      "Finding trustworthy local partners",
-      "Brand localization",
-      "Building operational systems",
+      { title: "Where should we start?", body: "Choosing the right city, region, and market for your brand." },
+      { title: "Will our brand resonate here?", body: "Adapting your brand to the U.S. market without losing what makes it unique." },
+      { title: "How do we set up correctly?", body: "Navigating entity formation, licensing, regulations, and other local requirements." },
+      { title: "Who can we trust?", body: "Finding reliable local partners, vendors, landlords, and professionals." },
+      { title: "How do we make the operation work?", body: "Building the people, systems, and processes needed to operate successfully." },
+      { title: "How do we build for what's next?", body: "Creating a foundation that supports sustainable growth beyond the first launch." },
     ],
-    foundingCredibility: "K Bridge began with the hands-on experience of a founding team that has worked in U.S. commercial real estate for decades. That time produced an intuition contracts can't articulate — when landlords flex, which trade areas are hard to walk despite the data, which builders actually hit budget.",
-    foundingClosing: "Why is entering the U.S. market so hard?",
+    foundingLocalHeading: "This is where local experience matters.",
+    foundingCredibility:
+      "K Bridge Partners was built on decades of hands-on experience in the U.S. commercial real estate market. Over the years, we've learned that some of the most important decisions go beyond what a report or spreadsheet can tell you, from choosing the right location and understanding how a market really works, to finding partners who can deliver. We bring that practical experience to every engagement, helping Korean brands enter the U.S. with greater clarity, confidence, and a stronger foundation for growth.",
 
     approachBadge: "Why K Bridge",
     approachTitle: "Why brands choose K Bridge.",
     approachStages: [
       {
-        title: "One-stop, from day one to opening day",
-        body: "No handoffs between vendors — one team executes everything from market research to opening day.",
+        title: "You bring the brand. We know the ground.",
+        body: "From market entry to opening day, K Bridge brings the local experience and coordination needed to help your business take root in the U.S.",
         icon: "route",
         featured: true,
       },
       {
-        title: "Franchise & commercial real estate expertise",
-        body: "Specialized expertise from real commercial real estate and franchise work — not generalist consulting.",
+        kicker: "Experience where it matters",
+        title: "Deep expertise in U.S. commercial real estate and franchising",
+        body: "Our team brings decades of hands-on experience across commercial real estate, site selection, and franchise development, not just theoretical market knowledge.",
         icon: "building-skyscraper",
       },
       {
-        title: "A real network on the ground",
-        body: "20+ years of relationships with landlords, contractors, and vetted partners.",
+        kicker: "Relationships you can build on",
+        title: "A trusted network on the ground",
+        body: "More than 20 years of relationships with landlords, contractors, brokers, vendors, and other local partners help our clients move with greater confidence.",
         icon: "network",
       },
       {
-        title: "Fluent in both business cultures",
-        body: "We understand Korean business norms and how deals actually get done in the U.S.",
+        kicker: "Understanding both sides",
+        title: "We know how Korean businesses work",
+        body: "We understand the expectations, decision-making, and business culture on both sides of the bridge, and know how to turn them into effective U.S. operations.",
         icon: "language",
       },
       {
-        title: "Strategy that's actually executable",
-        body: "Not theoretical playbooks — advice that's built to work on the ground.",
+        kicker: "From strategy to reality",
+        title: "One team from first step to opening day",
+        body: "We don't stop at recommendations. We stay involved through the decisions, coordination, and execution required to turn a plan into a functioning U.S. business.",
         icon: "target-arrow",
       },
     ],
@@ -254,7 +265,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* Market Challenges (formerly Founding Story) — now sits before Why K Bridge */}
+      {/* Market Challenges */}
       <section className="bg-[color:var(--kb-bone)] pt-16 md:pt-20 pb-24 md:pb-28">
         <div className="max-w-[1440px] mx-auto px-6 lg:px-10">
           <FadeUp>
@@ -264,34 +275,60 @@ export default function About() {
           {/* Section heading */}
           <FadeUp delay={0.1}>
             <h2 className="mt-10 font-serif-kr text-4xl md:text-5xl font-light leading-[1.2] text-[color:var(--kb-ink)] max-w-5xl text-balance break-keep">
-              {t.foundingClosing}
+              {t.foundingHeading}
             </h2>
           </FadeUp>
 
-          {/* Hook line — introduces the challenges list */}
-          <FadeUp delay={0.2}>
+          {/* Intro line */}
+          <FadeUp delay={0.15}>
             <p className="mt-8 text-lg text-[color:var(--kb-text)]/80 leading-[1.9] max-w-3xl">
-              {t.foundingHook}
+              {t.foundingIntro}
             </p>
           </FadeUp>
 
-          {/* Six challenge points — checklist grid */}
+          {/* Hook line — introduces the challenges list (only for content that has one) */}
+          {t.foundingHook && (
+            <FadeUp delay={0.2}>
+              <p className="mt-12 font-serif-kr text-xl md:text-2xl font-light text-[color:var(--kb-ink)] max-w-3xl">
+                {t.foundingHook}
+              </p>
+            </FadeUp>
+          )}
+
+          {/* Six challenge points — checklist grid. Items may be a plain string
+              or a {title, body} pair depending on language content. */}
           <FadeUp delay={0.3}>
-            <ul className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-5 max-w-3xl">
-              {t.foundingPatterns.map((line, i) => (
-                <li key={i} className="flex items-center gap-3 text-base md:text-lg text-[color:var(--kb-text)]/85">
-                  <span className="flex-shrink-0 w-6 h-6 rounded-full border border-[color:var(--kb-gold)] flex items-center justify-center">
+            <ul className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-7 max-w-4xl">
+              {t.foundingPatterns.map((item, i) => (
+                <li key={i} className="flex items-start gap-3">
+                  <span className="flex-shrink-0 mt-1 w-6 h-6 rounded-full border border-[color:var(--kb-gold)] flex items-center justify-center">
                     <Check size={13} strokeWidth={2} className="text-[color:var(--kb-gold)]" />
                   </span>
-                  <span>{line}</span>
+                  {typeof item === "string" ? (
+                    <span className="text-base md:text-lg text-[color:var(--kb-text)]/85">{item}</span>
+                  ) : (
+                    <span>
+                      <p className="text-base md:text-lg font-medium text-[color:var(--kb-ink)]">{item.title}</p>
+                      <p className="mt-1 text-sm md:text-base text-[color:var(--kb-text)]/70 leading-[1.7]">{item.body}</p>
+                    </span>
+                  )}
                 </li>
               ))}
             </ul>
           </FadeUp>
 
+          {/* Local experience heading (only for content that has one) */}
+          {t.foundingLocalHeading && (
+            <FadeUp delay={0.35}>
+              <h3 className="mt-16 font-serif-kr text-2xl md:text-3xl font-light text-[color:var(--kb-ink)] max-w-3xl">
+                {t.foundingLocalHeading}
+              </h3>
+            </FadeUp>
+          )}
+
           {/* Credibility paragraph */}
           <FadeUp delay={0.4}>
-            <p className="mt-14 text-lg text-[color:var(--kb-text)]/80 leading-[1.9] max-w-3xl">
+            <p className="mt-6 text-lg text-[color:var(--kb-text)]/80 leading-[1.9] max-w-3xl">
               {t.foundingCredibility}
             </p>
           </FadeUp>
@@ -350,7 +387,12 @@ export default function About() {
                     className="bg-[color:var(--kb-bone)] border border-[color:var(--kb-border)] p-7 md:p-8"
                   >
                     <Icon size={22} strokeWidth={1.5} className="text-[color:var(--kb-gold)]" />
-                    <h3 className="mt-3 font-serif-kr text-lg md:text-xl font-light leading-[1.4] text-[color:var(--kb-ink)] mb-2">
+                    {stage.kicker && (
+                      <p className="mt-4 text-[11px] md:text-xs uppercase tracking-[0.15em] text-[color:var(--kb-gold)]">
+                        {stage.kicker}
+                      </p>
+                    )}
+                    <h3 className="mt-2 font-serif-kr text-lg md:text-xl font-light leading-[1.4] text-[color:var(--kb-ink)] mb-2">
                       {stage.title}
                     </h3>
                     <p className="text-[13px] md:text-sm text-[color:var(--kb-text)]/70 leading-[1.7]">
