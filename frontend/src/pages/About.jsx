@@ -123,14 +123,14 @@ const CONTENT = {
       "That's the whole job. Getting it right the first time, so there isn't a second time.",
     ],
     stats: [
-      { value: "20+", unit: "yrs", label: "of commercial real estate experience" },
+      { value: "20+", unit: "years", label: "of commercial real estate experience" },
       { value: "8", unit: "markets", label: "U.S. metros we cover" },
       { value: "28", unit: "partners", label: "in our vetted network" },
       { value: "6", unit: "services", label: "verticals we deliver" },
     ],
 
     ceoBadge: "A Message from Our CEO",
-    ceoQuote: "One step at a time. Together.",
+    ceoQuote: "One Step at a Time. Together.",
     ceoBody: [
       "Hello, I'm Jessica Chong, CEO of K Bridge Partners.",
       "Thank you for taking the time to learn more about K Bridge Partners.",
@@ -147,7 +147,7 @@ const CONTENT = {
     ceoSignatureTitle: "Chief Executive Officer, K Bridge Partners",
 
     foundingBadge: "Market Challenges",
-    foundingHeading: "The U.S. market is full of opportunity. It's also easy to get wrong.",
+    foundingHeading: "The U.S. Market Is Full of Opportunity. Getting There Takes More Than a Good Plan.",
     foundingIntro:
       "A strong product is only the beginning. Entering the U.S. means navigating an unfamiliar market, making decisions with limited local context, and building the right foundation for long-term growth.",
     foundingHook: "What makes the journey challenging?",
@@ -164,7 +164,7 @@ const CONTENT = {
       "K Bridge Partners was built on decades of hands-on experience in the U.S. commercial real estate market. Over the years, we've learned that some of the most important decisions go beyond what a report or spreadsheet can tell you, from choosing the right location and understanding how a market really works, to finding partners who can deliver. We bring that practical experience to every engagement, helping Korean brands enter the U.S. with greater clarity, confidence, and a stronger foundation for growth.",
 
     approachBadge: "Why K Bridge",
-    approachTitle: "Why brands choose K Bridge.",
+    approachTitle: "Why Brands Choose K Bridge.",
     approachStages: [
       {
         title: "You bring the brand. We know the ground.",
@@ -199,7 +199,7 @@ const CONTENT = {
     ],
     approachClosing: "Five reasons. One conviction.",
 
-    ctaTitle: "Let's sketch the next step together.",
+    ctaTitle: "Let's Sketch the Next Step Together.",
     ctaButton: "Free Consultation",
   },
 };
