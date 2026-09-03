@@ -70,7 +70,7 @@ const CONTENT = {
       { text: "Made in Korea." },
       { text: "Built to win in America.", accent: true },
     ],
-    heroSub: "K Bridge Partners advises Korean brands on every stage of U.S. market entry — market research, entity formation, commercial real estate, franchise development, and store opening.",
+    heroSub: "K Bridge Partners advises Korean brands on every stage of U.S. market entry, from market research, entity formation, commercial real estate, franchise development, and store opening.",
     ctaPrimary: "Free Consultation",
     ctaSecondary: "Explore Services",
     pillarsLabel: "WHAT WE STAND FOR",
