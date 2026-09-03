@@ -53,7 +53,8 @@ const CONTENT = {
     ],
     challengeCta: "회사의 관점 자세히 보기",
     servicesBadge: "서비스",
-    servicesLead: "시장 조사부터 매장 오픈까지, 하나의 팀이 함께합니다.",
+    servicesTitle: "시장 조사부터 매장 오픈까지,",
+    servicesTitleItalic: "하나의 팀이 함께합니다.",
     services: [
       { title: "시장 조사 · 진입 전략", desc: "지역별 상권과 소비 성향을 정밀 분석해 최적의 진입 방식과 우선 시장을 결정합니다.", icon: Compass },
       { title: "현지 네트워크 연결", desc: "변호사, 회계사, 시공업체까지 — 검증된 현지 파트너 네트워크를 연결합니다.", icon: Network },
@@ -83,12 +84,12 @@ const CONTENT = {
     aboutBadge: "Company Overview",
     aboutTitle: "Korea's Brands, Built for America.",
     aboutBody: [
-      "K Bridge Partners LLC is a specialized U.S. Market Entry & Business Development partner, helping promising Korean franchise and consumer brands enter the U.S. market successfully and grow sustainably. The firm covers eight U.S. metro markets today, through a network of 28 vetted local partners built over 25 years of operating in U.S. commercial real estate.",
-      "Built on an understanding of the differing market environments, consumer cultures, legal frameworks, and business systems between Korea and the U.S., we go beyond simple consulting — connecting and executing the full process a real market entry requires, from market research and business structuring to local partner sourcing, site selection, franchise development, marketing, and business expansion.",
+      "K Bridge Partners LLC is a U.S. market entry and business development firm built specifically for Korean franchise and consumer brands. We operate today in eight U.S. metro markets, working through a network of 28 vetted local partners assembled over 25 years in U.S. commercial real estate.",
+      "Korea and the U.S. run on different market conditions, consumer habits, legal frameworks, and business systems. We built our process around that gap. Rather than offering advice from the sidelines, we handle the work directly — market research, business structuring, partner sourcing, site selection, franchise development, marketing, and expansion.",
       "That's the whole job. Getting it right the first time, so there isn't a second time.",
     ],
     stats: [
-      { value: "20+", unit: "yrs", label: "of commercial real estate experience" },
+      { value: "20+", unit: "years", label: "of commercial real estate experience" },
       { value: "8", unit: "markets", label: "U.S. metros we cover" },
       { value: "28", unit: "partners", label: "in our vetted network" },
       { value: "6", unit: "services", label: "verticals we deliver" },
@@ -97,20 +98,21 @@ const CONTENT = {
     challengeTitle: "The most reliable local partner",
     challengeTitleItalic: "for Korean brands entering the U.S.",
     challengeBody: [
-      "The U.S. market doesn't move on a single standard. Lease practice differs state to state; franchise regulation (FDD) differs; even consumer grain differs. What was validated in Korea can rarely be transplanted as-is.",
-      "The places brands stumble are usually the same: a misread of location, a single clause hiding in the contract, and an under-prepared early operation. It's not a question of capability — it's a question of understanding the ground.",
-      "K Bridge Partners begins from that understanding.",
+      "Expanding into the U.S. takes more than a strong business model. It takes an understanding of a new market, the right relationships on the ground, and sound decisions at every stage of entry.",
+      "K Bridge Partners works alongside Korean companies to navigate the U.S. market and build a lasting presence here. We evaluate opportunities, connect clients with the right partners, and map out a clear path from entry to growth, staying with them through execution, not just strategy.",
+      "Our job is to make the U.S. market easier to understand, easier to enter, and easier to act on.",
     ],
     challengeCta: "Read our perspective",
     servicesBadge: "Services",
-    servicesLead: "Everything it takes. Already covered.",
+    servicesTitle: "Everything it takes.",
+    servicesTitleItalic: "Already covered.",
     services: [
       { title: "Market Research & Strategy", desc: "Region-by-region trade area and consumer analysis. We define entry priorities and the right method for your brand.", icon: Compass },
-      { title: "Local Network Connections", desc: "Lawyers, accountants, contractors — we connect you to a vetted network of local partners.", icon: Network },
-      { title: "Entity Setup", desc: "State selection, entity form, tax structure, and licensing — designed for the expansion you'll want in five years.", icon: Landmark },
-      { title: "Commercial Real Estate", desc: "Site analysis, market study, lease review, and negotiation — led by a team that has sat on both sides of the table.", icon: Building2 },
+      { title: "Local Network Connections", desc: "Lawyers, accountants, and contractors. We connect you to a vetted network of local partners.", icon: Network },
+      { title: "Entity Setup", desc: "State selection, entity form, tax structure, and licensing, designed for the expansion you'll want in five years.", icon: Landmark },
+      { title: "Commercial Real Estate", desc: "Site analysis, market study, lease review, and negotiation, led by a team that has sat on both sides of the table.", icon: Building2 },
       { title: "Franchise Development", desc: "FDD documents, state registrations, master franchisee models, and local partner introductions.", icon: Store },
-      { title: "Store Opening & Ops", desc: "Buildout, staffing, opening marketing — we stay with you until the store is stable and running.", icon: Rocket },
+      { title: "Store Opening & Ops", desc: "Buildout, staffing, and opening marketing. We stay with you until the store is stable and running.", icon: Rocket },
     ],
     servicesMore: "Learn more",
     ctaTitle1: "Ready when",
@@ -281,8 +283,12 @@ export default function Home() {
               <ChapterBadge number={3} label={t.servicesBadge} />
             </div>
             <div className="col-span-12 md:col-span-8">
-              <FadeUp delay={0.3} className="text-lg text-[color:var(--kb-muted)] leading-relaxed max-w-2xl">
-                {t.servicesLead}
+              <FadeUp delay={0.3}>
+                <h2 className="font-serif-kr text-4xl md:text-5xl font-light leading-[1.45] text-balance break-keep text-[color:var(--kb-ink)]">
+                  {t.servicesTitle}
+                  <br />
+                  <span className="italic text-[color:var(--kb-gold)]">{t.servicesTitleItalic}</span>
+                </h2>
               </FadeUp>
             </div>
           </div>
