@@ -14,7 +14,6 @@ const CONTENT = {
     footEyebrow: "COVERAGE",
     footTitle1: "지역에 상관없이,",
     footTitleItalic: "함께 진출할 수 있습니다.",
-    footBody: "브랜드의 특성에 따라 상기 도시 외 다른 지역이 적합할 수 있습니다. 시장 특성과 브랜드 포지셔닝을 종합해 최적의 진입 지역을 함께 판단해 드립니다.",
     cta: "지역별 상담 요청",
     noteKey: "ko_note",
   },
@@ -27,7 +26,6 @@ const CONTENT = {
     footEyebrow: "COVERAGE",
     footTitle1: "Wherever your brand belongs,",
     footTitleItalic: "we can go there together.",
-    footBody: "Depending on your brand, a different market may be the right fit. We help you pick the right region based on market character and brand positioning.",
     cta: "Request a market briefing",
     noteKey: "en_note",
   },
@@ -107,19 +105,14 @@ export default function Locations() {
             ))}
           </div>
 
-          <div className="mt-24 border-t border-[color:var(--kb-border)] pt-16 grid grid-cols-12 gap-8 lg:gap-12">
-            <div className="col-span-12 lg:col-span-7">
-              <div className="text-[10px] tracking-[0.3em] uppercase text-[color:var(--kb-gold)] mb-4">{t.footEyebrow}</div>
-              <h3
-                className="font-serif-kr text-3xl md:text-[42px] font-light leading-[1.25] text-balance"
-                style={{ wordBreak: "keep-all", overflowWrap: "break-word" }}
-              >
-                {t.footTitle1} <span className="italic text-[color:var(--kb-gold)]">{t.footTitleItalic}</span>
-              </h3>
-            </div>
-            <div className="col-span-12 lg:col-span-5 flex items-start lg:items-center">
-              <p className="text-white/70 text-base md:text-lg leading-relaxed max-w-md">{t.footBody}</p>
-            </div>
+          <div className="mt-24 border-t border-[color:var(--kb-border)] pt-16 text-center">
+            <div className="text-[10px] tracking-[0.3em] uppercase text-[color:var(--kb-gold)] mb-4">{t.footEyebrow}</div>
+            <h3
+              className="font-serif-kr text-3xl md:text-[42px] font-light leading-[1.25] text-balance max-w-4xl mx-auto"
+              style={{ wordBreak: "keep-all", overflowWrap: "break-word" }}
+            >
+              {t.footTitle1} <span className="italic text-[color:var(--kb-gold)]">{t.footTitleItalic}</span>
+            </h3>
           </div>
 
           <div className="mt-16 text-center">
