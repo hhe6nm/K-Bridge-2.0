@@ -155,7 +155,7 @@ export default function Home() {
           }} />
         </div>
 
-        <div className="relative max-w-[1440px] mx-auto px-6 lg:px-10 pt-32 lg:pt-40 pb-24 min-h-[100svh] flex flex-col justify-center">
+        <div className="relative max-w-[1440px] mx-auto px-6 lg:px-10 pt-37 lg:pt-40 pb-24 min-h-[100svh] flex flex-col justify-center">
           <div>
             <h1 className="font-serif-kr font-light tracking-tight leading-[1.14] text-[clamp(2.25rem,6vw,6rem)] break-keep">
               {t.heroLines.map((line, i) => (
