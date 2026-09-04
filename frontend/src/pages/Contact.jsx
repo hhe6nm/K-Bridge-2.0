@@ -31,7 +31,7 @@ const CONTENT = {
   en: {
     eyebrow: "Contact",
     title: "It Starts With a Message.",
-    subtitle: "The first step into the U.S. begins with a good conversation.",
+    subtitle: "Your first step into the U.S. begins with a conversation.",
     sideEyebrow: "Free consultation",
     sideTitle1: "We'd love to",
     sideTitleItalic: "hear about your brand.",
