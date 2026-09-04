@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import PageHeader from "@/components/PageHeader";
-import { FadeUp, MaskedLineInView } from "@/components/MaskedReveal";
+import { FadeUp, MaskedLine, MaskedLineInView } from "@/components/MaskedReveal";
 import ChapterBadge from "@/components/ChapterBadge";
 import StatsBlock from "@/components/StatsBlock";
 import SectionQuote from "@/components/SectionQuote";
@@ -233,7 +233,7 @@ export default function About() {
 
           {/* Section heading */}
           <FadeUp delay={0.1}>
-            <h2 className="mt-6 font-serif-kr text-4xl md:text-5xl font-light leading-[1.2] text-[color:var(--kb-ink)] max-w-5xl text-balance break-keep">
+            <h2 className="mt-10 font-serif-kr text-4xl md:text-5xl font-light leading-[1.2] text-[color:var(--kb-ink)] max-w-5xl text-balance break-keep">
               {t.ceoQuote}
             </h2>
           </FadeUp>
@@ -411,7 +411,7 @@ export default function About() {
         <div className="max-w-[1000px] mx-auto px-6 lg:px-10 text-center">
           <FadeUp>
             <h2 className="font-serif-kr text-4xl md:text-6xl font-light leading-[1.1] italic text-[color:var(--kb-champagne)]">
-              <MaskedLineInView>{t.ctaTitle}</MaskedLineInView>
+              <MaskedLine>{t.ctaTitle}</MaskedLine>
             </h2>
             <div className="mt-10">
               <Link
