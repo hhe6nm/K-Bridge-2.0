@@ -233,7 +233,7 @@ export default function About() {
 
           {/* Section heading */}
           <FadeUp delay={0.1}>
-            <h2 className="mt-10 font-serif-kr text-4xl md:text-5xl font-light leading-[1.2] text-[color:var(--kb-ink)] max-w-5xl text-balance break-keep">
+            <h2 className="mt-6 font-serif-kr text-4xl md:text-5xl font-light leading-[1.2] text-[color:var(--kb-ink)] max-w-5xl text-balance break-keep">
               {t.ceoQuote}
             </h2>
           </FadeUp>
