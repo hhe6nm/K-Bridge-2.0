@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Compass, Landmark, Building2, Store, Rocket, ArrowUpRight, Network } from "lucide-react";
 import PageHeader from "@/components/PageHeader";
-import { FadeUp, MaskedLineInView } from "@/components/MaskedReveal";
+import { FadeUp, MaskedLine, MaskedLineInView } from "@/components/MaskedReveal";
 import { useLang } from "@/lib/i18n";
 
 const CONTENT = {
@@ -140,12 +140,12 @@ export default function Services() {
               </span>
             </div>
             <h2 className="font-serif-kr text-4xl md:text-6xl font-light leading-[1.1] text-balance">
-              <MaskedLineInView>
+              <MaskedLine>
                 {lang === "ko" ? "브랜드에 맞는" : "The right service mix"}
-              </MaskedLineInView>{" "}
-              <MaskedLineInView delay={0.15} className="italic text-[color:var(--kb-gold)]">
+              </MaskedLine>{" "}
+              <MaskedLine delay={0.15} className="italic text-[color:var(--kb-gold)]">
                 {lang === "ko" ? "서비스 조합을 함께 설계합니다." : "for your brand — designed together."}
-              </MaskedLineInView>
+              </MaskedLine>
             </h2>
             <p className="mt-8 max-w-2xl mx-auto text-lg text-white/70 leading-relaxed">
               {lang === "ko"
