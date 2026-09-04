@@ -51,8 +51,8 @@ const CONTENT = {
   },
   en: {
     eyebrow: "Services",
-    title: "Everything In Between First Call and Grand Opening. ",
-    subtitle: "Entering the U.S. takes more than a market plan. It takes the right market, the right structure, the right partners, and the right decisions at every stage. K Bridge brings those pieces together under one team, from the first market assessment through site selection, setup, opening, and beyond.",
+    title: "All Under One Roof. ",
+    subtitle: "Strategy, real estate, structure, and people, handled by the same team from first call to opening day.",
     why: "Why it matters",
     pillars: [
       { en: "Market Research & Strategy", title: "Market Research & Strategy", icon: Compass,
