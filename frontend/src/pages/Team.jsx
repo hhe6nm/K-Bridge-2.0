@@ -142,7 +142,7 @@ function TeamCard({ member, t, index }) {
         }`}
         data-testid={`team-reveal-${index}`}
       >
-        <div className="overflow-y-auto pr-1">
+        <div className="min-h-0 flex-1 overflow-y-auto pr-2 kb-scroll">
           <div className="text-[10px] tracking-[0.3em] uppercase text-[color:var(--kb-gold)]">{member.role}</div>
           <h3 className="mt-2 font-serif-kr text-2xl font-light text-[color:var(--kb-champagne)] leading-tight">
             {member.name}
@@ -156,7 +156,7 @@ function TeamCard({ member, t, index }) {
             </p>
           )}
         </div>
-        <div className="mt-4">
+        <div className="mt-4 flex-shrink-0">
           <div className="flex flex-wrap gap-1.5">
             {member.tags.map((tag) => (
               <span
