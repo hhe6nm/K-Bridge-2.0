@@ -57,37 +57,43 @@ const CONTENT = {
     pillars: [
       {
         en: "Market Research & Strategy", title: "Market Research & Strategy", icon: Compass,
-        body: "Start with the right market. Build the right plan. We evaluate the market, category, competition, customer, and local conditions to determine where your brand has the strongest opportunity and how to enter it. Our approach combines data with real-world market insight, narrowing the options and validating them in the field.",
+        tagline: "Start with the right market. Build the right plan.",
+        body: "We evaluate market, category, competition, and customer fit to find where your brand has the strongest opportunity, then validate it in the field.",
         why: "The U.S. is not one market. Consumer behavior, competition, costs, regulations, and real estate can vary dramatically from one market to another. Choosing the right first market and entry model can shape your growth for years to come.",
         items: ["Market, competitor, and trade area analysis", "Category and regional opportunity assessment", "Entry model evaluation: Direct, JV, or Franchise", "Financial modeling and capital planning"],
       },
       {
         en: "Local Network & Partner Connections", title: "Local Network & Partner Connections", icon: Network,
-        body: "The right local relationships can change the outcome. Entering a new market means building relationships with people who know how business gets done locally. We connect you with trusted U.S. professionals and operating partners, from attorneys and accountants to contractors and suppliers, before you need them.",
+        tagline: "The right local relationships can change the outcome.",
+        body: "We connect you with vetted U.S. professionals and operating partners, from attorneys and accountants to contractors and suppliers, before you need them.",
         why: "Building a reliable local network from scratch can take months. More importantly, the wrong partner can create delays, unnecessary costs, and problems that are difficult to unwind. K Bridge helps you start with relationships that have already been vetted.",
         items: ["Legal and accounting introductions", "Contractor and supplier connections", "Local partner sourcing and screening", "Targeted introductions as needs arise"],
       },
       {
         en: "Business & Entity Setup", title: "Business & Entity Setup", icon: Landmark,
-        body: "Build the foundation for where you want to go. The right business structure should support your growth, not limit it. We help coordinate the setup of your U.S. operations around your expansion plans, working alongside the appropriate legal and accounting professionals, from entity formation through licensing and operational readiness.",
+        tagline: "Build the foundation for where you want to go.",
+        body: "We help coordinate your U.S. entity setup around your expansion plans, working alongside legal and accounting partners from formation through licensing.",
         why: "Decisions made at the beginning can affect taxes, ownership, investment, liability, and future expansion. We help you make those decisions with the next several years in mind.",
         items: ["Entity formation and registration", "EIN and business registration", "Coordination with legal and accounting partners", "Permits and licensing", "Vendor and opening readiness"],
       },
       {
         en: "Commercial Real Estate & Site Selection", title: "Commercial Real Estate & Site Selection", icon: Building2,
-        body: "Find the location that makes business sense. A great location is more than an address: it combines market demand, customer behavior, visibility, access, competition, occupancy costs, and lease terms. We evaluate potential sites from both a market and business perspective, then guide the process through lease negotiations and final site selection.",
+        tagline: "Find the location that makes business sense.",
+        body: "We evaluate sites for market fit and business potential, then guide lease negotiations through to final site selection.",
         why: "Real estate is often one of the largest commitments a growing brand makes in the U.S. The right site and the right lease structure can have a meaningful impact on long-term profitability.",
         items: ["Site selection and market analysis", "Trade area and customer analysis", "Lease review and commercial terms", "NNN, CAM, TI, and exclusive-use considerations", "Landlord negotiation and term optimization", "Final site selection"],
       },
       {
         en: "Franchise Development", title: "Franchise Development", icon: Store,
-        body: "Turn your brand into a franchise built for the U.S. Franchising can create a powerful path to growth, but a successful U.S. franchise system requires more than translating an existing model. We help Korean brands evaluate whether franchising is the right path, develop a U.S.-appropriate structure, coordinate FDD preparation and state registration, and identify potential local franchise partners.",
+        tagline: "Turn your brand into a franchise built for the U.S.",
+        body: "We help you build a U.S.-appropriate franchise structure, coordinate FDD preparation and state registration, and identify local franchise partners.",
         why: "U.S. franchising operates within both federal and state regulatory frameworks. Building the structure correctly from the beginning creates a stronger foundation for growth while protecting the brand as the system expands.",
         items: ["U.S. franchise strategy and model development", "FDD preparation coordination", "State registration coordination", "Master franchise model evaluation", "Franchise partner sourcing", "Local franchisee introductions"],
       },
       {
         en: "Store Opening & Operations", title: "Store Opening & Operations", icon: Rocket,
-        body: "Get open. Then make it work. Opening day is only the beginning. We stay involved through the practical work required to turn a signed lease and a business plan into a functioning operation, from buildout and vendor coordination to staffing, training, opening marketing, and post-opening review.",
+        tagline: "Get open. Then make it work.",
+        body: "We stay involved through buildout, staffing, training, and opening marketing, then review performance with you to help stabilize the business.",
         why: "The first 90 days can reveal what is working, what is not, and where adjustments are needed. Staying close to the business after opening helps identify issues early and build a stronger foundation for the next location.",
         items: ["Buildout and vendor coordination", "Staffing and training support", "Opening marketing and PR", "Operational coordination", "Post-opening performance review", "90-day stabilization support"],
       },
@@ -119,7 +125,12 @@ export default function Services() {
                     <h3 className="font-serif-kr text-2xl md:text-3xl font-light mt-10 leading-tight">
                       <MaskedLineInView>{p.title}</MaskedLineInView>
                     </h3>
-                    <p className="mt-4 text-[15px] text-[color:var(--kb-text)]/75 leading-[1.85]">{p.body}</p>
+                    {p.tagline && (
+                      <p className="mt-2 text-[15px] md:text-base font-medium text-[color:var(--kb-text)]/90 leading-snug">
+                        {p.tagline}
+                      </p>
+                    )}
+                    <p className="mt-4 text-[14px] text-[color:var(--kb-text)]/75 leading-[1.8]">{p.body}</p>
                     <div className="mt-6 pl-5 border-l-2 border-[color:var(--kb-gold)]/40">
                       <div className="text-[10px] tracking-[0.3em] uppercase text-[color:var(--kb-gold)] mb-2">{t.why}</div>
                       <p className="text-[14px] text-[color:var(--kb-text)]/70 leading-[1.8]">{p.why}</p>
