@@ -32,7 +32,7 @@ const CONTENT = {
     aboutBadge: "회사 개요",
     aboutTitle: "한국과 미국을 잇는, 하나의 파트너.",
     aboutBody: [
-      "K Bridge Partners LLC는 한국의 유망한 프랜차이즈 및 소비재 브랜드가 미국 시장에 성공적으로 진출하고 안정적으로 성장할 수 있도록 지원하는 U.S. Market Entry & Business Development 전문 파트너입니다.",
+      "K Bridge Partners는 한국의 유망한 프랜차이즈 및 소비재 브랜드가 미국 시장에 성공적으로 진출하고 안정적으로 성장할 수 있도록 지원하는 U.S. Market Entry & Business Development 전문 파트너입니다.",
       "한국과 미국의 서로 다른 시장환경, 소비자 문화, 법률 및 비즈니스 시스템에 대한 이해를 바탕으로 단순한 컨설팅을 넘어 시장조사부터 사업구조 구축, 현지 파트너 발굴, 입지 선정, 프랜차이즈 개발, 마케팅 및 사업 확장까지 실제 시장 진입에 필요한 전 과정을 연결하고 실행합니다.",
       "K Bridge Partners의 핵심 가치는 \"Bridge\"에 있습니다.",
       "한국의 좋은 브랜드와 미국의 시장·자본·파트너·소비자를 연결하여, 한국 브랜드가 미국에서 지속 가능한 비즈니스로 성장할 수 있도록 돕습니다.",
@@ -84,7 +84,7 @@ const CONTENT = {
     aboutBadge: "Company Overview",
     aboutTitle: "Korea's Brands, Built for America.",
     aboutBody: [
-      "K Bridge Partners LLC is a U.S. market entry and business development firm built specifically for Korean franchise and consumer brands. We operate today in eight U.S. metro markets, working through a network of 28 vetted local partners assembled over 25 years in U.S. commercial real estate.",
+      "K Bridge Partners is a U.S. market entry and business development firm built specifically for Korean franchise and consumer brands. We operate today in eight U.S. metro markets, working through a network of 28 vetted local partners assembled over 25 years in U.S. commercial real estate.",
       "Korea and the U.S. run on different market conditions, consumer habits, legal frameworks, and business systems. We built our process around that gap. Rather than offering advice from the sidelines, we handle the work directly: market research, business structuring, partner sourcing, site selection, franchise development, marketing, and expansion.",
       "That's the whole job. Getting it right the first time, every time.",
     ],
