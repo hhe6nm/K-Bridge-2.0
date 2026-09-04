@@ -144,13 +144,13 @@ export default function Services() {
                 {lang === "ko" ? "브랜드에 맞는" : "The right service mix"}
               </MaskedLine>{" "}
               <MaskedLine delay={0.15} className="italic text-[color:var(--kb-gold)]">
-                {lang === "ko" ? "서비스 조합을 함께 설계합니다." : "for your brand — designed together."}
+                {lang === "ko" ? "서비스 조합을 함께 설계합니다." : "for your brand, designed together."}
               </MaskedLine>
             </h2>
             <p className="mt-8 max-w-2xl mx-auto text-lg text-white/70 leading-relaxed">
               {lang === "ko"
                 ? "무료 상담에서 브랜드의 현재 위치와 목표를 듣고, 다음 단계를 함께 그려봅니다."
-                : "In a free consultation, we listen for where your brand stands today and where it's going — then sketch the next step together."}
+                : "In a free consultation, we listen for where your brand stands today and where it's going, to sketch the next step together."}
             </p>
             <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
               <Link
