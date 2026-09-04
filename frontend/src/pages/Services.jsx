@@ -51,7 +51,7 @@ const CONTENT = {
   },
   en: {
     eyebrow: "Services",
-    title: "The Right Strategy, The Right Partner, The Right Decision ",
+    title: "Everything In Between First Call and Grand Opening. ",
     subtitle: "Entering the U.S. takes more than a market plan. It takes the right market, the right structure, the right partners, and the right decisions at every stage. K Bridge brings those pieces together under one team, from the first market assessment through site selection, setup, opening, and beyond.",
     why: "Why it matters",
     pillars: [
