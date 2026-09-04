@@ -15,7 +15,7 @@ const CONTENT = {
   },
   en: {
     eyebrow: "Insights", title: "Reading the Market.",
-    subtitle: "Notes from the field. What we see and what it means for you.",
+    subtitle: "What we're seeing on the ground, and what it means for your next move.",
     loading: "Loading...", empty: "New posts are being prepared.",
     featuredLabel: "Featured", readMin: "min read", read: "Read",
   },
