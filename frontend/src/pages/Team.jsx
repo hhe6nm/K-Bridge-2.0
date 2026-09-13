@@ -72,11 +72,11 @@ const CONTENT = {
         tags: ["Executive Leadership", "Luxury Brand Strategy", "Global Market Entry"],
       },
       {
-        name: "Joy Chong",
+        name: "Joy Jeong",
         title: "Director",
         role: "Real Estate Development · Multi-Industry Operator",
         stat: "20+ years · Real estate development · Multi-industry operator",
-        bio: "Joy Chong brings more than 20 years of experience across real estate development, hospitality, retail, and consumer businesses. She has been involved in projects and businesses at every stage, from development and launch to day-to-day operations and growth. Her experience includes leading the development of a hotel project in Guam from the ground up, as well as operating a fashion and lifestyle business in Seoul's Apgujeong Rodeo area. She has also worked with global brands including Fendi and BMW, gaining experience across luxury, automotive, retail, and consumer markets. Today, Joy remains active in real estate and brings a hands-on, entrepreneurial perspective to K Bridge Partners. Her experience across multiple industries gives her a practical understanding of the operational and commercial decisions involved in building a successful business.",
+        bio: "Joy Jeong brings more than 20 years of experience across real estate development, hospitality, retail, and consumer businesses. She has been involved in projects and businesses at every stage, from development and launch to day-to-day operations and growth. Her experience includes leading the development of a hotel project in Guam from the ground up, as well as operating a fashion and lifestyle business in Seoul's Apgujeong Rodeo area. She has also worked with global brands including Fendi and BMW, gaining experience across luxury, automotive, retail, and consumer markets. Today, Joy remains active in real estate and brings a hands-on, entrepreneurial perspective to K Bridge Partners. Her experience across multiple industries gives her a practical understanding of the operational and commercial decisions involved in building a successful business.",
         tags: ["Real Estate Development", "Hospitality", "Fashion & Lifestyle", "E-Commerce"],
       },
       {
