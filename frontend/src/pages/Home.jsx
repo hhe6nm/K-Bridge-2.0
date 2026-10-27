@@ -5,6 +5,7 @@ import { ArrowUpRight, Building2, Compass, Store, Landmark, Rocket, ShieldCheck,
 import { MaskedLine, FadeUp } from "@/components/MaskedReveal";
 import StatsBlock from "@/components/StatsBlock";
 import ChapterBadge from "@/components/ChapterBadge";
+import ExpoHighlight from "@/components/ExpoHighlight";
 import { TID } from "@/lib/testIds";
 import { useLang } from "@/lib/i18n";
 
@@ -326,8 +327,11 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 04 · IFS SEOUL 2026 */}
+      <ExpoHighlight chapterNumber={4} />
+
       {/* CTA */}
-      <section className="bg-[color:var(--kb-paper)] pb-24">
+      <section className="bg-[color:var(--kb-paper)] pt-20 md:pt-24 pb-24">
         <div className="max-w-[1200px] mx-auto px-6 lg:px-10 text-center">
           <FadeUp>
             <h2 className="font-serif-kr text-4xl md:text-6xl font-light leading-[1.1] text-balance break-keep">
