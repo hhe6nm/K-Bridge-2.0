@@ -16,16 +16,16 @@ import { useLang } from "@/lib/i18n";
 
 const PHOTOS = {
   main: [
-    { src: "/images/ifs/ifs-lounge.webp", pos: "center", alt: "lounge" },
-    { src: "/images/ifs/ifs-matching-lounge.webp", pos: "center 60%", alt: "matching" },
+    { src: "/images/ifs/ifs/ifs-lounge.webp", pos: "center", alt: "lounge" },
+    { src: "/images/ifs/ifs/ifs-matching-lounge.webp", pos: "center 60%", alt: "matching" },
   ],
   booth: [
-    { src: "/images/ifs/ifs-booth.webp", pos: "center 35%", alt: "booth" },
-    { src: "/images/ifs/ifs-directory.webp", pos: "70% 45%", alt: "directory" },
+    { src: "/images/ifs/ifs/ifs-booth.webp", pos: "center 35%", alt: "booth" },
+    { src: "/images/ifs/ifs/ifs-directory.webp", pos: "70% 45%", alt: "directory" },
   ],
   side: [
-    { src: "/images/ifs/ifs-consult.webp", pos: "center 60%", alt: "consult" },
-    { src: "/images/ifs/ifs-entrance.webp", pos: "center 45%", alt: "entrance" },
+    { src: "/images/ifs/ifs/ifs-consult.webp", pos: "center 60%", alt: "consult" },
+    { src: "/images/ifs/ifs/ifs-entrance.webp", pos: "center 45%", alt: "entrance" },
   ],
 };
 
@@ -35,19 +35,20 @@ const CONTENT = {
     title: "미국 진출을 준비하는 한국 프랜차이즈들을",
     titleItalic: "현장에서 직접 만났습니다.",
     intro:
-      "K Bridge Partners는 2026년 10월 22일부터 24일까지 코엑스에서 열린 IFS 프랜차이즈 창업·산업 박람회에 참가했습니다. 사흘간 프랜차이즈 본사와 수출 기업을 만나, 한국 브랜드의 미국 진출 전략과 법인 설립, 매장 입지에 대해 깊이 있게 논의했습니다.",
-    caption: "IFS 서울 · 코엑스 · 2026.10",
+      "K Bridge Partners는 한국프랜차이즈산업협회가 주최하는 국내 최대 프랜차이즈 박람회, 제61회 IFS 프랜차이즈 창업·산업 박람회(2026년 10월 22~24일)에 참가했습니다. 사흘간 49개 브랜드와 1:1 미팅을 진행하며 한국 프랜차이즈의 미국 진출 전략과 법인 설립, 매장 입지에 대해 깊이 있게 논의했습니다.",
+    caption: "제61회 IFS 프랜차이즈 창업·산업 박람회 · 2026.10",
     alts: {
       lounge: "IFS 서울 박람회에서 진행된 K Bridge Partners 상담",
       matching: "IFS 서울 박람회 비즈매칭 라운지",
       booth: "IFS 서울 박람회 K Bridge Partners 부스",
       directory: "박람회 참가업체 안내판의 K 브리지 파트너스 (R14)",
       consult: "K Bridge Partners와 방문 기업의 1:1 상담",
-      entrance: "코엑스 C홀 IFS 박람회 입구",
+      entrance: "IFS 박람회 입구",
     },
     stats: [
-      { value: "249", unit: "개 기업", label: "프랜차이즈 본사, 수출 기업 등과 진행한 현장 미팅" },
-      { value: "3", unit: "일", label: "코엑스 C홀 현장 상담" },
+      { value: "49", unit: "개 브랜드", label: "K Bridge와 1:1 미팅을 진행한 브랜드" },
+      { value: "200+", unit: "개사", label: "박람회 참가 기업" },
+      { value: "530", unit: "개", label: "박람회 전체 부스" },
     ],
     topicsLabel: "현장에서 나눈 이야기",
     topics: [
@@ -64,19 +65,20 @@ const CONTENT = {
     title: "Meeting Korean franchises preparing for the U.S.,",
     titleItalic: "in person.",
     intro:
-      "From October 22 to 24, 2026, K Bridge Partners exhibited at the IFS Franchise Show at COEX Seoul. Over three days, we met franchise headquarters and export companies to discuss U.S. entry strategy, entity setup, and site selection for Korean brands.",
-    caption: "IFS Seoul · COEX · Oct 2026",
+      "From October 22 to 24, 2026, K Bridge Partners exhibited at the 61st IFS Franchise Show in Seoul, Korea's largest franchise expo, hosted by the Korea Franchise Industry Association. Over three days, we held one-on-one meetings with 49 brands to discuss U.S. entry strategy, entity setup, and site selection for Korean franchises.",
+    caption: "61st IFS Franchise Show · Seoul · Oct 2026",
     alts: {
       lounge: "K Bridge Partners consultation at IFS Seoul",
       matching: "The business matching lounge at IFS Seoul",
       booth: "K Bridge Partners booth at IFS Seoul",
       directory: "K Bridge Partners (R14) on the exhibitor directory",
       consult: "K Bridge Partners one-on-one consultation with a visiting company",
-      entrance: "IFS Seoul entrance at COEX Hall C",
+      entrance: "IFS Seoul expo entrance",
     },
     stats: [
-      { value: "249", unit: "companies", label: "met on site, including franchise headquarters and exporters" },
-      { value: "3", unit: "days", label: "of consultations at COEX Hall C" },
+      { value: "49", unit: "brands", label: "met one-on-one with K Bridge" },
+      { value: "200+", unit: "companies", label: "exhibiting at the expo" },
+      { value: "530", unit: "booths", label: "across the show floor" },
     ],
     topicsLabel: "What we discussed",
     topics: [
@@ -205,22 +207,22 @@ export default function ExpoHighlight({ chapterNumber = 4 }) {
 
         {/* Stats + topics */}
         <div className="mt-14 pt-12 border-t border-[color:var(--kb-border)] grid grid-cols-12 gap-8 lg:gap-10">
-          {t.stats.map((s, i) => (
-            <FadeUp key={i} delay={0.1 + i * 0.08} className="col-span-6 lg:col-span-3">
-              <div data-testid={`home-expo-stat-${i}`}>
-                <div className="flex items-baseline gap-2">
+          <div className="col-span-12 lg:col-span-6 grid grid-cols-3 gap-6 lg:gap-8 content-start">
+            {t.stats.map((s, i) => (
+              <FadeUp key={i} delay={0.1 + i * 0.08}>
+                <div data-testid={`home-expo-stat-${i}`}>
                   <AnimatedCounter
                     value={s.value}
-                    className="font-serif-kr text-5xl md:text-6xl font-light text-[color:var(--kb-gold)]"
+                    className="block font-serif-kr text-4xl md:text-5xl lg:text-6xl font-light text-[color:var(--kb-gold)]"
                   />
-                  <span className="text-sm text-[color:var(--kb-muted)] tracking-widest">{s.unit}</span>
+                  <div className="mt-2 text-sm text-[color:var(--kb-muted)] tracking-widest">{s.unit}</div>
+                  <p className="mt-3 text-[13px] text-[color:var(--kb-text)]/75 leading-relaxed break-keep">
+                    {s.label}
+                  </p>
                 </div>
-                <p className="mt-4 text-[13px] text-[color:var(--kb-text)]/75 leading-relaxed break-keep max-w-[240px]">
-                  {s.label}
-                </p>
-              </div>
-            </FadeUp>
-          ))}
+              </FadeUp>
+            ))}
+          </div>
 
           <FadeUp delay={0.3} className="col-span-12 lg:col-span-6">
             <div className="text-[11px] tracking-[0.35em] uppercase text-[color:var(--kb-gold)] mb-5">
