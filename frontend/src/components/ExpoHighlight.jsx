@@ -111,20 +111,27 @@ function RotatingPhoto({ photos, alts, className = "", delay = 0, offset = 0, in
     };
   }, [photos.length, interval, offset]);
 
+  // The outer box watches the scroll position (it is never clipped, so the
+  // browser can always see it); the inner layer does the wipe-in.
   return (
     <motion.div
-      className={`group relative overflow-hidden bg-[color:var(--kb-ink)] ${className}`}
-      initial={{ clipPath: "inset(0 100% 0 0)" }}
-      whileInView={{ clipPath: "inset(0 0% 0 0)" }}
-      viewport={{ once: true, amount: 0.3 }}
-      transition={{ duration: 1.3, ease: EASE, delay }}
+      className={`relative ${className}`}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, amount: 0.2 }}
+    >
+    <motion.div
+      className="group absolute inset-0 overflow-hidden bg-[color:var(--kb-ink)]"
+      variants={{
+        hidden: { clipPath: "inset(0 100% 0 0)" },
+        show: { clipPath: "inset(0 0% 0 0)", transition: { duration: 1.3, ease: EASE, delay } },
+      }}
     >
       {photos.map((p, i) => (
         <img
           key={p.src}
           src={p.src}
           alt={alts[p.alt]}
-          loading="lazy"
           style={{ objectPosition: p.pos }}
           className={`absolute inset-0 w-full h-full object-cover transition-[opacity,transform] duration-[1600ms] ease-out group-hover:scale-[1.05] ${
             i === active ? "opacity-100 scale-[1.02]" : "opacity-0 scale-100"
@@ -144,6 +151,7 @@ function RotatingPhoto({ photos, alts, className = "", delay = 0, offset = 0, in
           ))}
         </div>
       )}
+    </motion.div>
     </motion.div>
   );
 }
