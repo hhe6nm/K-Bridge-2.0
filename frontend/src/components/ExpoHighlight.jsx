@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { FadeUp } from "@/components/MaskedReveal";
@@ -8,13 +9,24 @@ import { useLang } from "@/lib/i18n";
 
 /**
  * Homepage section 04: IFS Seoul 2026 franchise expo.
- * Photos go in /public/images/ifs/. Set a photo's src to null to show a placeholder.
+ * Photos live in /public/images/ifs/. Each of the three collage slots
+ * slowly crossfades between two photos, so all six are shown.
+ * `pos` sets which part of the photo stays visible when it is cropped.
  */
 
 const PHOTOS = {
-  main: "/images/ifs/ifs-meeting-lounge.webp",
-  booth: "/images/ifs/ifs-booth-r14.webp",
-  oneOnOne: "/images/ifs/ifs-meeting-1on1.webp",
+  main: [
+    { src: "/images/ifs/ifs-lounge.webp", pos: "center", alt: "lounge" },
+    { src: "/images/ifs/ifs-matching-lounge.webp", pos: "center 60%", alt: "matching" },
+  ],
+  booth: [
+    { src: "/images/ifs/ifs-booth.webp", pos: "center 35%", alt: "booth" },
+    { src: "/images/ifs/ifs-directory.webp", pos: "70% 45%", alt: "directory" },
+  ],
+  side: [
+    { src: "/images/ifs/ifs-consult.webp", pos: "center 60%", alt: "consult" },
+    { src: "/images/ifs/ifs-entrance.webp", pos: "center 45%", alt: "entrance" },
+  ],
 };
 
 const CONTENT = {
@@ -26,9 +38,12 @@ const CONTENT = {
       "K Bridge Partners는 2026년 10월 22일부터 24일까지 코엑스에서 열린 IFS 프랜차이즈 창업·산업 박람회에 참가했습니다. 사흘간 프랜차이즈 본사와 수출 기업을 만나, 한국 브랜드의 미국 진출 전략과 법인 설립, 매장 입지에 대해 깊이 있게 논의했습니다.",
     caption: "IFS 서울 · 코엑스 · 2026.10",
     alts: {
-      main: "IFS 서울 박람회 비즈매칭 라운지에서 진행된 K Bridge Partners 상담",
-      booth: "IFS 서울 박람회 K Bridge Partners 부스 (R14)",
-      oneOnOne: "K Bridge Partners와 방문 기업의 1:1 상담",
+      lounge: "IFS 서울 박람회에서 진행된 K Bridge Partners 상담",
+      matching: "IFS 서울 박람회 비즈매칭 라운지",
+      booth: "IFS 서울 박람회 K Bridge Partners 부스",
+      directory: "박람회 참가업체 안내판의 K 브리지 파트너스 (R14)",
+      consult: "K Bridge Partners와 방문 기업의 1:1 상담",
+      entrance: "코엑스 C홀 IFS 박람회 입구",
     },
     stats: [
       { value: "249", unit: "개 기업", label: "프랜차이즈 본사, 수출 기업 등과 진행한 현장 미팅" },
@@ -52,9 +67,12 @@ const CONTENT = {
       "From October 22 to 24, 2026, K Bridge Partners exhibited at the IFS Franchise Show at COEX Seoul. Over three days, we met franchise headquarters and export companies to discuss U.S. entry strategy, entity setup, and site selection for Korean brands.",
     caption: "IFS Seoul · COEX · Oct 2026",
     alts: {
-      main: "K Bridge Partners consultation in the IFS Seoul business matching lounge",
-      booth: "K Bridge Partners booth R14 at IFS Seoul",
-      oneOnOne: "K Bridge Partners one-on-one consultation with a visiting company",
+      lounge: "K Bridge Partners consultation at IFS Seoul",
+      matching: "The business matching lounge at IFS Seoul",
+      booth: "K Bridge Partners booth at IFS Seoul",
+      directory: "K Bridge Partners (R14) on the exhibitor directory",
+      consult: "K Bridge Partners one-on-one consultation with a visiting company",
+      entrance: "IFS Seoul entrance at COEX Hall C",
     },
     stats: [
       { value: "249", unit: "companies", label: "met on site, including franchise headquarters and exporters" },
@@ -74,7 +92,23 @@ const CONTENT = {
 
 const EASE = [0.7, 0, 0.2, 1];
 
-function Photo({ src, alt, className = "", position = "center", delay = 0 }) {
+// One collage slot: wipes in on scroll, then crossfades between its photos.
+// `offset` staggers the slots so they never all change at once.
+function RotatingPhoto({ photos, alts, className = "", delay = 0, offset = 0, interval = 6000 }) {
+  const [active, setActive] = useState(0);
+
+  useEffect(() => {
+    if (photos.length < 2) return;
+    let timer;
+    const start = setTimeout(() => {
+      timer = setInterval(() => setActive((i) => (i + 1) % photos.length), interval);
+    }, offset);
+    return () => {
+      clearTimeout(start);
+      clearInterval(timer);
+    };
+  }, [photos.length, interval, offset]);
+
   return (
     <motion.div
       className={`group relative overflow-hidden bg-[color:var(--kb-ink)] ${className}`}
@@ -83,23 +117,31 @@ function Photo({ src, alt, className = "", position = "center", delay = 0 }) {
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 1.3, ease: EASE, delay }}
     >
-      {src ? (
+      {photos.map((p, i) => (
         <img
-          src={src}
-          alt={alt}
+          key={p.src}
+          src={p.src}
+          alt={alts[p.alt]}
           loading="lazy"
-          style={{ objectPosition: position }}
-          className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-[1.05]"
+          style={{ objectPosition: p.pos }}
+          className={`absolute inset-0 w-full h-full object-cover transition-[opacity,transform] duration-[1600ms] ease-out group-hover:scale-[1.05] ${
+            i === active ? "opacity-100 scale-[1.02]" : "opacity-0 scale-100"
+          }`}
         />
-      ) : (
-        <div
-          className="absolute inset-0 flex items-center justify-center text-[11px] tracking-[0.25em] uppercase text-white/40"
-          style={{ background: "repeating-linear-gradient(135deg, #142033 0 14px, #17253a 14px 28px)" }}
-        >
-          Photo
+      ))}
+      <div className="absolute inset-0 ring-1 ring-inset ring-[color:var(--kb-gold)]/15 pointer-events-none" />
+      {photos.length > 1 && (
+        <div className="absolute bottom-4 right-4 flex gap-1.5" aria-hidden>
+          {photos.map((_, i) => (
+            <span
+              key={i}
+              className={`h-[2px] transition-all duration-700 ${
+                i === active ? "w-6 bg-[color:var(--kb-gold)]" : "w-3 bg-white/50"
+              }`}
+            />
+          ))}
         </div>
       )}
-      <div className="absolute inset-0 ring-1 ring-inset ring-[color:var(--kb-gold)]/15 pointer-events-none" />
     </motion.div>
   );
 }
@@ -112,11 +154,9 @@ export default function ExpoHighlight({ chapterNumber = 4 }) {
     <section className="bg-[color:var(--kb-bone)] py-20 md:py-24" data-testid="home-expo">
       <div className="max-w-[1440px] mx-auto px-6 lg:px-10">
         {/* Header */}
-        <div className="grid grid-cols-12 gap-10 mb-12 md:mb-14">
-          <div className="col-span-12 md:col-span-4">
-            <ChapterBadge number={chapterNumber} label={t.badge} />
-          </div>
-          <div className="col-span-12 md:col-span-8">
+        <div className="mb-12 md:mb-14 max-w-4xl">
+          <ChapterBadge number={chapterNumber} label={t.badge} className="mb-8" />
+          <div>
             <FadeUp delay={0.15}>
               <h2 className="font-serif-kr text-4xl md:text-5xl font-light leading-[1.45] text-balance break-keep text-[color:var(--kb-ink)]">
                 {t.title}
@@ -134,23 +174,25 @@ export default function ExpoHighlight({ chapterNumber = 4 }) {
 
         {/* Photo collage: wipes in on scroll, zooms on hover */}
         <div className="grid grid-cols-12 gap-4">
-          <Photo
-            src={PHOTOS.main}
-            alt={t.alts.main}
+          <RotatingPhoto
+            photos={PHOTOS.main}
+            alts={t.alts}
+            offset={0}
             className="col-span-12 lg:col-span-8 aspect-[4/3] lg:aspect-auto lg:h-[560px] clip-corner"
           />
           <div className="col-span-12 lg:col-span-4 grid grid-cols-2 lg:grid-cols-1 gap-4">
-            <Photo
-              src={PHOTOS.booth}
-              alt={t.alts.booth}
-              position="center top"
+            <RotatingPhoto
+              photos={PHOTOS.booth}
+              alts={t.alts}
               delay={0.25}
+              offset={2000}
               className="aspect-square lg:aspect-auto lg:h-[272px]"
             />
-            <Photo
-              src={PHOTOS.oneOnOne}
-              alt={t.alts.oneOnOne}
+            <RotatingPhoto
+              photos={PHOTOS.side}
+              alts={t.alts}
               delay={0.5}
+              offset={4000}
               className="aspect-square lg:aspect-auto lg:h-[272px]"
             />
           </div>
